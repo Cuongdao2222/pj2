@@ -1367,8 +1367,8 @@
                             <!-- <div class="box-p">
                                 <p class="price-old black">20.900.000&#x20AB;</p>
                             </div> -->
-                            <strong class="price">{{ $value->Price  }}</strong>
-                            <p class="item-gift">Quà <b>1.500.000₫</b></p>
+                            <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
+                            <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
                             <div class="item-rating">
                                 <p>
                                     <i class="icon-star"></i>

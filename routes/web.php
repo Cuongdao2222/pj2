@@ -16,18 +16,15 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Route::get('/clear-cache', function() {
-    
-    $exitCodes = Artisan::call('key:generate');
-    $exitCode = Artisan::call('cache:clear');
-    echo"thanh cong";
-});
-
 
 
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product');
+
+Route::get('/{slug}', 'Frontend\categoryController@details')->name('details');
 
 
 

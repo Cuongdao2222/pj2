@@ -961,7 +961,7 @@
                             <div class="item-label">
                             </div>
                             <div class="item-img">
-                                <img data-src="/public/{{ $value->Image }}" class="lazyload" alt="{{ $value->Name }}" width=210 height=210>
+                                <img data-src="{{ asset($value->Image) }}" class="lazyload" alt="{{ $value->Name }}" width=210 height=210>
                             </div>
                             <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
                             <h3>{{ $value->Name }}</h3>
@@ -1019,14 +1019,13 @@
                             @if(count($data)>0)
                             @foreach($data as $datas)
 
-
                             <div class="item"  data-pos="1">
                                 <a href='/{{ $datas->Link }}' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="True" data-name="{{ $datas->Name }}" data-id="238784" data-price="20900000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxHome">
                                     <div class="item-label">
                                         <span class="lb-tragop">Trả góp 0%</span>
                                     </div>
                                     <div class="item-img">
-                                        <img data-src="{{ $datas->Image }}" class="lazyload" alt="{{ $datas->Name }}" width=210 height=210>
+                                        <img data-src="{{ asset($datas->Image) }}" class="lazyload" alt="{{ $datas->Name }}" width=210 height=210>
                                     </div>
                                     <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
                                     <h3>{{ $datas->Name }}</h3>

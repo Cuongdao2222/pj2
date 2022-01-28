@@ -30,10 +30,6 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->name('details');
 
 
 
-
-
-
-
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');

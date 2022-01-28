@@ -46,9 +46,9 @@ class categoryController extends Controller
 
     public function addProductToCart()
     {
-        // Cart::add('293ad', 'Product 1', 1, 9.99, 550, ['size' => 'large']);
 
-       print_r(Cart::content());
+         Cart::add(['id' => '294ad', 'name' => 'Smart tivi Samsung UA50AU9000 50 inch 4K', 'qty' => 1, 'price' => '5000.000', 'weight' => '500', 'options' => ['size' => 'large']]);
+         $cart =  Cart::content();
 
     }
 }

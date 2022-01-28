@@ -9,6 +9,8 @@ use App\Models\product;
 
 use App\Models\groupProduct;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 class categoryController extends Controller
 {
     public function index($slug)
@@ -40,5 +42,13 @@ class categoryController extends Controller
         $data =  product::findOrFail($findID->id);
 
         return view('frontend.details', compact('data'));
+    }
+
+    public function addProductToCart()
+    {
+        // Cart::add('293ad', 'Product 1', 1, 9.99, 550, ['size' => 'large']);
+
+       print_r(Cart::content());
+
     }
 }

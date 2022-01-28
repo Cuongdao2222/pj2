@@ -56,13 +56,12 @@ class groupProductController extends AppBaseController
     {
         $input = $request->all();
 
-        $groupProduct = $this->groupProductRepository->create($input);
-
-
         if(empty($input['link'])){
 
             $input['link'] = convertSlug($input['name']);
         }
+
+        $groupProduct = $this->groupProductRepository->create($input);
 
         Flash::success('Group Product saved successfully.');
 

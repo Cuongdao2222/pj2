@@ -944,41 +944,17 @@
               
             </div>
            
-           <!--  <div class="popup-addsp">
-                <div class="bg-popup"></div>
-                <div class="close-popup" onclick="ClosePopup(this)">
-                    <aside>
-                        <i></i>
-                        <span>Đóng</span>
-                    </aside>
-                </div>
-                <div class="compare-popup">
-                    <h4>Tivi đã xem gần nhất</h4>
-                    <ul class="pro-compare pro-compare_viewed">
-                    </ul>
-                    <h4>Hoặc nhập tên để tìm</h4>
-                    <form id="searchproductcompare" onsubmit="return false">
-                        <div class="find-sp">
-                            <input type="text" placeholder="Nhập tên tivi để tìm" onkeyup="SearchProductCompare(this)">
-                            <i class="icon-findcp"></i>
-                        </div>
-                        <ul class="pro-compare pro-compare_search"></ul>
-                    </form>
-                </div>
-            </div> -->
+           
             <div class="errorcompare" style="display:none;"></div>
             
             
             
             <!--#endregion-->
             <!--#region BreadcrumbList-->
-            <script type="application/ld+json" id="breadcrumb">{"@type":"BreadcrumbList","@context":"https://schema.org","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://www.dienmayxanh.com","name":"Điện Máy Xanh"}},{"@type":"ListItem","position":2,"item":{"@id":"https://www.dienmayxanh.com/tivi","name":"Tivi"}},{"@type":"ListItem","position":3,"item":{"@id":"https://www.dienmayxanh.com/tivi?g=smart-tivi","name":"Smart Tivi"}},{"@type":"ListItem","position":4,"item":{"@id":"https://www.dienmayxanh.com/tivi-samsung?g=smart-tivi","name":"Smart Tivi Samsung"}}]}</script>
-            <!--#endregion-->
-            <!--#region Video-->
-            <script type="application/ld+json">{"@context":"http://schema.org","@type":"VideoObject","name":"Smart TV Samsung 4K 60 inch: Thiết kế siêu mỏng, xem sướng mắt (UA60AU8100) • Điện máy XANH","description":"GIÁ BÁN: 23.400.000 VND \n(Mua online giảm sốc cập nhật 03/12/2021)\n\nSmart Tivi Samsung 4K Crystal UHD 60 inch UA60AU8100 là dòng Tivi tầm trung mới được Samsung ra mắt trong năm 2021 sở hữu thiết kế siêu mỏng AirSlim. TV được trang bị nhiều công nghệ cao cấp như bộ xử lý Crystal 4K, Dynamic Crystal Color, HDR hỗ trợ các định dạng HDR10+ và HLG. TV còn hỗ trợ nhiều kết nối phổ biến như AirPlay 2, SmartView, Screen Mirroring nên hầu hết các thiết bị hiện nay như iPhone, điện thoại Android, laptop Windows, MacBook đều có thể chiếu hình ảnh lên TV.\n\n0:00 Hỗ trợ đa dạng các thiết bị chiếu hình ảnh\n0:15 Những đặc điểm nổi bật\n0:29 Vì sao là sản phẩm này?\n1:21 Các phiên bản kích thước\n1:34 Tổng quan về sản phẩm\n2:32 Công nghệ hỗ trợ\n3:50 Chất lượng hiển thị\n5:27 Chất lượng âm thanh\n6:28 Thiết kế\n8:27 Nhiệt độ\n8:50 One Remote\n9:19 SmartThings\n9:57 Cổng kết nối\n10:14 Các công nghệ kết nối\n10:35 Trợ lý ảo Google Assistant tiếng Việt\n11:27 Ambient Mode\n11:41 Điện năng tiêu thụ\n11:55 TizenOS 6\n13:00 Ai nên lựa chọn Tivi này\n13:34 Tổng hợp tính năng\n\nLink mua hàng:\nhttps://www.dienmayxanh.com/tivi/led-4k-samsung-ua60au8100\n\nXem video các Tivi khác\nhttps://youtu.be/SzGbYvSaeLU\n\n❤ Đăng ký theo dõi kênh để xem nhiều video hơn: \n👉 https://bit.ly/2yBZqQy\n\nCập nhật thông tin sản phẩm, khuyến mãi mới nhất, liên hệ tại:\n🖥 Website: https://www.dienmayxanh.com\n📱 Fanpage: https://facebook.com/dienmayxanhcom\n📞 Tổng đài: 18001061\n🎉 Cảm ơn các bạn đã xem video. Hãy luôn theo dõi và ủng hộ Điện Máy XANH nhé!\n\n#DienMayXanh #Samsung #Tivi #Review #SmartTV #TiviThongMinh #TizenOS","thumbnailUrl":"https://i.ytimg.com/vi/3TJP5iciTYg/default.jpg","uploadDate":"04/12/2021","duration":"PT13M51S","embedUrl":"https://www.youtube.com/embed/3TJP5iciTYg","contentUrl":null,"publisher":{"@type":"Organization","@id":"https://www.dienmayxanh.com#Organization"},"interactionStatistic":{"@type":"InteractionCounter","interactionType":{"@type":"http://schema.org/WatchAction"},"userInteractionCount":6683}}</script>
+            
             <!--#endregion-->
             <!--#region Organization-->
-            <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.dienmayxanh.com/#Organization","name":"Điện Máy Xanh","url":"https://www.dienmayxanh.com/tivi","logo":{"@type":"ImageObject","url":"https://cdn.thegioididong.com/v2015/ContentMwg/logo/logo.png"},"contactPoint":[{"@type":"ContactPoint","telephone":"18001060","contactType":"sales","areaServed":"VN","availableLanguage":["EN","VN"]},{"@type":"ContactPoint","telephone":"18001763","contactType":"technical support","areaServed":"VN","availableLanguage":["EN","VN"]},{"@type":"ContactPoint","telephone":"18001062","contactType":"customer support","areaServed":"VN","availableLanguage":["EN","VN"]}],"sameAs":["https://www.facebook.com/thegioididongcom/","https://vn.linkedin.com/company/thegioidong-dienmayxanh","https://www.youtube.com/user/TGDDVideoReviews","https://www.instagram.com/watch.thegioididong/","https://vt.tiktok.com/RH9SSp/","https://vi.wikipedia.org/wiki/Thegioididong.com"]}</script>
+           
             <!--#endregion-->
             <input type="hidden" id="DisPriceScenrioGTM" value="0.0" />
             <input type="hidden" id="PercentScenrioGTM" value="0" />
@@ -1018,6 +994,140 @@
             </div>
         </form>
         <div id="dldingtext">Bạn vui lòng chờ trong giây lát...</div>
+
+
+        <!-- block show when  scroll -->
+
+        <style type="text/css">
+            .prod-info{
+                position: fixed;
+                top: 0;
+                right: 0;
+            }
+
+            .txt_green {
+                color: #ff0000;
+            }
+
+            .prod-info.fix {
+                background: #fff;
+                padding: 15px;
+                border: 1px solid #ddd;
+                width: 400px;
+                z-index: 66;
+            }
+
+            .prod-info .promo {
+                padding: 10px;
+                border: 1px solid #ddd;
+                position: relative;
+            }
+
+            .prod-info .promo .txt_b {
+                position: absolute;
+                left: 0;
+                top: -15px;
+                background: #fff;
+                padding: 0 5px;
+            }
+            .txt_b {
+                font-weight: bold;
+            }
+            .price{
+                margin-bottom: 15px;
+            }
+
+
+        </style>
+
+        <div class="prod-info txt_555 fix">
+
+            <h1>Lò vi sóng Samsung MG23K3575AS/SV 23 lít - Chính hãng</h1>
+
+            <div class="vote" id="vote_avg">
+              
+              
+                <div class="fl" style="padding:0 5px 0 0;">
+                  Model: <span class="value txt_blue">MG23K3575AS/SV</span> | 
+                  
+                  Tình trạng: <span class="value txt_blue">Còn hàng</span> | 
+                   </div>
+              
+              <a id="btn-vote" class="txt_555 fl" href="javascript:;" onclick="go_comm()"> Đánh giá: </a>
+              
+           
+                <div class=" totalRate " id="js-total-rating" style="    display: inline-block;"><i class="icons icon-star star" nan'=""><span></span></i></div>
+                (<span class="reviewCount">0</span>)
+            </div>
+            <script src="/template/default/script/jquery.rating.js"></script>
+                  
+        <div class="prod-info-left fl">          
+                
+        <div class="space3px txt_555">Giá thị trường: <span class="txt_d">3.055.000đ</span></div>
+                  
+        <div class="price">Giá: <span class="robot txt_green txt_b txt_20">2.350.000 ₫</span>
+          
+          
+                
+                
+                  </div>
+            
+          
+            <div class="clear space3px"></div>
+            
+          
+            
+            <div class="clear space10px"></div>
+                  
+            <div class="promo line_h19">
+                <div class="txt_b">Khuyến mại</div>
+                
+                <p>-&nbsp;Cam kết sản phẩm mới 100%, nguyên đai nguyên kiện
+                <br>-&nbsp;Bảo hành chính hãng&nbsp;1 năm
+                <br>-&nbsp;Thùng có: Đĩa thủy tinh, Giá nướng
+                <br>-&nbsp;Giao hàng miễn phí trong 30km
+                <br>-&nbsp;Đền gấp 10 lần nếu không phải hàng chính hãng</p>
+                
+            </div>
+  
+  
+          
+         
+  <div class="buy-group">
+    
+    <div class="clear">Số lượng:</div>
+    <div class="clear space10px in">
+      <input type="number" id="s_quantity" value="1">
+        <a class="btn-buy txt_center cor5px" onclick="addToShoppingCart('pro','3036',document.getElementById('s_quantity').value,'2350000');" href="javascript:;">
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15">Thêm Vào Giỏ Hàng</span>
+        </a>
+        
+    </div>
+    
+      Gọi đặt mua:  <span class="txt_b txt_red"><a href="tel:0967025111">0967 025 111</a></span> (7:30-22:00)<br>
+       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="txt_b txt_red"> <a href="tel:02438615111">02438 615 111</a></span> (7:30-17:30)
+   </div>
+    
+    
+        <div class="clear"></div>
+    </div><!--//prod-info-left -->
+  
+  <div class="prod-info-right fr">
+    <h4 class="format txt_13"><p class="format txt_b">Cam kết đặc biệt:</p></h4>
+  
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Đền gấp 10 lần nếu không phải hàng chính hãng.</p></h5>
+    <h5 class="format txt_13 txt_n">
+      <p><i class="fa fa-check"></i> Gọi đặt mua: <span class="txt_b txt_red">0967 025 111</span> (cả dịp Lễ, Tết)</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Giao hàng miễn phí 30km</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Bảo hành chính hãng</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Đổi trả trong 3 ngày</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Bán &amp; giao hàng bởi điện máy ABC</p></h5>
+  
+    <div class="clear"></div>
+</div><!--right-->
+        
+    <div class="clear"></div>
+</div>
 
 @push('style')
 
@@ -1142,6 +1252,33 @@
     margin-bottom: 10px;
     }
 
+    .prod-info h1 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+
+    .prod-info input{
+        width: 50px;
+        height: 37px;
+        text-align: center;
+        border: 1px solid #ddd;
+        margin: 0;
+        padding: 0;
+    }
+
+    .prod-info .btn-buy{
+        display: inline-block;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 10px 0 10px;
+        color: #fff;
+        border-bottom: 2px solid #a80000;
+        background-color: #fc3f3f;
+        background-image: -moz-linear-gradient(center top , #fc3f3f, #d91c1c);
+        background-image: -webkit-linear-gradient(top,#fc3f3f,#d91c1c);
+    }
+
 
     </style>
 
@@ -1163,31 +1300,41 @@
        
         <script type="text/javascript">
             button_buy_height = $('.scroll-box').offset().top;
-            view_more_height  = $('.view-more-related').offset().top;
+            view_more_height  = ($('.view-more-related').offset().top);
                         
             $(".show-more span").bind("click", function(){
                 $('.content').css({'height':'auto', 'overflow':'auto' });
                 $(this).hide();
-                view_more_height  = $('.view-more-related').offset().top;
+                view_more_height  = $('.view-more-related').offset().top-100;
             });
 
             $(function(){
-
-               
                 $(window).scroll(function(){
                     
-                    if($(this).scrollTop()>= button_buy_height&&$(this).scrollTop()<=view_more_height){
+                    // if($(this).scrollTop()>= button_buy_height&&$(this).scrollTop()<=view_more_height){
                        
    
-                       $('.scroll-box').addClass('fixed-button-buy')
+                    //    $('.scroll-box').addClass('fixed-button-buy')
+                    // }
+                    // else{
+                    //     if($('.scroll-box').hasClass('fixed-button-buy')){
+                    //         $('.scroll-box').removeClass('fixed-button-buy');
+                    //     }
+
+                    // }
+
+                    const scroll_result = $('.box01').offset().top
+                    const scroll_browser = $(this).scrollTop();
+
+                    if(scroll_browser>= scroll_result &&scroll_browser <= view_more_height){
+
+                        $(".prod-info").show();
                         
                     }
                     else{
-                        if($('.scroll-box').hasClass('fixed-button-buy')){
-                            $('.scroll-box').removeClass('fixed-button-buy');
-                        }
-
+                        $(".prod-info").hide();
                     }
+
                 });
             });
 

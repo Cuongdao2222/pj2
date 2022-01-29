@@ -16,7 +16,12 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+Route::get('/cache-clear', function () {
+     \Artisan::call('cache:clear');
+      \Artisan::call('config:clear');
+     echo "thanh cong";
 
+});
 
 Auth::routes(['verify' => true]);
 

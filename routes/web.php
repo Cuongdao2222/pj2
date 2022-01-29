@@ -14,24 +14,24 @@
 
 Route::get('/', function () {
     return view('frontend.index');
-});
+})->middleware('auth');
 
 Route::get('/cache-clear', function () {
      \Artisan::call('cache:clear');
       \Artisan::call('config:clear');
      echo "thanh cong";
 
-});
+})->middleware('auth');;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index');
+// Route::get('/home', 'HomeController@index');
 
 Route::get('add-cart', 'Frontend\categoryController@addProductToCart')->name('cart');
 
-Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product');
+Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 
-Route::get('/{slug}', 'Frontend\categoryController@details')->name('details');
+Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->middleware('auth');
 
 
 

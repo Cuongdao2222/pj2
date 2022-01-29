@@ -49,7 +49,8 @@
             <div class="header__top">
                 <section>
                     <a href="/" class="header__logo">
-                    <i class="icon-logo"></i>
+                        <img src="{{ asset('images/template/logochuan.png') }}" style="height:40px; width: 180px;">   
+                   
                     </a>
                     <div class="bordercol"></div>
                     <a href="javascript:void(0)" class="header__address" onclick="OpenLocation()">

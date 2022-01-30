@@ -133,8 +133,8 @@
                                     </a>
                                 </div>
                                 <div class="total-imgslider">
-                                    <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-is-360-gallery="False" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem t&#x1EA5;t c&#x1EA3; &#x111;i&#x1EC3;m n&#x1ED5;i b&#x1EAD;t</a>
-                                    <div class="counter"></div>
+                                    <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-is-360-gallery="False" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
+                                    
                                     <a class="note s7 hide" href="https://www.dienmayxanh.com/kinh-nghiem-hay/cac-cong-nghe-noi-bat-cua-tivi-samsung-20-1339340?src=slider#q-symphony" target="_blank"><span>Tìm hiểu:</span> Q-Symphony</a>
                                 </div>
                             </div>
@@ -1037,12 +1037,17 @@
                 margin-bottom: 15px;
             }
 
+            .name-scroll{
+                font-size: 25px;
+                font-weight: bold;
+            }
+
 
         </style>
 
         <div class="prod-info txt_555 fix">
 
-            <h1>Lò vi sóng Samsung MG23K3575AS/SV 23 lít - Chính hãng</h1>
+            <span class="name-scroll"> {{ $data->Name }} </span>
 
             <div class="vote" id="vote_avg">
               
@@ -1056,7 +1061,7 @@
               <a id="btn-vote" class="txt_555 fl" href="javascript:;" onclick="go_comm()"> Đánh giá: </a>
               
            
-                <div class=" totalRate " id="js-total-rating" style="    display: inline-block;"><i class="icons icon-star star" nan'=""><span></span></i></div>
+                <div class=" totalRate " id="js-total-rating" style="    display: inline-block;"><i class="icons icon-star star"><span></span></i></div>
                 (<span class="reviewCount">0</span>)
             </div>
             <script src="/template/default/script/jquery.rating.js"></script>
@@ -1297,10 +1302,13 @@
 
 @push('script')
 <script src="//cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201240310.js" type="text/javascript"></script>
+
        
         <script type="text/javascript">
             button_buy_height = $('.scroll-box').offset().top;
             view_more_height  = ($('.view-more-related').offset().top);
+
+             $(".prod-info").hide();
                         
             $(".show-more span").bind("click", function(){
                 $('.content').css({'height':'auto', 'overflow':'auto' });
@@ -1323,7 +1331,7 @@
 
                     // }
 
-                    const scroll_result = $('.box01').offset().top
+                    const scroll_result = $('.total-imgslider').offset().top
                     const scroll_browser = $(this).scrollTop();
 
                     if(scroll_browser>= scroll_result &&scroll_browser <= view_more_height){

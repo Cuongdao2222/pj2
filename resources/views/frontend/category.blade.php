@@ -44,37 +44,7 @@
                 </div>
             </div>
         </div>
-        <!--#region WebSite-->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "Siêu thị Điện máy XANH - Mua bán điện tử, điện lạnh, gia dụng",
-                "alternateName":  "Siêu thị Điện máy XANH - Mua bán điện tử, điện lạnh, gia dụng",
-                "url": "https://www.dienmayxanh.com",
-                "potentialAction": [{
-                "@type": "SearchAction",
-                "target": "https://www.dienmayxanh.com/tag/{search_term_string}",
-                "query-input": "required name=search_term_string"
-                }]
-            }
-        </script>
-        <!--#endregion-->
-        <!--#region BreadcrumbList-->
-        <script type="application/ld+json">
-            {"@type":"BreadcrumbList","@context":"https://schema.org","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://www.dienmayxanh.com","name":"Điện máy Xanh"}},{"@type":"ListItem","position":2,"item":{"@id":"https://www.dienmayxanh.com/tivi","name":"Tivi"}}]}
-        </script>
-        <!--#endregion-->
-        <!--#region Product-->
-        <script type="application/ld+json">
-            {"@context":"https://schema.org","@type":"Product","name":"Tivi ","image":["https://cdn.tgdd.vn/Products/Images/1942/238784/TimerThumb/led-sony-kd-55x80j-(14).jpg"],"description":"Mua Tivi giá rẻ, smart tivi, tivi FullHD, 4K, TV 8K, giá tốt, giao miễn phí toàn quốc, trả góp 0%, bảo hành 2 năm, hư gì đổi nấy tận nhà (miễn phí tháng đầu) phục vụ tận tâm","brand":{"@type":"Brand","name":["Sony","Samsung","LG","TCL","Casper","FFALCON","AQUA"]},"offers":{"@type":"AggregateOffer","priceCurrency":"VND","seller":{"@id":"https://www.dienmayxanh.com#Organization"},"offerCount":154,"lowPrice":5490000.0,"highPrice":890000000.0}}
-        </script>
-        <!--#endregion-->
-        <!--#region Organization-->
-        <script type="application/ld+json">
-            {"@context":"https://schema.org","@type":"Organization","@id":"https://www.dienmayxanh.com/#Organization","name":"Điện Máy Xanh","url":"https://www.dienmayxanh.com","logo":{"@type":"ImageObject","url":"https://cdn.thegioididong.com/v2015/ContentMwg/logo/logo.png"},"contactPoint":[{"@type":"ContactPoint","telephone":"18001060","contactType":"sales","areaServed":"VN","availableLanguage":["EN","VN"]},{"@type":"ContactPoint","telephone":"18001763","contactType":"technical support","areaServed":"VN","availableLanguage":["EN","VN"]},{"@type":"ContactPoint","telephone":"18001062","contactType":"customer support","areaServed":"VN","availableLanguage":["EN","VN"]}],"sameAs":["https://www.facebook.com/thegioididongcom/","https://vn.linkedin.com/company/thegioidong-dienmayxanh","https://www.youtube.com/user/TGDDVideoReviews","https://www.instagram.com/watch.thegioididong/","https://vt.tiktok.com/RH9SSp/","https://vi.wikipedia.org/wiki/Thegioididong.com"]}
-        </script>
-        <!--#endregion-->
+        
         <div class="bsc-block">
             <section>
                 <ul class="breadcrumb hide">
@@ -508,7 +478,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-quicklink  block-scroll-main">
+               <!--  <div class="box-quicklink  block-scroll-main">
                     <div class="lst-quicklink ">
                         <p class="quick-link-title">Tìm kiếm nhiều: </p>
                         <a href="tivi-samsung" data-href="https://www.dienmayxanh.com/tivi-samsung" data-index="1" class="box-quicklink__item bd-radius quicklink-logo">
@@ -533,30 +503,13 @@
                         TV 43 inch
                         </a>
                     </div>
-                </div>
+                </div> -->
             </section>
         </div>
         <section id="categoryPage" class="desktop" data-id="1942" data-name="Tivi" data-template="cate">
             <div class="box-sort ">
                 <p class="sort-total"><b>153</b> Tivi <strong class="manu-sort"></strong></p>
-                <div class="box-checkbox extend  ">
-                    <a href="javascript:;" data-href="" data-type="sp2020" class="c-checkitem ">
-                        <span class="tick-checkbox"></span>
-                        <p>Giảm giá</p>
-                    </a>
-                    <a href="javascript:;" data-href="-tra-gop-0-phan-tram" data-type="installment0" class="c-checkitem ">
-                        <span class="tick-checkbox"></span>
-                        <p>Góp 0%</p>
-                    </a>
-                    <a href="javascript:;" data-href="" data-type="monopoly" class="c-checkitem">
-                        <span class="tick-checkbox"></span>
-                        <p>Độc quyền</p>
-                    </a>
-                    <a href="javascript:;" data-href="-moi" data-type="new" data-prop="6989" data-newv2="True" class="c-checkitem ">
-                        <span class="tick-checkbox"></span>
-                        <p>M&#x1EDB;i 2022</p>
-                    </a>
-                </div>
+               
                 <div class="sort-select ">
                     <p class="click-sort">Xếp theo: <span class="sort-show">N&#x1ED5;i b&#x1EAD;t</span></p>
                     <div class="sort-select-main sort ">
@@ -575,7 +528,9 @@
                 </div>
                 <ul class="listproduct">
                     @if(count($data)>0)
+
                     @foreach($data as $value)
+                    @if($value->active==1)
                     <li class=" item  __cate_1942" data-index="1" data-id="238784" data-issetup="1" data-maingroup="304" data-subgroup="1094" data-type="1" data-vehicle="2" data-productcode="3041094001252" data-price="20900000.0" data-ordertypeid="2" data-pos="1">
                         <a href='/{{ $value->Link }}' data-s="Nomal" data-site="2" data-pro="3" data-cache="True" data-sv="webdmx-26-94" data-name="Android Tivi Sony 4K 55 inch KD-55X80J" data-id="238784" data-price="20400000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxCate" class="main-contain">
                             <div class="item-label">
@@ -616,6 +571,7 @@
                         So sánh
                         </a>
                     </li>
+                    @endif
                     @endforeach
                     @endif
                 </ul>

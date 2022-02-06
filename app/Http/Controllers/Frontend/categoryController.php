@@ -24,7 +24,7 @@ class categoryController extends Controller
             abort('404');
         }
         
-        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.Image', 'products.ProductSku', 'products.Price', 'products.Link', 'group_product.link')->where('group_product.id', $findID->id)->get();
+        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $findID->id)->get();
 
         return view('frontend.category')->with('data', $data);
     }

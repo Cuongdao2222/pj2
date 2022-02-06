@@ -6,10 +6,12 @@
         <th>Tên sản phẩm</th>
         <th>Productsku</th>
         <th>Link</th>
-         <th>Nhóm sản phẩm</th>
+        <th>Nhóm sản phẩm</th>
         <th>Số lượng trong kho</th>
+        
         <th>Sản phẩm Hot</th>
         <th>Sản phẩm Sale</th>
+        <th>Hiển thị</th>
         
         <th colspan="3">Action</th>
         </tr>
@@ -64,12 +66,8 @@
             $list_hot = convertListToArray($list_hot);
             $list_sales = convertListToArray($list_sale);
             
-            
-           
         ?>
 
-
-        
         @foreach($products as $product)
 
             <tr>
@@ -83,6 +81,8 @@
 
             <td><input type="checkbox" id="hot{{ $product->id }}" name="hot"  onclick='handleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_hot)?'checked':'' }}></td>
             <td><input type="checkbox" id="sale{{ $product->id }}" name="sale"  onclick='saleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_sales)?'checked':'' }}></td>
+
+            <td><input type="checkbox" id="active{{ $product->id }}" name="active" onclick='active({{ $product->id }})'   {{ $product->active==1?'checked':'' }}></td>
             
                 <td width="120">
                     {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
@@ -199,7 +199,39 @@
             }
         });
 
+    } 
 
-    }     
+
+    function active(productId) {
+        var checked = $('#active'+productId).is(':checked'); 
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var active = 0;
+
+        if(checked == true){
+            active = 1;
+        }
+           
+        $.ajax({
+           
+            type: 'POST',
+            url: "{{ route('check-active') }}",
+            data: {
+                product_id: productId,
+                active:active
+                   
+            },
+            success: function(result){
+                console.log(result);
+            }
+        });
+       
+   }   
     
 </script>

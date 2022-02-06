@@ -47,7 +47,7 @@ Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\
 
 Route::post('generator_builder/rollback', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@rollback')->name('io_generator_builder_rollback');
 
-Route::post(
+Route::post(    
     'generator_builder/generate-from-file',
     '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
 )->name('io_generator_builder_generate_from_file');
@@ -83,6 +83,8 @@ Route::post(
     Route::post('add-sale-product', 'AjaxController@addSaleProduct')->name('add-sale-product');
 
     Route::post('remove-sale-product', 'AjaxController@removeSaleProduct')->name('remove-sale-product');
+
+    Route::post('check-active', 'AjaxController@checkActive')->name('check-active');
 
 });
 

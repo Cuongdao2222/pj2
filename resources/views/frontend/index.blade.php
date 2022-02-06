@@ -186,7 +186,7 @@
             <div class="listproduct slider-promo owl-carousel" data-size="20">
 
                 @foreach($product_sale as  $value)
-
+                @if($value->active==1)
                 <div class="item">
                     <a href='{{ route('details', $value->Link) }}' class=" main-contain" data-s="OnlineSavingCMS" data-site="2" data-pro="3" data-cache="False" data-name="M&#xE1;y gi&#x1EB7;t LG Inverter 8.5 kg FV1408S4W" data-id="227121" data-price="8840000.0" data-brand="LG" data-cate="M&#xE1;y gi&#x1EB7;t" data-box="BoxHome">
                         <div class="item-label">
@@ -210,6 +210,7 @@
                         </div>
                     </a>
                 </div>
+                @endif
 
                 @endforeach
                 
@@ -250,7 +251,7 @@
 
                         
                         @foreach($data as $datas)
-
+                         @if($datas->active==1)
                         <div class="item"  data-pos="1">
                             <a href='/{{ $datas->Link }}' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="True" data-name="{{ $datas->Name }}" data-id="238784" data-price="20900000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxHome">
                                 <div class="item-label">
@@ -279,6 +280,7 @@
                                 </div>
                             </a>
                         </div>
+                        @endif
                         @endforeach
                         
                         

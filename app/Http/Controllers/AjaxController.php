@@ -8,6 +8,8 @@ use App\Models\hotProduct;
 
 use App\Models\saleProduct;
 
+use App\Models\product;
+
 class AjaxController extends Controller
 {
     public function addHotProduct(Request $request)
@@ -85,6 +87,22 @@ class AjaxController extends Controller
             echo "xóa thành công sản phẩm có product_id ".$id;
         }
 
+
+    }
+
+    protected function checkActive(Request $request)
+    {
+        $id = $request->product_id;
+
+        $active = $request->active;
+
+        $product = product::find($id);
+
+        $product->active = $active;
+
+        $product->save();
+
+        echo "thanh cong";
 
     }
 }

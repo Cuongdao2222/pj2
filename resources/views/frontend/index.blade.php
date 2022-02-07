@@ -295,24 +295,23 @@
      
      
       
-        <div class="trademark">
+       <!--  <div class="trademark">
             <h4 class="title-layout">CHUYÊN TRANG THƯƠNG HIỆU</h4>
             <div class="trademark-slider owl-carousel" data-size="3">
                 <a aria-label="slide" data-cate="0" data-place="1540" href="https://www.dienmayxanh.com/samsung" onclick="jQuery.ajax({ url: '/bannertracking?bid=49256&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/samsung-390x210.png" alt="Chuyên trang Samsung"  ></a><a aria-label="slide" data-cate="0" data-place="1540" href="https://www.dienmayxanh.com/gia-dung-online-only" onclick="jQuery.ajax({ url: '/bannertracking?bid=49265&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/giadungonline-390x210.png" alt="Chuyên trang gia dụng online"  ></a><a aria-label="slide" data-cate="0" data-place="1540" href="https://www.dienmayxanh.com/xa-hang" onclick="jQuery.ajax({ url: '/bannertracking?bid=47242&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/10/banner/dungcugd-390x210.png" alt="Chuyên trang DCGĐ"  ></a>        
             </div>
-        </div>
-        <!-- End -->
-        <!-- Sản phẩm mới -->
-        <div class="product-news">
+        </div> -->
+       
+        <!-- <div class="product-news">
             <h4 class="title-layout">S&#x1EA2;N PH&#x1EA8;M M&#x1EDA;I</h4>
             <div class="product-news-slider owl-carousel" data-size="3">
                 <a aria-label="slide" data-cate="0" data-place="1541" href="https://www.dienmayxanh.com/tivi-moi" onclick="jQuery.ajax({ url: '/bannertracking?bid=49835&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload" data-src="https://cdn.tgdd.vn/2022/01/banner/NewTV2207-780x420.png" alt="Banner sản phẩm mới Tivi"  ></a><a aria-label="slide" data-cate="0" data-place="1541" href="https://www.dienmayxanh.com/tag/perfetto?key=perfetto" onclick="jQuery.ajax({ url: '/bannertracking?bid=48925&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload" data-src="https://cdn.tgdd.vn/2021/12/banner/NewGD3-780x420.png" alt="San pham moi - GD"  ></a><a aria-label="slide" data-cate="0" data-place="1541" href="https://www.dienmayxanh.com/tag/ibonne?key=ibonne" onclick="jQuery.ajax({ url: '/bannertracking?bid=48961&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload" data-src="https://cdn.tgdd.vn/2021/12/banner/NewGD3-780x420-1.png" alt="San pham moi - GD"  ></a>        
             </div>
-        </div>
-        <!-- End -->
-        <div class="application">
+        </div> -->
+        
+        <!-- <div class="application">
             <div class="col1">
-                <!-- Tư vấn chọn mua -->
+               
                 <div class="ttl-main">
                     <h4 class="title-layout">TƯ VẤN CHỌN MUA</h4>
                     <a href="/kinh-nghiem-hay" class="readmore-txt blue">Xem thêm</a>
@@ -367,10 +366,10 @@
                         </a>
                     </div>
                 </div>
-                <!-- End -->
+                
             </div>
             <div class="col2">
-                <!-- Món ngon mỗi ngày -->
+               
                 <div class="ttl-main">
                     <h4 class="title-layout">MÓN NGON MỖI NGÀY</h4>
                     <a href="/vao-bep" class="readmore-txt blue">Xem thêm</a>
@@ -388,21 +387,21 @@
                         </div>
                     </a>
                 </div>
-                <!-- End -->
+               
             </div>
-        </div>
-        <div class="bottom-search">
+        </div> -->
+<!--         <div class="bottom-search">
             <p>Tìm kiếm nhiều:</p>
             <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a> <a href="/vao-bep">• Món ngon mỗi ngày</a> <a href="/tivi-sony">• Tivi Sony</a> <a href="/thiet-bi-cham-soc-suc-khoe">Thiết bị y tế</a> <a href="/cham-soc-me-va-be">Đồ dùng mẹ và bé</a> <a href="/may-giat-moi">• Máy giặt mới 2021</a> <a href="/may-giat-midea">• Máy giặt Midea</a> <a href="/kinh-nghiem-hay/dong-ho-mat-kinh">• Tư vấn Đồng hồ</a> <a href="/may-giat-lg">• Máy giặt LG</a> <a href="/may-lanh-moi">• Máy lạnh mới 2021</a> <a href="/may-lanh-electrolux">• Máy lạnh Electrolux</a> <a href="/may-lanh-lg">• Máy lạnh LG</a> <a href="/dien-thoai/iphone-13">• Iphone 13 mới</a>  <a href="https://www.dienmayxanh.com/xe-dap-thong-nhat">• Xe đạp Thống Nhất</a> <a href="https://www.dienmayxanh.com/micro">• ​Micro</a> <a href="https://www.dienmayxanh.com/lo-vi-song">• ​Microwave</a> <a href="https://www.dienmayxanh.com/man-hinh-may-tinh-viewsonic">• ​Màn hình ViewSonic</a> <a href="https://www.dienmayxanh.com/may-chay-bo">• Máy chạy bộ</a> <a href="https://www.dienmayxanh.com/may-rua-chen-bosch">• Máy rửa chén bát Bosch</a>
-        </div>
+        </div> -->
         <!-- Banner dọc 2 bên -->
         <div class="sticky-sidebar">
             <a data-cate="0" data-place="1863" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47538&r='+ (new Date).getTime(), async: true, cache: false });" class="banner-left"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/tttt-79x271-1.png" alt="Theme Giáng Sinh Trái" width="79" height="271"></a>
             <a data-cate="0" data-place="1864" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47537&r='+ (new Date).getTime(), async: true, cache: false });" class="banner-right"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/ppp-79x271-1.png" alt="Theme Giáng Sinh Phải" width="79" height="271"></a>        
         </div>
-        <!-- End -->
+        
     </section>
-    <!-- Popup banner -->
+   
     <!-- End -->
     <!-- Hiệu ứng ... rơi -->
     <div class="falling-container" aria-hidden="true">

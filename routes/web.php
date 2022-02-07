@@ -27,7 +27,7 @@ Auth::routes(['verify' => true]);
 
 // Route::get('/home', 'HomeController@index');
 
-Route::get('add-cart', 'Frontend\categoryController@addProductToCart')->name('cart');
+Route::post('add-cart', 'AjaxController@addProductToCart')->name('cart');
 
 Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 

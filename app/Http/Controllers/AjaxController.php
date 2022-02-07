@@ -10,6 +10,8 @@ use App\Models\saleProduct;
 
 use App\Models\product;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 class AjaxController extends Controller
 {
     public function addHotProduct(Request $request)
@@ -105,4 +107,23 @@ class AjaxController extends Controller
         echo "thanh cong";
 
     }
+
+    public function addProductToCart(Request $request)
+    {
+        $id = $request->product_id;
+
+        $data_Product = product::find($id);
+             
+        Cart::add(['id' => $id, 'name' => $data_Product->Name, 'qty' => 1, 'price' => $data_Product->Price, 'weight' => '500', 'options' => ['link' => $data_Product->Link]]);
+
+        $data_cart = Cart::content();
+
+        return view('Frontend.ajax.cart', compact('data_cart'));
+       
+
+       
+
+    }
 }
+
+

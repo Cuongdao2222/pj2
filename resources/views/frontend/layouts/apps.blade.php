@@ -29,6 +29,11 @@
         <meta property="og:site_name" content="dienmayxanh.com" />
         <meta property="og:type" content="product" />
         <meta property="og:locale" content="vi_VN" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
         @stack('style')
         
     </head>
@@ -49,14 +54,11 @@
             <div class="header__top">
                 <section>
                     <a href="/" class="header__logo">
-                        <img src="{{ asset('images/template/logochuan.png') }}" style="height:40px; width: 180px;">   
+                        <img src="{{ asset('images/template/logochuan.png') }}" style="height:40px;">   
                    
                     </a>
                     <div class="bordercol"></div>
-                    <a href="javascript:void(0)" class="header__address" onclick="OpenLocation()">
-                    Xem giá, tồn kho tại:
-                    <span data-province="3" data-district="0" data-ward="0">H&#x1ED3; Ch&#xED; Minh</span>
-                    </a>
+                   
                     <form onsubmit="return suggestSearch(event);" class="header__search">
                         <input id="skw" type="text" class="input-search" onkeyup="suggestSearch(event);" placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
                         <button type="submit">
@@ -68,19 +70,39 @@
                     <?php
                         $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
 
-                        $number_cart = count($cart)>0?count($cart):'';
+                        $number_cart = count($cart);
 
                         $active_cart =  count($cart)>0?'active':'';
                      ?>   
                     <a id="cart-box" href="/cart" class="header__cart {{ $active_cart }}">
 
-                    
-                    <i class="icon-cart">{{ $number_cart }}</i>
-                    <span>Giỏ hàng</span>
+                    <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
+                    <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
+
+                    <style type="text/css">
+                        #count_shopping_cart_store {
+                        position: absolute;
+                        top: -5px;
+                        right: 52px;
+                        color: #fff;
+                        background-color: #fe0000;
+                        height: 18px;
+                        line-height: 18px;
+                        width: 18px;
+                        border-radius: 100%;
+                        text-align: center;
+                    }
+                    .header__cart{
+                        position: relative;
+                    }
+
+                    </style>
+                    <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
+                    <!-- <span>Giỏ hàng</span> -->
                     </a>
                     <a href="/lich-su-mua-hang" class="header__history">Lịch sử đơn hàng</a>
                     <div class="bordercol"></div>
-                    <a href="/sim-so-dep" class="header__hot">
+                    <!-- <a href="/sim-so-dep" class="header__hot">
                         <p class="dotnew"><span class="animation"></span></p>
                         Mobifone trả sau đến hạn thanh toán. Mua thẻ nạp ngay!
                     </a>
@@ -97,7 +119,7 @@
                         <div class="divitem">
                             <a href="/vao-bep">Vào bếp</a>
                         </div>
-                    </div>
+                    </div> -->
                 </section>
             </div>
             <div class="header__main">
@@ -883,9 +905,9 @@
                 </section>
             </div>
         </footer>
-        <script src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201141000.js" type="text/javascript"></script>
+        
 
-        @stack('script')
+        
          <script src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201240310.js" type="text/javascript"></script>
         <script async="async" defer="defer" src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/homeDMX.min.v202201141000.js" type="text/javascript"></script>
         <script async="async" defer="defer" src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/homeGTM.min.v202111271240.js" type="text/javascript"></script>
@@ -895,6 +917,14 @@
             dataLayer.push({ 'pageType':'Home','pagePlatform':'Web','pageStatus':'Kinh doanh'})
             
         </script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201141000.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    @stack('script')
       
     </body>
 </html>

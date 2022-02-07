@@ -414,11 +414,11 @@
                 </div>
                 <div class="box_right">
                     
-                    <div class="col-12 col-md-5 pdetail-des">
+                    <div class="col-12 pdetail-des">
                         <div class="clearfix"></div>
                         <div>
                             <div class="pdetail-info">
-                                <p>Model: <b>32F4000X</b> - Mã hàng: <b>702332</b></p>
+                                <p>Model: <b>{{ @$data->ProductSku  }}</b> - Mã hàng: <b>702332</b></p>
                                 <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b> - Xuất xứ: <b>Indonesia</b></p>
                             </div>
 
@@ -428,11 +428,8 @@
                                         <div class="item banner-item banner-item-1">
                                             <a target="&quot;_blank&quot;" href="https://mediamart.vn/khuyen-mai-tet" data-id="1022">
                                                 <picture>
-                                                    <source srcset="https://cdn.mediamart.vn/thumb/images/banner/tt-ln-khuyn-mi-ln_1e76d35a.webp" type="image/webp" media="(max-width: 420px)">
-                                                    <source srcset="https://cdn.mediamart.vn/images/banner/tt-ln-khuyn-mi-ln_1e76d35a.webp" type="image/webp" media="(min-width: 420px)">
-                                                    <source srcset="https://cdn.mediamart.vn/thumb/images/banner/tt-ln-khuyn-mi-ln_1e76d35a.jpg" type="image/jpeg" media="(max-width: 420px)">
-                                                    <source srcset="https://cdn.mediamart.vn/images/banner/tt-ln-khuyn-mi-ln_1e76d35a.jpg" type="image/jpeg" media="(min-width: 420px)">
-                                                    <img src="https://cdn.mediamart.vn/images/banner/tt-ln-khuyn-mi-ln_1e76d35a.jpg" alt="Tết Lớn Khuyến Mại Lớn" width="&quot;640&quot;" height="&quot;150&quot;">
+                                                   
+                                                    <img src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2019/01/10040348/X4iNCOp-1024x454.jpg" alt="Tết Lớn Khuyến Mại Lớn" width="&quot;640&quot;" height="&quot;150&quot;">
                                                 </picture>
                                             </a>
                                         </div>
@@ -441,7 +438,7 @@
 
                                 <div class="pdetail-price">
                                     <div class="pdetail-price-box">
-                                        <h3>3.990.000 ₫</h3>
+                                        <h3>{{  str_replace(',' ,'.', number_format($data->Price))  }}₫</h3>
                                        
                                     </div>
                                     <!-- <div class="pdetail-promotion">
@@ -466,9 +463,210 @@
                                             <!-- <div class="product-quantity">
                                                 <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
                                             </div> -->
-                                            <button type="button" class="btn btn-lg btn-add-cart btn-add-cart redirectCart" admicro-data-event="101724" admicro-data-auto="1" admicro-data-order="false">MUA NGAY <br>(Giao hàng tận nơi - Giá tốt - An toàn)</button>
+                                            <button type="button" class="btn btn-lg btn-add-cart btn-add-cart redirectCart" onclick="addToCart({{ $data->id }})">MUA NGAY <br>(Giao hàng tận nơi - Giá tốt - An toàn)</button>
                                         </form>
+                                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            Launch demo modal
+                                        </button> -->
                                     </div>
+
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Thông tin giỏ hàng</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div id="tbl_list_carts">
+                                                        
+                                                    </div>
+
+                                                    <div class="c3_col_1">
+                                                        <div class="c3_box">
+                                                            <div class="title_box_cart"> Thông tin khách hàng</div>
+                                                            <div class="item-form">
+                                                                <div class="option-group clearfix">
+                                                                    <div class="step_option">
+                                                                        <span class="st_opt st_opt_active" data-value="Anh" data-name="sex"></span><span>Anh</span>
+                                                                    </div>
+                                                                    <div class="step_option">
+                                                                        <span class="st_opt" data-value="Chị" data-name="sex"></span><span>Chị</span>
+                                                                    </div>
+                                                                    <input type="hidden" name="sex" value="Nam">
+                                                                </div>
+                                                                <!--option-group-->
+                                                            </div>
+                                                            <div class="item-form" style="width: 50%;display: inline-block;">
+                                                                <input type="text" name="user_info[name]" id="buyer_name" value="" placeholder="Họ tên">
+                                                            </div>
+                                                            <div class="item-form" style="width: 49%;display: inline-block;">
+                                                                <input type="text" name="user_info[tel]" id="buyer_tel" value="" placeholder="Số điện thoại">
+                                                            </div>
+                                                            <div class="item-form">
+                                                                <input type="text" name="user_info[email]" id="buyer_email" value="" placeholder="Email">
+                                                            </div>
+                                                            <div class="item-form">
+                                                                <textarea name="user_info[address]" placeholder="Địa chỉ" id="buyer_address"></textarea>
+                                                            </div>
+                                                            <div class="item-form" style="width: 50%;display: inline-block;color: #0083d1;">
+                                                                <select name="user_info[province]" class="form-control" id="ship_to_province" onchange="getDistrict(this.value)">
+                                                                    <option value="0">--Lựa chọn--</option>
+                                                                    <option value="1">Hà nội</option>
+                                                                    <option value="2">TP HCM</option>
+                                                                    <option value="5">Hải Phòng</option>
+                                                                    <option value="4">Đà Nẵng</option>
+                                                                    <option value="6">An Giang</option>
+                                                                    <option value="7">Bà Rịa-Vũng Tàu</option>
+                                                                    <option value="13">Bình Dương</option>
+                                                                    <option value="15">Bình Phước</option>
+                                                                    <option value="16">Bình Thuận</option>
+                                                                    <option value="14">Bình Định</option>
+                                                                    <option value="8">Bạc Liêu</option>
+                                                                    <option value="10">Bắc Giang</option>
+                                                                    <option value="9">Bắc Kạn</option>
+                                                                    <option value="11">Bắc Ninh</option>
+                                                                    <option value="12">Bến Tre</option>
+                                                                    <option value="18">Cao Bằng</option>
+                                                                    <option value="17">Cà Mau</option>
+                                                                    <option value="3">Cần Thơ</option>
+                                                                    <option value="24">Gia Lai</option>
+                                                                    <option value="25">Hà Giang</option>
+                                                                    <option value="26">Hà Nam</option>
+                                                                    <option value="27">Hà Tĩnh</option>
+                                                                    <option value="30">Hòa Bình</option>
+                                                                    <option value="28">Hải Dương</option>
+                                                                    <option value="29">Hậu Giang</option>
+                                                                    <option value="31">Hưng Yên</option>
+                                                                    <option value="32">Khánh Hòa</option>
+                                                                    <option value="33">Kiên Giang</option>
+                                                                    <option value="34">Kon Tum</option>
+                                                                    <option value="35">Lai Châu</option>
+                                                                    <option value="38">Lào Cai</option>
+                                                                    <option value="36">Lâm Đồng</option>
+                                                                    <option value="37">Lạng Sơn</option>
+                                                                    <option value="39">Long An</option>
+                                                                    <option value="40">Nam Định</option>
+                                                                    <option value="41">Nghệ An</option>
+                                                                    <option value="42">Ninh Bình</option>
+                                                                    <option value="43">Ninh Thuận</option>
+                                                                    <option value="44">Phú Thọ</option>
+                                                                    <option value="45">Phú Yên</option>
+                                                                    <option value="46">Quảng Bình</option>
+                                                                    <option value="47">Quảng Nam</option>
+                                                                    <option value="48">Quảng Ngãi</option>
+                                                                    <option value="49">Quảng Ninh</option>
+                                                                    <option value="50">Quảng Trị</option>
+                                                                    <option value="51">Sóc Trăng</option>
+                                                                    <option value="52">Sơn La</option>
+                                                                    <option value="53">Tây Ninh</option>
+                                                                    <option value="56">Thanh Hóa</option>
+                                                                    <option value="54">Thái Bình</option>
+                                                                    <option value="55">Thái Nguyên</option>
+                                                                    <option value="57">Thừa Thiên-Huế</option>
+                                                                    <option value="58">Tiền Giang</option>
+                                                                    <option value="59">Trà Vinh</option>
+                                                                    <option value="60">Tuyên Quang</option>
+                                                                    <option value="61">Vĩnh Long</option>
+                                                                    <option value="62">Vĩnh Phúc</option>
+                                                                    <option value="63">Yên Bái</option>
+                                                                    <option value="19">Đắk Lắk</option>
+                                                                    <option value="22">Đồng Nai</option>
+                                                                    <option value="23">Đồng Tháp</option>
+                                                                    <option value="21">Điện Biên</option>
+                                                                    <option value="20">Đăk Nông</option>
+                                                                </select>
+                                                            </div>
+                                                            <div id="district-holder-login" style="width: 49%;display: inline-block;color: #0083d1;"></div>
+                                                            <div id="ajxTaxInvoice" class="item-form">
+                                                                <div class="ng_ml">
+                                                                    <input type="checkbox" onclick="showTap('pnlTaxInvoice')" name="chkTaxInvoice" id="chkTaxInvoice">
+                                                                    <label id="bale_ml" for="chkTaxInvoice">Xuất hóa đơn công ty</label>
+                                                                </div>
+                                                                <div style="width: 100%; margin-top:10px; padding: 0px;display: none;" id="pnlTaxInvoice">
+                                                                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td width="120" align="left">Công ty/Tổ chức:
+                                                                                </td>
+                                                                                <td align="left">
+                                                                                    <input type="text" id="txtTaxName" value="" size="50" name="user_info[tax_company]">
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td width="120" align="left">Địa chỉ:
+                                                                                </td>
+                                                                                <td align="left">
+                                                                                    <input type="text" id="txtTaxAddress" value="" size="50" name="user_info[tax_address]">
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td width="120" align="left">Mã số thuế:
+                                                                                </td>
+                                                                                <td align="left">
+                                                                                    <input type="text" id="txtTaxCode" name="user_info[tax_code]" value="">
+                                                                                    <span class="cmt" id="txtTaxCodeView">&nbsp;</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <!--ajxTaxInvoice-->
+                                                            <div class="item-form">
+                                                                <h4 style="font-size:15px; margin-top:20px;">Hình thức thanh toán:</h4>
+                                                                <table style="width:100%;">
+                                                                    <tbody>
+                                                                        <tr class="item-paymethod">
+                                                                            <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" checked="" name="pay_method" value="1" class="pay_option" id="paymethod_1"></td>
+                                                                            <td>
+                                                                                <label for="paymethod_1">Thẻ tín dụng</label>
+                                                                                <div id="pay_0" style="display:none;" class="pay_content"></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="item-paymethod">
+                                                                            <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" name="pay_method" value="2" class="pay_option" id="paymethod_2"></td>
+                                                                            <td>
+                                                                                <label for="paymethod_2">Thẻ ATM nội địa</label>
+                                                                                <div id="pay_1" style="display:none;" class="pay_content"></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="item-paymethod">
+                                                                            <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" name="pay_method" value="3" class="pay_option" id="paymethod_3"></td>
+                                                                            <td>
+                                                                                <label for="paymethod_3">Trả tiền khi nhận hàng</label>
+                                                                                <div id="pay_2" style="display:none;" class="pay_content">Trả tiền khi nhận hàng</div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="item-paymethod">
+                                                                            <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" name="pay_method" value="4" class="pay_option" id="paymethod_4"></td>
+                                                                            <td>
+                                                                                <label for="paymethod_4">Thanh toán trả góp qua Alepay (Qua thẻ Visa, Master, JCB)</label>
+                                                                                <div id="pay_3" style="display:none;" class="pay_content"></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Đặt hàng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   <!--  Endmodal -->
+
                                     <div class="clearfix"></div>
                                     <div class="installment-purchase pdetail-installment">
                                         <a target="_blank" href="/tin-khuyen-mai/mua-hang-tra-gop-lai-suat-0-chi-co-tai-media-mart" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
@@ -562,380 +760,8 @@
                                 So sánh
                                 </a>
                             </div>
-                            <div class="item" data-id="235830">
-                                <a href='/tivi/led-4k-samsung-ua50au9000?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/235830/TimerThumb/led-4k-samsung-ua50au9000-(12).jpg" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU9000">
-                                    </div>
-                                    <p class='result-label temp5'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU9000">
-                                        Samsung Smart TV Crystal UHD UA50AU9000
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
-                                    <div class="box-p">
-                                        <p class="price-old black">19.400.000&#x20AB;</p>
-                                        <span class="percent">-14%</span>
-                                    </div>
-                                    <strong class="price">16.600.000&#x20AB;</strong>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="251859">
-                                <a href='/tivi/smart-samsung-4k-50-inch-ua50au7700?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/251859/TimerThumb/smart-samsung-4k-50-inch-ua50au7700.jpg" alt="Smart Tivi Samsung 4K 50 inch UA50AU7700">
-                                    </div>
-                                    <p class='result-label temp5'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi Samsung 4K 50 inch UA50AU7700">
-                                        Samsung Smart TV UA50AU7700
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <div class="box-p">
-                                        <p class="price-old black">17.900.000&#x20AB;</p>
-                                        <span class="percent">-13%</span>
-                                    </div>
-                                    <strong class="price">15.400.000&#x20AB;</strong>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="235800">
-                                <a href='/tivi/led-4k-samsung-ua50au7200?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/235800/TimerThumb/led-4k-samsung-ua50au7200-(12).jpg" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU7200">
-                                        <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" loading="lazy" class="lbliconimg lbliconimg_1942" />
-                                    </div>
-                                    <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU7200">
-                                        Samsung Smart TV Crystal UHD UA50AU7200
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <div class="box-p">
-                                        <p class="price-old black">17.400.000&#x20AB;</p>
-                                        <span class="percent">-14%</span>
-                                    </div>
-                                    <strong class="price">14.900.000&#x20AB;</strong>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="235641">
-                                <a href='/tivi/qled-4k-samsung-qa50q65a?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/235641/TimerThumb/qled-4k-samsung-qa50q65a-(19).jpg" alt="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A">
-                                        <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" loading="lazy" class="lbliconimg lbliconimg_1942" />
-                                    </div>
-                                    <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi QLED 4K 50 inch Samsung QA50Q65A">
-                                        Samsung Smart TV QLED QA50Q65A
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
-                                    <div class="box-p">
-                                        <p class="price-old black">21.900.000&#x20AB;</p>
-                                        <span class="percent">-21%</span>
-                                    </div>
-                                    <strong class="price">17.100.000&#x20AB;</strong>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-dark"></i>
-                                        </p>
-                                        <p class="item-rating-total">81</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="236887">
-                                <a href='/tivi/led-lg-50up7750ptb?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/236887/TimerThumb/236887-(10).jpeg" alt="Smart Tivi LG 4K 50 inch 50UP7750PTB">
-                                        <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" loading="lazy" class="lbliconimg lbliconimg_1942" />
-                                    </div>
-                                    <p class='result-label temp5'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi LG 4K 50 inch 50UP7750PTB">
-                                        LG Smart TV 50UP7750PTB
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <div class="box-p">
-                                        <p class="price-old black">18.900.000&#x20AB;</p>
-                                        <span class="percent">-10%</span>
-                                    </div>
-                                    <strong class="price">16.900.000&#x20AB;</strong>
-                                    <p class="item-gift">Quà <b>1.500.000₫</b></p>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-dark"></i>
-                                        </p>
-                                        <p class="item-rating-total">23</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="238782">
-                                <a href='/tivi/led-sony-kd-50x80j?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/238782/TimerThumb/led-sony-kd-50x80j-(16).jpg" alt="Android Tivi Sony 4K 50 inch KD-50X80J">
-                                    </div>
-                                    <h3  title="Android Tivi Sony 4K 50 inch KD-50X80J">
-                                        Sony Android TV KD-50X80J
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <div class="box-p">
-                                        <p class="price-old black">18.400.000&#x20AB;</p>
-                                        <span class="percent">-5%</span>
-                                    </div>
-                                    <strong class="price">17.400.000&#x20AB;</strong>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-dark"></i>
-                                        </p>
-                                        <p class="item-rating-total">29</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="236936">
-                                <a href='/tivi/led-lg-50up7800ptb?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/236936/TimerThumb/led-lg-50up7800ptb.jpg" alt="Smart Tivi LG 4K 50 inch 50UP7800PTB">
-                                        <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" loading="lazy" class="lbliconimg lbliconimg_1942" />
-                                    </div>
-                                    <p class='result-label temp5'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi LG 4K 50 inch 50UP7800PTB">
-                                        LG Smart TV 50UP7800PTB
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <div class="box-p">
-                                        <p class="price-old black">19.400.000&#x20AB;</p>
-                                        <span class="percent">-10%</span>
-                                    </div>
-                                    <strong class="price">17.400.000&#x20AB;</strong>
-                                    <p class="item-gift">Quà <b>1.500.000₫</b></p>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-dark"></i>
-                                        </p>
-                                        <p class="item-rating-total">23</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="235884">
-                                <a href='/tivi/qled-4k-tcl-50q726?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/235884/TimerThumb/qled-4k-tcl-50q726-(15).jpg" alt="Android Tivi QLED TCL 4K 50 inch 50Q726">
-                                        <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" loading="lazy" class="lbliconimg lbliconimg_1942" />
-                                    </div>
-                                    <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Android Tivi QLED TCL 4K 50 inch 50Q726">
-                                        TCL Android TV QLED 50Q726
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <div class="box-p">
-                                        <p class="price-old black">17.990.000&#x20AB;</p>
-                                        <span class="percent">-16%</span>
-                                    </div>
-                                    <strong class="price">14.990.000&#x20AB;</strong>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-dark"></i>
-                                        </p>
-                                        <p class="item-rating-total">7</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="236883">
-                                <a href='/tivi/tv-led-lg-50up7550ptc?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/236883/TimerThumb/tv-led-lg-50up7550ptc-(14).jpg" alt="Smart Tivi LG 4K 50 inch 50UP7550PTC">
-                                    </div>
-                                    <p class='result-label temp5'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi LG 4K 50 inch 50UP7550PTC">
-                                        LG Smart TV 50UP7550PTC
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <div class="box-p">
-                                        <p class="price-old black">17.900.000&#x20AB;</p>
-                                        <span class="percent">-5%</span>
-                                    </div>
-                                    <strong class="price">16.900.000&#x20AB;</strong>
-                                    <p class="item-gift">Quà <b>2.000.000₫</b></p>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-dark"></i>
-                                        </p>
-                                        <p class="item-rating-total">23</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                            <div class="item" data-id="238721">
-                                <a href='/tivi/led-sony-kd-50x75?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/238721/TimerThumb/led-sony-kd-50x75-(12).jpg" alt="Android Tivi Sony 4K 50 inch KD-50X75">
-                                    </div>
-                                    <h3  title="Android Tivi Sony 4K 50 inch KD-50X75">
-                                        Sony Android TV KD-50X75
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <strong class="price">16.400.000&#x20AB;</strong>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                        </p>
-                                        <p class="item-rating-total">224</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
+                           
+                            
                         </div>
                     </div>
                 </div>
@@ -1040,6 +866,72 @@
             .name-scroll{
                 font-size: 25px;
                 font-weight: bold;
+            }
+
+            .c3_box .title_box_cart {
+                font-weight: 500;
+                font-size: 20px;
+                padding: 8px 15px;
+            }
+
+            .c3_box .item-form {
+                padding: 5px 15px;
+            }
+
+            .option-group .step_option {
+                float: left;
+                cursor: pointer;
+                text-align: left;
+                margin-bottom: 0px;
+                width: auto!important;
+                margin-right: 25px;
+              
+            }
+
+            .st_opt {
+                display: block;
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+                float: left;
+                border: 1px solid #b2b2b2;
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+
+            .st_opt_active {
+                background: #0e76bd;
+            }
+
+            .c3_box input {
+                display: block;
+                padding: 9px 0;
+                height: 35px;
+                border: 1px solid #d9d9d9;
+                border-radius: 4px;
+                margin: 10px 0 5px;
+                text-indent: 10px;
+                width: 100%;
+            }
+
+            .c3_box textarea {
+                display: block;
+                padding: 9px 0;
+                height: 105px;
+                border: 1px solid #d9d9d9;
+                border-radius: 4px;
+                margin: 10px 0 5px;
+                text-indent: 10px;
+                width: 100%;
+                outline: none;
+            }
+
+            .ng_ml input {
+                position: absolute;
+               /* height: 100%;
+                padding: 0;
+                margin: 0;*/
+                visibility: hidden;
             }
 
 
@@ -1287,21 +1179,97 @@
 
     </style>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/details.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/details.css?v=1') }}">
 
     <style type="text/css">
             
-            .bar-top-left{
-                display: none !important;
-            }
-        </style>
+        .bar-top-left{
+            display: none !important;
+        }
+
+        .product_list_cart {
+            display: flex;
+            /*padding: 10px;*/
+            margin-bottom: 20px;
+        }
+
+        .product_list_cart .cart_col_3 {
+            width: 36%;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .modal-content{
+            width: 659px;
+        }
+
+        .product_list_cart .col_price {
+            color: #c10017;
+        }
+
+        .product_list_cart .col_input input, .product_list_cart .col_input a {
+            width: 35px;
+            height: 30px;
+            text-align: center;
+            display: inline-block;
+            border: 1px solid #ccc;
+            line-height: 30px;
+            float: right;
+            margin-right: -1px;
+            background-color: transparent;
+        }
+        .cart_col_1{
+            width: 20%;
+        }  
+        .total-cart-price, .cart-foot span{
+            color: #c10017;
+            font-weight: bold;
+        }
+
+        .ng_ml {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .ng_ml label {
+            padding-left: 20px;
+            cursor: pointer;
+        }
+
+        .ng_ml label:before {
+            content: "\f00c";
+            font-weight: 900;
+            font-family: Font Awesome\ 5 Free;
+            max-width: 16px;
+            width: 100%;
+            height: 16px;
+            line-height: 14px;
+            border: 1px solid #777777;
+            text-align: center;
+            border-radius: 3px;
+            color: #fff;
+            vertical-align: 1px;
+            margin-right: 5px;
+            position: absolute;
+            left: 0;
+        }
+
+        .cart-foot {
+            padding: 0 10px 20px;
+            border-bottom: 1px solid #a4a4a4;
+            margin-bottom: 10px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e1e1;
+        }
+    </style>
 
 @endpush
 
 
 
 @push('script')
-<script src="//cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201240310.js" type="text/javascript"></script>
+<!-- <script src="//cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201240310.js" type="text/javascript"></script> -->
 
        
         <script type="text/javascript">
@@ -1318,19 +1286,6 @@
 
             $(function(){
                 $(window).scroll(function(){
-                    
-                    // if($(this).scrollTop()>= button_buy_height&&$(this).scrollTop()<=view_more_height){
-                       
-   
-                    //    $('.scroll-box').addClass('fixed-button-buy')
-                    // }
-                    // else{
-                    //     if($('.scroll-box').hasClass('fixed-button-buy')){
-                    //         $('.scroll-box').removeClass('fixed-button-buy');
-                    //     }
-
-                    // }
-
                     const scroll_result = $('.total-imgslider').offset().top
                     const scroll_browser = $(this).scrollTop();
 
@@ -1349,19 +1304,35 @@
         </script>
 
       
-        <script defer="defer" async="async" src="//cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/detailTGDD.min.v202201240240.js"></script>
+        
+
         <script type="text/javascript">
-            document.productId = '235791';
-            document.cateID = '1942';
-            document.cateName = 'tivi';
-            document.cateUrl = 'tivi';
-            document.isDesktop = 1;
-            document.minv = '202201251200';
-            document.isCoupleWatch = 0;
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
             
+            function addToCart(id) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('cart') }}",
+                    data: {
+                        product_id: id,
+                           
+                    },
+                    success: function(result){
+                       console.log(result);
+                       
+
+                        // $('.tbl_list_carts').append(result);
+                        $('#exampleModal').modal('show'); 
+                        
+                    }
+                });
+                
+            }
         </script>
 
 @endpush

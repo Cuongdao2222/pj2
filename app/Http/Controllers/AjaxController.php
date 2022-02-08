@@ -140,6 +140,22 @@ class AjaxController extends Controller
 
         return view('Frontend.ajax.cart', compact('data_cart'));
     }
+
+    public function addProductToCartByNumber(Request $request)
+    {
+        $rowId = $request->rowId;
+
+        $qualtity = $request->number;
+
+        Cart::update($rowId, $qualtity);
+
+        $data_cart = Cart::content();
+
+        return view('Frontend.ajax.cart', compact('data_cart'));
+       
+    }
+
+
 }
 
 

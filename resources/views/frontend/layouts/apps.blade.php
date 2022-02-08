@@ -1342,30 +1342,45 @@
             $('#tbl_list_carts').html('');
         });
 
-         function showToCart() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+        function showToCart() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-                $.ajax({
-                    type: 'POST',
-                    url: "{{ route('showCart') }}",
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('showCart') }}",
+               
+                success: function(result){
+                  
+                   // numberCart = result.find("#number-product-cart").text();
+
+                    $('#tbl_list_carts').append(result);
+
                    
-                    success: function(result){
-                      
-                       // numberCart = result.find("#number-product-cart").text();
+                    $('#exampleModal').modal('show'); 
+                    
+                }
+            });
+            
+        }
 
-                        $('#tbl_list_carts').append(result);
+        $(".st_opt").bind("click", function(){
+            $('.st_opt').removeClass('st_opt_active');
 
-                       
-                        $('#exampleModal').modal('show'); 
-                        
-                    }
-                });
-                
-            }
+            $(this).addClass('st_opt_active');
+
+            let sex = $(this).attr('data-value');
+
+            console.log(sex);
+
+            
+           
+        });
+
+
     </script>
       
     </body>

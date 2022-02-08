@@ -33,6 +33,9 @@ Route::post('remove-cart', 'AjaxController@removeProductCart')->name('removeCart
 
 Route::post('show-cart', 'AjaxController@showProductCart')->name('showCart');
 
+Route::post('add-cart-number', 'AjaxController@addProductToCartByNumber')->name('addCartNumber');
+
+
 Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 
 Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->middleware('auth');

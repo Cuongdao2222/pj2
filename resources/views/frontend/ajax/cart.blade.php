@@ -4,12 +4,14 @@
     <?php  
 
         $arrPrice = [];
+        $key = 0;
     ?>
     @foreach($data_cart as $data)
-        <?php    
-         
 
-            array_push($arrPrice, $data->price);
+        <?php    
+            $price = (int)$data->price*(int)$data->qty;
+            $key++;
+            array_push($arrPrice, $price);
 
         ?>
 
@@ -34,9 +36,9 @@
 
             </div>
             <div class="col_input">
-                <a href="javascript:void(0);location.reload();" class="quantity-change" data-value="-1" title="tru">-</a>
-                <input class="buy-quantity quantity-change" value="1" size="5" disabled="">
-                <a href="javascript:void(0);location.reload();" class="quantity-change" data-value="1" title="them">+</a>
+                <a href="javascript:void(0)" class="quantity-change"  title="tru" onclick="tru('{{ $key  }}', '{{ $data->rowId }}')">-</a>
+                <input class="buy-quantity{{ $key }} quantity-change" value="{{ $data->qty }}" size="5" disabled="">
+                <a href="javascript:void(0)" class="quantity-change"  title="them" onclick="cong('{{ $key }}', '{{ $data->rowId }}')">+</a>
             </div>
         </div>
 
@@ -92,5 +94,80 @@
         });
 
 
+    }
+
+    function tru(key, rowId){
+        const val_number = $('.buy-quantity'+key).val();
+        val_numbers =  parseInt(val_number);
+
+        if(val_numbers>0){
+            val_numbers = val_numbers-1;
+
+            $.ajaxSetup({
+            headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('addCartNumber') }}",
+                data: {
+                    rowId: rowId,
+                    number:val_numbers
+                },
+                success: function(result){
+
+                    $('#tbl_list_carts').html('');
+
+                    $('#tbl_list_carts').append(result);
+
+                    const numberCart = $('#number-product-cart').text();
+
+                    $('.number-cart').text(numberCart);
+
+
+                    $('#exampleModal').modal('show');
+                    
+                }
+            });
+
+            $('.buy-quantity'+key).val(val_numbers);
+            
+        }
+    }
+
+     function cong(key, rowId){
+        const val_number = $('.buy-quantity'+key).val();
+        val_numbers =  parseInt(val_number);
+
+        if(val_numbers>=0){
+            val_numbers = val_numbers+1;
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('addCartNumber') }}",
+                data: {
+                    rowId: rowId,
+                    number:val_numbers
+                },
+                success: function(result){
+
+                    $('#tbl_list_carts').html('');
+
+                    $('#tbl_list_carts').append(result);
+
+                    const numberCart = $('#number-product-cart').text();
+
+                    $('.number-cart').text(numberCart);
+
+                    $('#exampleModal').modal('show');         
+                    
+                }
+            });
+
+            $('.buy-quantity'+key).val(val_numbers);
+            
+        }
     }
 </script>

@@ -84,6 +84,11 @@
             cursor: pointer;
         }
 
+        .ng_ml .active:before {
+            background-color: #549ae6;
+            border: 1px solid #549ae6;
+        }
+
         .ng_ml label:before {
             content: "\f00c";
             font-weight: 900;
@@ -238,6 +243,11 @@
                 padding: 0;
                 margin: 0;*/
                 visibility: hidden;
+            }
+
+            #form-sub label.error{
+                display: inline-block !important;
+                opacity: 1 !important;
             }
 
 
@@ -1040,7 +1050,8 @@
                         </div>
 
                         <div class="c3_col_1">
-                            <div class="c3_box">
+                            <form class="c3_box" id="form-sub" method="post"  action="{{ route('order') }}">
+                                {{ csrf_field() }}
                                 <div class="title_box_cart"> Thông tin khách hàng</div>
                                 <div class="item-form">
                                     <div class="option-group clearfix">
@@ -1050,24 +1061,24 @@
                                         <div class="step_option">
                                             <span class="st_opt" data-value="Chị" data-name="sex"></span><span>Chị</span>
                                         </div>
-                                        <input type="hidden" name="sex" value="Nam">
+                                        <input type="hidden" name="sex" id="sex" value="Nam">
                                     </div>
                                     <!--option-group-->
                                 </div>
                                 <div class="item-form" style="width: 50%;display: inline-block;">
-                                    <input type="text" name="user_info[name]" id="buyer_name" value="" placeholder="Họ tên">
+                                    <input type="text" name="name" id="buyer_name" value="" placeholder="Họ tên">
                                 </div>
                                 <div class="item-form" style="width: 49%;display: inline-block;">
-                                    <input type="text" name="user_info[tel]" id="buyer_tel" value="" placeholder="Số điện thoại">
+                                    <input type="text" name="tel" id="buyer_tel" value="" placeholder="Số điện thoại">
                                 </div>
                                 <div class="item-form">
-                                    <input type="text" name="user_info[email]" id="buyer_email" value="" placeholder="Email">
+                                    <input type="text" name="email" id="buyer_email" value="" placeholder="Email">
                                 </div>
                                 <div class="item-form">
-                                    <textarea name="user_info[address]" placeholder="Địa chỉ" id="buyer_address"></textarea>
+                                    <textarea name="address" placeholder="Địa chỉ" id="buyer_address"></textarea>
                                 </div>
                                 <div class="item-form" style="width: 50%;display: inline-block;color: #0083d1;">
-                                    <select name="user_info[province]" class="form-control" id="ship_to_province" onchange="getDistrict(this.value)">
+                                    <select name="province" class="form-control" id="ship_to_province" onchange="getDistrict(this.value)">
                                         <option value="0">--Lựa chọn--</option>
                                         <option value="1">Hà nội</option>
                                         <option value="2">TP HCM</option>
@@ -1207,13 +1218,17 @@
                                 </div>
                                 
                                 <div class="clear"></div>
-                            </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Đặt hàng</button>
+                                </div>
+
+
+                            </form>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Đặt hàng</button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -1335,6 +1350,10 @@
 
     <script src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201141000.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+
     @stack('script')
     <script type="text/javascript">
         
@@ -1374,10 +1393,68 @@
 
             let sex = $(this).attr('data-value');
 
-            console.log(sex);
+            $('#sex').val(sex);
 
-            
-           
+        });
+
+
+        $().ready(function() {
+
+             jQuery.validator.addMethod("phonenu", function (value, element) {
+                if ( /^\d{3}-?\d{3}-?\d{4}$/g.test(value)) {
+                    return true;
+                } else {
+                    return false;
+                };
+            }, "Invalid phone number");
+
+            $("#form-sub").validate({
+                rules: {
+                    "name": {
+                        required: true,
+                        maxlength: 15
+                    },
+                    "tel": {
+                        required: true,
+                         phonenu: true,
+                    },
+
+                    "email": {
+                        email: true,
+                        
+                    },
+
+                    "address":{
+                        required:true,
+                    },
+                    "province":{
+                        required:true,
+                    }
+
+                   
+                },
+                messages: {
+                    "name": {
+                        required: "Bắt buộc nhập Họ và tên",
+                        maxlength: "Hãy nhập tối đa 15 ký tự"
+                    },
+                    "tel": {
+                        required: "Bắt buộc nhập số điện thoại",
+                       
+                    },
+                    "email":{
+                        email: "Email không đúng định dạng",
+                    },
+
+                    "address":{
+                        required:"Bắt buộc nhập thông tin địa chỉ",
+                    },
+                    "province":{
+                        required:"Bắt buộc chọn thành phố",
+                    }
+                   
+                }
+            });
         });
 
 

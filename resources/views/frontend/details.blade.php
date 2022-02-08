@@ -576,10 +576,7 @@
               
             </div>
            
-           
             <div class="errorcompare" style="display:none;"></div>
-            
-            
             
             <!--#endregion-->
             <!--#region BreadcrumbList-->

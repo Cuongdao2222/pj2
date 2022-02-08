@@ -33,6 +33,216 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <style type="text/css">
+            .product_list_cart {
+            display: flex;
+            /*padding: 10px;*/
+            margin-bottom: 20px;
+        }
+
+        .product_list_cart .cart_col_3 {
+            width: 36%;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .modal-content{
+            width: 659px;
+        }
+
+        .product_list_cart .col_price {
+            color: #c10017;
+        }
+
+        .product_list_cart .col_input input, .product_list_cart .col_input a {
+            width: 35px;
+            height: 30px;
+            text-align: center;
+            display: inline-block;
+            border: 1px solid #ccc;
+            line-height: 30px;
+            float: right;
+            margin-right: -1px;
+            background-color: transparent;
+        }
+        .cart_col_1{
+            width: 20%;
+        }  
+        .total-cart-price, .cart-foot span{
+            color: #c10017;
+            font-weight: bold;
+        }
+
+        .ng_ml {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .ng_ml label {
+            padding-left: 20px;
+            cursor: pointer;
+        }
+
+        .ng_ml label:before {
+            content: "\f00c";
+            font-weight: 900;
+            font-family: Font Awesome\ 5 Free;
+            max-width: 16px;
+            width: 100%;
+            height: 16px;
+            line-height: 14px;
+            border: 1px solid #777777;
+            text-align: center;
+            border-radius: 3px;
+            color: #fff;
+            vertical-align: 1px;
+            margin-right: 5px;
+            position: absolute;
+            left: 0;
+        }
+
+        .cart-foot {
+            padding: 0 10px 20px;
+            border-bottom: 1px solid #a4a4a4;
+            margin-bottom: 10px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        .btn-add-cart {
+            margin-top: 10px;
+            color: #fff;
+            font-size: 14px;
+            padding: 8px 5px;
+            line-height: 18px;
+            width: 100%;
+            border-radius: 5px;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            background: #e11b1e;
+            background: -webkit-linear-gradient(#f52f32,#e11b1e);
+            background: -o-linear-gradient(#f52f32,#e11b1e);
+            background: -moz-linear-gradient(#f52f32,#e11b1e);
+            background: linear-gradient(#f52f32,#e11b1e);
+            border: solid 1px #e11b1e;
+            }
+
+            .installment-purchase a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            padding: 8px 5px;
+            line-height: 18px;
+            width: 49%;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            background: #ffde00;
+            }
+            .add-to-cart {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            }
+
+            .prod-info h1 {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+
+            .prod-info input{
+                width: 50px;
+                height: 37px;
+                text-align: center;
+                border: 1px solid #ddd;
+                margin: 0;
+                padding: 0;
+            }
+
+            .prod-info .btn-buy{
+                display: inline-block;
+                height: 35px;
+                line-height: 35px;
+                padding: 0 10px 0 10px;
+                color: #fff;
+                border-bottom: 2px solid #a80000;
+                background-color: #fc3f3f;
+                background-image: -moz-linear-gradient(center top , #fc3f3f, #d91c1c);
+                background-image: -webkit-linear-gradient(top,#fc3f3f,#d91c1c);
+            }
+
+            .c3_box .title_box_cart {
+                font-weight: 500;
+                font-size: 20px;
+                padding: 8px 15px;
+            }
+
+            .c3_box .item-form {
+                padding: 5px 15px;
+            }
+
+            .option-group .step_option {
+                float: left;
+                cursor: pointer;
+                text-align: left;
+                margin-bottom: 0px;
+                width: auto!important;
+                margin-right: 25px;
+              
+            }
+
+            .st_opt {
+                display: block;
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+                float: left;
+                border: 1px solid #b2b2b2;
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+
+            .st_opt_active {
+                background: #0e76bd;
+            }
+
+            .c3_box input {
+                display: block;
+                padding: 9px 0;
+                height: 35px;
+                border: 1px solid #d9d9d9;
+                border-radius: 4px;
+                margin: 10px 0 5px;
+                text-indent: 10px;
+                width: 100%;
+            }
+
+            .c3_box textarea {
+                display: block;
+                padding: 9px 0;
+                height: 105px;
+                border: 1px solid #d9d9d9;
+                border-radius: 4px;
+                margin: 10px 0 5px;
+                text-indent: 10px;
+                width: 100%;
+                outline: none;
+            }
+
+            .ng_ml input {
+                position: absolute;
+               /* height: 100%;
+                padding: 0;
+                margin: 0;*/
+                visibility: hidden;
+            }
+
+
+        </style>
+
 
         @stack('style')
         
@@ -70,11 +280,12 @@
                     <?php
                         $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
 
+
                         $number_cart = count($cart);
 
                         $active_cart =  count($cart)>0?'active':'';
                      ?>   
-                    <a id="cart-box" href="/cart" class="header__cart {{ $active_cart }}">
+                    <a id="cart-box" href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
 
                     <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
                     <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
@@ -94,6 +305,9 @@
                     }
                     .header__cart{
                         position: relative;
+                    }
+                    .cart_col_2{
+                        width: 44%;
                     }
 
                     </style>
@@ -809,6 +1023,203 @@
 
         @yield('content')
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thông tin giỏ hàng</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="tbl_list_carts">
+                            
+                        </div>
+
+                        <div class="c3_col_1">
+                            <div class="c3_box">
+                                <div class="title_box_cart"> Thông tin khách hàng</div>
+                                <div class="item-form">
+                                    <div class="option-group clearfix">
+                                        <div class="step_option">
+                                            <span class="st_opt st_opt_active" data-value="Anh" data-name="sex"></span><span>Anh</span>
+                                        </div>
+                                        <div class="step_option">
+                                            <span class="st_opt" data-value="Chị" data-name="sex"></span><span>Chị</span>
+                                        </div>
+                                        <input type="hidden" name="sex" value="Nam">
+                                    </div>
+                                    <!--option-group-->
+                                </div>
+                                <div class="item-form" style="width: 50%;display: inline-block;">
+                                    <input type="text" name="user_info[name]" id="buyer_name" value="" placeholder="Họ tên">
+                                </div>
+                                <div class="item-form" style="width: 49%;display: inline-block;">
+                                    <input type="text" name="user_info[tel]" id="buyer_tel" value="" placeholder="Số điện thoại">
+                                </div>
+                                <div class="item-form">
+                                    <input type="text" name="user_info[email]" id="buyer_email" value="" placeholder="Email">
+                                </div>
+                                <div class="item-form">
+                                    <textarea name="user_info[address]" placeholder="Địa chỉ" id="buyer_address"></textarea>
+                                </div>
+                                <div class="item-form" style="width: 50%;display: inline-block;color: #0083d1;">
+                                    <select name="user_info[province]" class="form-control" id="ship_to_province" onchange="getDistrict(this.value)">
+                                        <option value="0">--Lựa chọn--</option>
+                                        <option value="1">Hà nội</option>
+                                        <option value="2">TP HCM</option>
+                                        <option value="5">Hải Phòng</option>
+                                        <option value="4">Đà Nẵng</option>
+                                        <option value="6">An Giang</option>
+                                        <option value="7">Bà Rịa-Vũng Tàu</option>
+                                        <option value="13">Bình Dương</option>
+                                        <option value="15">Bình Phước</option>
+                                        <option value="16">Bình Thuận</option>
+                                        <option value="14">Bình Định</option>
+                                        <option value="8">Bạc Liêu</option>
+                                        <option value="10">Bắc Giang</option>
+                                        <option value="9">Bắc Kạn</option>
+                                        <option value="11">Bắc Ninh</option>
+                                        <option value="12">Bến Tre</option>
+                                        <option value="18">Cao Bằng</option>
+                                        <option value="17">Cà Mau</option>
+                                        <option value="3">Cần Thơ</option>
+                                        <option value="24">Gia Lai</option>
+                                        <option value="25">Hà Giang</option>
+                                        <option value="26">Hà Nam</option>
+                                        <option value="27">Hà Tĩnh</option>
+                                        <option value="30">Hòa Bình</option>
+                                        <option value="28">Hải Dương</option>
+                                        <option value="29">Hậu Giang</option>
+                                        <option value="31">Hưng Yên</option>
+                                        <option value="32">Khánh Hòa</option>
+                                        <option value="33">Kiên Giang</option>
+                                        <option value="34">Kon Tum</option>
+                                        <option value="35">Lai Châu</option>
+                                        <option value="38">Lào Cai</option>
+                                        <option value="36">Lâm Đồng</option>
+                                        <option value="37">Lạng Sơn</option>
+                                        <option value="39">Long An</option>
+                                        <option value="40">Nam Định</option>
+                                        <option value="41">Nghệ An</option>
+                                        <option value="42">Ninh Bình</option>
+                                        <option value="43">Ninh Thuận</option>
+                                        <option value="44">Phú Thọ</option>
+                                        <option value="45">Phú Yên</option>
+                                        <option value="46">Quảng Bình</option>
+                                        <option value="47">Quảng Nam</option>
+                                        <option value="48">Quảng Ngãi</option>
+                                        <option value="49">Quảng Ninh</option>
+                                        <option value="50">Quảng Trị</option>
+                                        <option value="51">Sóc Trăng</option>
+                                        <option value="52">Sơn La</option>
+                                        <option value="53">Tây Ninh</option>
+                                        <option value="56">Thanh Hóa</option>
+                                        <option value="54">Thái Bình</option>
+                                        <option value="55">Thái Nguyên</option>
+                                        <option value="57">Thừa Thiên-Huế</option>
+                                        <option value="58">Tiền Giang</option>
+                                        <option value="59">Trà Vinh</option>
+                                        <option value="60">Tuyên Quang</option>
+                                        <option value="61">Vĩnh Long</option>
+                                        <option value="62">Vĩnh Phúc</option>
+                                        <option value="63">Yên Bái</option>
+                                        <option value="19">Đắk Lắk</option>
+                                        <option value="22">Đồng Nai</option>
+                                        <option value="23">Đồng Tháp</option>
+                                        <option value="21">Điện Biên</option>
+                                        <option value="20">Đăk Nông</option>
+                                    </select>
+                                </div>
+                                <div id="district-holder-login" style="width: 49%;display: inline-block;color: #0083d1;"></div>
+                                <div id="ajxTaxInvoice" class="item-form">
+                                    <div class="ng_ml">
+                                        <input type="checkbox" onclick="showTap('pnlTaxInvoice')" name="chkTaxInvoice" id="chkTaxInvoice">
+                                        <label id="bale_ml" for="chkTaxInvoice">Xuất hóa đơn công ty</label>
+                                    </div>
+                                    <div style="width: 100%; margin-top:10px; padding: 0px;display: none;" id="pnlTaxInvoice">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="120" align="left">Công ty/Tổ chức:
+                                                    </td>
+                                                    <td align="left">
+                                                        <input type="text" id="txtTaxName" value="" size="50" name="user_info[tax_company]">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="120" align="left">Địa chỉ:
+                                                    </td>
+                                                    <td align="left">
+                                                        <input type="text" id="txtTaxAddress" value="" size="50" name="user_info[tax_address]">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="120" align="left">Mã số thuế:
+                                                    </td>
+                                                    <td align="left">
+                                                        <input type="text" id="txtTaxCode" name="user_info[tax_code]" value="">
+                                                        <span class="cmt" id="txtTaxCodeView">&nbsp;</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--ajxTaxInvoice-->
+                                <div class="item-form">
+                                    <h4 style="font-size:15px; margin-top:20px;">Hình thức thanh toán:</h4>
+                                    <table style="width:100%;">
+                                        <tbody>
+                                            <tr class="item-paymethod">
+                                                <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" checked="" name="pay_method" value="1" class="pay_option" id="paymethod_1"></td>
+                                                <td>
+                                                    <label for="paymethod_1">Thẻ tín dụng</label>
+                                                    <div id="pay_0" style="display:none;" class="pay_content"></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="item-paymethod">
+                                                <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" name="pay_method" value="2" class="pay_option" id="paymethod_2"></td>
+                                                <td>
+                                                    <label for="paymethod_2">Thẻ ATM nội địa</label>
+                                                    <div id="pay_1" style="display:none;" class="pay_content"></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="item-paymethod">
+                                                <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" name="pay_method" value="3" class="pay_option" id="paymethod_3"></td>
+                                                <td>
+                                                    <label for="paymethod_3">Trả tiền khi nhận hàng</label>
+                                                    <div id="pay_2" style="display:none;" class="pay_content">Trả tiền khi nhận hàng</div>
+                                                </td>
+                                            </tr>
+                                            <tr class="item-paymethod">
+                                                <td><input type="radio" style="width:initial; padding:0; margin:0; height:auto;" name="pay_method" value="4" class="pay_option" id="paymethod_4"></td>
+                                                <td>
+                                                    <label for="paymethod_4">Thanh toán trả góp qua Alepay (Qua thẻ Visa, Master, JCB)</label>
+                                                    <div id="pay_3" style="display:none;" class="pay_content"></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Đặt hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <!--  Endmodal -->
+
         <footer class="footer">
             <section class="clearfix footer__top">
                 <div class="footer__col">
@@ -925,6 +1336,37 @@
     <script src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201141000.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     @stack('script')
+    <script type="text/javascript">
+        
+         $("#exampleModal").on("hidden.bs.modal", function () {
+            $('#tbl_list_carts').html('');
+        });
+
+         function showToCart() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('showCart') }}",
+                   
+                    success: function(result){
+                      
+                       // numberCart = result.find("#number-product-cart").text();
+
+                        $('#tbl_list_carts').append(result);
+
+                       
+                        $('#exampleModal').modal('show'); 
+                        
+                    }
+                });
+                
+            }
+    </script>
       
     </body>
 </html>

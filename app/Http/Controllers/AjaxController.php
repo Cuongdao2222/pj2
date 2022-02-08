@@ -120,9 +120,25 @@ class AjaxController extends Controller
 
         return view('Frontend.ajax.cart', compact('data_cart'));
        
+    }
 
+    public function removeProductCart(Request $request)
+    {
+
+        $id = $request->product_id;
        
+        Cart::remove($id);
 
+        $data_cart = Cart::content();
+
+        return view('Frontend.ajax.cart', compact('data_cart'));
+    }
+
+    public function showProductCart(Request $request)
+    {
+        $data_cart = Cart::content();
+
+        return view('Frontend.ajax.cart', compact('data_cart'));
     }
 }
 

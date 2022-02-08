@@ -29,6 +29,10 @@ Auth::routes(['verify' => true]);
 
 Route::post('add-cart', 'AjaxController@addProductToCart')->name('cart');
 
+Route::post('remove-cart', 'AjaxController@removeProductCart')->name('removeCart');
+
+Route::post('show-cart', 'AjaxController@showProductCart')->name('showCart');
+
 Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 
 Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->middleware('auth');

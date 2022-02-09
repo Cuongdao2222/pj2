@@ -16,6 +16,13 @@ Route::get('/', function () {
     return view('frontend.index');
 })->middleware('auth');
 
+Route::get('/order', function () {
+    return view('order.index');
+
+});
+
+
+
 Route::get('/cache-clear', function () {
      \Artisan::call('cache:clear');
       \Artisan::call('config:clear');
@@ -45,6 +52,8 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->m
 
 
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
+
+    Route::get('order', 'Frontend\orderController@orderList');
 
     Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
 
@@ -82,6 +91,8 @@ Route::post(
     Route::post('find-product', 'productController@FindbyNameOrModel')->name('find-product');
 
     Route::get('category/{category_id}', 'productController@selectProductByCategory')->name('select-category');
+
+
 
     //ajax
 

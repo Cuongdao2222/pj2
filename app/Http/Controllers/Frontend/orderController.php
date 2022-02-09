@@ -30,7 +30,6 @@ class orderController extends Controller
             $carts[$key]['qty'] = $data->qty;
         }
 
-        
         $input = $request->all();
 
         $input['orderId'] = $carts[0]['orderId'];
@@ -58,6 +57,14 @@ class orderController extends Controller
 
         echo "thanh cong";
     
+
+    }
+
+    public function orderList()
+    {
+        $order = Order::orderBy('id','desc')->paginate(10);
+
+        return view('order.index', compact('order')); 
 
     }
    

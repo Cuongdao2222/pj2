@@ -1066,13 +1066,13 @@
                                     <!--option-group-->
                                 </div>
                                 <div class="item-form" style="width: 50%;display: inline-block;">
-                                    <input type="text" name="name" id="buyer_name" value="" placeholder="Họ tên">
+                                    <input type="text" name="name" id="buyer_name" placeholder="Họ tên">
                                 </div>
                                 <div class="item-form" style="width: 49%;display: inline-block;">
-                                    <input type="text" name="tel" id="buyer_tel" value="" placeholder="Số điện thoại">
+                                    <input type="text" name="phone_number" id="buyer_tel" value="" placeholder="Số điện thoại">
                                 </div>
                                 <div class="item-form">
-                                    <input type="text" name="email" id="buyer_email" value="" placeholder="Email">
+                                    <input type="text" name="mail" id="buyer_email" value="" placeholder="Email">
                                 </div>
                                 <div class="item-form">
                                     <textarea name="address" placeholder="Địa chỉ" id="buyer_address"></textarea>

@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Order;
+
+use Mail;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class orderController extends Controller
 {
-
-
-
 
     public function orderProduct(Request $request)
     {
@@ -23,6 +23,7 @@ class orderController extends Controller
 
         foreach($cart as $data){
             $key++;
+            $carts[$key]['orderId'] = $data->rowId;
             $carts[$key]['id'] = $data->id;
             $carts[$key]['price'] = $data->price;
             $carts[$key]['name'] = $data->name;
@@ -32,10 +33,36 @@ class orderController extends Controller
         
         $input = $request->all();
 
-        dd($input);
+        $input['orderId'] = $carts[0]['orderId'];
 
-        
-       
+        $carts = json_encode($carts);
+
+        $input['product'] = $carts;
+
+        $mail =  $input["mail"];
+
+        // $order = new Order();
+
+        // $order::create($input);
+
+        $GLOBALS['mail'] = $input["mail"];
+
+        $success = Mail::send('Frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
+            $message->to($GLOBALS['mail'], 'Visitor')->subject('Visitor Feedback!');
+        });
+
+        unset($GLOBALS['mail']);
+
+        if (!$success) {
+            $errorMessage = $message;
+
+            echo $errorMessage;
+        }
+        else{
+            echo "thanh cong";
+        }
+
+
     }
    
 }

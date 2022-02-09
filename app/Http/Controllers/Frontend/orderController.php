@@ -41,9 +41,9 @@ class orderController extends Controller
 
         $mail =  $input["mail"];
 
-        // $order = new Order();
+        $order = new Order();
 
-        // $order::create($input);
+        $order::create($input);
 
         $GLOBALS['mail'] = $input["mail"];
 
@@ -53,15 +53,11 @@ class orderController extends Controller
 
         unset($GLOBALS['mail']);
 
-        if (!$success) {
-            $errorMessage = $message;
+        // khi mua thành công thì xóa giỏ hàng
+        Cart::destroy();
 
-            echo $errorMessage;
-        }
-        else{
-            echo "thanh cong";
-        }
-
+        echo "thanh cong";
+    
 
     }
    

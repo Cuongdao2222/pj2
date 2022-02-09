@@ -47,7 +47,7 @@ class orderController extends Controller
 
         $GLOBALS['mail'] = $input["mail"];
 
-        $success = Mail::send('Frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
+        $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
             $message->to($GLOBALS['mail'], 'Visitor')->subject('Visitor Feedback!');
         });
 

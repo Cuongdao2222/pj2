@@ -249,7 +249,7 @@
 
         $.ajax({
             type: 'POST',
-            url: "{{ route('cart') }}",
+            url: "{{ route('add-active-confirm') }}",
             data: {
                 value: value,
                 id:id,

@@ -20,6 +20,8 @@ class CreateOrderTable extends Migration
             $table->text('name');
             $table->text('phone_number');
             $table->text('total_price');
+            $table->integer('active')->default(0);
+            $table->interger('user_active')->nullable();
             $table->longText('address');
             $table->longText('orderId');
             $table->timestamps();

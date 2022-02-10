@@ -31,6 +31,7 @@ class orderController extends Controller
             $carts[$key]['id'] = $data->id;
             $carts[$key]['price'] = $data->price;
             $carts[$key]['name'] = $data->name;
+            $carts[$key]['image'] = $data->image;
             $carts[$key]['qty'] = $data->qty;
             $price = (int)$data->price*(int)$data->qty;
             array_push($totalPrice, $price);
@@ -64,7 +65,7 @@ class orderController extends Controller
         // khi mua thành công thì xóa giỏ hàng
         Cart::destroy();
 
-        Session::flash('success', 'Đơn hàng được đặt thành công'); 
+        Session::flash('success', 'Mua thành công sản phẩm!'); 
 
         return redirect('/');
     
@@ -77,6 +78,16 @@ class orderController extends Controller
 
         return view('order.index', compact('order')); 
 
+    }
+    public function orderListView($id)
+    {
+        $order = Order::find($id);
+
+        $data_product = $order->product;
+
+        // print_r()
+
+        // return view('order.list-order');
     }
    
 }

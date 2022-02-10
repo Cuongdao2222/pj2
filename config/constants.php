@@ -2,6 +2,13 @@
 
 return [
 
+    'active' =>[
+        '0'=>'chưa xử lý',
+        '1'=>'đã xác nhận',
+        '2'=>'bỏ qua',
+
+    ],
+
     'address' => [
         0=>'Lựa chọn',
         1=>'Hà nội',

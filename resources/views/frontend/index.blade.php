@@ -327,7 +327,11 @@
         </div>
     </div>
     <!-- End -->
+    
+
+     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     @if (session('success'))
+
 
         <script type="text/javascript">
             swal({ title: '{{ session("success") }}', type: 'success' });

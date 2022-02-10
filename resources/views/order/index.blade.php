@@ -186,6 +186,7 @@
             </tr>
             <?php   
                 $address = config('constants.address');
+                $active  = config('constants.active');
 
             ?>
 
@@ -206,8 +207,7 @@
                 </td>
                 <td align="right"><b></b>{{  str_replace(',' ,'.', number_format($orders->total_price))  }}đ </td>
                 <td>
-                  
-                    Bỏ qua                            
+                    {{ $active[$orders->active] }}                           
                 </td>
                 
                 <td>

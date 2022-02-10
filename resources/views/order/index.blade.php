@@ -184,21 +184,27 @@
                 </td>
                 <td width="140px">Xem</td>
             </tr>
+            <?php   
+                $address = config('constants.address');
 
-            {{  Constant::CONSTANT   }}
+            ?>
 
+           
             @if(count($order)>0)
+            <?php $key = 0; ?>
             @foreach($order as $orders)
+            <?php $key++; ?>
             <tr id="row_5471" onmouseover="this.className='row-hover'" onmouseout="this.className=''" class="">
-                <td>1</td>
+                <td>{{ $key }}</td>
                 <td><a href="?opt=order&amp;view=detail-new&amp;o=5471&amp;b=4370&amp;popup=1" class="pop-up cboxElement">{{ $orders->orderId  }}</a></td>
-                <td>{{ $orders->created_at->format('d-m-Y, H:i:s')  }}</td>
-                <td>Hà Nam</td>
+                <td>{{ @$orders->created_at->format('d-m-Y, H:i:s')  }}</td>
+
+                <td>{{   @$address[$orders->province] }}</td>
                 <td>
 
                     <a href="?opt=order&amp;cus_id=4370">{{ $orders->sex }}: {{ $orders->name  }}</a>
                 </td>
-                <td align="right"><b>0</b></td>
+                <td align="right"><b></b>{{  str_replace(',' ,'.', number_format($orders->total_price))  }}đ </td>
                 <td>
                   
                     Bỏ qua                            

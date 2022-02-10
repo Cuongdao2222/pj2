@@ -17,7 +17,8 @@ class Order extends Model
         'phone_number',
         'address',
         'province',
-        'orderId'
+        'orderId',
+        'total_price',
     ];
 
 }

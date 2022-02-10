@@ -56,6 +56,13 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('order_list') }}"
+       class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
+        <p>Order</p>
+    </a>
+</li>
+
 <style type="text/css">
     
     .child-nav a{

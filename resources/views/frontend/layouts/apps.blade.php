@@ -1146,7 +1146,7 @@
                                     </select>
                                 </div>
                                 <div id="district-holder-login" style="width: 49%;display: inline-block;color: #0083d1;"></div>
-                                <div id="ajxTaxInvoice" class="item-form">
+                                <!-- <div id="ajxTaxInvoice" class="item-form">
                                     <div class="ng_ml">
                                         <input type="checkbox" onclick="showTap('pnlTaxInvoice')" name="chkTaxInvoice" id="chkTaxInvoice">
                                         <label id="bale_ml" for="chkTaxInvoice">Xuất hóa đơn công ty</label>
@@ -1179,7 +1179,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!--ajxTaxInvoice-->
                                 <div class="item-form">
                                     <h4 style="font-size:15px; margin-top:20px;">Hình thức thanh toán:</h4>
@@ -1352,6 +1352,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
 
     @stack('script')
@@ -1386,6 +1387,33 @@
             
         }
 
+        // check sub mit
+
+        $( "#form-sub" ).submit(function( event ) {
+
+          
+            const numberProduct =  parseInt($('#number-product-cart').text()) ;
+
+            if($('#ship_to_province').val()==0){
+
+                alert('vui lòng lựa chọn thành phố');
+                event.preventDefault();   
+
+
+            }
+            else{
+                if(numberProduct<=0){
+                    alert('không thể mua sản phẩm vì trong giỏ hàng ko có sản phẩm')
+                    event.preventDefault();
+                }
+                else{
+                     return;
+                }
+            }
+
+            
+        });
+
         $(".st_opt").bind("click", function(){
             $('.st_opt').removeClass('st_opt_active');
 
@@ -1414,12 +1442,12 @@
                         required: true,
                         maxlength: 15
                     },
-                    "tel": {
+                    "phone_number": {
                         required: true,
                          phonenu: true,
                     },
 
-                    "email": {
+                    "mail": {
                         email: true,
                         
                     },
@@ -1438,11 +1466,11 @@
                         required: "Bắt buộc nhập Họ và tên",
                         maxlength: "Hãy nhập tối đa 15 ký tự"
                     },
-                    "tel": {
+                    "phone_number": {
                         required: "Bắt buộc nhập số điện thoại",
                        
                     },
-                    "email":{
+                    "mail":{
                         email: "Email không đúng định dạng",
                     },
 

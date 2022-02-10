@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 
 use Mail;
+use Session;
+
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -19,6 +21,8 @@ class orderController extends Controller
 
         $carts = [];
 
+        $totalPrice = [];
+
         $key  = -1;
 
         foreach($cart as $data){
@@ -28,7 +32,10 @@ class orderController extends Controller
             $carts[$key]['price'] = $data->price;
             $carts[$key]['name'] = $data->name;
             $carts[$key]['qty'] = $data->qty;
+            $price = (int)$data->price*(int)$data->qty;
+            array_push($totalPrice, $price);
         }
+
 
         $input = $request->all();
 
@@ -37,6 +44,8 @@ class orderController extends Controller
         $carts = json_encode($carts);
 
         $input['product'] = $carts;
+
+        $input['total_price'] = array_sum($totalPrice);
 
         $mail =  $input["mail"];
 
@@ -55,7 +64,9 @@ class orderController extends Controller
         // khi mua thành công thì xóa giỏ hàng
         Cart::destroy();
 
-        echo "thanh cong";
+        Session::flash('success', 'Đơn hàng được đặt thành công'); 
+
+        return redirect('/');
     
 
     }

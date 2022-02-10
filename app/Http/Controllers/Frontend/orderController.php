@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
+use App\Models\product;
+
 use Mail;
 use Session;
 
@@ -31,7 +33,6 @@ class orderController extends Controller
             $carts[$key]['id'] = $data->id;
             $carts[$key]['price'] = $data->price;
             $carts[$key]['name'] = $data->name;
-            $carts[$key]['image'] = $data->image;
             $carts[$key]['qty'] = $data->qty;
             $price = (int)$data->price*(int)$data->qty;
             array_push($totalPrice, $price);
@@ -56,9 +57,9 @@ class orderController extends Controller
 
         $GLOBALS['mail'] = $input["mail"];
 
-        $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
-            $message->to($GLOBALS['mail'], 'Visitor')->subject('Visitor Feedback!');
-        });
+        // $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
+        //     $message->to($GLOBALS['mail'], 'Visitor')->subject('Visitor Feedback!');
+        // });
 
         unset($GLOBALS['mail']);
 
@@ -81,13 +82,27 @@ class orderController extends Controller
     }
     public function orderListView($id)
     {
-        $order = Order::find($id);
+        $order = Order::findOrFail($id);
 
         $data_product = $order->product;
 
-        // print_r()
+        $data_product = json_decode($data_product);
 
-        // return view('order.list-order');
+
+        if(count($data_product)>0){
+            foreach ($data_product as $key => $value) {
+
+                $product_inf = product::find($value->id);
+
+                $data_product[$key]->image = $product_inf->Image;
+
+                $data_product[$key]->link  = $product_inf->Link;
+
+                
+            }
+        }  
+
+        return view('order.list-order', compact('data_product', 'id'));
     }
    
 }

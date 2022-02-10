@@ -48,9 +48,7 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 
-    Route::get('/order-list', function () {
-        return view('order.list-order');
-    });
+    Route::get('/order-list/{id}', 'Frontend\orderController@orderListView');
 
     Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
 
@@ -87,6 +85,7 @@ Route::post(
 
     Route::post('find-product', 'productController@FindbyNameOrModel')->name('find-product');
 
+
     Route::get('category/{category_id}', 'productController@selectProductByCategory')->name('select-category');
 
 
@@ -102,6 +101,8 @@ Route::post(
     Route::post('remove-sale-product', 'AjaxController@removeSaleProduct')->name('remove-sale-product');
 
     Route::post('check-active', 'AjaxController@checkActive')->name('check-active');
+
+     Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');
 
 });
 

@@ -211,7 +211,7 @@
                 </td>
                 
                 <td>
-                    <a href="?opt=order&amp;update_by=Hà Phương Dung">Hà Phương Dung</a>
+                    <a href="?opt=order&amp;update_by=Hà Phương Dung"></a>
                 </td>
                 <td>
                     <a href="?opt=order&amp;view=detail-new&amp;o=5471&amp;b=4370&amp;popup=1" class="pop-up cboxElement">xem chi tiết</a>

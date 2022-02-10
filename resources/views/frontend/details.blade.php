@@ -418,8 +418,8 @@
                         <div class="clearfix"></div>
                         <div>
                             <div class="pdetail-info">
-                                <p>Model: <b>{{ @$data->ProductSku  }}</b> - Mã hàng: <b>702332</b></p>
-                                <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b> - Xuất xứ: <b>Indonesia</b></p>
+                                <p>Model: <b>{{ @$data->ProductSku  }}</b></p>
+                                <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b></p>
                             </div>
 
                             <div class="scroll-box">
@@ -683,7 +683,7 @@
               
               
                 <div class="fl" style="padding:0 5px 0 0;">
-                  Model: <span class="value txt_blue">MG23K3575AS/SV</span> | 
+                  Model: <span class="value txt_blue">{{ $data->ProductSku }}</span> | 
                   
                   Tình trạng: <span class="value txt_blue">Còn hàng</span> | 
                    </div>

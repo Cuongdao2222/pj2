@@ -198,23 +198,33 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                        	@if(count($data_product)>0)
+                        	@foreach($data_product as $data)
                             <tr>
                                 <td>
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                    <span class="user-link">Mila Kunis</span>
-                                    <span class="user-subhead">Admin</span>
+                                    <img src="{{ asset(@$data->image) }}" alt="">
+                                    <span class="user-link">{{ @$data->name }}</span>
+                                    <!-- <span class="user-subhead">Admin</span> -->
                                 </td>
                                 <td>
-                                    2013/08/08
+                                    {{ $data->qty }}
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-default">Inactive</span>
+                                    <span class="label label-default">{{ $data->price }}</span>
                                 </td>
                                 <td>
-                                    <span>mila@kunis.com</span>
+                                	<select id="solving">
+                                		<option value="0">chưa xử lý</option>
+									  	<option value="1">xác nhận</option>
+									  	<option value="2">bỏ qua</option>
+									  
+									</select>
                                 </td>
                                
                             </tr>
+                            @endforeach
+                            @endif
                             
                         </tbody>
                     </table>
@@ -224,6 +234,37 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+	$('#solving').on('change', function() {
+
+		value = this.value;
+
+		id    = {{ $id }}
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('cart') }}",
+            data: {
+                value: value,
+                id:id,
+                   
+            },
+            success: function(result){
+              
+              
+                alert(result);
+            }
+        });
+    })           
+           
+	
+</script>
 
 
 @endsection

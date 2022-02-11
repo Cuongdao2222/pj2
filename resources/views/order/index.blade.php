@@ -159,35 +159,19 @@
                 <td>Người mua</td>
                 <td width="100px">Giá trị</td>
                 <td width="140px">
-                    <select style="width: 120px" id="status_id" onchange="setHiddenValue('view_status', this.value); runFilter()">
-                        <option value="0">--Xem tình trạng --</option>
-                        Xong                                    
-                        <option value="2">Xong</option>
-                        Bỏ qua                                  
-                        <option value="3">Bỏ qua</option>
-                    </select>
+                    Xem tình trạng                               
                 </td>
                
                 <td width="140px">
-                    <select style="width: 120px" onchange="setHiddenValue('update_by', this.value); runFilter()">
-                        <option>--Người thực hiện --</option>
-                        <option value="kythuat@hurasoft.com">kythuat@hurasoft.com</option>
-                        <option value="dungptvh@dienmaynguoiviet.vn">dungptvh@dienmaynguoiviet.vn</option>
-                        <option value="daovancuong@dienmaynguoiviet.vn">daovancuong@dienmaynguoiviet.vn</option>
-                        <option value="hanquyet@dienmaynguoiviet.vn">hanquyet@dienmaynguoiviet.vn</option>
-                        <option value="duycoico@dienmaynguoiviet.vn">duycoico@dienmaynguoiviet.vn</option>
-                        <option value="tahoangviet@dienmaynguoiviet.vn">tahoangviet@dienmaynguoiviet.vn</option>
-                        <option value="admin@dienmaynguoiviet.vn">admin@dienmaynguoiviet.vn</option>
-                        <option value="tram@dienmaynguoiviet.vn">tram@dienmaynguoiviet.vn</option>
-                        <option value="vankhaccuong@dienmaynguoiviet.vn">vankhaccuong@dienmaynguoiviet.vn</option>
-                    </select>
+                    
+                    Người thực hiện
+                      
                 </td>
                 <td width="140px">Xem</td>
             </tr>
             <?php   
                 $address = config('constants.address');
                 $active  = config('constants.active');
-
             ?>
 
            
@@ -206,20 +190,22 @@
                     <a href="?opt=order&amp;cus_id=4370">{{ $orders->sex }}: {{ $orders->name  }}</a>
                 </td>
                 <td align="right"><b></b>{{  str_replace(',' ,'.', number_format($orders->total_price))  }}đ </td>
-                <td>
+                <td style="text-align: center;">
                     {{ $active[$orders->active] }}                           
                 </td>
                 
-                <td>
-                    <a href="?opt=order&amp;update_by=Hà Phương Dung"></a>
+                <td style="text-align: center;">
+                   {{  @$users[$orders->user_active] }}
                 </td>
                 <td>
-                    <a href="?opt=order&amp;view=detail-new&amp;o=5471&amp;b=4370&amp;popup=1" class="pop-up cboxElement">xem chi tiết</a>
-                    - 
-                    <a href="javascript:;" onclick="delete_order('5471')">Xóa</a>
+                    <a href="{{ route('order_list_view', $orders->id) }}">xem chi tiết</a>
+                    
+                   <!--  <a href="javascript:;" onclick="delete_order('5471')">Xóa</a> -->
                 </td>
             </tr>
             @endforeach
+            {!! $order->links() !!}
+          
             @endif
             
         </tbody>

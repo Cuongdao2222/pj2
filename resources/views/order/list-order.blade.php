@@ -185,14 +185,57 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="main-box clearfix">
+
+                <select id="solving">
+                                <option value="0" {{ ($order_accept == 0)?'selected':'' }}>chưa xử lý</option>
+                                <option value="1" {{ ($order_accept == 1)?'selected':'' }}>xác nhận</option>
+                                <option value="2" {{ ($order_accept == 2)?'selected':'' }}>bỏ qua</option>
+                              
+                            </select>
+
+                            <?php
+                                $active  = config('constants.active');
+                            ?>
+
+                            {{ !empty($user)?'bởi':''}} {{ @$user }}
                 <div class="table-responsive">
+                    <table class="table user-list">
+                        <thead>
+                            <tr>
+                                <th><span>Tên khách hàng</span></th>
+                                <th><span>Email</span></th>
+                                <th><span>số điện thoại</span></th>
+                                <th class="text-center"><span>Địa chỉ</span></th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                   {{ $order->name }}
+                                </td>
+                                <td>
+                                    {{ @$order->mail }}
+                                </td>
+                                <td class="text-center">
+                                    {{ @$order->phone_number  }}
+                                </td>
+                                <td>
+                                    {{ @$order->address  }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
                     <table class="table user-list">
                         <thead>
                             <tr>
                                 <th><span>Sản phẩm</span></th>
                                 <th><span>Số lượng</span></th>
                                 <th><span>Giá</span></th>
-                                <th class="text-center"><span>Action</span></th>
+                                <th class="text-center"><span>model</span></th>
                                 
                                 <th>&nbsp;</th>
                             </tr>
@@ -204,27 +247,24 @@
                             <tr>
                                 <td>
                                     <img src="{{ asset(@$data->image) }}" alt="">
-                                    <span class="user-link">{{ @$data->name }}</span>
+                                    <span class="user-link"><a href="/{{ $data->link }}">{{ @$data->name }}</a>  </span>
                                     <!-- <span class="user-subhead">Admin</span> -->
                                 </td>
                                 <td>
-                                    {{ $data->qty }}
+                                    {{ @$data->qty }}
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-default">{{ $data->price }}</span>
+                                    <span class="label label-default">{{  str_replace(',' ,'.', number_format($data->price))  }}đ</span>
                                 </td>
                                 <td>
-                                	<select id="solving">
-                                		<option value="0">chưa xử lý</option>
-									  	<option value="1">xác nhận</option>
-									  	<option value="2">bỏ qua</option>
-									  
-									</select>
+                                	{{ @$data->model }}
                                 </td>
-                               
                             </tr>
                             @endforeach
                             @endif
+
+                            
+                           
                             
                         </tbody>
                     </table>
@@ -257,8 +297,8 @@
             },
             success: function(result){
               
-              
-                alert(result);
+                
+                window.location.href = window.location.href;
             }
         });
     })           

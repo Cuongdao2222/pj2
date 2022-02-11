@@ -8,6 +8,8 @@ use App\Models\Order;
 
 use App\Models\product;
 
+use App\User;
+
 use Mail;
 use Session;
 
@@ -57,9 +59,9 @@ class orderController extends Controller
 
         $GLOBALS['mail'] = $input["mail"];
 
-        // $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
-        //     $message->to($GLOBALS['mail'], 'Visitor')->subject('Visitor Feedback!');
-        // });
+        $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
+            $message->to($GLOBALS['mail'], 'Visitor')->subject('Visitor Feedback!');
+        });
 
         unset($GLOBALS['mail']);
 
@@ -77,7 +79,19 @@ class orderController extends Controller
     {
         $order = Order::orderBy('id','desc')->paginate(10);
 
-        return view('order.index', compact('order')); 
+        $user  = User::orderBy('id','asc')->get()->toArray();
+
+        $users = [];
+
+        if(count($user)>0){
+            foreach ($user as $key => $value) {
+
+                $users[$value['id']] =  $value['name'];
+                
+            }
+        }   
+
+        return view('order.index', compact('order', 'users')); 
 
     }
     public function orderListView($id)
@@ -87,6 +101,15 @@ class orderController extends Controller
         $data_product = $order->product;
 
         $data_product = json_decode($data_product);
+
+        $order_accept = $order->active;
+
+        $user = '';
+
+        if(!empty($order->user_active)){
+            $user = User::find($order->user_active);
+            $user = $user->name;
+        }
 
 
         if(count($data_product)>0){
@@ -98,11 +121,13 @@ class orderController extends Controller
 
                 $data_product[$key]->link  = $product_inf->Link;
 
+                $data_product[$key]->model = $product_inf->ProductSku;
+
                 
             }
         }  
 
-        return view('order.list-order', compact('data_product', 'id'));
+        return view('order.list-order', compact('data_product', 'id', 'order_accept', 'user', 'order'));
     }
    
 }

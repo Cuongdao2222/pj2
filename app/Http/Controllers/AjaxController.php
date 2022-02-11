@@ -173,6 +173,8 @@ class AjaxController extends Controller
 
         $order->user_active = Auth::user()->id;
 
+        $order->save();
+
         return Response('thanh cong');
 
     }

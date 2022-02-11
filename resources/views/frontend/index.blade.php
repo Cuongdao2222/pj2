@@ -306,7 +306,7 @@
    
     <!-- End -->
     <!-- Hiệu ứng ... rơi -->
-    <div class="falling-container" aria-hidden="true">
+    <!-- <div class="falling-container" aria-hidden="true">
         <div class="falling-item">
             ●
         </div>
@@ -325,7 +325,7 @@
         <div class="falling-item">
             ●
         </div>
-    </div>
+    </div> -->
     <!-- End -->
     
 

@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 
-    Route::get('/order-list/{id}', 'Frontend\orderController@orderListView');
+    Route::get('/order-list/{id}', 'Frontend\orderController@orderListView')->name('order_list_view');
 
     Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
 

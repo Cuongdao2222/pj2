@@ -1,10 +1,10 @@
 
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a href="{{ route('banners.index') }}"
        class="nav-link {{ Request::is('banners*') ? 'active' : '' }}">
         <p>Banners</p>
     </a>
-</li>
+</li> -->
 
 
 <li class="nav-item" style="display: flex; height:44px;"  >

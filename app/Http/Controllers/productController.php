@@ -216,7 +216,6 @@ class productController extends AppBaseController
 
         if(!empty($resultProduct)){
 
-            echo $resultProduct->id;
 
             $products = Product::where('id', $resultProduct->id)->paginate(10);
 
@@ -248,5 +247,30 @@ class productController extends AppBaseController
         }
 
 
+    }
+
+    public function FindbyNameOrModelOfFrontend(Request $request)
+    {
+        $clearData = trim($request->search);
+
+        $data      = $clearData;
+
+        $resultProduct = Product::select('id')->where('Name', $data)->OrWhere('ProductSku', $data)->first();
+
+        if(!empty($resultProduct)){
+
+            $products = Product::where('id', $resultProduct->id)->paginate(10);
+
+            return view('products.index')
+            ->with('products', $products);
+
+        }
+        else{
+            Flash::error('Không tìm thấy sản phẩm, vui lòng tìm kiếm lại"');
+
+            return redirect(route('products.index'));
+            
+        }
+        
     }
 }

@@ -21,7 +21,9 @@ Route::get('/cache-clear', function () {
       \Artisan::call('config:clear');
      echo "thanh cong";
 
-})->middleware('auth');;
+})->middleware('auth');
+
+Route::get('tim', 'productController@FindbyNameOrModelOfFrontend')->name('search-product-frontend');
 
 Auth::routes(['verify' => true]);
 

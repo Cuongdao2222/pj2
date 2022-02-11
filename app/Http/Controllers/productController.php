@@ -251,7 +251,7 @@ class productController extends AppBaseController
 
     public function FindbyNameOrModelOfFrontend(Request $request)
     {
-        $clearData = trim($request->search);
+        $clearData = trim($request->key);
 
         $data      = $clearData;
 
@@ -261,14 +261,17 @@ class productController extends AppBaseController
 
             $products = Product::where('id', $resultProduct->id)->paginate(10);
 
-            return view('products.index')
-            ->with('products', $products);
+    
+            return view('frontend.category')
+            ->with('data', $products);
 
         }
         else{
-            Flash::error('Không tìm thấy sản phẩm, vui lòng tìm kiếm lại"');
 
-            return redirect(route('products.index'));
+            echo "không tìm thấy sản phẩm";
+            // Flash::error('Không tìm thấy sản phẩm, vui lòng tìm kiếm lại"');
+
+           
             
         }
         

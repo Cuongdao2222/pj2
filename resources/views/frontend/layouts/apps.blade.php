@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Siêu thị Điện máy XANH - Mua bán điện tử, điện lạnh, gia dụng</title>
+        <title>sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến</title>
         <meta name="keywords" content="Siêu thị điện máy, điện tử, điện lạnh, gia dụng, đồ dùng nhà bếp, điện máy xanh" />
         <meta name="description" content="Siêu thị Điện máy Xanh mua sắm thiết bị điện tử điện lạnh, gia dụng, sản phẩm công nghệ. Mua online tại dienmayxanh.com giá tốt phục vụ chuyên nghiệp tận tâm." />
         <meta property="og:title" content="Siêu thị Điện máy XANH - Mua bán điện tử, điện lạnh, gia dụng" />
@@ -279,8 +279,8 @@
                     </a>
                     <div class="bordercol"></div>
                    
-                    <form onsubmit="return suggestSearch(event);" class="header__search">
-                        <input id="skw" type="text" class="input-search" onkeyup="suggestSearch(event);" placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
+                    <form  class="header__search" method="get" action="{{ route('search-product-frontend') }}">
+                        <input id="skw" type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
                         <button type="submit">
                         <i class="icon-search"></i>
                         </button>

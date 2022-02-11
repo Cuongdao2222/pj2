@@ -23,6 +23,9 @@ Route::get('/cache-clear', function () {
 
 })->middleware('auth');
 
+Route::get('searchquery', 'productController@search')->name('test');
+
+
 Route::get('tim', 'productController@FindbyNameOrModelOfFrontend')->name('search-product-frontend');
 
 Auth::routes(['verify' => true]);

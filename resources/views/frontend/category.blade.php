@@ -201,7 +201,10 @@
                                         </div>
                                     </div>
                                     <div class="show-total-item  count-item">
-                                        <p class="show-total-txt">K&#xED;ch c&#x1EE1; m&#xE0;n h&#xEC;nh</p>
+                                        <select class="form-control">
+                                            <option>Kích cỡ màn hình</option>
+                                        </select>
+                                        <p class="show-total-txt">Kích cỡ màn hình</p>
                                         <div class="filter-list filter-list--kich-co-man-hinh  props">
                                             <a href="tivi?g=32-inch" data-smooth="0" data-id="43170" class="c-btnbox ">32 inch</a>
                                             <a href="tivi?g=40-inch" data-smooth="0" data-id="43356" class="c-btnbox ">40 inch</a>
@@ -476,6 +479,25 @@
                                 </div>
                             </div>
                         </div>
+
+                        <style type="text/css">
+                            
+                            .button-search{
+                                background-color: #fff;
+                                border: 1px solid #e0e0e0;
+                                border-radius: 4px;
+                                cursor: pointer;
+                                padding: 8px 10px;
+                                display: block !important;
+                            }
+                        </style>
+
+                        <div class="filter-item button-search block-manu ">
+                            <div class="filter-item__title jsTitle">
+                                
+                                <span>Tìm kiếm</span>
+                            </div>
+                        </div>    
                     </div>
                 </div>
                <!--  <div class="box-quicklink  block-scroll-main">
@@ -508,8 +530,9 @@
         </div>
         <section id="categoryPage" class="desktop" data-id="1942" data-name="Tivi" data-template="cate">
             <div class="box-sort ">
+                 @if(count($data)>0)
                 <p class="sort-total"><b>153</b> Tivi <strong class="manu-sort"></strong></p>
-               
+                @endif
                 <div class="sort-select ">
                     <p class="click-sort">Xếp theo: <span class="sort-show">N&#x1ED5;i b&#x1EAD;t</span></p>
                     <div class="sort-select-main sort ">
@@ -573,6 +596,9 @@
                     </li>
                     @endif
                     @endforeach
+
+                    @else
+                    <h2>Không tìm thấy sản phẩm</h2>
                     @endif
                 </ul>
                 <!-- <div class="view-more ">

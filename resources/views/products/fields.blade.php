@@ -181,4 +181,11 @@
 
     CKEDITOR.replace('content-2');
 
+    $(document).ready(function()
+    {
+        $(window).bind("beforeunload", function() { 
+            return confirm("Do you really want to close?"); 
+        });
+    });
+
 </script>

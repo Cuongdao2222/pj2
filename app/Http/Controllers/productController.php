@@ -267,13 +267,22 @@ class productController extends AppBaseController
 
         }
         else{
-
-            echo "không tìm thấy sản phẩm";
+            $data = [];
+            return view('frontend.category', compact('data'));
             // Flash::error('Không tìm thấy sản phẩm, vui lòng tìm kiếm lại"');
 
            
             
         }
         
+    }
+
+    public function search()
+    {
+        $array['ProductSku'] = 'UA50AU9000KXXVS';
+
+        $array['Price'] = '500';
+        $search = product::where($array)->get();
+        print_r($search);
     }
 }

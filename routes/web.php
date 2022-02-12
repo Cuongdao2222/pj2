@@ -101,10 +101,9 @@ Route::post(
 
     Route::post('find-product', 'productController@FindbyNameOrModel')->name('find-product');
 
-
     Route::get('category/{category_id}', 'productController@selectProductByCategory')->name('select-category');
 
-
+    Route::resource('filters', 'filterController');
 
     //ajax
 
@@ -121,6 +120,8 @@ Route::post(
      Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');
 
 });
+
+
 
 
 

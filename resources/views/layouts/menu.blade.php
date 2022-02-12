@@ -91,3 +91,11 @@
 
 
 
+<li class="nav-item">
+    <a href="{{ route('filters.index') }}"
+       class="nav-link {{ Request::is('filters*') ? 'active' : '' }}">
+        <p>Filters</p>
+    </a>
+</li>
+
+

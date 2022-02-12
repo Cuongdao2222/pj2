@@ -39,3 +39,5 @@ Route::resource('makers', 'makerAPIController');
 Route::resource('products', 'productAPIController');
 
 Route::resource('images', 'imageAPIController');
+
+Route::resource('filters', 'filterAPIController');

@@ -102,68 +102,7 @@
         <input type="hidden" name="list_att_add_value" id="list_att_add_value" value=";">
         <input type="hidden" name="noattr" value="">
         <input type="hidden" name="update" value="yes">
-        <script type="text/javascript">
-            var $use_att_value = $('#use_att_value');
-            var $use_att_value_filter = $('#use_att_value_filter');
-            console.log("use_att_value = " + $use_att_value.val());
-            console.log("use_att_value_filter = " + $use_att_value_filter.val());
-            
-            function useThis(attId, attVaId, is_filter){
-            
-            	var attr_list 			= $use_att_value.val().split(";");
-            	var attr_filter_list 	= $use_att_value_filter.val().split(";");
-            	var check = document.getElementById('attributeValue_'+ attId + "_" + attVaId).checked;
-            
-            	console.log("attr_list = " + attr_list);
-            
-            	if(check){
-            		attr_list.push(attVaId);
-            		if(is_filter == 1) attr_filter_list.push(attVaId);
-            	}else{
-            		console.log("remove = " + attVaId);
-            		removeValue(attr_list, attVaId);
-            		if(is_filter == 1) removeValue(attr_filter_list, attVaId);
-            	}
-            
-            	console.log("attr_list = " + attr_list);
-            
-            	$use_att_value.val(attr_list.join(";"));
-            	$use_att_value_filter.val(attr_filter_list.join(";"));
-            
-            	//console.log("use_att_value = " + $use_att_value.val());
-            	//console.log("use_att_value_filter = " + $use_att_value_filter.val());
-            	//alert($('#use_att_value').val() + " = " + $('#use_att_value_filter').val());
-            
-            	function removeValue(arr, item) {
-            		var index = -1;
-            		arr.forEach(function (v, i) {
-            			if(v == item) index = i
-            		})
-            		console.log("index = " + index);
-            
-            		if (index !== -1) arr.splice(index, 1);
-            	}
-            
-            	function hasValue(arr, item) {
-            		return arr.includes(item)
-            	}
-            }
-            
-            
-            
-            function alert_value_add(att_id){
-            	var attr_list = $('#list_att_add_value').val();
-            	var check_content = $('#add_value_to_attr_'+att_id).val();
-            	if(check_content.length > 1){
-            		if(attr_list.indexOf(';' + att_id + ';') < 0) {
-            			document.getElementById('list_att_add_value').value = attr_list + att_id + ';';
-            		}
-            	}else{
-            		document.getElementById('list_att_add_value').value = attr_list.replace(';' + att_id + ';',';');	
-            	}
-            	//alert($('#list_att_add_value').val());
-            }
-        </script>
+        
     </form>
     
 </div>

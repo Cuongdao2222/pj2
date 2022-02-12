@@ -16,6 +16,17 @@ Route::get('/', function () {
     return view('frontend.index');
 })->middleware('auth');
 
+Route::get('/filter', function () {
+    return view('filter.index');
+});
+
+Route::get('/add-property-filter', function () {
+    return view('filter.add-property');
+});
+
+
+
+
 Route::get('/cache-clear', function () {
      \Artisan::call('cache:clear');
       \Artisan::call('config:clear');

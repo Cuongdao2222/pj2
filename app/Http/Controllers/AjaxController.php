@@ -144,7 +144,7 @@ class AjaxController extends Controller
     {
         $data_cart = Cart::content();
 
-        return view('Frontend.ajax.cart', compact('data_cart'));
+        return view('frontend.ajax.cart', compact('data_cart'));
     }
 
     public function addProductToCartByNumber(Request $request)

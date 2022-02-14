@@ -22,7 +22,7 @@
                             <i class="far fa-edit"></i>
                         </a>
 
-                        <a href="/filter"
+                        <a href="/filter?group-product={{ $groupProduct->id }}"
                            class='btn btn-default btn-xs'>
                             <i class="fa fa-filter"></i>
                         </a>

@@ -205,7 +205,6 @@
             </tr>
             @endforeach
             {!! $order->links() !!}
-          
             @endif
             
         </tbody>

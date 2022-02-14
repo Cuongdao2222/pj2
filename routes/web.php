@@ -18,11 +18,11 @@ Route::get('/', function () {
 
 Route::get('/filter', function () {
     return view('filter.index');
-});
+})->name('filter-property');
 
 Route::get('/add-property-filter', function () {
     return view('filter.add-property');
-});
+})->name('add-property-filter');
 
 
 
@@ -119,7 +119,11 @@ Route::post(
 
      Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');
 
+     Route::resource('properties', 'propertyController');
+
 });
+
+
 
 
 

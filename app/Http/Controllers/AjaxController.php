@@ -179,6 +179,11 @@ class AjaxController extends Controller
 
     }
 
+    public function addValueSelec($value='')
+    {
+        // code...
+    }
+
 
 }
 

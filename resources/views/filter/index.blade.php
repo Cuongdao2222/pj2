@@ -48,7 +48,7 @@
                                     <tr>
                                         @if(count($property)>0)
                                         @foreach($property as $propertys)
-                                        <td valign="top"><span><input type="checkbox" id="attributeValue_94_508" onclick="useThis(94,508, '1')"> <label for="attributeValue_94_508">{{ $propertys->name }}</label></span><br></td>
+                                        <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $propertys->id }}')"> <label for="code">{{ $propertys->name }}</label></span><br></td>
                                         @endforeach
                                         @endif
                                     </tr> 
@@ -76,15 +76,48 @@
         <br>
         
         <br>
-        <input type="hidden" id="use_att_value" name="use_att_value" value="506;511">
+        <!-- <input type="hidden" id="use_att_value" name="use_att_value" value="506;511">
         <input type="hidden" name="old_att_value" value="506;511">
         <input type="hidden" id="use_att_value_filter" name="use_att_value_filter" value=";">
         <input type="hidden" name="old_att_value_filter" value=";">
         <input type="hidden" name="list_att_add_value" id="list_att_add_value" value=";">
         <input type="hidden" name="noattr" value="">
-        <input type="hidden" name="update" value="yes">
+        <input type="hidden" name="update" value="yes"> -->
         
     </div>
+
+    <script type="text/javascript">
+        function useThis(productId) {
+
+            var checked = $('#attributeValue_'+productId).is(':checked'); 
+
+             $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            if(checked == true){
+
+                $.ajax({
+           
+                    type: 'POST',
+                    url: "{{ route('check-active') }}",
+                    data: {
+                        product_id: productId,
+                        active:active
+                           
+                    },
+                    success: function(result){
+                        console.log(result);
+                    }
+                });
+                
+                
+            }
+        }
+
+    </script>
     
 </div>
 

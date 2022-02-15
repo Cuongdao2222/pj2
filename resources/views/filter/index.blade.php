@@ -7,7 +7,8 @@
     <div id="action-links">
        
     </div>
-    <h3 align="center">Tủ mát đứng Sanaky VH-1209HP2 2 cửa lùa (ID: 4444)</h3>
+
+    <h3 align="center">lọc thông số sản phẩm</h3>
     <!-- <ul id="tabnav">
         <li><a href="javascript:void(0)" onclick="switchTab('sell_product.php?id=4444&amp;view=basic&amp;l=vn&amp;popup=1')">Cơ bản</a></li>
         <li><a href="javascript:void(0)" onclick="switchTab('sell_product.php?id=4444&amp;view=product-category&amp;l=vn&amp;popup=1')">Danh mục</a></li>
@@ -37,7 +38,7 @@
                 @foreach($filter as $filters)
                 <tr>
                     <?php  
-
+                        $arr_value = json_decode($filters->value,true);
                         $property = App\Models\property::where('filterId', $filters->id)->get();
                     ?>
                     <td width="120px"><b>{{ $filters->name }}</b><br>Tu_Mat_01<br><span style="color:red">Dùng là bộ lọc</span></td>
@@ -47,8 +48,23 @@
                                 <tbody>
                                     <tr>
                                         @if(count($property)>0)
+
+                                        <?php  
+                                            $product_id = $_GET['productId'];
+
+
+                                        ?>
+
                                         @foreach($property as $propertys)
-                                        <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $propertys->id }}')"> <label for="code">{{ $propertys->name }}</label></span><br></td>
+
+                                        <?php
+
+                                            $search_arr = $filters->value;
+
+                                            
+
+                                        ?>
+                                        <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $product_id }}',  '{{$filters->id}}', '{{ $propertys->id }}')" {{!empty($arr_value[$propertys->id])?'checked':'' }}> <label for="code">{{ $propertys->name }}</label></span><br></td>
                                         @endforeach
                                         @endif
                                     </tr> 
@@ -87,9 +103,9 @@
     </div>
 
     <script type="text/javascript">
-        function useThis(productId) {
+        function useThis(product_id, filterId, property_id) {
 
-            var checked = $('#attributeValue_'+productId).is(':checked'); 
+            const checked = $('#attributeValue_'+property_id).is(':checked'); 
 
              $.ajaxSetup({
                 headers: {
@@ -97,24 +113,28 @@
                 }
             });
 
-            if(checked == true){
+            check = 0;
 
-                $.ajax({
-           
-                    type: 'POST',
-                    url: "{{ route('check-active') }}",
-                    data: {
-                        product_id: productId,
-                        active:active
-                           
-                    },
-                    success: function(result){
-                        console.log(result);
-                    }
-                });
+            if(checked == true){
+                check  = 1;
+            } 
+            
+            $.ajax({
+       
+                type: 'POST',
+                url: "{{ route('add-value-selected-filter') }}",
+                data: {
+                    check:check,
+                    product_id: product_id,
+                    filter_id: filterId,
+                    property_id:property_id,
+                       
+                },
+                success: function(result){
+                    console.log(result);
+                }
+            });
                 
-                
-            }
         }
 
     </script>

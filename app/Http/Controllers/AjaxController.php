@@ -12,11 +12,17 @@ use App\Models\product;
 
 use App\Models\Order;
 
+use App\Models\filter;
+
+
+
 
 use Illuminate\Support\Facades\Auth;
 
 
 use Gloudemans\Shoppingcart\Facades\Cart;
+
+use DB;
 
 class AjaxController extends Controller
 {
@@ -179,9 +185,72 @@ class AjaxController extends Controller
 
     }
 
-    public function addValueSelec($value='')
+    public function addValueSelectFilter(Request $request)
     {
-        // code...
+
+        $product_id = $request->product_id;
+
+        $filterId = $request->filter_id;
+
+        $propertyId = $request->property_id;
+
+        $checked  = $request->check;
+
+        $filter   = filter::find($filterId);
+
+        $value   =  $filter->value;
+
+        $arr     = [];
+
+        if(!empty($value)){
+
+            if($checked ==1){
+
+                $arr  = json_decode($value, true);
+
+                $arr[$propertyId] = $product_id;
+
+                json_encode($arr);
+
+                $filter->value = $arr;
+
+                $filter->save();
+
+                return response('Thêm thành công');
+
+            }
+
+            // trường hợp xóa 
+
+            else{
+
+                $arr  = json_decode($value, true);
+
+                unset($arr[$propertyId]);
+
+                $filter->value = json_encode($arr);
+
+                $filter->save();
+
+                return response('xóa thành công');
+
+            }
+            
+        }
+        // trường hợp chưa có dữ liệu
+        else{
+           
+            $arr[$propertyId] =  $product_id;
+
+            $filter->value = json_encode($arr);
+
+            $filter->save();
+
+            return response('thêm thành công');
+
+        }
+
+
     }
 
 

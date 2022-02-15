@@ -24,7 +24,8 @@ class filter extends Model
     public $fillable = [
         'name',
         'code',
-        'group_product_id'
+        'group_product_id',
+        
     ];
 
     /**

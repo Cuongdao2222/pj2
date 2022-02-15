@@ -100,6 +100,12 @@
                            class='btn btn-default btn-xs'>
                             <i class="fas fa-image"></i>
                         </a>
+
+                         <a href="/filter?group-product={{ $product->Group_id }}&productId={{ $product->id }}"
+                           class='btn btn-default btn-xs'>
+                            <i class="fa fa-filter"></i>
+                        </a>
+
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}

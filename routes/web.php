@@ -62,6 +62,7 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->m
 
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
+   
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 
     Route::get('/order-list/{id}', 'Frontend\orderController@orderListView')->name('order_list_view');
@@ -106,6 +107,9 @@ Route::post(
     Route::resource('filters', 'filterController');
 
     //ajax
+
+    Route::post('add-selected-value-filter', 'AjaxController@addValueSelectFilter')->name('add-value-selected-filter');
+
 
     Route::post('add-hot-product', 'AjaxController@addHotProduct')->name('add-hot-product');
 

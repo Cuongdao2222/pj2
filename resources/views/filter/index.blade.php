@@ -7,8 +7,16 @@
     <div id="action-links">
        
     </div>
+    <?php 
 
-    <h3 align="center">lọc thông số sản phẩm</h3>
+        $product_id = $_GET['productId'];
+        if(!empty($product_id)){ 
+            $infoProduct = App\Models\product::find($product_id);
+        }    
+
+    ?>
+
+    <h3 align="center">{{ @$infoProduct->Name }} </h3>
     <!-- <ul id="tabnav">
         <li><a href="javascript:void(0)" onclick="switchTab('sell_product.php?id=4444&amp;view=basic&amp;l=vn&amp;popup=1')">Cơ bản</a></li>
         <li><a href="javascript:void(0)" onclick="switchTab('sell_product.php?id=4444&amp;view=product-category&amp;l=vn&amp;popup=1')">Danh mục</a></li>

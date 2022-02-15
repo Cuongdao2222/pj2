@@ -58,9 +58,11 @@ class filterController extends AppBaseController
 
         $filter = $this->filterRepository->create($input);
 
-        Flash::success('Filter saved successfully.');
+        return redirect()->back();
 
-        return redirect(route('filters.index'));
+        // Flash::success('Filter saved successfully.');
+
+        // return redirect(route('filters.index'));
     }
 
     /**

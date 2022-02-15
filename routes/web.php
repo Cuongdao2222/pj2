@@ -16,9 +16,9 @@ Route::get('/', function () {
     return view('frontend.index');
 })->middleware('auth');
 
-Route::get('/filter', function () {
-    return view('filter.index');
-})->name('filter-property');
+
+
+
 
 Route::get('/add-property-filter', function () {
     return view('filter.add-property');
@@ -105,6 +105,9 @@ Route::post(
     Route::get('category/{category_id}', 'productController@selectProductByCategory')->name('select-category');
 
     Route::resource('filters', 'filterController');
+
+
+    Route::get('/filter', 'Frontend\filterController@index')->name('filter-property');
 
     //ajax
 

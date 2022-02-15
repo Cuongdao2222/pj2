@@ -9,6 +9,9 @@ use App\Models\product;
 
 use App\Models\groupProduct;
 
+use App\Models\filter;
+
+
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class categoryController extends Controller
@@ -26,7 +29,11 @@ class categoryController extends Controller
         
         $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $findID->id)->get();
 
-        return view('frontend.category')->with('data', $data);
+        // $filter = DB::table('properties')->join('filters', 'properties.filterId', '=', 'filters.id')->where('filters.group_product_id', $findID->id)->select()->get();
+
+        $filter = filter::where('group_product_id', $findID->id)->select('name', 'id')->get();
+
+        return view('frontend.category', compact('data', 'filter'));
     }
 
     public function details($slug)

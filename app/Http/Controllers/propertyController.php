@@ -60,7 +60,7 @@ class propertyController extends AppBaseController
 
         Flash::success('Property saved successfully.');
 
-        return redirect(route('filter-property').'?group-product='.$input['filterId']);
+        return redirect()->back();
     }
 
     /**

@@ -45,7 +45,7 @@ class filterController extends Controller
                
             }
         }
-          print_r($keys);
+          print_r(array_values($keys));
 
         // $result = array_merge($fill[0][7], $fill[1][8]);
 

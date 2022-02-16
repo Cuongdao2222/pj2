@@ -58,7 +58,13 @@ class filterController extends Controller
             }
 
         }
-        print_r($result);
+
+        foreach ($result as  $res) {
+            foreach($res as $res1){
+                $product[] = $res1;
+            }
+        }
+        print_r($product);
         
 
         // $result = array_merge($fill[0][7], $fill[1][8]);

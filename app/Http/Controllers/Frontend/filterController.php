@@ -67,6 +67,8 @@ class filterController extends Controller
         print_r($product);
 
         print_r(count($keys));
+
+        print_r(array_count_values($product));
         
 
         // $result = array_merge($fill[0][7], $fill[1][8]);

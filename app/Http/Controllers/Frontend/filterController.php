@@ -37,11 +37,8 @@ class filterController extends Controller
 
                     $arr = json_decode($values, true);
 
-                    $keys[] = array_keys($arr)
+                    $keys[] = array_keys($arr);
 
-                   print_r(array_keys($arr));
-
-                   
                    
                 }
                

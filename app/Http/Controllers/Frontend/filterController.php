@@ -30,8 +30,9 @@ class filterController extends Controller
         if(isset($list_data_group)){
 
             foreach ($list_data_group as $key => $value) {
+
+                print_r(json_decode($value['value'], true))
                
-               $fill[] = json_decode($value['value'], true);
                
             }
         }
@@ -40,7 +41,7 @@ class filterController extends Controller
 
         // $result = array_merge($fill[0][7], $fill[1][8]);
 
-        print_r($list_data_group);
+        // print_r($list_data_group);
         
 
         // if(isset($list_data_group)){

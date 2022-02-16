@@ -61,7 +61,7 @@ class filterController extends AppBaseController
        
         // Flash::success('Filter saved successfully.');
 
-        return redirect(route('filter-property').'group-product='.$input["groupid"].'&productId='.$input["productId"]);
+        return redirect(route('filter-property').'?group-product='.$request->groupid.'&productId='.$request->productId);
     }
 
     /**

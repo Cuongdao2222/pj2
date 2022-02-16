@@ -33,7 +33,9 @@ class filterController extends Controller
 
                 foreach($value as $values){
 
-                    print_r(json_decode($values, true));
+                    $arr = json_decode($values, true);
+
+                   print_r(array_keys($arr));
 
                    
                    

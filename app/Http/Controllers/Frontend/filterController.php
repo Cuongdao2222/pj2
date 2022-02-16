@@ -54,7 +54,7 @@ class filterController extends Controller
            
             foreach($vals as $valu){
 
-                $result =  array_merge($fill[$key1][$valu]);
+                $result[] = $fill[$key1][$valu];
             }
 
         }

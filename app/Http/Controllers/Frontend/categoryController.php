@@ -23,17 +23,21 @@ class categoryController extends Controller
 
         $findID = groupProduct::where('link', $link)->first();
 
+
+
         if(empty($findID)){
             abort('404');
         }
+
+        $id_cate = $findID->id;
         
-        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $findID->id)->get();
+        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->get();
 
-        // $filter = DB::table('properties')->join('filters', 'properties.filterId', '=', 'filters.id')->where('filters.group_product_id', $findID->id)->select()->get();
+        // $filter = DB::table('properties')->join('filters', 'properties.filterId', '=', 'filters.id')->where('filters.group_product_id', $id_cate)->select()->get();
 
-        $filter = filter::where('group_product_id', $findID->id)->select('name', 'id')->get();
+        $filter = filter::where('group_product_id', $id_cate)->select('name', 'id')->get();
 
-        return view('frontend.category', compact('data', 'filter'));
+        return view('frontend.category', compact('data', 'filter', 'id_cate'));
     }
 
     public function details($slug)

@@ -47,6 +47,8 @@
                 <tr>
                     <?php  
                         $arr_value = json_decode($filters->value,true);
+
+        
                         $property = App\Models\property::where('filterId', $filters->id)->get();
                     ?>
                     <td width="120px"><b>{{ $filters->name }}</b><br>Tu_Mat_01<br><span style="color:red">Dùng là bộ lọc</span></td>
@@ -69,10 +71,8 @@
 
                                             $search_arr = $filters->value;
 
-                                            
-
                                         ?>
-                                        <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $product_id }}',  '{{$filters->id}}', '{{ $propertys->id }}')" {{!empty($arr_value[$propertys->id])?'checked':'' }}> <label for="code">{{ $propertys->name }}</label></span><br></td>
+                                        <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $product_id }}',  '{{$filters->id}}', '{{ $propertys->id }}')" {{ isset($arr_value[$propertys->id])&& in_array($product_id  ,$arr_value[$propertys->id])?'checked':'' }}> <label for="code">{{ $propertys->name }}</label></span><br></td>
                                         @endforeach
                                         @endif
                                     </tr> 

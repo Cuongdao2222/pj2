@@ -15,5 +15,47 @@ class filterController extends Controller
     {
         return view('filter.index');
     }
+
+    public function filter(Request $request)
+    {
+        $group_id = $request->group_id;
+        $filter = $request->filter;
+
+        $property = $request->property;
+    
+        $list_data_group = filter::where('group_product_id', $group_id)->whereIn('id', $filter)->select('value')->get()->toArray();
+
+        $fill = [];
+
+        if(isset($list_data_group)){
+
+            foreach ($list_data_group as $key => $value) {
+               
+               $fill[] = json_decode($value['value'], true);
+               
+            }
+        }
+
+        
+
+        $result = array_merge($fill[0][7], $fill[1][8]);
+
+        print_r($result);
+        
+
+        // if(isset($list_data_group)){
+
+        //     $result_arr = [];
+
+        //     foreach ($list_data_group as $key => $value) {
+
+        //         array_push( $result_arr,json_decode($value['value'], true));
+        //     }
+        //     print_r($result_arr);
+           
+        // }
+
+
+    }
     
 }

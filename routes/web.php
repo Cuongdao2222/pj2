@@ -24,8 +24,7 @@ Route::get('/add-property-filter', function () {
     return view('filter.add-property');
 })->name('add-property-filter');
 
-
-
+Route::post('filter-search-client', 'Frontend\filterController@filter')->name('client-search');
 
 Route::get('/cache-clear', function () {
      \Artisan::call('cache:clear');
@@ -127,6 +126,8 @@ Route::post(
      Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');
 
      Route::resource('properties', 'propertyController');
+
+
 
 });
 

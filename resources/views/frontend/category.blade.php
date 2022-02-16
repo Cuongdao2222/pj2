@@ -225,15 +225,56 @@
         </section>
         @push('script')
         <script type="text/javascript">
-            var filter = [];
+            filter = [];
+
+            propertys = [];
+            
             function mySelectHandler(filters){
+
+                property = $('#selectfilter'+filters).val();
+
+
+                // kiểm tra filter có bị trùng không xóa filter trước + xóa property cùng filter
+
+                if(filter.indexOf(filters)>-1){
+                    filter.splice(filter.indexOf(filters),1);
+                    propertys.splice(filter.indexOf(filters),1);
+                }
+
+                //chỉ lấy giá trị 
+                if(property !=0){
+
+                    filter.push(filters);
+
+                    propertys.push(property);
+
+                }
                 
+                // var filterss['code'] = property; 
 
-                // filter.push($('#selectfilter'+filters).val());
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
 
-                filter['filter'+String(filters)] = $('#selectfilter'+filters).val();
-
-                console.log(filter);
+                 $.ajax({
+       
+                type: 'POST',
+                    url: "{{ route('client-search') }}",
+                    data: {
+                        group_id:{{ $id_cate }},
+                        filter: filter,
+                        property: propertys,
+                        
+                    },
+                    success: function(result){
+                        // console.log(filter);
+                        // console.log(propertys);
+                        console.log(result);
+                        
+                    }
+                });
                 
             }
 

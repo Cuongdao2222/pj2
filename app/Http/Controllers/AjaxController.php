@@ -202,14 +202,22 @@ class AjaxController extends Controller
 
         $arr     = [];
 
+
         if(!empty($value)){
 
             if($checked ==1){
 
                 $arr  = json_decode($value, true);
 
-                $arr[$propertyId] = $product_id;
+                if(isset($arr[$propertyId])){
 
+                    $arr[$propertyId][] =   $product_id;
+                }
+                else{
+                    $arr[$propertyId]  = array($product_id);
+                }
+
+                
                 json_encode($arr);
 
                 $filter->value = $arr;
@@ -228,25 +236,38 @@ class AjaxController extends Controller
 
                 unset($arr[$propertyId]);
 
-                $filter->value = json_encode($arr);
+                if(isset($arr[$propertyId])){
 
-                $filter->save();
+                    $index_value = array_search($arr[$propertyId], $product_id);
 
-                return response('xóa thành công');
+                    if((int)$index_value>-1){
+
+                        unset($arr[$propertyId][$index_value]);
+
+                        $filter->value = json_encode($arr);
+
+                        $filter->save();
+
+                        return response('xóa thành công');
+
+                    }
+
+                }
 
             }
             
         }
         // trường hợp chưa có dữ liệu
         else{
-           
-            $arr[$propertyId] =  $product_id;
+            
+            
+            $arr[$propertyId] = array($product_id);
 
             $filter->value = json_encode($arr);
 
             $filter->save();
 
-            return response('thêm thành công');
+            return response('thêm thành công code');
 
         }
 

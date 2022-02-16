@@ -33,7 +33,7 @@ class filterController extends Controller
 
                 foreach($value as $values){
 
-                    print_r($values);
+                    print_r(json_decode($values, true));
 
                    
                    

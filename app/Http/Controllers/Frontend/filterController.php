@@ -32,10 +32,8 @@ class filterController extends Controller
             foreach ($list_data_group as $key => $value) {
 
                 foreach($value as $values){
-                    print_r($values);
+                    print_r(json_decode($values, true));
                 }
-
-                
                
                
             }

@@ -37,6 +37,8 @@ class filterController extends Controller
 
                     $arr = json_decode($values, true);
 
+                    array_push($fill, $arr);
+
                     $keys[] = array_keys($arr);
 
                    
@@ -47,12 +49,14 @@ class filterController extends Controller
         }
 
 
-        // foreach($keys as $vals){
+        foreach($keys as $key1 => $vals){
 
-        //     echo $vals[0];
+            $result[] = $fill[$key1][$vals[0]];
+
+           
              
-        // }
-        print_r($list_data_group);
+        }
+        print_r($result);
         
 
         // $result = array_merge($fill[0][7], $fill[1][8]);

@@ -38,9 +38,9 @@ class filterController extends Controller
 
         
 
-        $result = array_merge($fill[0][7], $fill[1][8]);
+        // $result = array_merge($fill[0][7], $fill[1][8]);
 
-        print_r($result);
+        print_r($list_data_group);
         
 
         // if(isset($list_data_group)){

@@ -58,11 +58,10 @@ class filterController extends AppBaseController
 
         $filter = $this->filterRepository->create($input);
 
-        return redirect()->back();
-
+       
         // Flash::success('Filter saved successfully.');
 
-        // return redirect(route('filters.index'));
+        return redirect(route('filter-property').'group-product='.$input["groupid"].'&productId='.$input["productId"]);
     }
 
     /**

@@ -32,7 +32,7 @@
     </ul> -->
     <div>
         <input type="hidden" name="current_pro_id" id="current_pro_id" value="4444">
-        <p><a href="{{ route('filters.create') }}?groupid={{ $_GET['group-product'] }}">Thêm thuộc tính sản phẩm</a></p>
+        <p><a href="{{ route('filters.create') }}?groupid={{ $_GET['group-product'] }}&productId={{ $product_id }}">Thêm thuộc tính sản phẩm</a></p>
        <!--  <p>Hoặc <a href="sell_product.php?id=4444&amp;view=spec&amp;noattr=1&amp;l=vn&amp;popup=1">Cập nhật thông số kỹ thuật không cần thuộc tính</a></p> -->
         <br>
         <table id="tb_padding" border="1" bordercolor="#CCCCCC" style="width:100%">

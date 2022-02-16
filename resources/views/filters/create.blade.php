@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    <?php  
+
+        $groupProduct = $_GET['groupid'];
+        $productId = $_GET['productId'];
+
+    ?>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -20,6 +26,8 @@
             {!! Form::open(['route' => 'filters.store']) !!}
 
             <input type="hidden" name="group_product_id" value="{{ $_GET['groupid']  }}">
+
+            <input type="hidden" name="productId" value="{{ $productId  }}">
 
             <div class="card-body">
 

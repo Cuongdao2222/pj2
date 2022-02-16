@@ -49,14 +49,16 @@ class filterController extends Controller
         }
 
 
-        // foreach($keys as $key1 => $vals){
-
-        //     $result[] = $fill[$key1][$vals[0]];
+        foreach($keys as $key1 => $vals){
 
            
-             
-        // }
-        print_r($keys);
+            foreach($vals as $valu){
+
+                $result[] = $fill[$key1][$valu];
+            }
+
+        }
+        print_r($result);
         
 
         // $result = array_merge($fill[0][7], $fill[1][8]);

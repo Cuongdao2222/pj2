@@ -46,13 +46,12 @@ class filterController extends Controller
             }
         }
 
-        print_r($keys);
 
-        // foreach($keys as $vals){
+        foreach($keys as $vals){
 
-        //     echo $vals;
+            echo $vals[0];
              
-        // }
+        }
         
 
         // $result = array_merge($fill[0][7], $fill[1][8]);

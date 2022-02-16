@@ -37,8 +37,6 @@ class filterController extends Controller
             }
         }
 
-        
-
         // $result = array_merge($fill[0][7], $fill[1][8]);
 
         // print_r($list_data_group);

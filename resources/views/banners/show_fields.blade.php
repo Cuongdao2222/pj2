@@ -4,10 +4,22 @@
     <p>{{ $banner->id }}</p>
 </div>
 
-<!-- Banner Image Field -->
+<!-- Image Field -->
 <div class="col-sm-12">
-    {!! Form::label('banner_image', 'Banner Image:') !!}
-    <p>{{ $banner->banner_image }}</p>
+    {!! Form::label('image', 'Image:') !!}
+    <p>{{ $banner->image }}</p>
+</div>
+
+<!-- Title Field -->
+<div class="col-sm-12">
+    {!! Form::label('title', 'Title:') !!}
+    <p>{{ $banner->title }}</p>
+</div>
+
+<!-- Link Field -->
+<div class="col-sm-12">
+    {!! Form::label('link', 'Link:') !!}
+    <p>{{ $banner->link }}</p>
 </div>
 
 <!-- Created At Field -->

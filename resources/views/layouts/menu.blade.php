@@ -57,6 +57,13 @@
 </li>
 
 <li class="nav-item">
+    <a href="{{ route('banners.index') }}"
+       class="nav-link {{ Request::is('banners*') ? 'active' : '' }}">
+        <p>Banner</p>
+    </a>
+</li>
+
+<li class="nav-item">
     <a href="{{ route('order_list') }}"
        class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
         <p>Order</p>

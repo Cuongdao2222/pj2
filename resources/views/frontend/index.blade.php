@@ -49,104 +49,26 @@
                 <!-- Banner chính -->
                 <aside class="homebanner">
                     <div id="sync1" class="slider-banner owl-carousel">
+                        @if(isset($banners))
+                        @foreach($banners as $value)
                         <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/flashsale" onclick="jQuery.ajax({ url: '/bannertracking?bid=49126&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2021/12/banner/690-300-690x300-20.png" alt="Xanh Giảm Tất[break]Giảm ngay 5 - 45%"  ></a>
+                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/flashsale"><img  src="{{ asset($value->image) }}" alt="{{ $value->title }}"  ></a>
                         </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/gia-dung" onclick="jQuery.ajax({ url: '/bannertracking?bid=49471&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300-4.png" alt="2022 - JA - Gia dung chung 690*300"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/tu-lanh" onclick="jQuery.ajax({ url: '/bannertracking?bid=49144&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/690-300(1)-690x300-1.png" alt="Rinh Tủ Lạnh[break]Giảm Đến 22%"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/may-lanh" onclick="jQuery.ajax({ url: '/bannertracking?bid=49447&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300-7.png" alt="Mua Máy Lạnh[break]Giao - Lắp Miễn Phí"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/tivi#c=1942&o=5&pi=0" onclick="jQuery.ajax({ url: '/bannertracking?bid=49552&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300-6.png" alt="Sắm Tivi Đón Tết[break]Giảm Đến 13 Triệu"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/khuyen-mai-hot" onclick="jQuery.ajax({ url: '/bannertracking?bid=48979&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/690-300-690x300-17.png" alt="Điện Máy Sale Lớn[break]Giảm Đến 30%"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/may-giat" onclick="jQuery.ajax({ url: '/bannertracking?bid=49157&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300-3.png" alt="Sắm Máy Giặt[break]Giảm Đến 30%"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/tivi-lg" onclick="jQuery.ajax({ url: '/bannertracking?bid=49423&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300.png" alt="Tivi LG"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/tu-lanh-samsung" onclick="jQuery.ajax({ url: '/bannertracking?bid=49823&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300-9.png" alt="Tủ lạnh Samsung"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/may-giat-samsung" onclick="jQuery.ajax({ url: '/bannertracking?bid=49821&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300-8.png" alt="Máy giặt Samsung"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/xe-dap?v=ldp" onclick="jQuery.ajax({ url: '/bannertracking?bid=49896&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/690-300-690x300-3.jpg" alt="Xe Đạp"  ></a>
-                        </div>
-                        <div class="item">
-                            <a aria-label="slide" data-cate="0" data-place="1535" href="https://www.dienmayxanh.com/may-loc-nuoc" onclick="jQuery.ajax({ url: '/bannertracking?bid=49182&r='+ (new Date).getTime(), async: true, cache: false });"><img  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/690-300-690x300-27.png" alt="Máy Lọc Nước[break]Giảm Đến 31%"  ></a>
-                        </div>
+                        @endforeach
+                        @endif
+                        
                     </div>
                     <div id="sync2" class="slider-banner owl-carousel">
+                        @if(isset($banners))
+                        @foreach($banners as $value)
                         <div class="item">
                             <h3>
-                                Xanh Giảm Tất<br/>Giảm ngay 5 - 45%
+                                {{  $value->title }}
                             </h3>
                         </div>
-                        <div class="item">
-                            <h3>
-                                Cửa Nhà Sung Túc<br/>Đồ Bếp Giảm Đến 35%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Rinh Tủ Lạnh<br/>Giảm Đến 22%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Mua Máy Lạnh<br/>Giảm Đến 10%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Sắm Tivi Đón Tết<br/>Giảm Đến 13 Triệu
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Điện Máy Sale Lớn<br/>Giảm Đến 30%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Sắm Máy Giặt<br/>Giảm Đến 30%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Sắm Tivi LG<br/>Giảm Đến 6 Triệu
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Tủ Lạnh Samsung<br/>Giảm Đến 20%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Máy Giặt Samsung<br/>Giảm Đến 27%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                14-16/1 Mua Xe Đạp<br/>Giảm Lớn Đến 20%
-                            </h3>
-                        </div>
-                        <div class="item">
-                            <h3>
-                                Máy Lọc Nước<br/>Giảm Đến 31%
-                            </h3>
-                        </div>
+                         @endforeach
+                        @endif
+                        
                     </div>
                 </aside>
                 <!-- End -->

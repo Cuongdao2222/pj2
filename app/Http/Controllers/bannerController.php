@@ -56,15 +56,15 @@ class bannerController extends AppBaseController
     {
         $input = $request->all();
 
-         if ($request->hasFile('banner_image')) {
+        if ($request->hasFile('image')) {
 
-            $file_upload = $request->file('banner_image');
+            $file_upload = $request->file('image');
 
             $name = time() . '_' . $file_upload->getClientOriginalName();
 
             $filePath = $file_upload->storeAs('uploads/banner', $name, 'public');
 
-            $input['banner_image'] = $filePath;
+            $input['image'] = $filePath;
         }
 
         $banner = $this->bannerRepository->create($input);
@@ -126,25 +126,24 @@ class bannerController extends AppBaseController
     {
         $banner = $this->bannerRepository->find($id);
 
-        $input  = $request->all();
-
-         if ($request->hasFile('banner_image')) {
-
-            $file_upload = $request->file('banner_image');
-
-            $name = time() . '_' . $file_upload->getClientOriginalName();
-
-            $filePath = $file_upload->storeAs('uploads/banner', $name, 'public');
-
-            $input['banner_image'] = $filePath;
-        }
-
-
         if (empty($banner)) {
             Flash::error('Banner not found');
 
             return redirect(route('banners.index'));
         }
+
+        if ($request->hasFile('image')) {
+
+            $file_upload = $request->file('image');
+
+            $name = time() . '_' . $file_upload->getClientOriginalName();
+
+            $filePath = $file_upload->storeAs('uploads/banner', $name, 'public');
+
+            $input['image'] = $filePath;
+        }
+
+        $input = $request->all();
 
         $banner = $this->bannerRepository->update($input, $id);
 

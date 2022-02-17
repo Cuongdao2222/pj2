@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class bannerRepository
  * @package App\Repositories
- * @version December 1, 2021, 7:02 am UTC
+ * @version February 17, 2022, 3:31 pm +07
 */
 
 class bannerRepository extends BaseRepository
@@ -17,7 +17,9 @@ class bannerRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'banner_image'
+        'image',
+        'title',
+        'link'
     ];
 
     /**

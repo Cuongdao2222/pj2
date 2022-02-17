@@ -43,12 +43,16 @@ class banners extends Model
      */
     public static $rules = [
        
-        'banner_image' => 'required|max:10000|mimes:jpg,jpeg, png'
+        'image' => 'required|max:10000|mimes:jpg,jpeg, png',
+        'title' => 'required',
+        'link' => 'required',
     ];
     
     public static $rulesUpdate = [
        
-        'banner_image' => 'max:10000|mimes:jpg,jpeg, png'
+        'image' => 'max:10000|mimes:jpg,jpeg, png',
+        'title' => 'required',
+        'link' => 'required',
     ];
 
     

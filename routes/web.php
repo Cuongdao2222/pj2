@@ -12,12 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->middleware('auth');
-
-
-
+Route::get('/', 'Frontend\indexController@index')->middleware('auth');
 
 
 Route::get('/add-property-filter', function () {

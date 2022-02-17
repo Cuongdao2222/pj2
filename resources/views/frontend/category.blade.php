@@ -164,8 +164,8 @@
 
                     @foreach($data as $value)
                     @if($value->active==1)
-                    <li class=" item  __cate_1942" data-index="1" data-id="238784" data-issetup="1" data-maingroup="304" data-subgroup="1094" data-type="1" data-vehicle="2" data-productcode="3041094001252" data-price="20900000.0" data-ordertypeid="2" data-pos="1">
-                        <a href='/{{ $value->Link }}' data-s="Nomal" data-site="2" data-pro="3" data-cache="True" data-sv="webdmx-26-94" data-name="Android Tivi Sony 4K 55 inch KD-55X80J" data-id="238784" data-price="20400000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxCate" class="main-contain">
+                    <li class=" item  __cate_1942">
+                        <a href='/{{ $value->Link }}' data-box="BoxCate" class="main-contain">
                             <div class="item-label">
                                 <span class="lb-tragop">Trả góp 0%</span>
                             </div>
@@ -269,10 +269,11 @@
                         
                     },
                     success: function(result){
-                        // console.log(filter);
-                        // console.log(propertys);
-                        console.log(result);
-                        
+
+                        $('.container-productbox .listproduct').remove();
+
+                        $('.container-productbox').append(result);
+
                     }
                 });
                 

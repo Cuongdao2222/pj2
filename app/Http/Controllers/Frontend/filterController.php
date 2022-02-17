@@ -40,13 +40,14 @@ class filterController extends Controller
                     array_push($fill, $arr);
 
                     $keys[] = array_keys($arr);
-
                    
                 }
                
-               
             }
         }
+
+        $result = [];
+        $product = [];
 
 
         foreach($keys as $key1 => $vals){
@@ -54,40 +55,41 @@ class filterController extends Controller
            
             foreach($vals as $valu){
 
-                $result[] = $fill[$key1][$valu];
+                if(in_array($valu, $property)){
+
+                    $result[] = $fill[$key1][$valu];
+                }
+            
             }
 
         }
+        
+        if(isset($result)){
 
-        foreach ($result as  $res) {
-            foreach($res as $res1){
-                $product[] = $res1;
+            foreach ($result as  $res) {
+                foreach($res as $res1){
+                    $product[] = $res1;
+                }
             }
         }
-        print_r($product);
-
-        print_r(count($keys));
-
-        print_r(array_count_values($product));
         
+        $number_key = count($keys);
 
-        // $result = array_merge($fill[0][7], $fill[1][8]);
+        $number_product    = array_count_values($product);
 
-        // print_r($list_data_group);
         
+        if(isset($number_product)){
+            $result_product = [];
+            foreach ($number_product as $key => $value) {
+                if($value == $number_key){
+                    array_push($result_product, $key);
+                }
+            }
+        }
 
-        // if(isset($list_data_group)){
+        $product_search = product::whereIn('id', $result_product)->get();
 
-        //     $result_arr = [];
-
-        //     foreach ($list_data_group as $key => $value) {
-
-        //         array_push( $result_arr,json_decode($value['value'], true));
-        //     }
-        //     print_r($result_arr);
-           
-        // }
-
+        return view('frontend.ajax.product', compact('product_search'));
 
     }
     

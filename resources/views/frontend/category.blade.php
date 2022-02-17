@@ -263,7 +263,7 @@
                 type: 'POST',
                     url: "{{ route('client-search') }}",
                     data: {
-                        group_id:{{ $id_cate }},
+                        group_id:{{ @$id_cate }},
                         filter: filter,
                         property: propertys,
                         

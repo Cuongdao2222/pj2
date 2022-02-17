@@ -45,6 +45,8 @@ class orderController extends Controller
 
         $input['orderId'] = $carts[0]['orderId'];
 
+        $carts_mail = $carts;
+
         $carts = json_encode($carts);
 
         $input['product'] = $carts;
@@ -57,13 +59,19 @@ class orderController extends Controller
 
         $order::create($input);
 
-        $GLOBALS['mail'] = $input["mail"];
+        if(!empty($mail)){
 
-        $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"]), function($message){
-            $message->to($GLOBALS['mail'], 'Visitor')->subject('Visitor Feedback!');
-        });
+             $GLOBALS['mail'] = $input["mail"];
 
-        unset($GLOBALS['mail']);
+            $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"], 'product'=>$carts_mail, 'address'=>$input['address'],
+            'phone_number'=>$input['phone_number'],
+                'orderId'=>$input['orderId'], 'total_price'=>$totalPrice), function($message){
+                $message->to($GLOBALS['mail'], 'Visitor')->subject('[Điện máy người việt] Đơn hàng mới ');
+            });
+
+            unset($GLOBALS['mail']);
+
+        }
 
         // khi mua thành công thì xóa giỏ hàng
         Cart::destroy();
@@ -72,7 +80,6 @@ class orderController extends Controller
 
         return redirect('/');
     
-
     }
 
     public function orderList()

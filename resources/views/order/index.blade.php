@@ -176,9 +176,21 @@
 
            
             @if(count($order)>0)
-            <?php $key = 0; ?>
+            <?php 
+                 
+                $page = isset($_GET['page'])?$_GET['page']:'';
+
+                if($page ==1 || empty($page)){
+                    $key = 0;
+                }
+                else{
+                    $key = ((int)$page-1)*10;
+                }
+
+            ?>
             @foreach($order as $orders)
             <?php $key++; ?>
+
             <tr id="row_5471" onmouseover="this.className='row-hover'" onmouseout="this.className=''" class="">
                 <td>{{ $key }}</td>
                 <td><a href="?opt=order&amp;view=detail-new&amp;o=5471&amp;b=4370&amp;popup=1" class="pop-up cboxElement">{{ $orders->orderId  }}</a></td>

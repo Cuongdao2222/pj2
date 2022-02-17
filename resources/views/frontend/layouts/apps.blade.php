@@ -11,11 +11,9 @@
         <meta name="description" content="Siêu thị Điện máy Xanh mua sắm thiết bị điện tử điện lạnh, gia dụng, sản phẩm công nghệ. Mua online tại dienmayxanh.com giá tốt phục vụ chuyên nghiệp tận tâm." />
         <meta property="og:title" content="Siêu thị Điện máy XANH - Mua bán điện tử, điện lạnh, gia dụng" />
         <meta property="og:description" content="Siêu thị Điện máy Xanh mua sắm thiết bị điện tử điện lạnh, gia dụng, sản phẩm công nghệ. Mua online tại dienmayxanh.com giá tốt phục vụ chuyên nghiệp tận tâm." />
-        <link rel="canonical" href="https://www.dienmayxanh.com/" />
+        <link rel="canonical" href="" />
         <meta content="INDEX,FOLLOW" name="robots" />
-        <meta name="copyright" content="Công ty Cổ phần Thế Giới Di Động" />
-        <meta name="author" content="Công ty Cổ phần Thế Giới Di Động" />
-        <meta name="GENERATOR" content="Công ty Cổ phần Thế Giới Di Động" />
+       
         <meta http-equiv="audience" content="General" />
         <meta name="resource-type" content="Document" />
         <meta name="distribution" content="Global" />
@@ -838,44 +836,7 @@
                         <p class="f-listtel__content"><span>Bảo hành:</span> <a href="tel:18001065">1800.1065</a> (8:00 - 21:00)</p>
                     </div>
                 </div>
-                <div class="footer__col">
-                    <div class="f-social">
-                        <a rel="nofollow" href="https://facebook.com/dienmayxanhcom" target="_blank">
-                        <i class="icon-facebook"></i>
-                        1849.2k Fan
-                        </a>
-                        <a rel="nofollow" href="https://www.youtube.com/user/dienmaycom" target="_blank">
-                        <i class="icon-youtube"></i>
-                        587k Đăng ký
-                        </a>
-                    </div>
-                    <div class="f-certify">
-                        <a rel="nofollow" href="http://online.gov.vn/Home/WebDetails/20782" target="_blank">
-                        <i class="icon-congthuong"></i>
-                        </a>
-                        <a rel="nofollow" href="/dieu-khoan-su-dung#giai-quyet-khieu-nai" target="_blank">
-                        <i class="icon-khieunai"></i>
-                        </a>
-                        <a rel="nofollow" class="dmca-badge" href="https://www.dmca.com/Protection/Status.aspx?ID=69bc7638-1181-4a0f-ab78-247bea1eab81" target="_blank">
-                        <i class="icon-protected"></i>
-                        </a>
-                        <a rel="nofollow" class="" href="https://tinnhiemmang.vn/danh-ba-tin-nhiem/dienmayxanhcom-1632835471" target="_blank">
-                        <i class="icon-ncsc"></i>
-                        </a>
-                    </div>
-                    <div class="f-website">
-                        <p class="f-website-title">Website cùng tập đoàn</p>
-                        <a rel="nofollow" href="https://www.thegioididong.com/">
-                        <i class="icon-tgdd"></i>
-                        </a>
-                        <a rel="nofollow" href="https://www.bachhoaxanh.com/">
-                        <i class="icon-bhx"></i>
-                        </a>
-                        <a rel="nofollow" href="https://www.maiamtgdd.vn/">
-                        <i class="icon-maiam"></i>
-                        </a>
-                    </div>
-                </div>
+                
             </section>
             <div class="copyright">
                 <section>

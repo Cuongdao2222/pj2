@@ -66,7 +66,7 @@ class orderController extends Controller
             $success = Mail::send('frontend.mail', array('name'=>$input["name"],'email'=>$input["mail"], 'product'=>$carts_mail, 'address'=>$input['address'],
             'phone_number'=>$input['phone_number'],
                 'orderId'=>$input['orderId'], 'total_price'=>$totalPrice), function($message){
-                $message->to($GLOBALS['mail'], 'Visitor')->subject('[Điện máy người việt] Đơn hàng mới ');
+                $message->to($GLOBALS['mail'], 'Điện máy người việt')->subject('[Điện máy người việt] Đơn hàng mới ');
             });
 
             unset($GLOBALS['mail']);

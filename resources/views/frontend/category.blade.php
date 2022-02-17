@@ -61,45 +61,7 @@
                     <div class="item">
                         <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi#c=1942&o=5&pi=0" onclick="jQuery.ajax({ url: '/bannertracking?bid=49550&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-38.png" alt="tivi chung"  ></a>
                     </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi-samsung" onclick="jQuery.ajax({ url: '/bannertracking?bid=49368&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/800-200-800x200-235.png" alt="2022 - JA - Samsung TV"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1944,166,462,1942,2002,1943" data-place="1537" href="https://www.dienmayxanh.com/flashsale" onclick="jQuery.ajax({ url: '/bannertracking?bid=49128&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/800-200-800x200-184.png" alt="Xanh Giảm Tất Giảm ngay 5 - 45%"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/khuyen-mai/sang-sac-xuan-bung-gan-ket-mua-tivi-lg-nhan-nga-1403418" onclick="jQuery.ajax({ url: '/bannertracking?bid=48718&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/800-200-800x200-100.png" alt="Tivi LG Tết"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi-casper" onclick="jQuery.ajax({ url: '/bannertracking?bid=49267&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/800-200-800x200-211.png" alt="Tivi Casper"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi-tcl" onclick="jQuery.ajax({ url: '/bannertracking?bid=49122&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/800-200-800x200-182.png" alt="Tivi TCL"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/khuyen-mai/cung-aqua-sam-tet-ruoc-them-qua-bat-ngo-1397867" onclick="jQuery.ajax({ url: '/bannertracking?bid=47906&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/11/banner/800-200-800x200-160.png" alt="Tết AQUA"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi-aqua" onclick="jQuery.ajax({ url: '/bannertracking?bid=49826&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-93.png" alt="Tivi Aqua"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi-ffalcon?g=32-inch" onclick="jQuery.ajax({ url: '/bannertracking?bid=49875&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-105.png" alt="Tivi FFalcon"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tag/ls03a?key=ls03a" onclick="jQuery.ajax({ url: '/bannertracking?bid=49991&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-124.png" alt="2022 - JA - Samsung TV"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1944,1962,1943,2002,1942" data-place="1537" href="https://www.dienmayxanh.com/khuyen-mai-hot" onclick="jQuery.ajax({ url: '/bannertracking?bid=48908&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2021/12/banner/800-200-800x200-135.png" alt="Xả hàng Điên máy"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi-sony" onclick="jQuery.ajax({ url: '/bannertracking?bid=49206&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-23.png" alt="Tivi Sony"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi-lg" onclick="jQuery.ajax({ url: '/bannertracking?bid=49420&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-5.png" alt="Tivi LG"  ></a>
-                    </div>
-                    <div class="item">
-                        <a aria-label="slide" data-cate="1944,166,462,1942,2002,1943" data-place="1537" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=50009&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  loading="lazy" class="lazyload owl-lazy" data-src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-128.png" alt="Săn Cá Chép Nhận Coupon Đến 500 Ngàn"  ></a>
-                    </div>
+                    
                 </div>
                 <div class="promote-banner ">
                     <a href="/Banner C&#x1ED1; &#x110;&#x1ECB;nh" class="promote-item">

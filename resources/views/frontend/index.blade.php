@@ -161,14 +161,14 @@
             </div>
         </div>
         <!-- Banner sub -->
-        <div class="sub-banner">
+        <<!-- div class="sub-banner">
             <a aria-label="slide" data-cate="0" data-place="1595" href="https://www.topzone.vn/topnews/chuoi-topzone-ra-mat-them-loat-cua-hang-moi-1405860" onclick="jQuery.ajax({ url: '/bannertracking?bid=49071&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/1200-60-1200x60-2.png" alt="topzone"  ></a>    
-        </div>
+        </div> -->
         <!-- End -->
         <!-- Mời đánh giá sản phẩm đã mua -->
         <!-- End -->
         <!-- Săn sale online -->
-        <div class="prd-promo has-banner" style="background-color:#FFE602; " data-html-id="3109">
+        <div class="prd-promo has-banner  row" style="background-color:#FFE602; " data-html-id="3109">
             <div class="prd-promo__top clearfix" >
                 <a data-cate="0" data-place="1868" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47543&r='+ (new Date).getTime(), async: true, cache: false });"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
             </div>

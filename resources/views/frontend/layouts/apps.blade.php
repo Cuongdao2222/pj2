@@ -297,6 +297,9 @@
                 .header__logo{
                     padding: 0 !important;
                 }
+                body{
+                   min-width: auto !important;
+                }
 
 
             }

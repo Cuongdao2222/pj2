@@ -100,7 +100,7 @@
                        
             </section>
         </div>
-        <section id="categoryPage" class="desktop" data-id="1942" data-name="Tivi" data-template="cate">
+        <section id="categoryPage" class="desktops" data-id="1942" data-name="Tivi" data-template="cate">
             <div class="box-sort ">
                  @if(count($data)>0)
                 <p class="sort-total"><b>153</b> Tivi <strong class="manu-sort"></strong></p>

@@ -2,6 +2,39 @@
 
 @section('content') 
     @push('style')
+
+        <style type="text/css">
+
+            @media screen and (max-width: 776px){
+
+               .bar-top-left{
+                    display: none !important;
+                }
+                .bar-top{
+                    display: block !important;
+                }
+                .homebanner-container {
+                    width: 100% !important;
+                    padding: 0 !important;
+                    height: auto !important;
+                } 
+
+                .homebanner .item img {
+                    height: auto !important;
+                }
+
+                #sync1 .item {
+
+                    height: auto !important;
+                }  
+
+               /* .homebanner .item img{
+                    width: auto !important;
+                } 
+*/
+            }
+            
+        </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/dienmay.css') }}"> 
     @endpush
     
@@ -48,8 +81,10 @@
             <div class="homebanner-container">
                 <!-- Banner chính -->
                 <aside class="homebanner">
-                    <div id="sync1" class="slider-banner owl-carousel">
+                    <div id="sync1" class="slider-banner owl-carousel homebanners">
+
                         @if(isset($banners))
+
                         @foreach($banners as $value)
                         <div class="item">
                             <a aria-label="slide" data-cate="0" data-place="1535" href="{{ $value->link }}"><img  src="{{ asset($value->image) }}" alt="{{ $value->title }}"  ></a>
@@ -71,6 +106,8 @@
                         
                     </div>
                 </aside>
+
+                <!-- <h1>gdfgdfgdfgdgdgdgd</h1> -->
                 <!-- End -->
             </div>
             <div class="preorder-hot">
@@ -83,14 +120,14 @@
             </div>
         </div>
         <!-- Banner sub -->
-        <<!-- div class="sub-banner">
+        <!-- div class="sub-banner">
             <a aria-label="slide" data-cate="0" data-place="1595" href="https://www.topzone.vn/topnews/chuoi-topzone-ra-mat-them-loat-cua-hang-moi-1405860" onclick="jQuery.ajax({ url: '/bannertracking?bid=49071&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/1200-60-1200x60-2.png" alt="topzone"  ></a>    
         </div> -->
         <!-- End -->
         <!-- Mời đánh giá sản phẩm đã mua -->
         <!-- End -->
         <!-- Săn sale online -->
-        <div class="prd-promo has-banner  row" style="background-color:#FFE602; " data-html-id="3109">
+        <div class="prd-promo has-banner" style="background-color:#FFE602; " data-html-id="3109">
             <div class="prd-promo__top clearfix" >
                 <a data-cate="0" data-place="1868" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47543&r='+ (new Date).getTime(), async: true, cache: false });"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
             </div>
@@ -105,7 +142,7 @@
 
            @if(count($product_sale)>0)
            
-            <div class="listproduct slider-promo owl-carousel" data-size="20">
+            <div class="listproduct slider-promo owl-carousel banner-sale" data-size="20">
 
                 @foreach($product_sale as  $value)
                 @if($value->active==1)
@@ -152,6 +189,8 @@
             $group = App\Models\groupProduct::get();
 
          ?>   
+
+        <div  class="owl-slider-count" style="display: none;">{{ count($group) }}</div> 
         @for($i =0; $i <count($group); $i++)
 
             <?php
@@ -169,11 +208,11 @@
                     <div class="loaderweb"></div>
                 </div>
                 <div class="box-common__content">
-                    <div class="listproduct slider-home owl-carousel" data-size="10">
+                    <div class="listproduct slider-home owl-carousel" id="banner-product_{{ $i }}" data-size="10">
 
                         
                         @foreach($data as $datas)
-                         @if($datas->active==1)
+                        @if($datas->active==1)
                         <div class="item"  data-pos="1">
                             <a href='/{{ $datas->Link }}' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="True" data-name="{{ $datas->Name }}" data-id="238784" data-price="20900000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxHome">
                                 <div class="item-label">
@@ -265,5 +304,75 @@
 
         
     @endif
+
+
+    @push('script')
+
+    <script type="text/javascript">
+        
+        var number_slider =  parseInt($('.owl-slider-count').text());
+
+        for (i = 0; i < number_slider; i++) {
+
+            $('#banner-product_'+i).owlCarousel({
+                loop: false,
+                margin:10,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1.5
+                    },
+                    600:{
+                        items:1.5
+                    },
+                    1000:{
+                        items:5
+                    }
+                }
+            });
+            
+        }
+
+        $('.banner-sale').owlCarousel({
+            loop:false,
+
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1.5
+                },
+                600:{
+                    items:1.5
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
+       
+       
+        $('.homebanners').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+
+                 600:{
+                    items:1
+                },
+               
+                1000:{
+                    items:1
+                }
+            }
+        })
+    </script>
+    @endpush
+
+
  
 @endsection      

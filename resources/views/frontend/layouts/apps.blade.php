@@ -248,7 +248,65 @@
                 opacity: 1 !important;
             }
 
+          /*  phần responsive*/
 
+            @media screen and (max-width: 776px){
+
+                .desktop{
+                    display: none;
+
+                }
+                .header__top-mobile .header__logo{
+                    width: 100%;
+                }
+
+                .header__top-mobile img{
+
+                    width: 100%;
+
+                } 
+                .item-label{
+                    display: none;
+                }
+
+                .theme-lunar-new-year .footer::after {
+                    width: auto !important;
+
+                 }   
+                .header__main section{
+                    display: block !important;
+                }
+
+                .header__main .category{
+                    width: auto;
+                }
+
+                .bar-top-left {
+                    width: 100% !important;
+                }    
+                .preorder-hot{
+                    display: none !important;
+                }
+
+                .theme-lunar-new-year .box-common .box-common__tab {
+                    padding: 0 !important;
+                }    
+                .box-common__content{
+                    overflow: hidden !important;
+                }
+                .header__logo{
+                    padding: 0 !important;
+                }
+
+
+            }
+
+            @media screen and (min-width: 777px){
+                .mobiles{
+                    display: none;
+                }
+            }
+           
         </style>
 
 
@@ -256,7 +314,7 @@
         
     </head>
     <body class="dmx-site theme-lunar-new-year">
-        <div class="banner-media">
+        <div class="banner-media desktop">
             <div class="media-slider" data-size="1">
                 <div class="item" data-background-color="#CF1F2F" data-order="1">
                     <a aria-label="slide" data-cate="0" data-place="1295" href="https://www.dienmayxanh.com/flashsale" onclick="jQuery.ajax({ url: '/bannertracking?bid=49608&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/1200-44-1200x44.png" alt="BF"  ></a>
@@ -266,10 +324,25 @@
                 .banner-media{
                 background-color: #CF1F2F;
                 }
+
+                .header__top-mobile section{
+                    display: block;
+                }
+
+                .header__top-mobile .header__search{
+                    width: auto;
+                }
+
+                .header__top-mobile .header__search input{
+                    border-radius: 0;
+                }
+
             </style>
         </div>
         <header class="header   theme-lunar-new-year" data-sub="0">
-            <div class="header__top">
+
+
+            <div class="header__top desktop">
                 <section>
                     <a href="/" class="header__logo">
                         <img src="{{ asset('images/template/logochuan.png') }}" style="height:40px;">   
@@ -295,32 +368,32 @@
                      ?>   
                     <a id="cart-box" href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
 
-                    <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
-                    <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
+                        <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
+                        <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
 
-                    <style type="text/css">
-                        #count_shopping_cart_store {
-                        position: absolute;
-                        top: -5px;
-                        right: 52px;
-                        color: #fff;
-                        background-color: #fe0000;
-                        height: 18px;
-                        line-height: 18px;
-                        width: 18px;
-                        border-radius: 100%;
-                        text-align: center;
-                    }
-                    .header__cart{
-                        position: relative;
-                    }
-                    .cart_col_2{
-                        width: 44%;
-                    }
+                        <style type="text/css">
+                            #count_shopping_cart_store {
+                            position: absolute;
+                            top: -5px;
+                            right: 52px;
+                            color: #fff;
+                            background-color: #fe0000;
+                            height: 18px;
+                            line-height: 18px;
+                            width: 18px;
+                            border-radius: 100%;
+                            text-align: center;
+                        }
+                        .header__cart{
+                            position: relative;
+                        }
+                        .cart_col_2{
+                            width: 44%;
+                        }
 
-                    </style>
-                    <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
-                    <!-- <span>Giỏ hàng</span> -->
+                        </style>
+                        <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
+                        <!-- <span>Giỏ hàng</span> -->
                     </a>
                     <a href="/lich-su-mua-hang" class="header__history">Lịch sử đơn hàng</a>
                     <div class="bordercol"></div>
@@ -344,6 +417,103 @@
                     </div> -->
                 </section>
             </div>
+
+            <div class="header__top header__top-mobile mobiles">
+                <section>
+                    <div class="col-xs-12">
+                        <a href="/" class="header__logo">
+                            <img src="{{ asset('images/template/logochuan.png') }}">   
+                       
+                        </a>
+
+                    </div>
+                    
+                    
+                    <div class="col-xs-12">
+                        <form  class="header__search" method="get" action="{{ route('search-product-frontend') }}">
+                            <input id="skw" type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
+                            <button type="submit">
+                            <i class="icon-search"></i>
+                            </button>
+                            <div id="search-result"></div>
+                        </form>
+                    </div>    
+
+                    <?php
+                        $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
+
+
+                        $number_cart = count($cart);
+
+                        $active_cart =  count($cart)>0?'active':'';
+                     ?>   
+
+                    <div class="col-xs-4">
+                        
+                        <a id="cart-box" href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+
+                        <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>   
+                    </div>
+
+
+                   
+                   
+
+                        <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b> 
+
+
+                    <style type="text/css">
+                        #count_shopping_cart_store {
+                        position: absolute;
+                        top: -5px;
+                        right: 52px;
+                        color: #fff;
+                        background-color: #fe0000;
+                        height: 18px;
+                        line-height: 18px;
+                        width: 18px;
+                        border-radius: 100%;
+                        text-align: center;
+                    }
+                    .header__cart{
+                        position: relative;
+                    }
+                    .cart_col_2{
+                        width: 44%;
+                    }
+
+
+                    </style>
+                    <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
+                    <!-- <span>Giỏ hàng</span> -->
+                    </a>
+                    <a href="/lich-su-mua-hang" class="header__history">Lịch sử đơn hàng</a>
+                    <!-- <div class="bordercol"></div> -->
+
+
+                    <!-- <a href="/sim-so-dep" class="header__hot">
+                        <p class="dotnew"><span class="animation"></span></p>
+                        Mobifone trả sau đến hạn thanh toán. Mua thẻ nạp ngay!
+                    </a>
+                    <div class="header__listtop">
+                        <div class="bordercol"></div>
+                        <div class="divitem">
+                            <a href="/kinh-nghiem-hay">Tư vấn<br>chọn mua</a>
+                        </div>
+                        <div class="bordercol"></div>
+                        <div class="divitem">
+                            <a href="/khuyen-mai">Khuyến mãi</a>
+                        </div>
+                        <div class="bordercol"></div>
+                        <div class="divitem">
+                            <a href="/vao-bep">Vào bếp</a>
+                        </div>
+                    </div> -->
+                </section>
+            </div>
+
+
+
             <div class="header__main">
                 <section>
                     <div class="category">
@@ -575,11 +745,11 @@
                             </ul>
                         </div>
                     </div>
-                    <ul class="txt-list" data-id="706">
+                    <!-- <ul class="txt-list" data-id="706">
                         <li><a data-cate="0" data-place="706" href="https://www.dienmayxanh.com/may-giat" onclick="jQuery.ajax({ url: '/bannertracking?bid=46706&r='+ (new Date).getTime(), async: true, cache: false });">Máy giặt giảm sốc đến 31%</a></li>
                         <li><a data-cate="0" data-place="706" href="https://www.dienmayxanh.com/xe-dap?v=ldp" onclick="jQuery.ajax({ url: '/bannertracking?bid=46742&r='+ (new Date).getTime(), async: true, cache: false });">Xe đạp giảm sốc 20% + Quà Hot</a></li>
                         <li><a data-cate="75,55,2002,1882,2402,822,2528,1987,56,1990,2222,2064,1922,2428,2062,1962,1943,522,54,1983,86,44,462,1944,1991,2023,2342,42,2302,346,2262,0,85,58,2102,1988,2065,1363,443,60,2322,2403,1982,1985,1986,2063,1662,1942,57,1992,1989,166,2162,2529,1742,2182,1984,2142,482,2202" data-place="706" href="https://www.dienmayxanh.com/gia-dung-online-only" onclick="jQuery.ajax({ url: '/bannertracking?bid=27911&r='+ (new Date).getTime(), async: true, cache: false });">Gia dụng Online giảm sốc đến 45%</a></li>
-                    </ul>
+                    </ul> -->
                 </section>
             </div>
         </header>

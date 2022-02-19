@@ -46,7 +46,7 @@
             justify-content: space-between;
         }
         .modal-content{
-            width: 659px;
+            width: 100%;
         }
 
         .product_list_cart .col_price {
@@ -248,6 +248,25 @@
                 opacity: 1 !important;
             }
 
+            #count_shopping_cart_store {
+                position: absolute;
+                top: -5px;
+                right: 52px;
+                color: #fff;
+                background-color: #fe0000;
+                height: 18px;
+                line-height: 18px;
+                width: 18px;
+                border-radius: 100%;
+                text-align: center;
+            }
+            .header__cart{
+                position: relative;
+            }
+            .cart_col_2{
+                width: 44%;
+            }
+
           /*  phần responsive*/
 
             @media screen and (max-width: 776px){
@@ -300,6 +319,35 @@
                 body{
                    min-width: auto !important;
                 }
+                .header__cart {
+                    border: 0 !important;
+                }    
+
+                .all-icons-head{
+                    height: 50px;
+                    margin: 0;
+                }
+                .icons-heads{
+                    line-height: 50px;
+                }
+                .icons-1{
+                    text-align: left;
+                }
+
+                .icons-2{
+                    text-align: center;
+                }
+
+                .icons-3{
+                    text-align: right;
+                }
+
+                #count_shopping_cart_store {
+
+                    top: -6px;
+                    right: 0;
+
+                }    
 
 
             }
@@ -308,6 +356,7 @@
                 .mobiles{
                     display: none;
                 }
+                
             }
            
         </style>
@@ -340,6 +389,10 @@
                     border-radius: 0;
                 }
 
+                .header__history{
+                    width: auto;
+                }
+
             </style>
         </div>
         <header class="header   theme-lunar-new-year" data-sub="0">
@@ -369,55 +422,18 @@
 
                         $active_cart =  count($cart)>0?'active':'';
                      ?>   
-                    <a id="cart-box" href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                    <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
 
                         <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
                         <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
 
-                        <style type="text/css">
-                            #count_shopping_cart_store {
-                            position: absolute;
-                            top: -5px;
-                            right: 52px;
-                            color: #fff;
-                            background-color: #fe0000;
-                            height: 18px;
-                            line-height: 18px;
-                            width: 18px;
-                            border-radius: 100%;
-                            text-align: center;
-                        }
-                        .header__cart{
-                            position: relative;
-                        }
-                        .cart_col_2{
-                            width: 44%;
-                        }
-
-                        </style>
+                        
                         <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
                         <!-- <span>Giỏ hàng</span> -->
                     </a>
-                    <a href="/lich-su-mua-hang" class="header__history">Lịch sử đơn hàng</a>
+                    <a href="#" class="header__history">Tin tức khuyến mãi</a>
                     <div class="bordercol"></div>
-                    <!-- <a href="/sim-so-dep" class="header__hot">
-                        <p class="dotnew"><span class="animation"></span></p>
-                        Mobifone trả sau đến hạn thanh toán. Mua thẻ nạp ngay!
-                    </a>
-                    <div class="header__listtop">
-                        <div class="bordercol"></div>
-                        <div class="divitem">
-                            <a href="/kinh-nghiem-hay">Tư vấn<br>chọn mua</a>
-                        </div>
-                        <div class="bordercol"></div>
-                        <div class="divitem">
-                            <a href="/khuyen-mai">Khuyến mãi</a>
-                        </div>
-                        <div class="bordercol"></div>
-                        <div class="divitem">
-                            <a href="/vao-bep">Vào bếp</a>
-                        </div>
-                    </div> -->
+                   
                 </section>
             </div>
 
@@ -449,69 +465,37 @@
                         $number_cart = count($cart);
 
                         $active_cart =  count($cart)>0?'active':'';
-                     ?>   
+                     ?>  
+                    <div class="row all-icons-head">  
+                        <div class="col-4 icons-heads icons-1">
+                            
+                            <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
+                                <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
+                            </a>
+                             
+                        </div>
 
-                    <div class="col-xs-4">
+                        <div class="col-4 icons-heads icons-2">
+                            
+
+                           <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                                 <i class="fa fa-phone" aria-hidden="true" style="font-size:22px"></i>
+                            </a>
+                        </div>
+
+                        <div class="col-4 icons-heads icons-3">
+                            
+                            <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                                <i class="fa fa-newspaper-o" aria-hidden="true" style="font-size:22px"></i>
+                                
+                            </a>
+                        </div>
                         
-                        <a id="cart-box" href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
-
-                        <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>   
                     </div>
+                    
 
-
-                   
-                   
-
-                        <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b> 
-
-
-                    <style type="text/css">
-                        #count_shopping_cart_store {
-                        position: absolute;
-                        top: -5px;
-                        right: 52px;
-                        color: #fff;
-                        background-color: #fe0000;
-                        height: 18px;
-                        line-height: 18px;
-                        width: 18px;
-                        border-radius: 100%;
-                        text-align: center;
-                    }
-                    .header__cart{
-                        position: relative;
-                    }
-                    .cart_col_2{
-                        width: 44%;
-                    }
-
-
-                    </style>
-                    <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
-                    <!-- <span>Giỏ hàng</span> -->
-                    </a>
-                    <a href="/lich-su-mua-hang" class="header__history">Lịch sử đơn hàng</a>
-                    <!-- <div class="bordercol"></div> -->
-
-
-                    <!-- <a href="/sim-so-dep" class="header__hot">
-                        <p class="dotnew"><span class="animation"></span></p>
-                        Mobifone trả sau đến hạn thanh toán. Mua thẻ nạp ngay!
-                    </a>
-                    <div class="header__listtop">
-                        <div class="bordercol"></div>
-                        <div class="divitem">
-                            <a href="/kinh-nghiem-hay">Tư vấn<br>chọn mua</a>
-                        </div>
-                        <div class="bordercol"></div>
-                        <div class="divitem">
-                            <a href="/khuyen-mai">Khuyến mãi</a>
-                        </div>
-                        <div class="bordercol"></div>
-                        <div class="divitem">
-                            <a href="/vao-bep">Vào bếp</a>
-                        </div>
-                    </div> -->
+                
                 </section>
             </div>
 
@@ -521,7 +505,7 @@
                 <section>
                     <div class="category">
                         <p class="category__txt"><span>Danh mục</span></p>
-                        <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a>
+                        <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
                         <div class="bar-top-left">
                             <ul class="main-menu">
                                 <li data-submenu-id="submenu-1">

@@ -9,6 +9,19 @@
             .bar-top-left{
                 display: none !important;
             }
+            @media screen and (max-width: 776px){
+                .listproduct{
+                    display: block;
+                }
+                .listproduct .item-img.item-img_1942 {
+                    height: auto;
+                }
+                .listproduct img {
+                   
+                    width: 100%;
+                }
+            }    
+            
         </style>
     @endpush
         <div class="locationbox__overlay"></div>
@@ -59,18 +72,18 @@
             <section>
                 <div class="slider-bannertop owl-carousel owl-theme">
                     <div class="item">
-                        <a aria-label="slide" data-cate="1942" data-place="1537" href="https://www.dienmayxanh.com/tivi#c=1942&o=5&pi=0" onclick="jQuery.ajax({ url: '/bannertracking?bid=49550&r='+ (new Date).getTime(), async: true, cache: false });"><img width=800 height=200  src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-38.png" alt="tivi chung"  ></a>
+                        <a aria-label="slide" data-cate="1942" data-place="1537"><img width=800  src="https://cdn.tgdd.vn/2022/01/banner/800-200-800x200-38.png" alt="tivi chung"  ></a>
                     </div>
                     
                 </div>
-                <div class="promote-banner ">
+                <!-- <div class="promote-banner ">
                     <a href="/Banner C&#x1ED1; &#x110;&#x1ECB;nh" class="promote-item">
                     <a aria-label="slide" data-cate="1942" data-place="1538" href="#" onclick="jQuery.ajax({ url: '/bannertracking?bid=43621&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2021/07/banner/TraGop390-97-390x97-1.png" alt="Banner Cố Định"  ></a>
                     </a>
                     <a href="/tivi tr&#x1B0;ng b&#xE0;y" class="promote-item">
                     <a aria-label="slide" data-cate="1942" data-place="1538" href="https://www.dienmayxanh.com/may-doi-tra/tivi?type=7#" onclick="jQuery.ajax({ url: '/bannertracking?bid=45610&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2021/08/banner/390-97-390x97-4.png" alt="tivi trưng bày"  ></a>
                     </a>
-                </div>
+                </div> -->
             </section>
         </div>
         <div class="box-filter top-box  block-scroll-main cate-1942">
@@ -118,61 +131,69 @@
             </div>
             <div class="clearfix"></div>
             <div class="container-productbox">
-                <div id="preloader">
+                <!-- <div id="preloader">
                     <div id="loader"></div>
-                </div>
-                <ul class="listproduct">
+                </div> -->
+                <div class="row">
                     @if(count($data)>0)
 
                     @foreach($data as $value)
                     @if($value->active==1)
-                    <li class=" item  __cate_1942">
-                        <a href='/{{ $value->Link }}' data-box="BoxCate" class="main-contain">
-                            <div class="item-label">
-                                <span class="lb-tragop">Trả góp 0%</span>
+
+                    <div class="col-md-3 col-12">
+                        <div class="item  __cate_1942">
+                            <a href='/{{ $value->Link }}' data-box="BoxCate" class="main-contain">
+                                <div class="item-label">
+                                    <span class="lb-tragop">Trả góp 0%</span>
+                                </div>
+                                <div class="item-img item-img_1942">
+                                    <img class="lazyload thumb" data-src="{{ asset($value->Image) }}" alt="{{ asset($value->Name) }}" style="width:100%"> 
+                                </div>
+                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
+                                <h3 >
+                                    {{ $value->Name  }}
+                                </h3>
+                                <div class="item-compare ">
+                                    <span>55 inch</span>
+                                    <span>4K</span>
+                                </div>
+                                <div class="box-p">
+                                    <p class="price-old black">20.900.000&#x20AB;</p>
+                                </div>
+                                <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
+                                <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
+                                <div class="item-rating">
+                                    <p>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                    </p>
+                                    <p class="item-rating-total">56</p>
+                                </div>
+                            </a>
+                            <div class="item-bottom">
+                                <a href="#" class="shiping"></a>
                             </div>
-                            <div class="item-img item-img_1942">
-                                <img class="lazyload thumb" data-src="{{ asset($value->Image) }}" alt="Sony Android TV KD-55X80J">
-                            </div>
-                            <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                            <h3 >
-                                {{ $value->Name  }}
-                            </h3>
-                            <div class="item-compare ">
-                                <span>55 inch</span>
-                                <span>4K</span>
-                            </div>
-                            <!-- <div class="box-p">
-                                <p class="price-old black">20.900.000&#x20AB;</p>
-                            </div> -->
-                            <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
-                            <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
-                            <div class="item-rating">
-                                <p>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                    <i class="icon-star"></i>
-                                </p>
-                                <p class="item-rating-total">56</p>
-                            </div>
-                        </a>
-                        <div class="item-bottom">
-                            <a href="#" class="shiping"></a>
+                            <a href="javascript:void(0)" class="item-ss">
+                                <i></i>
+                                So sánh
+                            </a>
                         </div>
-                        <a href="javascript:void(0)" class="item-ss">
-                        <i></i>
-                        So sánh
-                        </a>
-                    </li>
+                       
+                    </div>
+
+                   
+                   
+                   
                     @endif
                     @endforeach
 
                     @else
                     <h2>Không tìm thấy sản phẩm</h2>
                     @endif
-                </ul>
+                </div>
                 <!-- <div class="view-more ">
                     <a href="javascript:;">Xem thêm <span class="remain">133</span> Tivi</a>
                 </div> -->

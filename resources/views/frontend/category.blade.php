@@ -295,7 +295,7 @@
                     },
                     success: function(result){
 
-                        $('.container-productbox .listpro').remove();
+                        $('.container-productbox .list-pro').remove();
 
                         $('.container-productbox').append(result);
 

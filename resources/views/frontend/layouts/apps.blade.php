@@ -319,8 +319,8 @@
                 body{
                    min-width: auto !important;
                 }
-                .header__cart {
-                    border: 0 !important;
+                .header__cart{
+                    border:0 !important;
                 }    
 
                 .all-icons-head{

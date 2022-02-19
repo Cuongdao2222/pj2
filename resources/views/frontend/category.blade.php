@@ -9,6 +9,48 @@
             .bar-top-left{
                 display: none !important;
             }
+
+            .list-pro h3{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                font-size: 14px;
+                line-height: 20px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-bottom: 5px;
+            }
+
+            .list-pro .price {
+                color: #222;
+                display: block;
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 18px;
+                margin-bottom: 5px;
+            }
+
+            .list-pro .item-compare span{
+                border: 1px solid #e0e0e0;
+                border-radius: 2px;
+                color: #333;
+                display: inline-block;
+                font-size: 12px;
+                line-height: 12px;
+                margin-right: 5px;
+                padding: 4px 5px;
+                white-space: nowrap;
+            }
+            .list-pro .lists{
+                padding: 10px 15px 20px;
+                border-bottom: 1px solid #f3f3f3 !important;
+                border-right: 1px solid #f3f3f3 !important;
+            }
+            .list-pro{
+                border-left: 1px solid #f1f1f1;
+                border-top: 1px solid #f1f1f1;
+            }
+
             @media screen and (max-width: 776px){
                 .listproduct{
                     display: block;
@@ -119,13 +161,13 @@
                 <p class="sort-total"><b>153</b> Tivi <strong class="manu-sort"></strong></p>
                 @endif
                 <div class="sort-select ">
-                    <p class="click-sort">Xếp theo: <span class="sort-show">N&#x1ED5;i b&#x1EAD;t</span></p>
-                    <div class="sort-select-main sort ">
-                        <p><a href="javascript:;" class="check" data-id="9"><i></i>Nổi bật</a></p>
-                        <p><a href="javascript:;" class="" data-id="7"><i></i>Bán chạy</a></p>
-                        <p><a href="javascript:;" class="" data-id="5"><i></i>% Giảm</a></p>
-                        <p><a href="javascript:;" class="" data-id="3"><i></i>Giá cao đến thấp</a></p>
-                        <p><a href="javascript:;" class="" data-id="2"><i></i>Giá thấp đến cao</a></p>
+                    <label for="standard-select">Xếp theo</label>
+                    <div class="select">
+                      <select id="standard-select">
+                        <option value="Option 1">Nổi bật</option>
+                        <option value="Option 2">Giá tăng dần</option>
+                        <option value="Option 3">Giá giảm dần</option>
+                      </select>
                     </div>
                 </div>
             </div>
@@ -134,13 +176,13 @@
                 <!-- <div id="preloader">
                     <div id="loader"></div>
                 </div> -->
-                <div class="row">
+                <div class="row list-pro">
                     @if(count($data)>0)
 
                     @foreach($data as $value)
                     @if($value->active==1)
 
-                    <div class="col-md-3 col-12">
+                    <div class="col-md-3 col-6 lists">
                         <div class="item  __cate_1942">
                             <a href='/{{ $value->Link }}' data-box="BoxCate" class="main-contain">
                                 <div class="item-label">
@@ -153,13 +195,13 @@
                                 <h3 >
                                     {{ $value->Name  }}
                                 </h3>
-                                <div class="item-compare ">
+                                <div class="item-compare">
                                     <span>55 inch</span>
                                     <span>4K</span>
                                 </div>
-                                <div class="box-p">
+                                <!-- <div class="box-p">
                                     <p class="price-old black">20.900.000&#x20AB;</p>
-                                </div>
+                                </div> -->
                                 <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
                                 <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
                                 <div class="item-rating">
@@ -170,16 +212,16 @@
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
                                     </p>
-                                    <p class="item-rating-total">56</p>
+                                   <!--  <p class="item-rating-total">56</p> -->
                                 </div>
                             </a>
                             <div class="item-bottom">
                                 <a href="#" class="shiping"></a>
                             </div>
-                            <a href="javascript:void(0)" class="item-ss">
+                           <!--  <a href="javascript:void(0)" class="item-ss">
                                 <i></i>
                                 So sánh
-                            </a>
+                            </a> -->
                         </div>
                        
                     </div>
@@ -253,7 +295,7 @@
                     },
                     success: function(result){
 
-                        $('.container-productbox .listproduct').remove();
+                        $('.container-productbox .listpro').remove();
 
                         $('.container-productbox').append(result);
 

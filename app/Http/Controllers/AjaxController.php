@@ -274,6 +274,22 @@ class AjaxController extends Controller
 
     }
 
+     protected function filterByValue(Request $request)
+    {
+        $list_id = json_decode($request->json_id_product);
+        $action  = $request->action;
+
+       
+        if($action =='id'){
+            $product_search   = product::whereIn('id', $list_id)->orderBy('id', 'asc')->get();
+        }
+        else{
+           $product_search   = product::whereIn('id', $list_id)->orderBy('price', $action)->get();
+        }
+        return view('frontend.ajax.product', compact('product_search', 'action'));
+        
+    }
+
 
 }
 

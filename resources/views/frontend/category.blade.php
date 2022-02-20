@@ -51,6 +51,14 @@
                 border-top: 1px solid #f1f1f1;
             }
 
+            .items-title{
+                margin: 10px 0 0 10px;
+               
+            }
+
+            .lists-id{
+                display: none;
+            }
             @media screen and (max-width: 776px){
                 .listproduct{
                     display: block;
@@ -158,15 +166,15 @@
         <section id="categoryPage" class="desktops" data-id="1942" data-name="Tivi" data-template="cate">
             <div class="box-sort ">
                  @if(count($data)>0)
-                <p class="sort-total"><b>153</b> Tivi <strong class="manu-sort"></strong></p>
+                <p class="sort-total"><b>{{ count($data) }}</b> Sản phẩm <strong class="manu-sort"></strong></p>
                 @endif
                 <div class="sort-select ">
                     <label for="standard-select">Xếp theo</label>
                     <div class="select">
-                      <select id="standard-select">
-                        <option value="Option 1">Nổi bật</option>
-                        <option value="Option 2">Giá tăng dần</option>
-                        <option value="Option 3">Giá giảm dần</option>
+                      <select id="sort-by-option">
+                        <option value="id">Nổi bật</option>
+                        <option value="desc">Giá tăng dần</option>
+                        <option value="asc">Giá giảm dần</option>
                       </select>
                     </div>
                 </div>
@@ -178,9 +186,18 @@
                 </div> -->
                 <div class="row list-pro">
                     @if(count($data)>0)
+                    <?php $arr_id_pro = []; ?>
+                   
 
+                       
                     @foreach($data as $value)
                     @if($value->active==1)
+
+                        <?php   
+
+                            $id_product = $value->id;
+                            array_push($arr_id_pro, $id_product);
+                        ?>
 
                     <div class="col-md-3 col-6 lists">
                         <div class="item  __cate_1942">
@@ -191,29 +208,33 @@
                                 <div class="item-img item-img_1942">
                                     <img class="lazyload thumb" data-src="{{ asset($value->Image) }}" alt="{{ asset($value->Name) }}" style="width:100%"> 
                                 </div>
-                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                <h3 >
-                                    {{ $value->Name  }}
-                                </h3>
-                                <div class="item-compare">
-                                    <span>55 inch</span>
-                                    <span>4K</span>
+                                <div class="items-title">
+                                    <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
+                                    <h3 >
+                                        {{ $value->Name  }}
+                                    </h3>
+                                    <div class="item-compare">
+                                        <span>55 inch</span>
+                                        <span>4K</span>
+                                    </div>
+                                    <!-- <div class="box-p">
+                                        <p class="price-old black">20.900.000&#x20AB;</p>
+                                    </div> -->
+                                    <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
+                                    <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
+                                    <div class="item-rating">
+                                        <p>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                        </p>
+                                       <!--  <p class="item-rating-total">56</p> -->
+                                    </div>
+
                                 </div>
-                                <!-- <div class="box-p">
-                                    <p class="price-old black">20.900.000&#x20AB;</p>
-                                </div> -->
-                                <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
-                                <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
-                                <div class="item-rating">
-                                    <p>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                    </p>
-                                   <!--  <p class="item-rating-total">56</p> -->
-                                </div>
+                                
                             </a>
                             <div class="item-bottom">
                                 <a href="#" class="shiping"></a>
@@ -231,6 +252,7 @@
                    
                     @endif
                     @endforeach
+                     <span class="lists-id">{{ json_encode($arr_id_pro) }}</span>
 
                     @else
                     <h2>Không tìm thấy sản phẩm</h2>
@@ -253,6 +275,12 @@
             filter = [];
 
             propertys = [];
+
+             $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
             
             function mySelectHandler(filters){
 
@@ -277,33 +305,72 @@
                 
                 // var filterss['code'] = property; 
 
+               
+
+
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
 
-                 $.ajax({
+
+                // khi người dùng select option thì gọi hàm
+                if(filter.length>0){
+
+                    $.ajax({
+       
+                    type: 'POST',
+                        url: "{{ route('client-search') }}",
+                        data: {
+                            group_id:{{ @$id_cate }},
+                            filter: filter,
+                            property: propertys,
+                            
+                        },
+                        success: function(result){
+
+                           $('#categoryPage').html('');
+
+                            $('#categoryPage').html(result);
+
+                        }
+                    });
+                    
+                }
+
+                 
+                
+            }
+
+            $( "#sort-by-option" ).bind( "change", function() {
+
+
+                $.ajax({
        
                 type: 'POST',
-                    url: "{{ route('client-search') }}",
+                    url: "{{ route('filter-option') }}",
                     data: {
-                        group_id:{{ @$id_cate }},
-                        filter: filter,
-                        property: propertys,
+                        json_id_product: $('.lists-id').text(),
+                        action:$(this).val(),
                         
                     },
                     success: function(result){
 
-                        $('.container-productbox .list-pro').remove();
+                        $('#categoryPage').html('');
 
-                        $('.container-productbox').append(result);
+                        $('#categoryPage').html(result);
+
+                        console.log(json_id_product)
+                       
+                        
 
                     }
                 });
-                
-            }
 
+            });
+
+        
         </script>
         @endpush
 @endsection 

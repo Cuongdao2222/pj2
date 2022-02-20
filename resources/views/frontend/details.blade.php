@@ -1,7 +1,28 @@
 
+
+
 @extends('frontend.layouts.apps')
 
 @section('content') 
+        @push('style')
+        <style type="text/css">
+            
+            @media screen and (max-width: 776px){
+                section.detail {
+                    width: 100% !important;
+                     min-width: 100% !important;
+                }  
+                .box_left {
+                    width: 100% !important;
+
+                }  
+                .prod-info.fix{
+                    display: none !important;
+                } 
+            }    
+        </style>
+
+        @endpush
 
         <div class="locationbox__overlay"></div>
         <div class="locationbox">
@@ -139,7 +160,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scrolling_inner">
+                        <!-- <div class="scrolling_inner">
                             <div class="box01__tab scrolling">
                                 <div id="thumb-featured-images-gallery-0"
                                     class="item itemTab active "
@@ -190,7 +211,7 @@
                                     <p>Th&#xF4;ng tin s&#x1EA3;n ph&#x1EA9;m</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="block-tab">
                         <div class="bt-overlay"></div>
@@ -284,7 +305,7 @@
                             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                         }, 100);
                     </script>
-                    <div class="policy_intuitive cate1942 scenarioNomal">
+                   <!--  <div class="policy_intuitive cate1942 scenarioNomal">
                         <div class="policy">
                             <ul class="policy__list">
                                 <li>
@@ -316,78 +337,10 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="wrap_wrtp dmx-popup" id="popup-baohanh">
-                        <div class="pop">
-                            <div class="hdpop dmx">
-                                CH&#xCD;NH S&#xC1;CH B&#x1EA2;O H&#xC0;NH, &#x110;&#x1ED4;I TR&#x1EA2;
-                                <a href="javascript:closePopWrt()" class="closehd">
-                                <span>✖</span>
-                                </a>
-                            </div>
-                            <div class="overscroll">
-                                <div class="warranty-box">
-                                    <h2 class="title">BẢO HÀNH CHÍNH HÃNG</h2>
-                                    <span>
-                                    Tivi 1 năm,  Bảo hành Remote 1 năm
-                                    </span>
-                                    <p><a target="_blank" href="/bao-hanh/samsung">Xem điểm bảo hành Samsung</a></p>
-                                </div>
-                                <div class="change-box">
-                                    <h2 class="title">Chính sách đổi trả <span>Chỉ cần số điện thoại mua hàng, không cần giấy tờ.</span></h2>
-                                    <div class="block-change">
-                                        <h3 class="down" onclick="toggleBlock(this)">L&#x1ED7;i do nh&#xE0; s&#x1EA3;n xu&#x1EA5;t, Kh&#xE1;ch h&#xE0;ng ch&#x1ECD;n 1 trong 3 h&#xEC;nh th&#x1EE9;c</h3>
-                                        <div class="content-insider show">
-                                            <div>
-                                                <p><strong>Bảo hành có cam kết trong 12 tháng (chỉ áp dụng cho sản phẩm chính, KHÔNG áp dụng cho phụ kiện kèm theo)</strong></p>
-                                                <ul>
-                                                    <li>Bảo hành trong vòng 15 ngày (từ lúc Khách hàng mang sản phẩm đến bảo hành đến lúc nhận lại sản phẩm tối đa 15 ngày).</li>
-                                                    <li>Sản phẩm không bảo hành lại lần 2 trong 30 ngày kể từ ngày máy được bảo hành xong.</li>
-                                                    <li>Nếu TGDD/ĐMX vi phạm cam kết (bảo hành quá 15 ngày hoặc phải bảo hành lại sản phẩm lần nữa trong 30 ngày kể từ lần bảo hành trước), Khách hàng được áp dụng phương thức <strong>Hư gì đổi nấy ngay và luôn</strong> hoặc <strong>Hoàn tiền</strong> với mức phí giảm 50%.</li>
-                                                    <li>Từ tháng thứ 13 trở đi, không áp dụng bảo hành có cam kết, chỉ áp dụng bảo hành hãng nếu có.</li>
-                                                </ul>
-                                                <p><strong>Hư gì đổi nấy ngay & luôn </strong></p>
-                                                <ul>
-                                                    <li>Hư sản phẩm chính: Đổi sản phẩm mới (cùng model, cùng dung lượng, cùng màu sắc) miễn phí tháng đầu tiên, tháng thứ 2 đến tháng 12 chịu phí 10% hoá đơn/tháng. Nếu sản phẩm chính hết hàng thì áp dụng <strong>Bảo hành có cam kết</strong> hoặc <strong>Hoàn tiền</strong> với mức phí giảm 50%.</li>
-                                                    <li>Hư phụ kiện đi kèm: Đổi miễn phí trong vòng 12 tháng kể từ ngày mua sản phẩm chính bằng hàng phụ kiện TGDĐ/ĐMX đang kinh doanh mới với công năng tương đương. Nếu không có phụ kiện tương đương hoặc Khách hàng không thích thì áp dụng bảo hành hãng</li>
-                                                    <li>Lỗi phần mềm không áp dụng, mà chỉ khắc phục lỗi phần mềm.</li>
-                                                    <li>Trường hợp Khách hàng muốn đổi full box (nguyên thùng, nguyên hộp): ngoài việc áp dụng mức phí đổi trả thì Khách hàng sẽ trả thêm phí lấy full box tương đương 20% giá trị hóa đơn.</li>
-                                                </ul>
-                                                <p><strong>Hoàn tiền</strong></p>
-                                                <ul>
-                                                    <li>Tháng đầu tiên kể từ ngày mua: phí 20% giá trị hóa đơn.</li>
-                                                    <li>Tháng thứ 2 đến tháng thứ 12: phí 10% giá trị hóa đơn/tháng.</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="block-change">
-                                        <h3 class="" onclick="toggleBlock(this)">S&#x1EA3;n ph&#x1EA9;m kh&#xF4;ng l&#x1ED7;i</h3>
-                                        <div class="content-insider ">
-                                            <div>
-                                                <p><strong>Khách hàng có thể trả hàng hoàn tiền:</strong></p>
-                                                <ul>
-                                                    <li>Tháng đầu tiên kể từ ngày mua: phí 20% giá trị hóa đơn.</li>
-                                                    <li>Tháng thứ 2 đến tháng thứ 12: phí 10% giá trị hóa đơn/tháng.</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="block-change">
-                                        <h3 class="" onclick="toggleBlock(this)">S&#x1EA3;n ph&#x1EA9;m l&#x1ED7;i do ng&#x1B0;&#x1EDD;i d&#xF9;ng</h3>
-                                        <div class="content-insider ">
-                                            <div>
-                                                <p>Không bảo hành, đổi trả. TGDD/ĐMX hỗ trợ gửi hãng bảo hành, Khách hàng trả phí sửa chữa.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="view-full">
-                                        Xem đầy đủ: <a href="https://www.dienmayxanh.com/bao-hanh-doi-tra" target="_blank">Chính sách bảo hành đổi trả</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
+                    
+
+
                     <div class="wrap_wrtp hide" id="popup-materialsfee">
                         <div class="pop">
                         </div>
@@ -700,39 +653,30 @@
                 
         <div class="space3px txt_555">Giá thị trường: <span class="txt_d">3.055.000đ</span></div>
                   
-        <div class="price">Giá: <span class="robot txt_green txt_b txt_20">2.350.000 ₫</span>
+        <div class="price">Giá: 
+            <span class="robot txt_green txt_b txt_20">2.350.000 ₫</span>
+        </div>
           
-          
-                
-                
-                  </div>
+        <div class="clear space3px"></div>
+        
+        <div class="clear space10px"></div>
+              
+        <div class="promo line_h19">
+            <div class="txt_b">Khuyến mại</div>
+            <p>-&nbsp;Cam kết sản phẩm mới 100%, nguyên đai nguyên kiện
+            <br>-&nbsp;Bảo hành chính hãng&nbsp;1 năm
+            <br>-&nbsp;Thùng có: Đĩa thủy tinh, Giá nướng
+            <br>-&nbsp;Giao hàng miễn phí trong 30km
+            <br>-&nbsp;Đền gấp 10 lần nếu không phải hàng chính hãng</p>
             
-          
-            <div class="clear space3px"></div>
-            
-          
-            
-            <div class="clear space10px"></div>
-                  
-            <div class="promo line_h19">
-                <div class="txt_b">Khuyến mại</div>
-                
-                <p>-&nbsp;Cam kết sản phẩm mới 100%, nguyên đai nguyên kiện
-                <br>-&nbsp;Bảo hành chính hãng&nbsp;1 năm
-                <br>-&nbsp;Thùng có: Đĩa thủy tinh, Giá nướng
-                <br>-&nbsp;Giao hàng miễn phí trong 30km
-                <br>-&nbsp;Đền gấp 10 lần nếu không phải hàng chính hãng</p>
-                
-            </div>
-  
-  
+        </div>
           
          
   <div class="buy-group">
     
-    <div class="clear">Số lượng:</div>
+    
     <div class="clear space10px in">
-      <input type="number" id="s_quantity" value="1">
+     
         <a class="btn-buy txt_center cor5px" onclick="addToShoppingCart('pro','3036',document.getElementById('s_quantity').value,'2350000');" href="javascript:;">
             <i class="fa fa-shopping-cart"></i> <span class="txt_15">Thêm Vào Giỏ Hàng</span>
         </a>

@@ -107,6 +107,8 @@ Route::post(
 
     Route::post('add-selected-value-filter', 'AjaxController@addValueSelectFilter')->name('add-value-selected-filter');
 
+    Route::post('filter-price-product', 'AjaxController@filterByValue')->name('filter-option');
+
 
     Route::post('add-hot-product', 'AjaxController@addHotProduct')->name('add-hot-product');
 

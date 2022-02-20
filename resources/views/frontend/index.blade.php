@@ -214,7 +214,7 @@
                         @foreach($data as $datas)
                         @if($datas->active==1)
                         <div class="item"  data-pos="1">
-                            <a href='/{{ $datas->Link }}' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="True" data-name="{{ $datas->Name }}" data-id="238784" data-price="20900000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxHome">
+                            <a href='{{ route('details', $datas->Link) }}' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="True" data-name="{{ $datas->Name }}" data-id="238784" data-price="20900000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxHome">
                                 <div class="item-label">
                                     <span class="lb-tragop">Trả góp 0%</span>
                                 </div>

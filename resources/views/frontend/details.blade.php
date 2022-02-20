@@ -19,6 +19,28 @@
                 .prod-info.fix{
                     display: none !important;
                 } 
+                .banner-item-1{
+                    display: none;
+                }
+                .pdetail-price-box{
+
+                    text-align: right;
+                    height: 40px;
+    
+                }
+                .pdetail-price h3 {
+                    float: none !important;
+                 }   
+                 .pdetail-info, .pdetail-stockavailable{
+                    text-align: right;
+                 }
+                 .box_right{
+                    width: 100% !important;
+                 }
+                 .box_left{
+                    padding: 15px;
+                 }
+                 
             }    
         </style>
 
@@ -261,12 +283,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="popup-overlay">
-                        <div class="popup-overlay__popup-video-gallery">
-                            <div class="close-popup"><i></i></div>
-                            <div id="video-player"></div>
-                        </div>
-                    </div>
+                   
                     <span style="display: none;" id="show-popup-unbox-gallery" data-is-360-gallery="false" class="read-full" data-gallery-id="unbox-gallery" data-color-id="0"></span>
                     <span style="display: none;" id="show-popup-360-degree-gallery" data-is-360-gallery="true" class="read-full" data-gallery-id="360-degree-gallery" data-color-id="0"></span>
                     <span style="display: none;" id="show-popup-specification-gallery" data-is-360-gallery="false" class="read-full" data-gallery-id="specification-gallery" data-color-id="0"></span>
@@ -452,7 +469,7 @@
                 <div class="border7"></div>
                 <div class="related view-more-related">
                     <p class="related__ttl">Xem thêm tivi khác</p>
-                    <div class="scrolling_inner">
+                    <!-- <div class="scrolling_inner">
                         <div class="box03 box03--nopadd scrolling">
                             <a href="/tivi-samsung" class="box03__item addradius">
                             <img class="lazyload" data-src="//cdn.tgdd.vn/Brand/2/Samsung1942-b_51.png" />
@@ -472,7 +489,7 @@
                             <a href="/tivi-choi-game" class="box03__item addradius">
                             Ch&#x1A1;i game tr&#xEA;n tivi                        </a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="box-scroll p-slide">
                         <div class="listproduct owl-carousel" data-item="5">
                             <div class="item" data-id="235791">

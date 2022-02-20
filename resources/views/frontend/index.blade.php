@@ -7,9 +7,9 @@
 
             @media screen and (max-width: 776px){
 
-               .bar-top-left{
+              /* .bar-top-left{
                     display: none !important;
-                }
+                }*/
                 .bar-top{
                     display: block !important;
                 }

@@ -347,16 +347,25 @@
                     top: -6px;
                     right: 0;
 
-                }    
+                }  
+
+                .bar-top-left {
+                    position: sticky !important;
+
+                    display: none;
+                }  
 
 
             }
 
+                
+                
+           
             @media screen and (min-width: 777px){
                 .mobiles{
                     display: none;
                 }
-                
+               
             }
            
         </style>
@@ -504,7 +513,7 @@
             <div class="header__main">
                 <section>
                     <div class="category">
-                        <p class="category__txt"><span>Danh mục</span></p>
+                        <p class="category__txt"><span class="menu-list">Danh mục</span></p>
                         <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
                         <div class="bar-top-left">
                             <ul class="main-menu">
@@ -555,7 +564,7 @@
                                         <span>
                                         <i class="fa fa-television" aria-hidden="true"></i>
                                         </span>
-                                        <a href="/dan-loa-dvd">Tivi</a>
+                                        <a href="{{ route('category-product', 'ti-vi') }}">Tivi</a>
                                     </div>
                                     <div id="submenu-1" class="submenu">
                                         <aside>
@@ -596,7 +605,7 @@
                                         <span>
                                             <img src="https://dienmaynguoiviet.vn/media/category/cat_34ead602847eccffd2bc5af611a422d2.png" style="width: 100%";">
                                         </span>
-                                        <a href="/tu-lanh">Tủ lạnh</a>
+                                        <a href="{{ route('category-product', 'tu-lanh') }}">Tủ lạnh</a>
                                     </div>
                                     <div id="submenu-2" class="submenu">
                                         <aside>
@@ -622,7 +631,7 @@
                                         </aside>
                                     </div>
                                 </li>
-                                <li data-submenu-id="submenu-4">
+                                <!-- <li data-submenu-id="submenu-4">
                                     <div class="dropdown">
                                         <span>
                                         <i class="icon-maygiat"></i>
@@ -727,7 +736,7 @@
                                     <div id="submenu-5" class="submenu">
                                             
                                     </div>
-                                </li>
+                                </li> -->
                                 
                             </ul>
                         </div>
@@ -1099,6 +1108,19 @@
         });
 
 
+        $(".menu-list").bind("click", function(){
+            if($(".bar-top-left").is(":hidden")){
+                $(".bar-top-left").show()
+            }
+            else{
+                $(".bar-top-left").hide();
+            }
+
+           
+        });  
+
+
+
         $().ready(function() {
 
              jQuery.validator.addMethod("phonenu", function (value, element) {
@@ -1157,7 +1179,9 @@
                 }
             });
         });
+    
 
+    
 
     </script>
       

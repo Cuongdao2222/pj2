@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\product;
 
+use App\Models\image;
+
 use App\Models\groupProduct;
 
 use App\Models\filter;
@@ -50,9 +52,11 @@ class categoryController extends Controller
             abort('404');
         }
 
+        $images = image::where('product_id', $findID->id)->get();
+
         $data =  product::findOrFail($findID->id);
 
-        return view('frontend.details', compact('data'));
+        return view('frontend.details', compact('data', 'images'));
     }
 
     public function addProductToCart()

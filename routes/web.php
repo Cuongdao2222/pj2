@@ -47,16 +47,14 @@ Route::post('show-cart', 'AjaxController@showProductCart')->name('showCart');
 
 Route::post('add-cart-number', 'AjaxController@addProductToCartByNumber')->name('addCartNumber');
 
-
 Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 
 Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->middleware('auth');
 
-
-
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
-   
+    Route::get('/home', 'backend\homeController@index')->name('home-admin');
+
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 
     Route::get('/order-list/{id}', 'Frontend\orderController@orderListView')->name('order_list_view');

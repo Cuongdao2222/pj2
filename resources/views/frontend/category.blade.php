@@ -5,10 +5,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/category.css') }}"> 
 
         <style type="text/css">
-            
-            .bar-top-left{
-                display: none !important;
-            }
+        
 
             .list-pro h3{
                 display: -webkit-box;
@@ -188,8 +185,6 @@
                     @if(count($data)>0)
                     <?php $arr_id_pro = []; ?>
                    
-
-                       
                     @foreach($data as $value)
                     @if($value->active==1)
 

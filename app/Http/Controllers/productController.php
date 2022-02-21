@@ -270,9 +270,6 @@ class productController extends AppBaseController
             $data = [];
             return view('frontend.category', compact('data'));
             // Flash::error('Không tìm thấy sản phẩm, vui lòng tìm kiếm lại"');
-
-           
-            
         }
         
     }

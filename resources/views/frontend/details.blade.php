@@ -43,7 +43,6 @@
                  
             }    
         </style>
-
         @endpush
 
         <div class="locationbox__overlay"></div>
@@ -111,130 +110,37 @@
                         <p class="detail-rate-total">72 <span>đánh giá</span></p>
                     </div>
                 </div>
-                <div class="box02__right" data-id="235791" data-href="/tivi/led-4k-samsung-ua50au8100" data-img="https://cdn.tgdd.vn/Products/Images/1942/235791/TimerThumb/led-4k-samsung-ua50au8100-(20).jpeg" data-name="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100">
-                    <i class="icondetail-sosanh"></i>
-                    So sánh
-                </div>
+                
             </div>
             <div class="like-fanpage" data-url="http://www.dienmayxanh.com/tivi/led-4k-samsung-ua50au8100"></div>
             <div class="box_main">
                 <div class="box_left">
                     <div class="box01">
                         <div class="box01__show">
-                            <div class="show-tab loading" data-gallery-id="featured-images-gallery" data-color-id="0">
-                                <div class="detail-slider owl-carousel">
-                                    <a href="javascript:void(0)" class="slider-item video-item" data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="211563" data-video-id="3TJP5iciTYg" data-index="0" data-time="0">
-                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/led-4k-samsung-ua50au8100637733467923495830.jpg" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" width="710" height="394" />
-                                    <i class="icondetail-videoop iconvideo"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="174521" data-video-id="" data-index="1" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/1-1020x571.jpg" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item video-item" data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="190193" data-video-id="" data-index="2" data-time="0">
-                                        <video autoplay muted loop>
-                                            <source src="https://cdn.tgdd.vn/Products/Images/235791/SAMSUNG - dynamic crystal color.mp4" type="video/mp4">
-                                            Your browser does not support HTML video.
-                                        </video>
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="190192" data-video-id="" data-index="3" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/led-4k-samsung-ua50au8100-280721-0501480.png" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item video-item" data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="190194" data-video-id="" data-index="4" data-time="0">
-                                        <video autoplay muted loop>
-                                            <source src="https://cdn.tgdd.vn/Products/Images/235791/SAMSUNG - Crystal 4K.mp4" type="video/mp4">
-                                            Your browser does not support HTML video.
-                                        </video>
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="190196" data-video-id="" data-index="5" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/led-4k-samsung-ua50au8100-280721-0502440.png" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item video-item" data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="190197" data-video-id="" data-index="6" data-time="0">
-                                        <video autoplay muted loop>
-                                            <source src="https://cdn.tgdd.vn/Products/Images/235791/Samsung - Q Symphony.mp4" type="video/mp4">
-                                            Your browser does not support HTML video.
-                                        </video>
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="190198" data-video-id="" data-index="7" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/led-4k-samsung-ua50au8100-280721-0503180.png" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="174525" data-video-id="" data-index="8" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/led-4k-samsung-ua50au8100-220521-1112062.png" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="174527" data-video-id="" data-index="9" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/led-4k-samsung-ua50au8100-220521-1112064.png" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="196220" data-video-id="" data-index="10" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/2-1020x571.jpg" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item " data-gallery-id="featured-images-gallery" data-color-id="0" data-picture-id="196221" data-video-id="" data-index="11" data-time="0">
-                                    <img class="owl-lazy" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/Slider/led-4k-samsung-ua50au8100-130821-0942221.jpeg" width="710" height="394" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100" style="opacity:0;" />
-                                    </a>
-                                    <a href="javascript:void(0)" class="slider-item slider-policy" data-gallery-id="featured-images-gallery" data-color-id="0" data-index="12">
-                                        <img class="owl-lazy" data-src="//cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/bg_csmh_dmx-min.png?v=11" width="710" height="394" alt="Chính sách đổi trả" style="opacity:0;" />
-                                        <img class="si-ghtn hide" data-src="//cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/img_giaohang_dmx-min.png" alt="Giao hàng tận nhà nhanh chóng">
-                                        <div></div>
-                                    </a>
+                            <div class="owl-carousel detail-slider" data-size="20">
+                                <div class="item">
+                                    <img src="{{ asset($data->Image) }}">
                                 </div>
-                                <div class="total-imgslider">
-                                    <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-is-360-gallery="False" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
-                                    
-                                    <a class="note s7 hide" href="https://www.dienmayxanh.com/kinh-nghiem-hay/cac-cong-nghe-noi-bat-cua-tivi-samsung-20-1339340?src=slider#q-symphony" target="_blank"><span>Tìm hiểu:</span> Q-Symphony</a>
+
+                               
+                                @isset($images)
+                                @foreach($images as $image)
+                                <div class="item">
+                                    <img src="{{ asset($image->image) }}">
                                 </div>
+                                @endforeach
+                                @endisset   
                             </div>
                         </div>
-                        <!-- <div class="scrolling_inner">
-                            <div class="box01__tab scrolling">
-                                <div id="thumb-featured-images-gallery-0"
-                                    class="item itemTab active "
-                                    data-gallery-id="featured-images-gallery"
-                                    data-color-id="0"
-                                    data-is-full-spec="False"
-                                    data-color-order-id="0"
-                                    data-isfeatureimage="True">
-                                    <div class="item-border">
-                                        <i class="icondetail-noibat"></i>
-                                    </div>
-                                    <p>&#x110;i&#x1EC3;m n&#x1ED5;i b&#x1EAD;t</p>
-                                </div>
-                                <div id="thumb-color-images-gallery-11"
-                                    class="item itemTab  "
-                                    data-gallery-id="color-images-gallery"
-                                    data-color-id="11"
-                                    data-is-full-spec="False"
-                                    data-color-order-id="0"
-                                    data-isfeatureimage="True">
-                                    <div class="item-border">
-                                        <img data-src="//cdn.tgdd.vn/Products/Images/1942/235791/led-4k-samsung-ua50au8100-1-180x120.jpg" alt="&#x110;en" width="41" height="41" loading="lazy" class="lazyload" />
-                                    </div>
-                                    <p>&#x110;en</p>
-                                </div>
-                                <div id="thumb-specification-gallery-0"
-                                    class="item itemTab  is-show-popup"
-                                    data-gallery-id="specification-gallery"
-                                    data-color-id="0"
-                                    data-is-full-spec="True"
-                                    data-color-order-id="0"
-                                    data-isfeatureimage="True">
-                                    <div class="item-border">
-                                        <i class="icondetail-thongso"></i>
-                                    </div>
-                                    <p>Th&#xF4;ng s&#x1ED1; k&#x1EF9; thu&#x1EAD;t</p>
-                                </div>
-                                <div id="thumb-article-gallery-0"
-                                    class="item itemTab  is-show-popup"
-                                    data-gallery-id="article-gallery"
-                                    data-color-id="0"
-                                    data-is-full-spec="False"
-                                    data-color-order-id="0"
-                                    data-isfeatureimage="True">
-                                    <div class="item-border">
-                                        <i class="icondetail-danhgia"></i>
-                                    </div>
-                                    <p>Th&#xF4;ng tin s&#x1EA3;n ph&#x1EA9;m</p>
-                                </div>
-                            </div>
-                        </div> -->
+                       
                     </div>
+
+                    <div class="total-imgslider">
+                        <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-is-360-gallery="False" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
+                        
+                        <a class="note s7 hide" href="https://www.dienmayxanh.com/kinh-nghiem-hay/cac-cong-nghe-noi-bat-cua-tivi-samsung-20-1339340?src=slider#q-symphony" target="_blank"><span>Tìm hiểu:</span> Q-Symphony</a>
+                    </div>
+
                     <div class="block-tab">
                         <div class="bt-overlay"></div>
                         <ul class="block-tab-top">
@@ -284,79 +190,7 @@
                         </div>
                     </div>
                    
-                    <span style="display: none;" id="show-popup-unbox-gallery" data-is-360-gallery="false" class="read-full" data-gallery-id="unbox-gallery" data-color-id="0"></span>
-                    <span style="display: none;" id="show-popup-360-degree-gallery" data-is-360-gallery="true" class="read-full" data-gallery-id="360-degree-gallery" data-color-id="0"></span>
-                    <span style="display: none;" id="show-popup-specification-gallery" data-is-360-gallery="false" class="read-full" data-gallery-id="specification-gallery" data-color-id="0"></span>
-                    <span style="display: none;" id="show-popup-article-gallery" data-is-360-gallery="false" data-is-article-gallery="true" class="read-full" data-gallery-id="article-gallery" data-color-id="0"></span>
-                    <div class="popup-video-rating">
-                        <div class="popup-video-rating__content active">
-                            <b class="popup-video-rating__content__title">Video có hữu ích cho việc mua hàng của bạn không?</b>
-                            <span class="popup-video-rating__content_like-container popup-video-rating__content__action"><i class="iconvideorating-likeGlr"></i>Hữu ích</span>
-                            <span class="popup-video-rating__content_dislike-container popup-video-rating__content__action"><i class="iconvideorating-unlikeGlr"></i>Không hữu ích</span>
-                        </div>
-                        <b class="popup-video-rating__thank-you">Cảm ơn bạn đã đánh giá video</b>
-                    </div>
-                    <div class="manu-info-popup">
-                        <div class="manu-info-popup__content">
-                            <span class="manu-info-popup__content__btn-close"></span>
-                            <p class="manu-info-popup__content__title">
-                                Giới thiệu về hãng
-                                <img width="70" height="30" data-src="//cdn.tgdd.vn/Brand/2/Samsung1942-b_51.png" alt="Samsung" class="lazyload" />
-                            </p>
-                            <div class="manu-info-popup__content__desc">
-                                <p>- Công ty TNHH Samsung Electronics Việt Nam được thành lập vào năm 2007.</p>
-                                <p>- Samsung Electronics là một công ty công nghệ thông tin và điện tử đa quốc gia có trụ sở tại Suwon - Hàn Quốc.</p>
-                                <p>- Các sản phẩm của Samsung đa dạng từ điện thoại đến các thiết bị gia dụng, điện tử như tivi, dàn âm thanh và còn có cả máy lạnh,...</p>
-                                <p>- Tại Samsung, mọi hoạt động đều xuất phát từ lòng đam mê và cam kết không ngừng nghỉ đạt chất lượng hoàn hảo trong mọi sản phẩm và dịch vụ.</p>
-                                <p>- Với thế mạnh là thương hiệu của tập đoàn toàn cầu, chất lượng của sản phẩm luôn đạt mức hoàn thiện cao nhất, chế độ bảo hành tốt nên được khách hàng tin tưởng trên toàn thế giới.<br />
-                                    <a href="https://www.dienmayxanh.com/kinh-nghiem-hay/tivi-samsung-cua-nuoc-nao-co-tot-khong-1092599">Tìm hiểu thêm</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        setTimeout(function () {
-                            var tag = document.createElement('script');
-                            tag.src = "https://www.youtube.com/iframe_api";
-                            var firstScriptTag = document.getElementsByTagName('script')[0];
-                            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-                        }, 100);
-                    </script>
-                   <!--  <div class="policy_intuitive cate1942 scenarioNomal">
-                        <div class="policy">
-                            <ul class="policy__list">
-                                <li>
-                                    <div class="iconl">
-                                        <i class="icondetail-doimoi"></i>
-                                    </div>
-                                    <p>
-                                        Hư gì đổi nấy <b>12 tháng</b>  tận nhà (miễn phí tháng đầu) <a href="https://www.dienmayxanh.com/bao-hanh-doi-tra"></a>
-                                        <a href="javascript:;" onclick="showPopupPolicy()" title="Chính sách đổi trả">
-                                        Xem chi tiết
-                                        </a>
-                                    </p>
-                                </li>
-                                <li data-field="IsSameBHAndDT">
-                                    <div class="iconl">
-                                        <i class="icondetail-baohanh"></i>
-                                    </div>
-                                    <p>
-                                        Bảo hành <b>chính hãng tivi 1 năm</b>, có người đến tận nhà
-                                    </p>
-                                </li>
-                                <li>
-                                    <div class="iconl"><i class="icondetail-sachhd"></i></div>
-                                    <p>Thùng tivi có: Sách hướng dẫn, Remote, Chân đế</p>
-                                </li>
-                                <li>
-                                    <div class='iconl'><i class='icondetail-baohanh'></i></div>
-                                    <p>  Bảo hành Remote 1 năm</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> -->
                     
-
 
                     <div class="wrap_wrtp hide" id="popup-materialsfee">
                         <div class="pop">
@@ -490,56 +324,7 @@
                             Ch&#x1A1;i game tr&#xEA;n tivi                        </a>
                         </div>
                     </div> -->
-                    <div class="box-scroll p-slide">
-                        <div class="listproduct owl-carousel" data-item="5">
-                            <div class="item" data-id="235791">
-                                <a href='/tivi/led-4k-samsung-ua50au8100?src=osp&amp;itm_source=detail&amp;itm_medium=product_card&amp;itm_campaign=viewed' data-s="Nomal" data-site="2" data-pro="3" data-cache="True">
-                                    <div class="item-label">
-                                        <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                    </div>
-                                    <div class="item-img 12321312312">
-                                        <img class="lazyload" data-src="https://cdn.tgdd.vn/Products/Images/1942/235791/TimerThumb/led-4k-samsung-ua50au8100-(20).jpeg" alt="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100">
-                                        <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" loading="lazy" class="lbliconimg lbliconimg_1942" />
-                                    </div>
-                                    <p class="txt01">Bạn đang xem:</p>
-                                    <p class='result-label temp5'><img width='20' height='20' class='lazyload' alt='Tết 2022 Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Tết 2022 Giảm Sốc</span></p>
-                                    <h3  title="Smart Tivi Samsung 4K Crystal UHD 50 inch UA50AU8100">
-                                        Samsung Smart TV Crystal UHD UA50AU8100
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>50 inch</span>
-                                        <span>4K</span>
-                                    </div>
-                                    <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
-                                    <div class="box-p">
-                                        <p class="price-old black">18.900.000&#x20AB;</p>
-                                        <span class="percent">-16%</span>
-                                    </div>
-                                    <strong class="price">15.690.000&#x20AB;</strong>
-                                    <p class="item-gift">Quà <b>90.000₫</b></p>
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-dark"></i>
-                                        </p>
-                                        <p class="item-rating-total">72</p>
-                                    </div>
-                                </a>
-                                <div class="item-bottom">
-                                    <a href="#" class="shiping"></a>
-                                </div>
-                                <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                                </a>
-                            </div>
-                           
-                            
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="border7"></div>
                 <div class="watched"></div>
@@ -555,44 +340,10 @@
             <!--#region Organization-->
            
             <!--#endregion-->
-            <input type="hidden" id="DisPriceScenrioGTM" value="0.0" />
-            <input type="hidden" id="PercentScenrioGTM" value="0" />
-            <input type="hidden" id="PriceOriginGTM" value="18900000.0" />
-            <input type="hidden" id="DisPriceGTM" value="15690000.0" />
-            <input type="hidden" id="PercentGTM" value="16" />
-            <input type="hidden" id="productReviewVideoGTM" value="Yes" />
-            <input type="hidden" id="productAvailabilityGTM" value="Yes" />
-            <input type="hidden" id="productCategoryGTM" value="Tivi" />
-            <input type="hidden" id="productIsOLOLGTM" value="False" />
-            <input type="hidden" id="productSiteGTM" value="2" />
-            <script>
-                window.dataLayer = window.dataLayer || [];
-                dataLayer.push({ 'pageType':'Product','pagePlatform':'Web','pageCategoryLv1':'Tivi','pageCategoryLv2':'Smart Tivi','pageCategoryLv3':'Smart Tivi Samsung','pageStatus':'Kinh doanh'})
-            </script>
+         
+        
         </section>
-        <div class="loadingcover" id="dlding">
-            <p class="csslder">
-                <span class="csswrap">
-                <span class="cssdot"></span>
-                <span class="cssdot"></span>
-                <span class="cssdot"></span>
-                </span>
-            </p>
-        </div>
-        <div class="overlay"></div>
-        <section class="page1 prmotebannerbhx">
-            <div class="prmotebanner-bhx">
-            </div>
-        </section>
-        <div class="preloader preall">
-            <div class="loaderweb"></div>
-        </div>
-        <p id="gb-top-page" class="hide">↑</p>
-        <form id="form-zone-bhx">
-            <div class="zone-bhx">
-            </div>
-        </form>
-        <div id="dldingtext">Bạn vui lòng chờ trong giây lát...</div>
+        
 
 
         <!-- block show when  scroll -->
@@ -727,15 +478,16 @@
 
 @push('style')
 
-<style type="text/css">
-            .fixed-button-buy{
-                position: fixed;
-                width: 23%;
-                top: 0;
-                z-index: 999;
-            }
 
-        </style>
+<style type="text/css">
+        .fixed-button-buy{
+            position: fixed;
+            width: 23%;
+            top: 0;
+            z-index: 999;
+        }
+
+    </style>
 <style type="text/css">
     .show-more span {
     width: 240px;
@@ -819,22 +571,16 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/details.css?v=1') }}">
 
     <style type="text/css">
-            
         .bar-top-left{
             display: none !important;
         }
-
         
     </style>
 
 @endpush
 
+    @push('script')
 
-
-@push('script')
-<!-- <script src="//cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201240310.js" type="text/javascript"></script> -->
-
-       
         <script type="text/javascript">
             button_buy_height = $('.scroll-box').offset().top;
             view_more_height  = ($('.view-more-related').offset().top);
@@ -866,8 +612,6 @@
 
         </script>
 
-      
-        
 
         <script type="text/javascript">
             
@@ -902,9 +646,28 @@
                 
             }
 
-           
+            $('.detail-slider').owlCarousel({
+                loop:false,
+                margin:10,
+                nav:false,
+                autoplay:true,
+                responsive:{
+                    0:{
+                        items:1
+
+                    },
+                    
+                    1000:{
+                        items:1
+                    }
+                }
+            });
+
         </script>
 
-@endpush
+
+
+
+    @endpush
 
 @endsection  

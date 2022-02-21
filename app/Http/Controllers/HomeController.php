@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        return redirect('/admins/posts');
+        $order = Order::select('id', 'name', 'created_at', 'total_price')->where('active', 0)->get();
+        return view('home.index', compact('order'));
     }
+    
 }

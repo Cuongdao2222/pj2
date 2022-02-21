@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => 'chiensi26045@gmail.com',
+    'username' => 'online.dienmaynguoiviet@gmail.com',
 
-    'password' => 'binhtinh92',
+    'password' => 'chienbinh92',
 
     /*
     |--------------------------------------------------------------------------

@@ -570,12 +570,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/details.css?v=1') }}">
 
-    <style type="text/css">
-        .bar-top-left{
-            display: none !important;
-        }
-        
-    </style>
+    
 
 @endpush
 
@@ -614,6 +609,8 @@
 
 
         <script type="text/javascript">
+
+            $('.bar-top-left').hide();
             
             function addToCart(id) {
                 $.ajaxSetup({

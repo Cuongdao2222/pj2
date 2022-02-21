@@ -267,6 +267,37 @@
                 width: 44%;
             }
 
+            footer .col-footer h3 {
+                text-transform: uppercase;
+                font-size: 16px;
+                color: #424242;
+                font-weight: bold;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            footer .col-footer ul li {
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+
+            .col-footer #now_submit {
+                width: 60px;
+                line-height: 40px;
+                background-color: #fe0000;
+                display: inline-block;
+                text-align: center;
+                border-radius: 1px;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .col-footer #email_newsletter {
+                height: 40px;
+                padding: 5px;
+                width: 200px;
+            }
+
           /*  phần responsive*/
 
             @media screen and (max-width: 776px){
@@ -955,62 +986,88 @@
        <!--  Endmodal -->
 
         <footer class="footer">
-            <section class="clearfix footer__top">
-                <div class="footer__col">
-                    <ul class="f-listmenu">
-                        <li><a rel="nofollow" href="/ve-sinh-may-lanh">DV vệ sinh máy lạnh, máy giặt, quạt</a></li>
-                        <li>
-                            <a rel="nofollow" href="https://www.dichvutantam.com#suachuadiennuoc" class="txt-nowrap"><b>Dịch vụ Sửa Điện - Nước</b></a>
-                            <span class="link-item__label__new">Mới</span>
-                            <br /> Dành cho Gia đình, Doanh nghiệp
-                        </li>
-                        <li><a rel="nofollow" href="/lich-su-mua-hang">Lịch sử mua hàng</a></li>
-                        <li><a rel="nofollow" href="/daily">Cộng tác bán hàng cùng TGDĐ</a></li>
-                        <li><a rel="nofollow" href="/tra-gop">Tìm hiểu về mua trả góp</a></li>
-                        <li><a href="javascript:void(0)" class="arrow showtaga">Xem thêm</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/bao-hanh">Chính sách bảo hành</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/bao-hanh-doi-tra">Chính sách đổi trả</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/kinh-nghiem-hay/chinh-sach-giao-hang-lap-dat-1261528">Giao hàng, lắp đặt</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/huong-dan-mua-hang">Hướng dẫn mua online</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/b2b">Bán hàng doanh nghiệp</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/phieu-mua-hang">Phiếu mua hàng</a></li>
-                        <li class="hidden"><a rel="nofollow" href="http://hddt.thegioididong.com">In hóa đơn điện tử</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/dieu-khoan-su-dung">Quy chế hoạt động</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/noi-quy-cua-hang">Nội quy cửa hàng</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/chat-luong-phuc-vu">Chất lượng phục vụ</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/kinh-nghiem-hay/canh-bao-gia-mao-dien-may-xanh-1123837">Cảnh báo giả mạo</a></li>
-                        <li class="hidden"><a rel="nofollow" href="/chinh-sach-khui-hop-apple">Chính sách khui hộp sản phẩm Apple</a></li>
-                    </ul>
-                </div>
-                <div class="footer__col">
-                    <ul class="f-listmenu">
-                        <li><a rel="nofollow" href="/gioi-thieu">Giới thiệu công ty (MWG.vn)</a></li>
-                        <li><a rel="nofollow" href="http://vieclam.thegioididong.com">Tuyển dụng</a></li>
-                        <li><a rel="nofollow" href="/lien-he">Gửi góp ý, khiếu nại</a></li>
-                        <li><a rel="nofollow" href="/he-thong-sieu-thi-dien-may">Tìm siêu thị (2036 shop)</a></li>
-                        <li><a rel="nofollow" class="linkversion" href="http://www.dienmayxanh.com/?sclient=mobile">Xem bản mobile</a></li>
-                    </ul>
-                </div>
-                <div class="footer__col">
-                    <div class="f-listtel">
-                        <p class="f-listtel__title">
-                            <strong>Tổng đài hỗ trợ</strong> (Miễn phí gọi)
-                        </p>
-                        <p class="f-listtel__content"><span>Gọi mua:</span> <a href="tel:18001061">1800.1061</a> (7:30 - 22:00)</p>
-                        <p class="f-listtel__content"><span>Kỹ thuật:</span> <a href="tel:18001764">1800.1764</a> (7:30 - 22:00)</p>
-                        <p class="f-listtel__content"><span>Khiếu nại:</span> <a href="tel:18001063">1800.1063</a> (8:00 - 21:30)</p>
-                        <p class="f-listtel__content"><span>Bảo hành:</span> <a href="tel:18001065">1800.1065</a> (8:00 - 21:00)</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-footer">
+                        <h3 class="title">Thông tin</h3>
+                        <ul class="footer_list-link">
+                            <li>
+                                <a href="/gioi-thieu">Giới thiệu</a>
+                            </li>
+                            <li>
+                                <a href="/lien-he">Liên hệ</a>
+                            </li>
+                            <li>
+                                <a href="/nha-phan-phoi-dien-may-uy-tin-chuyen-nghiep/">Dự án bán buôn</a>
+                            </li>
+                            <li>
+                                <a href="/tuyen-dung/">Tuyển dụng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-footer">
+                        <h3 class="title">Hỗ trợ mua hàng</h3>
+                        <ul class="footer_list-link">
+                            <li>
+                                <a href="/huong-dan-mua-dien-may-tra-gop-online-qua-the-tin-dung-tren-dien-may-nguoi-viet/">Hướng dẫn trả góp</a>
+                            </li>
+                            <li>
+                                <a href="/page/cach-thuc-thanh-toan">Cách thức thanh toán</a>
+                            </li>
+                            <li>
+                                <a href="/page/bang-gia-vat-tu-lap-dat">Bảng giá vật tư lắp đặt</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-footer">
+                        <h3 class="title">Tổng đài hỗ trợ</h3>
+                        <ul class="footer_list-link">
+                            <li>Mua hàng
+                                <a href="tel:02473036336">0247.303.6336</a>
+                            </li>
+                            <li>CSKH
+                                <a href="tel:0916917949">0916917949</a>
+                            </li>
+                            <li>Bảo hành
+                                <a href="tel:02436879145">0243.687.9145</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-footer">
+                        <h3 class="title">Chính sách</h3>
+                        <ul class="footer_list-link">
+                            <li>
+                                <a href="/page/chinh-sach-quy-dinh-chung">Chính sách &amp; quy định chung</a>
+                            </li>
+                            <li>
+                                <a href="/page/chinh-sach-doi-tra-hang">Chính sách đổi trả sản phẩm</a>
+                            </li>
+                            <li>
+                                <a href="/page/chinh-sach-bao-hanh">Chính sách bảo hành</a>
+                            </li>
+                            <li>
+                                <a href="/page/chinh-sach-van-chuyen">Chính sách giao hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-footer">
+                        <form>
+                            <input id="email_newsletter" type="text" placeholder="Nhận thông tin khuyến mại">
+                            <span id="now_submit">Gửi</span>
+                        </form>
+                        <!-- <h4 style="margin-top: 20px;margin-bottom: 10px;">Kết nối với chúng tôi</h4>
+                        <a class="ft-fb" rel="nofollow" href="https://www.facebook.com/dienmaynguoiviet/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="ft-yt" rel="nofollow" href="https://www.youtube.com/channel/UCRVWFSZs8k81B61_hwmkMIA"><i class="fab fa-youtube"></i></a>
+                        <a rel="nofollow" href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=1180"><img style="max-height: 40px" src="/template/dienmaynguoiviet/images/dathongbao.png"></a> -->
                     </div>
                 </div>
-                
-            </section>
-            <div class="copyright">
-                <section>
-                    <!-- <p>
-                        © 2018. Công ty cổ phần Thế Giới Di Động. GPDKKD: 0303217354 do sở KH & ĐT TP.HCM cấp ngày 02/01/2007. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020.<br>
-                        Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt. <a rel="nofollow" href="/thoa-thuan-su-dung-trang-mxh">Xem chính sách sử dụng</a>
-                    </p> -->
-                </section>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p> <b>© 2018. Công ty TNHH Thương Mại Phú Tiến. Địa chỉ: : Kho Đóng Tàu, Ngõ 683 Đường Nguyễn Khoái, Quận Hoàng
+                            Mai, TP HN. GPKD số : 0102011440 do Sở Kế Hoạch và Đầu Tư TP. Hà Nội, cấp ngày 25/02/2004 </b>
+                        </p>
+                    </div>
+                </div>
             </div>
         </footer>
         

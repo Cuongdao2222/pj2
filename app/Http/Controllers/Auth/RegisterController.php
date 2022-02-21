@@ -71,6 +71,7 @@ class RegisterController extends Controller
         // ]);
 
         echo "không thể tạo tài khoản";
+        die();
           
     }
 }

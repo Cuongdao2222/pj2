@@ -72,9 +72,7 @@
             </div>
         </div>
     </div>
-    <script>
-        var isHome = true;
-    </script>
+    
     <section>
         <div class="bar-top">
             <div class="bar-top-left-none"></div>
@@ -177,10 +175,6 @@
             @endif
             <!-- <a class="readmore-btn" href="https://www.dienmayxanh.com/flashsale#game"><span>Xem tất cả</span></a> -->
         </div>
-        <!-- End -->
-        <!-- Bạn đã xem -->
-        <div class="watched"></div>
-        <!-- End -->
 
         <?php
 
@@ -309,7 +303,13 @@
     @push('script')
 
     <script type="text/javascript">
+
         
+
+        if(window.innerWidth>768){
+            $('.bar-top-lefts').show();
+        } 
+
         var number_slider =  parseInt($('.owl-slider-count').text());
 
         for (i = 0; i < number_slider; i++) {

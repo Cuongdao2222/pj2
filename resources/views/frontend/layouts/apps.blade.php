@@ -7,26 +7,30 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến</title>
-        <meta name="keywords" content="Siêu thị điện máy, điện tử, điện lạnh, gia dụng, đồ dùng nhà bếp, điện máy xanh" />
-        <meta name="description" content="Siêu thị Điện máy Xanh mua sắm thiết bị điện tử điện lạnh, gia dụng, sản phẩm công nghệ. Mua online tại dienmayxanh.com giá tốt phục vụ chuyên nghiệp tận tâm." />
-        <meta property="og:title" content="Siêu thị Điện máy XANH - Mua bán điện tử, điện lạnh, gia dụng" />
-        <meta property="og:description" content="Siêu thị Điện máy Xanh mua sắm thiết bị điện tử điện lạnh, gia dụng, sản phẩm công nghệ. Mua online tại dienmayxanh.com giá tốt phục vụ chuyên nghiệp tận tâm." />
-        <link rel="canonical" href="" />
-        <meta content="INDEX,FOLLOW" name="robots" />
-       
-        <meta http-equiv="audience" content="General" />
-        <meta name="resource-type" content="Document" />
-        <meta name="distribution" content="Global" />
-        <meta name="revisit-after" content="1 days" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta http-equiv="content-language" content="vi" />
-        <link href="/favicon_DMX.ico" rel="shortcut icon" type="image/x-icon" />
-        <link href="/favicon_DMX.ico" rel="apple-touch-icon" />
-        <link href="/favicon_DMX.ico" rel="apple-touch-icon-precomposed" />
-        <meta property="fb:app_id" content="204398446292634" />
-        <meta property="og:site_name" content="dienmayxanh.com" />
-        <meta property="og:type" content="product" />
-        <meta property="og:locale" content="vi_VN" />
+        
+          <meta name = "google-site-verify" content = "1AH1fN3G7ygWRcOlEQWJyhginaxmT67zTMPP8wnfFD0" />
+          
+          <meta http-equiv="cache-control" content="no-cache" />
+
+          <meta name="p:domain_verify" content="109de6686e51e396ddd32475ad614b1f"/>
+          <meta name="google-site-verification" content="P-EnxCkmnXXEDeC0FWq-rSxjbSSyy9HeimO6f2Evtyc" />
+
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="shortcut icon" href="/template/dienmaynguoiviet/images/favicon.ico"/>
+            <meta name="robots" content="index,follow" />
+          
+            <meta name="keywords" content="sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến"/>
+            <meta name="description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí."/>
+            <link rel="alternate" type="application/rss+xml" title="RSS Feed for https://dienmaynguoiviet.vn" href="/product.rss" />
+          
+            <meta name="viewport" content="width=device-width" />
+            <meta property="og:title" content="Điện Máy Người Việt - Mua sắm điện máy chính hãng giá rẻ" />
+            <meta property="og:description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí." />
+  
+    
+    <meta property="og:image" content="https://dienmaynguoiviet.vn/media/banner/logo_logo.png" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -295,7 +299,11 @@
             .col-footer #email_newsletter {
                 height: 40px;
                 padding: 5px;
-                width: 200px;
+                
+            }
+
+            .footer .row{
+                margin-top: 30px;
             }
 
           /*  phần responsive*/
@@ -331,7 +339,7 @@
                     width: auto;
                 }
 
-                .bar-top-left {
+                .bar-top-lefts {
                     width: 100% !important;
                 }    
                 .preorder-hot{
@@ -380,17 +388,12 @@
 
                 }  
 
-                .bar-top-left {
+                .bar-top-lefts {
                     position: sticky !important;
-
-                    display: none;
                 }  
 
 
             }
-
-                
-                
            
             @media screen and (min-width: 777px){
                 .mobiles{
@@ -546,7 +549,7 @@
                     <div class="category">
                         <p class="category__txt"><span class="menu-list">Danh mục</span></p>
                         <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
-                        <div class="bar-top-left">
+                        <div class="bar-top-lefts">
                             <ul class="main-menu">
                                 <li data-submenu-id="submenu-1">
                                     <div class="dropdown">
@@ -1073,7 +1076,7 @@
         
 
         
-         <script src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalDMX.min.v202201240310.js" type="text/javascript"></script>
+         <script src="{{ asset('js/layout.js') }}" type="text/javascript"></script>
         <script async="async" defer="defer" src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/homeDMX.min.v202201141000.js" type="text/javascript"></script>
         <script async="async" defer="defer" src="https://cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/homeGTM.min.v202111271240.js" type="text/javascript"></script>
         <script>
@@ -1096,6 +1099,15 @@
 
     @stack('script')
     <script type="text/javascript">
+
+
+        $(window).resize(function(){
+            if($(window).width()<768){
+
+                $('.bar-top-lefts').hide();
+            }
+         
+        });
         
          $("#exampleModal").on("hidden.bs.modal", function () {
             $('#tbl_list_carts').html('');
@@ -1166,20 +1178,16 @@
 
 
         $(".menu-list").bind("click", function(){
-            if($(".bar-top-left").is(":hidden")){
-                $(".bar-top-left").show()
+            if($(".bar-top-lefts").is(":hidden")){
+                $(".bar-top-lefts").show()
             }
             else{
-                $(".bar-top-left").hide();
+                $(".bar-top-lefts").hide();
             }
-
-           
         });  
 
 
-
         $().ready(function() {
-
              jQuery.validator.addMethod("phonenu", function (value, element) {
                 if ( /^\d{3}-?\d{3}-?\d{4}$/g.test(value)) {
                     return true;
@@ -1237,9 +1245,6 @@
             });
         });
     
-
-    
-
     </script>
       
     </body>

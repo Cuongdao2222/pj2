@@ -56,7 +56,9 @@ class categoryController extends Controller
 
         $data =  product::findOrFail($findID->id);
 
-        return view('frontend.details', compact('data', 'images'));
+        $other_product = product::where('Group_id',  $data->Group_id)->get();
+
+        return view('frontend.details', compact('data', 'images', 'other_product'));
     }
 
     public function addProductToCart()

@@ -303,6 +303,35 @@
                 <div class="border7"></div>
                 <div class="related view-more-related">
                     <p class="related__ttl">Xem thêm tivi khác</p>
+
+                    @if(isset($other_product))
+           
+                    <div class="listproduct slider-promo owl-carousel banner-sales" data-size="20">
+
+                        @foreach($other_product as  $value)
+                        @if($value->active==1)
+                        <div class="item">
+                            <a href='{{ route('details', $value->Link) }}' class=" main-contain">
+                                <div class="item-label">
+                                </div>
+                                <div class="item-img">
+                                    <img data-src="{{ asset($value->Image) }}" class="lazyload" alt="{{ $value->Name }}" width=210 height=210>
+                                </div>
+                               <!--  <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p> -->
+                                <h3>{{ $value->Name }}</h3>
+                               
+                                <strong class="price">{{  str_replace(',' ,'.', number_format($value->Price))  }}&#x20AB;</strong>
+                            
+                            </a>
+                        </div>
+                        @endif
+
+                        @endforeach
+                        
+                    </div>
+                    @endif
+            <!-- <a class="readmore-btn" href="https://www.dienmayxanh.com/flashsale#game"><span>Xem tất cả</span></a> -->
+                </div>
                     <!-- <div class="scrolling_inner">
                         <div class="box03 box03--nopadd scrolling">
                             <a href="/tivi-samsung" class="box03__item addradius">
@@ -643,19 +672,40 @@
                 
             }
 
-            $('.detail-slider').owlCarousel({
+            // $('.detail-slider').owlCarousel({
+            //     loop:false,
+            //     margin:10,
+            //     nav:false,
+            //     autoplay:true,
+            //     responsive:{
+            //         0:{
+            //             items:1
+
+            //         },
+            //         600:{
+            //             items:4
+            //         },
+                    
+            //         1000:{
+            //             items:5
+            //         }
+            //     }
+            // });
+
+            $('.banner-sales').owlCarousel({
                 loop:false,
+
                 margin:10,
                 nav:false,
-                autoplay:true,
                 responsive:{
                     0:{
-                        items:1
-
+                        items:1.5
                     },
-                    
+                    600:{
+                        items:1.5
+                    },
                     1000:{
-                        items:1
+                        items:5
                     }
                 }
             });

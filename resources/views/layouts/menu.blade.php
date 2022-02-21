@@ -16,6 +16,12 @@
 
 <li class="nav-item" style="display: flex; height:44px;"  >
 
+    <a href="{{ route('home-admin') }}"
+       class="nav-link {{ Request::is('home-admin') ? 'active' : '' }}" style="width: 68%;">
+        <p>Group Products</p>
+        
+    </a>
+
     <a href="{{ route('groupProducts.index') }}"
        class="nav-link {{ Request::is('groupProducts*') ? 'active' : '' }}" style="width: 68%;">
         <p>Group Products</p>

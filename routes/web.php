@@ -53,7 +53,7 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->m
 
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
-    Route::get('/home', 'backend\homeController@index')->name('home-admin');
+    Route::get('/home', 'Backend\homeController@index')->name('home-admin');
 
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 

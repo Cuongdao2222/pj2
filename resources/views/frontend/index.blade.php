@@ -189,7 +189,7 @@
 
             <?php
                 $all_Product = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.id')->where('group_product.id', $group[$i]->id)->get();
-                $data =  DB::table('hot')->join('products', 'hot.product_id', '=', 'products.id')->where('hot.group_id', $group[$i]->id)->get();
+                $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->where('hot.group_id', $group[$i]->id)->get();
             ?>
         @if(count($data)>0)    
         <div class="box-common _cate_1942">

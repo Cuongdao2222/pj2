@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "bumbummen99/shoppingcart": "^4.1",
+        "ckfinder/ckfinder-laravel-package": "^3.5",
         "doctrine/dbal": "~2.3",
         "fideloper/proxy": "^4.4",
         "infyomlabs/adminlte-templates": "^3.0",

@@ -5,6 +5,14 @@
 
         <style type="text/css">
 
+            .item-saker{
+                position: absolute;
+                width: 45px !important;
+               
+                left: 20px;
+                top: 24px;
+            }
+
             @media screen and (max-width: 776px){
 
               /* .bar-top-left{
@@ -150,6 +158,9 @@
                         </div>
                         <div class="item-img">
                             <img data-src="{{ asset($value->Image) }}" class="lazyload" alt="{{ $value->Name }}" width=210 height=210>
+                            
+                            <img src="{{ asset('images/template/lg.png') }}" class="item-saker">
+                            
                         </div>
                        <!--  <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p> -->
                         <h3>{{ $value->Name }}</h3>
@@ -303,8 +314,6 @@
 
     <script type="text/javascript">
 
-        
-
         if(window.innerWidth>768){
             $('.bar-top-lefts').show();
         } 
@@ -371,7 +380,4 @@
         })
     </script>
     @endpush
-
-
- 
 @endsection      

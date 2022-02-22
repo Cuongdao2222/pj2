@@ -175,12 +175,19 @@
 <div class="clearfix"></div>
 
 <script>
-    CKEDITOR.replace('content');
+
+    CKEDITOR.replace( 'content', {
+        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+
+    } );
+   
 
     CKEDITOR.replace('content-1');
 
     CKEDITOR.replace('content-2');
 
+
+    
     // $(document).ready(function()
     // {
     //     $(window).bind("beforeunload", function() { 
@@ -189,3 +196,5 @@
     // });
 
 </script>
+
+ @include('ckfinder::setup');

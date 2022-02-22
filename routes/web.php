@@ -14,6 +14,12 @@
 
 Route::get('/', 'Frontend\indexController@index')->middleware('auth');
 
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');
+
 
 Route::get('/add-property-filter', function () {
     return view('filter.add-property');

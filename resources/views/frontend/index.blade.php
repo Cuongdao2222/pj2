@@ -204,7 +204,6 @@
                 <div class="box-common__content">
                     <div class="listproduct slider-home owl-carousel" id="banner-product_{{ $i }}" data-size="10">
 
-                        
                         @foreach($data as $datas)
                         @if($datas->active==1)
                         <div class="item"  data-pos="1">

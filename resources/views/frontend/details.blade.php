@@ -1,11 +1,56 @@
 
 
-
 @extends('frontend.layouts.apps')
 
 @section('content') 
+
         @push('style')
         <style type="text/css">
+
+           /* block show when  scroll*/
+
+            .prod-info{
+                position: fixed;
+                top: 0;
+                right: 0;
+            }
+
+            .txt_green {
+                color: #ff0000;
+            }
+
+            .prod-info.fix {
+                background: #fff;
+                padding: 15px;
+                border: 1px solid #ddd;
+                width: 400px;
+                z-index: 66;
+            }
+
+            .prod-info .promo {
+                padding: 10px;
+                border: 1px solid #ddd;
+                position: relative;
+            }
+
+            .prod-info .promo .txt_b {
+                position: absolute;
+                left: 0;
+                top: -15px;
+                background: #fff;
+                padding: 0 5px;
+            }
+            .txt_b {
+                font-weight: bold;
+            }
+            .price{
+                margin-bottom: 15px;
+            }
+
+            .name-scroll{
+                font-size: 25px;
+                font-weight: bold;
+            }
             
             @media screen and (max-width: 776px){
                 section.detail {
@@ -117,19 +162,18 @@
                 <div class="box_left">
                     <div class="box01">
                         <div class="box01__show">
-                            <div class="owl-carousel detail-slider" data-size="20">
-                                <div class="item">
+                            <div class="owl-carousel detail-slider" id="carousel">
+                                 <div class="item">
                                     <img src="{{ asset($data->Image) }}">
                                 </div>
-
-                               
                                 @isset($images)
                                 @foreach($images as $image)
                                 <div class="item">
                                     <img src="{{ asset($image->image) }}">
                                 </div>
                                 @endforeach
-                                @endisset   
+                                @endisset
+                               
                             </div>
                         </div>
                        
@@ -306,7 +350,7 @@
 
                     @if(isset($other_product))
            
-                    <div class="listproduct slider-promo owl-carousel banner-sales" data-size="20">
+                    <div class="listproduct slider-promo owl-carousel banner-sales">
 
                         @foreach($other_product as  $value)
                         @if($value->active==1)
@@ -372,59 +416,8 @@
          
         
         </section>
+    
         
-
-
-        <!-- block show when  scroll -->
-
-        <style type="text/css">
-            .prod-info{
-                position: fixed;
-                top: 0;
-                right: 0;
-            }
-
-            .txt_green {
-                color: #ff0000;
-            }
-
-            .prod-info.fix {
-                background: #fff;
-                padding: 15px;
-                border: 1px solid #ddd;
-                width: 400px;
-                z-index: 66;
-            }
-
-            .prod-info .promo {
-                padding: 10px;
-                border: 1px solid #ddd;
-                position: relative;
-            }
-
-            .prod-info .promo .txt_b {
-                position: absolute;
-                left: 0;
-                top: -15px;
-                background: #fff;
-                padding: 0 5px;
-            }
-            .txt_b {
-                font-weight: bold;
-            }
-            .price{
-                margin-bottom: 15px;
-            }
-
-            .name-scroll{
-                font-size: 25px;
-                font-weight: bold;
-            }
-
-            
-
-        </style>
-
         <div class="prod-info txt_555 fix">
 
             <span class="name-scroll"> {{ $data->Name }} </span>
@@ -444,7 +437,7 @@
                 <div class=" totalRate " id="js-total-rating" style="    display: inline-block;"><i class="icons icon-star star"><span></span></i></div>
                 (<span class="reviewCount">0</span>)
             </div>
-            <script src="/template/default/script/jquery.rating.js"></script>
+           
                   
         <div class="prod-info-left fl">          
                 
@@ -672,37 +665,37 @@
                 
             }
 
-            // $('.detail-slider').owlCarousel({
-            //     loop:false,
-            //     margin:10,
-            //     nav:false,
-            //     autoplay:true,
-            //     responsive:{
-            //         0:{
-            //             items:1
+            $('#carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:false,
+                autoplay:true,
+                responsive:{
+                    0:{
+                        items:1
 
-            //         },
-            //         600:{
-            //             items:4
-            //         },
+                    },
+                    600:{
+                        items:4
+                    },
                     
-            //         1000:{
-            //             items:5
-            //         }
-            //     }
-            // });
+                    1000:{
+                        items:1
+                    }
+                }
+            });
 
-            $('.banner-sales').owlCarousel({
+            $('.listproduct').owlCarousel({
                 loop:false,
 
                 margin:10,
                 nav:false,
                 responsive:{
                     0:{
-                        items:1.5
+                        items:1
                     },
                     600:{
-                        items:1.5
+                        items:1
                     },
                     1000:{
                         items:5

@@ -29,18 +29,6 @@
     
 ?>
 
-<!-- Image Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('Image', 'Image:') !!}
-    <div class="input-group">
-        <div class="custom-file">
-            {!! Form::file('Image', ['class' => 'custom-file-input']) !!}
-            {!! Form::label('Image', 'Choose file', ['class' => 'custom-file-label']) !!}
-        </div>
-    </div>
-</div>
-<div class="clearfix"></div>
-
 
 <!-- Product Field -->
 <div class="form-group col-sm-6">
@@ -173,6 +161,18 @@
     {!! Form::select('Group_id', $Groups, @$GroupSelected, ['class' => 'form-control custom-select']) !!}
    
 </div>
+
+<!-- Image Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('Image', 'Image:') !!}
+    <div class="input-group">
+        <div class="custom-file">
+            {!! Form::file('Image', ['class' => 'custom-file-input']) !!}
+            {!! Form::label('Image', 'Choose file', ['class' => 'custom-file-label']) !!}
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
 
 <script>
     CKEDITOR.replace('content');

@@ -144,7 +144,14 @@
 
            <?php  
 
-           $product_sale =  DB::table('sale_product')->join('products', 'sale_product.product_id', '=', 'products.id')->get();?>
+           $product_sale =  DB::table('products')->join('sale_product', 'products.id', '=', 'sale_product.product_id')->join('makers', 'products.Maker', '=', 'makers.id')->get();
+           
+
+           
+
+            
+
+           ?>
 
            @if(count($product_sale)>0)
            
@@ -159,7 +166,7 @@
                         <div class="item-img">
                             <img data-src="{{ asset($value->Image) }}" class="lazyload" alt="{{ $value->Name }}" width=210 height=210>
                             
-                            <img src="{{ asset('images/template/lg.png') }}" class="item-saker">
+                            <img src="{{ asset('images/saker/'.strtolower($value->maker).'.png') }}" class="item-saker">
                             
                         </div>
                        <!--  <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p> -->
@@ -174,7 +181,7 @@
                                 <i class="icon-star"></i>
                                 <i class="icon-star-dark"></i>
                             </p>
-                            <p class="item-rating-total">746</p>
+                            <p class="item-rating-total">{{strtolower($value->maker) }}</p>
                         </div>
                     </a>
                 </div>
@@ -200,7 +207,7 @@
 
             <?php
                 $all_Product = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.id')->where('group_product.id', $group[$i]->id)->get();
-                $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->where('hot.group_id', $group[$i]->id)->get();
+                $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->join('makers', 'products.Maker', '=', 'makers.id')->where('hot.group_id', $group[$i]->id)->get();
             ?>
         @if(count($data)>0)    
         <div class="box-common _cate_1942">
@@ -224,6 +231,8 @@
                                 </div>
                                 <div class="item-img">
                                     <img data-src="{{ asset($datas->Image) }}" class="lazyload" alt="{{ $datas->Name }}" width=210 height=210>
+
+                                     <img src="{{ asset('images/saker/'.strtolower($datas->maker).'.png') }}" class="item-saker">
                                 </div>
                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
                                 <h3>{{ $datas->Name }}{{  $datas->id }}</h3>

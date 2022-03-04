@@ -30,6 +30,10 @@
 ?>
 
 
+{{Illuminate\Support\Facades\Auth::check() }}
+
+<?php  $url_domain =  Config::get('app.url') ?>
+
 <!-- Product Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('Name', 'Tên sản phẩm:') !!}
@@ -62,8 +66,6 @@
         function toSlug(str) {
             // Chuyển hết sang chữ thường
             str = str.toLowerCase();  
-    
-
          
             // xóa dấu
             str = str
@@ -174,12 +176,20 @@
 </div>
 <div class="clearfix"></div>
 
+
 <script>
 
-    CKEDITOR.replace( 'content', {
-        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
 
+    CKEDITOR.replace( 'content', {
+       filebrowserBrowseUrl: '{{ $url_domain }}/pj2/ckfinder.html',
+        filebrowserImageBrowseUrl: '{{ $url_domain }}/pj2/ckfinder.html?Type=Images',
+        filebrowserUploadUrl: '{{ $url_domain }}/pj2/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '{{ $url_domain }}/pj2/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+     filebrowserWindowWidth : '1000',
+    filebrowserWindowHeight : '700'
     } );
+
+   
    
 
     CKEDITOR.replace('content-1');
@@ -197,4 +207,4 @@
 
 </script>
 
- @include('ckfinder::setup');
+

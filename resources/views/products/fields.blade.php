@@ -183,8 +183,8 @@
     CKEDITOR.replace( 'content', {
        filebrowserBrowseUrl: '{{ $url_domain }}/ckfinder.html',
         filebrowserImageBrowseUrl: '{{ $url_domain }}/ckfinder.html?Type=Images',
-        filebrowserUploadUrl: '{{ $url_domain }}/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-        filebrowserImageUploadUrl: '{{ $url_domain }}/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Images',
      filebrowserWindowWidth : '1000',
     filebrowserWindowHeight : '700'
     } );

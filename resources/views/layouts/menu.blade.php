@@ -89,6 +89,13 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="/pj2/admins/posts/create"
+       class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
+        <p>Bài viết </p>
+    </a>
+</li>
+
 <style type="text/css">
     
     .child-nav a{

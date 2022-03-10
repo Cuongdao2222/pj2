@@ -13,6 +13,8 @@ use Illuminate\Pagination\Paginator;
 use Flash;
 use Response;
 
+use App\Models\metaSeo ;
+
 class productController extends AppBaseController
 {
     /** @var  productRepository */
@@ -83,12 +85,31 @@ class productController extends AppBaseController
             $input['Image'] = $filePath;
         }
 
+        //add meta seo cho product
+
+        $meta_title = $input['ProductSku'].', '.$input['Name'].' giá rẻ, Trả góp 0%';
+
+        $meta_content = 'Mua '.$input['Name'].' giá rẻ. Miễn phí giao hàng & Lắp đặt. Đổi lỗi trong 7 ngày đầu. Liên hệ hotline 0247.303.6336 để mua hàng và biết thêm thông tin chi tiết'; 
+
+        $inputs_meta['meta_title'] = $meta_title;
+
+        $inputs_meta['meta_content'] = $meta_content;
+
+        $inputs_meta['meta_og_content'] = $meta_content;
+
+        $inputs_meta['meta_og_title'] = $meta_title;
+
+        $meta_model = new metaSeo();
+
+        $meta_model->create($inputs_meta);
+
+        $input['Meta_id'] = $meta_model->id;
 
         $product = $this->productRepository->create($input);
+        
+        return Redirect()->back()->with('id', $product->id);
 
-        Flash::success('Product saved successfully.');
-
-        return redirect(route('products.index'));
+        // return redirect(route('products.index'));
     }
 
     /**

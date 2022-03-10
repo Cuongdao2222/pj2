@@ -18,14 +18,13 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class categoryController extends Controller
 {
-    public function index($slug)
-    {
 
+
+    public function categoryView($slug)
+    {
         $link = trim($slug);
 
         $findID = groupProduct::where('link', $link)->first();
-
-
 
         if(empty($findID)){
             abort('404');
@@ -41,6 +40,11 @@ class categoryController extends Controller
 
         return view('frontend.category', compact('data', 'filter', 'id_cate'));
     }
+    public function index($slug)
+    {
+        
+       return redirect(route('details', $slug));
+    }
 
     public function details($slug)
     {
@@ -48,8 +52,12 @@ class categoryController extends Controller
 
         $findID = product::where('link', $link)->first();
 
+        // chuyển sang category check
+
         if(empty($findID)){
-            abort('404');
+
+            return($this->categoryView($slug));
+
         }
 
         $images = image::where('product_id', $findID->id)->get();

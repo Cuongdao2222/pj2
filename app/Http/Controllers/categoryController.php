@@ -57,6 +57,8 @@ class categoryController extends AppBaseController
     {
         $input = $request->all();
 
+        $input['link'] = convertSlug($input['namecategory']);
+
         $category = $this->categoryRepository->create($input);
 
         Flash::success('Category saved successfully.');
@@ -116,13 +118,17 @@ class categoryController extends AppBaseController
     {
         $category = $this->categoryRepository->find($id);
 
+        $input = $request->all();
+
+        $input['Link'] = convertSlug($input['namecategory']);
+
         if (empty($category)) {
             Flash::error('Category not found');
 
             return redirect(route('categories.index'));
         }
 
-        $category = $this->categoryRepository->update($request->all(), $id);
+        $category = $this->categoryRepository->update($input, $id);
 
         Flash::success('Category updated successfully.');
 

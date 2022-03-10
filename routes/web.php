@@ -12,6 +12,10 @@
 */
 
 
+Route::get('/blog', function () {
+    return view('frontend.blog');
+});
+
 Route::get('/', 'Frontend\indexController@index')->middleware('auth');
 
 
@@ -19,6 +23,8 @@ Route::get('/ckfinder.html', function () {
     return view('frontend.ckfinder');
     
 })->middleware('auth');
+
+
 
 
 
@@ -64,6 +70,9 @@ Route::post('add-cart-number', 'AjaxController@addProductToCartByNumber')->name(
 Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 
 Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->middleware('auth');
+
+
+
 
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
@@ -135,8 +144,6 @@ Route::post(
      Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');
 
      Route::resource('properties', 'propertyController');
-
-
 
 });
 

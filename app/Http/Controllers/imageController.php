@@ -77,7 +77,7 @@ class imageController extends AppBaseController
 
         Flash::success('Image saved successfully.');
 
-        return redirect(route('images.index'));
+        return redirect(route('products.index'));
     }
 
     /**

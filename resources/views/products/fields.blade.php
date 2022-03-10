@@ -30,7 +30,7 @@
 ?>
 
 
-{{Illuminate\Support\Facades\Auth::check() }}
+
 
 <?php  $url_domain =  Config::get('app.url') ?>
 
@@ -179,23 +179,32 @@
 
 <script>
 
-
     CKEDITOR.replace( 'content', {
-       filebrowserBrowseUrl: '{{ $url_domain }}/ckfinder.html',
+        filebrowserBrowseUrl: '{{ $url_domain }}/ckfinder.html',
         filebrowserImageBrowseUrl: '{{ $url_domain }}/ckfinder.html?Type=Images',
         filebrowserUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Files',
         filebrowserImageUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Images',
-     filebrowserWindowWidth : '1000',
-    filebrowserWindowHeight : '700'
+        filebrowserWindowWidth : '1000',
+        filebrowserWindowHeight : '700'
     } );
 
-   
-   
+    CKEDITOR.replace( 'content-1', {
+        filebrowserBrowseUrl: '{{ $url_domain }}/ckfinder.html',
+        filebrowserImageBrowseUrl: '{{ $url_domain }}/ckfinder.html?Type=Images',
+        filebrowserUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserWindowWidth : '1000',
+        filebrowserWindowHeight : '700'
+    } );
 
-    CKEDITOR.replace('content-1');
-
-    CKEDITOR.replace('content-2');
-
+    CKEDITOR.replace( 'content-2', {
+        filebrowserBrowseUrl: '{{ $url_domain }}/ckfinder.html',
+        filebrowserImageBrowseUrl: '{{ $url_domain }}/ckfinder.html?Type=Images',
+        filebrowserUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserWindowWidth : '1000',
+        filebrowserWindowHeight : '700'
+    } );
 
     
     // $(document).ready(function()

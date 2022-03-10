@@ -68,6 +68,13 @@ class postController extends AppBaseController
         }
         $input['link'] = $this->createSlug($input['title']);
 
+        $html = $input['content'];
+
+        preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
+        var_dump($matches);
+
+        die();
+
         $post = $this->postRepository->create($input);
 
         Flash::success('Post saved successfully.');
@@ -147,6 +154,13 @@ class postController extends AppBaseController
             $input['image'] = $filePath;
         }
         $input['link'] = $this->createSlug($input['title']);
+
+        $html = $input['content'];
+
+        preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
+        var_dump($matches[1]);
+
+        die();
 
         $post = $this->postRepository->update($input, $id);
 

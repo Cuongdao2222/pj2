@@ -14,6 +14,7 @@
                 top: 0;
                 right: 0;
             }
+            
 
             .txt_green {
                 color: #ff0000;
@@ -111,18 +112,7 @@
             </div>
             <b id="h-provincename" style="display:none!important" data-provinceid="3">Hồ Chí Minh</b>
         </div>
-        <div class="locationbox__popup new-popup hide" id="lc_pop--sugg">
-            <div class="locationbox__popup--cnt locationbox__popup--suggestion new-locale">
-                <div class="flex-block">
-                    <i class="icon-location"></i>
-                    <p>Hãy chọn <b>địa chỉ cụ thể</b> để chúng tôi cung cấp <b>chính xác</b> th&#x1EDD;i gian giao h&#xE0;ng v&#xE0; t&#xEC;nh tr&#x1EA1;ng h&#xE0;ng.</p>
-                </div>
-                <div class="btn-block">
-                    <a href="javascript:;" class="btn-location" onclick="OpenLocation()"><b>Chọn địa chỉ</b></a>
-                    <a href="javascript:;" class="btn-location gray" onclick="SkipLocation()"><b>Đóng</b></a>
-                </div>
-            </div>
-        </div>
+       
         <section data-id="235791" data-cate-id="1942" class="detail ">
             <ul class="breadcrumb">
                 <li>
@@ -179,10 +169,92 @@
                        
                     </div>
 
+
+                    <div class="pay mobile">
+                        <div class="col-12 pdetail-des">
+                            <div class="clearfix"></div>
+                            <div>
+                                <div class="pdetail-info">
+                                    <p>Model: <b>{{ @$data->ProductSku  }}</b></p>
+                                    <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b></p>
+                                </div>
+
+                                <div class="scroll-box">
+                                    <div class="boxbanner-32">
+                                        <div class="banner-list">
+                                            <div class="item banner-item banner-item-1">
+                                                <a target="&quot;_blank&quot;" href="https://mediamart.vn/khuyen-mai-tet" data-id="1022">
+                                                    <picture>
+                                                       
+                                                        <img src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2019/01/10040348/X4iNCOp-1024x454.jpg" alt="Tết Lớn Khuyến Mại Lớn" width="&quot;640&quot;" height="&quot;150&quot;">
+                                                    </picture>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pdetail-price">
+                                        <div class="pdetail-price-box">
+                                            <h3>{{  str_replace(',' ,'.', number_format($data->Price))  }}₫</h3>
+                                           
+                                        </div>
+                                        <!-- <div class="pdetail-promotion">
+                                            
+                                            <div class="pdetail-promotion-body">
+                                                <ul>
+                                                    Tặng máy đánh trứng đa năng Roler RHM-1002 trị giá 790,000đ
+                                                    <li>Tặng eVoucher trị giá 200,000đ mua phụ kiện IT, phụ kiện Mobile (có giá trị sử dụng trong 07 ngày). Chi tiết xem <a href="https://mediamart.vn/tin-khuyen-mai/tang-voucher-tri-gia-200-000vnd-mua-cac-san-pham-phu-kien" target="_blank">tại đây</a>.</li>
+                                                    <li>TÀI TRỢ TRẢ GÓP 0% LÃI SUẤT (*)</li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="pdetail-status">
+                                        <div class="pdetail-stockavailable">
+                                            <span>CÒN HÀNG </span>
+                                        </div>
+                                        <div class="pdetail-add-to-cart add-to-cart">
+                                            <form class="inline">
+                                                <input type="hidden" name="productId" value="19439">
+                                                <!-- <div class="product-quantity">
+                                                    <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                                </div> -->
+                                                <button type="button" class="btn btn-lg btn-add-cart btn-add-cart redirectCart" onclick="addToCart({{ $data->id }})">MUA NGAY <br>(Giao hàng tận nơi - Giá tốt - An toàn)</button>
+                                            </form>
+                                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                Launch demo modal
+                                            </button> -->
+                                        </div>
+
+                                        
+                                        
+
+                                        <div class="clearfix"></div>
+                                        <div class="installment-purchase pdetail-installment">
+                                            <a target="_blank" href="/tin-khuyen-mai/mua-hang-tra-gop-lai-suat-0-chi-co-tai-media-mart" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
+                                            <strong>TRẢ GÓP</strong>
+                                            <br>
+                                            (Công ty tài chính)
+                                            </a>
+                                            <a target="_blank" href="/cart/add-item/19439/?redirecturl=/installment-alepay" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
+                                            <strong>TRẢ GÓP QUA THẺ</strong>
+                                            <br>
+                                            (Visa, Master, JCB)
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="total-imgslider">
                         <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-is-360-gallery="False" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
-                        
-                        <a class="note s7 hide" href="https://www.dienmayxanh.com/kinh-nghiem-hay/cac-cong-nghe-noi-bat-cua-tivi-samsung-20-1339340?src=slider#q-symphony" target="_blank"><span>Tìm hiểu:</span> Q-Symphony</a>
+                       
                     </div>
 
                     <div class="block-tab">
@@ -260,7 +332,7 @@
                     <div class="border7"></div>
                     
                 </div>
-                <div class="box_right">
+                <div class="box_right desktop">
                     
                     <div class="col-12 pdetail-des">
                         <div class="clearfix"></div>

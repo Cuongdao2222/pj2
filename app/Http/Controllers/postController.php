@@ -68,12 +68,31 @@ class postController extends AppBaseController
         }
         $input['link'] = $this->createSlug($input['title']);
 
+         // lưu ảnh vào server khi đi cóp bài 
+
         $html = $input['content'];
 
         preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
-        var_dump($matches);
 
-        die();
+        $arr_change = [];
+
+        if(isset($matches[1])){
+            foreach($matches[1] as $value){
+
+                $file_headers = @get_headers($value);
+                if ($file_headers) {
+                    $img = public_path('images/posts/'.basename($value));
+
+           
+                    file_put_contents($img, file_get_contents($value));
+
+                    array_push($arr_change, env('APP_URL').'/images/posts/'.basename($value));
+                } 
+               
+                
+            }
+        }
+
 
         $post = $this->postRepository->create($input);
 
@@ -155,12 +174,41 @@ class postController extends AppBaseController
         }
         $input['link'] = $this->createSlug($input['title']);
 
+        // lưu ảnh vào server khi đi cóp bài 
+
         $html = $input['content'];
 
         preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
-        var_dump($matches[1]);
 
-        die();
+        $arr_change = [];
+
+     
+
+        if(isset($matches[1])){
+            foreach($matches[1] as $value){
+
+                $file_headers = @get_headers($value);
+                if ($file_headers) {
+                    $img = public_path('images/posts/'.basename($value));
+
+           
+                    file_put_contents($img, file_get_contents($value));
+
+                    array_push($arr_change, env('APP_URL').'/images/posts/'.basename($value));
+                } 
+               
+                
+            }
+        }
+
+
+
+        $html = str_replace($matches[1], $arr_change, $html);
+
+
+        $input['content'] = $html;
+
+
 
         $post = $this->postRepository->update($input, $id);
 

@@ -15,7 +15,35 @@
            div.stars {
               width: 270px;
               display: inline-block;
+              
+
             }
+            .rate-text{
+                height: 50px;
+            }
+
+            .inputText {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #555;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ddd;
+            }
+
+            .form-input .btn-red {
+                background: #288ad6;
+                color: #fff;
+                padding: 11px 20px;
+                font-size: 15px;
+                border-radius: 0;
+                -moz-border-radius: 0px;
+                border: solid 1px #288ad6;
+            }    
              
             input.star { display: none; }
              
@@ -25,6 +53,8 @@
               font-size: 36px;
               color: #444;
               transition: all .2s;
+              cursor: pointer;
+
             }
              
             input.star:checked ~ label.star:before {
@@ -227,7 +257,7 @@
                             <div>
                                 <div class="pdetail-info">
                                     <p>Model: <b>{{ @$data->ProductSku  }}</b></p>
-                                    <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b></p>
+                                    <!-- <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b></p> -->
                                 </div>
 
                                 <div class="scroll-box">
@@ -344,7 +374,7 @@
                                 Th&#xF4;ng tin s&#x1EA3;n ph&#x1EA9;m
                             </li>
                         </ul>
-                        <div class="btn-closemenu close-tab">Đóng</div>
+                       
                         <div class="block-tab-content">
                             <div class="content-t active not-load-content" id="tab-content-featured-images-gallery-0">
                             </div>
@@ -390,7 +420,7 @@
                         <div>
                             <div class="pdetail-info">
                                 <p>Model: <b>{{ @$data->ProductSku  }}</b></p>
-                                <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b></p>
+                                <!-- <p>Bảo hành: <b>24 Tháng, 1 đổi 1 trong vòng 1 tháng</b></p> -->
                             </div>
 
                             <div class="scroll-box">
@@ -469,10 +499,12 @@
                 
                 <div class="border7"></div>
 
+                <div class="clearfix"></div>
+
                 <div class="col-md-8 clearfix" id="comment_pro">
-                    <div class="">
+                    <div class="rate-text">
                         <!-- <h3 style="margin-bottom: 0;margin-top: 40px;"> Đánh giá  {{ $data->Name }}</h3> -->
-                        <p style="max-width: 60%;background: #f3f3f3;padding: 10px;border-radius: 3px;margin: 0; height:20px">Đánh giá sản phẩm nhận Coupon 20.000đ dành cho khách mua hàng tại Điện máy người việt.</p>
+                        <p style="background: #f3f3f3;padding: 10px;border-radius: 3px;margin: 10px 0;">Đánh giá sản phẩm nhận Coupon 20.000đ dành cho khách mua hàng tại Điện máy người việt.</p>
                     </div>
                     <div class="p-comment">
                         <div class="comment-form">
@@ -480,19 +512,50 @@
                                 Chọn đánh giá của bạn:
                                 <div class="stars">
                                     <form action="">
-                                        <input class="star star-5" id="star-5" type="radio" name="star"/>
+                                        <input class="star star-click star-5" id="star-5" type="radio" name="star"/>
                                         <label class="star star-5" for="star-5"></label>
-                                        <input class="star star-4" id="star-4" type="radio" name="star"/>
+                                        <input class="star star-click star-4" id="star-4" type="radio" name="star"/>
                                         <label class="star star-4" for="star-4"></label>
-                                        <input class="star star-3" id="star-3" type="radio" name="star"/>
+                                        <input class="star star-click star-3" id="star-3" type="radio" name="star"/>
                                         <label class="star star-3" for="star-3"></label>
-                                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                                        <input class="star star-click star-2" id="star-2" type="radio" name="star"/>
                                         <label class="star star-2" for="star-2"></label>
-                                        <input class="star star-1" id="star-1" type="radio" name="star"/>
+                                        <input class="star star-click star-1" id="star-1" type="radio" name="star"/>
                                         <label class="star star-1" for="star-1"></label>
                                     </form>
                                 </div>
                             </div>
+
+
+                            <div class="relative">
+                                <div class="left">
+                                    <textarea style="padding: 10px;border-radius: 3px; width: 100%;" name="user_post[content]" placeholder="Nhập đánh giá về sản phẩm " id="content0"></textarea>
+                                </div>
+                                <div class="left">
+                                    <div class="form-input">
+                                        
+                                        <table style="width:100%;" class="tbl-common">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding-right: 5px;">
+                                                        <input style="border-radius: 3px;height: 43px;" type="text" id="name0" name="user_post[user_name]" class="inputText" placeholder="Họ tên" value="">
+                                                    </td>
+                                                    <td style="padding-left: 5px;">
+                                                        <input style="border-radius: 3px;height: 43px;" type="text" id="email0" name="user_post[user_email]" class="inputText" placeholder="Email" value="">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="button" onclick="postComment('0','')" value="Gửi bình luận" class="btn btn-red"></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--form-input-->
+                                </div>
+                            </div>
+
+
                             
                         </div>
                         <!--comment-form-->
@@ -783,6 +846,15 @@
                     }
 
                 });
+            });
+
+            let id_star = 'star-5';
+
+            $('.star-click').bind('click',function(){
+                id_star = $(this).attr('id');    
+                let number_star = id_star.substr(5, 6);
+                console.log(number_star);
+               
             });
 
         </script>

@@ -27,6 +27,7 @@ class post extends Model
         'content',
         'link',
         'category',
+        'id_user',
     ];
 
     /**

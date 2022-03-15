@@ -4,10 +4,48 @@
 
 @section('content') 
 
+
         @push('style')
         <style type="text/css">
 
            /* block show when  scroll*/
+
+           /*form đánh giá */
+
+           div.stars {
+              width: 270px;
+              display: inline-block;
+            }
+             
+            input.star { display: none; }
+             
+            label.star {
+              float: right;
+              padding: 10px;
+              font-size: 36px;
+              color: #444;
+              transition: all .2s;
+            }
+             
+            input.star:checked ~ label.star:before {
+              content: '\f005';
+              color: #FD4;
+              transition: all .25s;
+            }
+             
+            input.star-5:checked ~ label.star:before {
+              color: #FE7;
+              text-shadow: 0 0 20px #952;
+            }
+             
+            input.star-1:checked ~ label.star:before { color: #F62; }
+             
+            label.star:hover { transform: rotate(-15deg) scale(1.3); }
+             
+            label.star:before {
+              content: '\f006';
+              font-family: FontAwesome;
+            }
 
             .prod-info{
                 position: fixed;
@@ -51,6 +89,9 @@
             .name-scroll{
                 font-size: 25px;
                 font-weight: bold;
+            }
+            .rate_view {
+                margin-bottom: 10px;
             }
             
             @media screen and (max-width: 776px){
@@ -115,19 +156,29 @@
        
         <section data-id="235791" data-cate-id="1942" class="detail ">
             <ul class="breadcrumb">
+                <?php  
+                    $groupProduct = App\Models\groupProduct::find($data->Maker);
+
+                    
+                ?>
                 <li>
-                    <a href="/tivi">Tivi</a>
+                    <a href="/tivi">Trang chủ</a>
                     <meta property="position" content="1">
                 </li>
                 <li>
                     <span>›</span>
-                    <a href="/tivi?g=smart-tivi">Smart Tivi</a>
+                    <a href="/{{ $groupProduct->link }}">{{ $groupProduct->name }}</a>
                     <meta property="position" content="2">
                 </li>
+                <!-- <li>
+                    <span>›</span>
+                    <a href="/tivi?g=smart-tivi">Smart Tivi</a>
+                    <meta property="position" content="3">
+                </li> -->
                 <li>
                     <span>›</span>
-                    <a href="/tivi-samsung?g=smart-tivi">Smart Tivi Samsung</a>
-                    <meta property="position" content="3">
+                    <a href="{{ route('details',$data->Link) }}">{{ $data->Name }}</a>
+                    <meta property="position" content="4">
                 </li>
             </ul>
             <h1>{{ $data->Name }}</h1>
@@ -417,6 +468,38 @@
                 </div>
                 
                 <div class="border7"></div>
+
+                <div class="col-md-8 clearfix" id="comment_pro">
+                    <div class="">
+                        <!-- <h3 style="margin-bottom: 0;margin-top: 40px;"> Đánh giá  {{ $data->Name }}</h3> -->
+                        <p style="max-width: 60%;background: #f3f3f3;padding: 10px;border-radius: 3px;margin: 0; height:20px">Đánh giá sản phẩm nhận Coupon 20.000đ dành cho khách mua hàng tại Điện máy người việt.</p>
+                    </div>
+                    <div class="p-comment">
+                        <div class="comment-form">
+                            <div class="rate_view">
+                                Chọn đánh giá của bạn:
+                                <div class="stars">
+                                    <form action="">
+                                        <input class="star star-5" id="star-5" type="radio" name="star"/>
+                                        <label class="star star-5" for="star-5"></label>
+                                        <input class="star star-4" id="star-4" type="radio" name="star"/>
+                                        <label class="star star-4" for="star-4"></label>
+                                        <input class="star star-3" id="star-3" type="radio" name="star"/>
+                                        <label class="star star-3" for="star-3"></label>
+                                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                                        <label class="star star-2" for="star-2"></label>
+                                        <input class="star star-1" id="star-1" type="radio" name="star"/>
+                                        <label class="star star-1" for="star-1"></label>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!--comment-form-->
+                    </div>
+                </div>
+
+                <!-- end đánh giá -->
                 <div class="related view-more-related">
                     <p class="related__ttl">Xem thêm tivi khác</p>
 
@@ -513,10 +596,10 @@
                   
         <div class="prod-info-left fl">          
                 
-        <div class="space3px txt_555">Giá thị trường: <span class="txt_d">3.055.000đ</span></div>
+        <!-- <div class="space3px txt_555">Giá thị trường: <span class="txt_d">3.055.000đ</span></div> -->
                   
         <div class="price">Giá: 
-            <span class="robot txt_green txt_b txt_20">2.350.000 ₫</span>
+            <span class="robot txt_green txt_b txt_20">{{  str_replace(',' ,'.', number_format($value->Price))  }} &#x20AB;</span>
         </div>
           
         <div class="clear space3px"></div>
@@ -525,11 +608,11 @@
               
         <div class="promo line_h19">
             <div class="txt_b">Khuyến mại</div>
-            <p>-&nbsp;Cam kết sản phẩm mới 100%, nguyên đai nguyên kiện
+           <!--  <p>-&nbsp;Cam kết sản phẩm mới 100%, nguyên đai nguyên kiện
             <br>-&nbsp;Bảo hành chính hãng&nbsp;1 năm
             <br>-&nbsp;Thùng có: Đĩa thủy tinh, Giá nướng
             <br>-&nbsp;Giao hàng miễn phí trong 30km
-            <br>-&nbsp;Đền gấp 10 lần nếu không phải hàng chính hãng</p>
+            <br>-&nbsp;Đền gấp 10 lần nếu không phải hàng chính hãng</p> -->
             
         </div>
           
@@ -545,8 +628,8 @@
         
     </div>
     
-      Gọi đặt mua:  <span class="txt_b txt_red"><a href="tel:0967025111">0967 025 111</a></span> (7:30-22:00)<br>
-       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="txt_b txt_red"> <a href="tel:02438615111">02438 615 111</a></span> (7:30-17:30)
+      Gọi đặt mua:  <span class="txt_b txt_red"><a href="tel:0967025111">098 361 2828</a></span> (sau 17h)<br>
+       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="txt_b txt_red"> <a href="tel:02438615111">091 301 1888</a></span> (sau 17h)
    </div>
     
     
@@ -554,15 +637,18 @@
     </div><!--//prod-info-left -->
   
   <div class="prod-info-right fr">
-    <h4 class="format txt_13"><p class="format txt_b">Cam kết đặc biệt:</p></h4>
+    <h4 class="format txt_13"><p class="format txt_b">Yên tâm mua sắm:</p></h4>
   
-    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Đền gấp 10 lần nếu không phải hàng chính hãng.</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Bảo hành tại nhà</p></h5>
     <h5 class="format txt_13 txt_n">
-      <p><i class="fa fa-check"></i> Gọi đặt mua: <span class="txt_b txt_red">0967 025 111</span> (cả dịp Lễ, Tết)</p></h5>
-    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Giao hàng miễn phí 30km</p></h5>
-    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Bảo hành chính hãng</p></h5>
-    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Đổi trả trong 3 ngày</p></h5>
-    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Bán &amp; giao hàng bởi điện máy ABC</p></h5>
+      <p><i class="fa fa-check"></i> Gọi đặt mua: <span class="txt_b txt_red">02473036336</span> (cả dịp Lễ, Tết)</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Giao hàng miễn phí 20km</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Lắp đặt miễn phí
+(Trừ điều hòa, bình nước nóng)</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Thanh toán tại nhà</p></h5>
+    <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Giá cạnh tranh nhất thị trường</p></h5>
+     <h5 class="format txt_13 txt_n"><p><i class="fa fa-check"></i> Đổi mới 100% trong 7 ngày đầu
+( Trừ Sanaky, Sony chỉ bảo hành tại nhà )</p></h5>
   
     <div class="clear"></div>
 </div><!--right-->

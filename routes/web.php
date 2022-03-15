@@ -12,15 +12,21 @@
 */
 
 
-Route::get('/blog', function () {
-    return view('frontend.blog');
-});
+
+
+Route::get('/tin-khuyen-mai/', 'Frontend\blogcontroller@index')->name('tin')->middleware('auth');
 
 Route::get('/', 'Frontend\indexController@index')->middleware('auth');
 
 
 Route::get('/ckfinder.html', function () {
     return view('frontend.ckfinder');
+    
+})->middleware('auth');
+
+
+Route::get('/tin-chi-tiet', function () {
+    return view('frontend.blogdetail');
     
 })->middleware('auth');
 

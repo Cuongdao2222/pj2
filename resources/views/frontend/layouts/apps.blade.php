@@ -467,7 +467,7 @@
                         <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
                         <!-- <span>Giỏ hàng</span> -->
                     </a>
-                    <a href="#" class="header__history">Tin tức khuyến mãi</a>
+                    <a href="{{ route('tin') }}" class="header__history">Tin tức khuyến mãi</a>
                     <div class="bordercol"></div>
                    
                 </section>

@@ -196,7 +196,7 @@
 
                     <div class="col-md-3 col-6 lists">
                         <div class="item  __cate_1942">
-                            <a href='/{{ $value->Link }}' data-box="BoxCate" class="main-contain">
+                            <a href='{{ route("details", $value->Link ) }}' data-box="BoxCate" class="main-contain">
                                 <div class="item-label">
                                     <span class="lb-tragop">Trả góp 0%</span>
                                 </div>
@@ -204,7 +204,7 @@
                                     <img class="lazyload thumb" data-src="{{ asset($value->Image) }}" alt="{{ asset($value->Name) }}" style="width:100%"> 
                                 </div>
                                 <div class="items-title">
-                                    <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
+                                    <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src=''><span>Giảm Sốc</span></p>
                                     <h3 >
                                         {{ $value->Name  }}
                                     </h3>

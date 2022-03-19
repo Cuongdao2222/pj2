@@ -223,7 +223,7 @@
                             <i class="icondetail-star"></i>
                             <i class="icondetail-star-dark"></i>
                         </p>
-                        <p class="detail-rate-total">72 <span>đánh giá</span></p>
+                        <p class="detail-rate-total"> <span>Đánh giá</span></p>
                     </div>
                 </div>
                 
@@ -296,13 +296,13 @@
                                             <span>CÒN HÀNG </span>
                                         </div>
                                         <div class="pdetail-add-to-cart add-to-cart">
-                                            <form class="inline">
-                                                <input type="hidden" name="productId" value="19439">
+                                            <div class="inline">
+                                                <input type="hidden" name="productId" value="{{ $data->id }}">
                                                 <!-- <div class="product-quantity">
                                                     <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
                                                 </div> -->
                                                 <button type="button" class="btn btn-lg btn-add-cart btn-add-cart redirectCart" onclick="addToCart({{ $data->id }})">MUA NGAY <br>(Giao hàng tận nơi - Giá tốt - An toàn)</button>
-                                            </form>
+                                            </div>
                                             <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                                 Launch demo modal
                                             </button> -->
@@ -507,11 +507,11 @@
                         <p style="background: #f3f3f3;padding: 10px;border-radius: 3px;margin: 10px 0;">Đánh giá sản phẩm nhận Coupon 20.000đ dành cho khách mua hàng tại Điện máy người việt.</p>
                     </div>
                     <div class="p-comment">
-                        <div class="comment-form">
+                        <form class="comment-form" name="rate-form" id="rate-form" role="form">
                             <div class="rate_view">
                                 Chọn đánh giá của bạn:
                                 <div class="stars">
-                                    <form action="">
+                                    <div>
                                         <input class="star star-click star-5" id="star-5" type="radio" name="star"/>
                                         <label class="star star-5" for="star-5"></label>
                                         <input class="star star-click star-4" id="star-4" type="radio" name="star"/>
@@ -522,14 +522,14 @@
                                         <label class="star star-2" for="star-2"></label>
                                         <input class="star star-click star-1" id="star-1" type="radio" name="star"/>
                                         <label class="star star-1" for="star-1"></label>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
 
 
                             <div class="relative">
                                 <div class="left">
-                                    <textarea style="padding: 10px;border-radius: 3px; width: 100%;" name="user_post[content]" placeholder="Nhập đánh giá về sản phẩm " id="content0"></textarea>
+                                    <textarea style="padding: 10px;border-radius: 3px; width: 100%;" name="content" placeholder="Nhập đánh giá về sản phẩm " id="content0"></textarea>
                                 </div>
                                 <div class="left">
                                     <div class="form-input">
@@ -538,14 +538,14 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="padding-right: 5px;">
-                                                        <input style="border-radius: 3px;height: 43px;" type="text" id="name0" name="user_post[user_name]" class="inputText" placeholder="Họ tên" value="">
+                                                        <input style="border-radius: 3px;height: 43px;" type="text" id="name0" name="name" class="inputText" placeholder="Họ tên" value="">
                                                     </td>
                                                     <td style="padding-left: 5px;">
-                                                        <input style="border-radius: 3px;height: 43px;" type="text" id="email0" name="user_post[user_email]" class="inputText" placeholder="Email" value="">
+                                                        <input style="border-radius: 3px;height: 43px;" type="text" id="email0" name="email" class="inputText" placeholder="Email" value="">
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="button" onclick="postComment('0','')" value="Gửi bình luận" class="btn btn-red"></td>
+                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="submit" value="Gửi bình luận" class="btn btn-red" onclick="postComment()"></td>
                                                     <td></td>
                                                 </tr>
                                             </tbody>
@@ -555,9 +555,10 @@
                                 </div>
                             </div>
 
-
                             
-                        </div>
+                            
+                        </form>
+                        <input type="hidden" name="star" id="star_number" value="5">
                         <!--comment-form-->
                     </div>
                 </div>
@@ -686,7 +687,7 @@
     <div class="clear space10px in">
      
         <a class="btn-buy txt_center cor5px" onclick="addToShoppingCart('pro','3036',document.getElementById('s_quantity').value,'2350000');" href="javascript:;">
-            <i class="fa fa-shopping-cart"></i> <span class="txt_15">Thêm Vào Giỏ Hàng</span>
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Thêm Vào Giỏ Hàng</span>
         </a>
         
     </div>
@@ -805,6 +806,10 @@
     .banner-item img {
     width: 100%;
     }
+    .error{
+        opacity: 1 !important;
+        text-align: left !important;
+    }
 
     
 
@@ -818,8 +823,82 @@
 @endpush
 
     @push('script')
+    
 
         <script type="text/javascript">
+
+
+            $( document ).ready(function() {
+
+
+                
+
+                $('.star-click').bind('click',function(){
+                    id_star = $(this).attr('id');    
+                    number_star = id_star.substr(5, 6);
+                    $('#star_number').val(number_star);
+                    // console.log(number_star);
+                   
+                });
+
+                $("#rate-form").validate({
+                    rules: {
+                        name: "required",
+                        content: "required",
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                       
+                    },
+                     messages: {
+                        name: "vui lòng nhập tên",
+                        content: "vui lòng nhập đánh giá",
+                       
+                        email: {
+                            required: "vui lòng nhập địa chỉ email",
+                            email: "vui lòng nhập đúng định dạng email"
+                        },
+                      
+                    },
+                    submitHandler: function(form) {
+                       return false;
+
+                    }
+                   
+
+                }); 
+
+            });  
+
+
+            function postComment() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('rate-form') }}",
+                    data: {
+                        product_id: {{ $data->id }},
+                        email:$('#email0').val(),
+                        name:$('#name0').val(),
+                        content:$('#content0').val(),
+                        star:$('#star_number').val(),
+                           
+                    },
+                    success: function(result){
+                      
+                      alert(result);
+                    }
+                });
+
+            }  
+
+
             button_buy_height = $('.scroll-box').offset().top;
             view_more_height  = ($('.view-more-related').offset().top);
 
@@ -848,15 +927,14 @@
                 });
             });
 
-            let id_star = 'star-5';
+            
 
-            $('.star-click').bind('click',function(){
-                id_star = $(this).attr('id');    
-                let number_star = id_star.substr(5, 6);
-                console.log(number_star);
-               
-            });
+           
 
+          
+                
+                
+    
         </script>
 
 

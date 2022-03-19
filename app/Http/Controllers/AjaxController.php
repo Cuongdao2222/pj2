@@ -23,15 +23,17 @@ use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 use DB;
+use App\Models\rate;
 
 class AjaxController extends Controller
 {
+
+  
     public function addHotProduct(Request $request)
     {
 
         if($request->ajax())
         {
-
 
             $addProduct = new hotProduct();
 
@@ -83,6 +85,24 @@ class AjaxController extends Controller
             return "thêm thành công sản phẩm có product_id ".$request->product_id;
 
         }
+    }
+
+    public function rateForm(Request $request)
+    {
+        if($request->ajax()){
+            $rate =  new rate();
+            $input['star'] = $request->star;
+            $input['email'] = $request->email;
+            $input['name'] = $request->name;
+            $input['content'] = $request->content;
+            $input['product_id'] = $request->product_id;
+            $input['active'] = 0;
+            $rate::create($input);
+
+            return response('Đánh giá sản phẩm thành công! đánh giá của bạn đang chờ được kiểm duyệt xin cảm ơn');
+           
+        }
+        
     }
 
     public function removeSaleProduct(Request $request)
@@ -267,7 +287,7 @@ class AjaxController extends Controller
 
             $filter->save();
 
-            return response('thêm thành công code');
+            return response('thêm thành công');
 
         }
 
@@ -289,6 +309,8 @@ class AjaxController extends Controller
         return view('frontend.ajax.product', compact('product_search', 'action'));
         
     }
+
+
 
 
 }

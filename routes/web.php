@@ -16,7 +16,7 @@
 
 Route::get('/tin-khuyen-mai/', 'Frontend\blogcontroller@index')->name('tin')->middleware('auth');
 
-Route::get('/', 'Frontend\indexController@index')->middleware('auth');
+Route::get('/', 'Frontend\indexController@index')->name('homeFe')->middleware('auth');
 
 
 Route::get('/ckfinder.html', function () {
@@ -73,6 +73,10 @@ Route::post('show-cart', 'AjaxController@showProductCart')->name('showCart');
 
 Route::post('add-cart-number', 'AjaxController@addProductToCartByNumber')->name('addCartNumber');
 
+Route::post('rate-form', 'AjaxController@rateForm')->name('rate-form');
+
+
+
 Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 
 Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->middleware('auth');
@@ -83,6 +87,15 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->m
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('home', 'HomeController@index')->name('home-admin');
+
+    Route::get('rate', 'HomeController@index')->name('home-admin');
+
+
+    Route::get('rate', function () {
+        return view('rate.rate');
+        
+    });
+
 
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 

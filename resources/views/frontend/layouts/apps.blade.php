@@ -436,7 +436,7 @@
 
             <div class="header__top desktop">
                 <section>
-                    <a href="/" class="header__logo">
+                    <a href="{{route('homeFe')}}" class="header__logo">
                         <img src="{{ asset('images/template/logochuan.png') }}" style="height:40px;">   
                    
                     </a>

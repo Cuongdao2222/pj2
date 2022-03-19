@@ -310,6 +310,21 @@ class AjaxController extends Controller
         
     }
 
+    public function accept_rate(Request $request)
+    {
+        if($request->ajax()){
+
+            $id = $request->id;
+            $active =  $request->active;
+            $rate =  rate::find($id);
+            $rate->active = ($active==1)?0:1;
+            $rate->save();
+
+            return response([$id,  $rate->active]);
+           
+        }
+    }
+
 
 
 

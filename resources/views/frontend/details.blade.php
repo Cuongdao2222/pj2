@@ -502,6 +502,40 @@
                 <div class="clearfix"></div>
 
                 <div class="col-md-8 clearfix" id="comment_pro">
+
+                    <article id="article-comment-2131" itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
+
+                     <?php 
+
+                        $comment = App\Models\rate::where('product_id', $data->id)->Where('active', 1)->get();
+                    ?>
+                    @if(isset($comment))
+                    @foreach($comment as $comments)
+                    <header class="comment-header">
+                        <p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                            <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyGNr2qL63Sfugk2Z1-KBEwMGOfycBribew&usqp=CAU" height="30px" width="30px">
+
+                            <span class="comment-author-name" itemprop="name">
+                                <a href="#" class="comment-author-link" rel="external nofollow" itemprop="url">{{ $comments->name }}</a>
+                            </span> 
+
+
+                        <p class="comment-meta"><time class="comment-time" itemprop="datePublished"><a class="comment-time-link" href="https://nguyenhung.net/comment-trong-html.html#comment-2131" itemprop="url">{{ $comments->created_at->format('d/m/Y, H:i' )  }}</a></time></p>        </header>
+
+                    <div class="comment-content" itemprop="text">
+                        
+                        <p>{!!  $comments->content  !!}</p>
+                    </div>
+                    @endforeach
+                    @endif
+                    
+                </article>
+
+
+
+
+
+
                     <div class="rate-text">
                         <!-- <h3 style="margin-bottom: 0;margin-top: 40px;"> Đánh giá  {{ $data->Name }}</h3> -->
                         <p style="background: #f3f3f3;padding: 10px;border-radius: 3px;margin: 10px 0;">Đánh giá sản phẩm nhận Coupon 20.000đ dành cho khách mua hàng tại Điện máy người việt.</p>
@@ -565,7 +599,7 @@
 
                 <!-- end đánh giá -->
                 <div class="related view-more-related">
-                    <p class="related__ttl">Xem thêm tivi khác</p>
+                    <p class="related__ttl">Xem thêm sản phẩm khác</p>
 
                     @if(isset($other_product))
            

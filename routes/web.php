@@ -149,6 +149,8 @@ Route::post(
 
     Route::post('filter-price-product', 'AjaxController@filterByValue')->name('filter-option');
 
+     Route::post('accept-rate', 'AjaxController@accept_rate')->name('accept-rate');
+
 
     Route::post('add-hot-product', 'AjaxController@addHotProduct')->name('add-hot-product');
 

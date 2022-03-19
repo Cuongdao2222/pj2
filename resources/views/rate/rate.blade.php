@@ -73,18 +73,25 @@
 
 </style>
 
+<?php 
+    $rate = App\Models\rate::Orderby('id', 'desc')->paginate(10);
+
+
+?>
+
 <div class="paddings">
     <style type="text/css">
         .div-box table { width:100%;}
     </style>
     <table width="100%">
         <tbody>
+            <h1>Đánh giá sản phẩm của khách hàng</h1>
             <tr>
                 <!--start cot trai-->
                 <td valign="top" width="55%">
                     <!--Start don hang-->
                     <div class="pic icon_arrow left"></div>
-                    <div class="text_arrow left">Đơn hàng mới nhất:  (<a href="?opt=order">Xem toàn bộ danh sách</a>)</div>
+                    
                     <div class="clear"></div>
                     <div style="border:1px solid #6a8ab9 ">
                         <table width="100%" class="table_public" border="1" bordercolor="#e0e0e0">
@@ -94,20 +101,28 @@
                                     <td width="190">Tên khách hàng</td>
                                     <td width="130">Email</td>
                                     <td  width="130">Đánh giá (sao)</td>
+                                     <td  width="130">Content</td>
                                     <td width="120">Sản phẩm</td>
                                     <td width="120">Active</td>
                                 </tr>
                                
+                                @if(isset($rate))
+                                @foreach($rate as $key => $rates)
+                                <?php  $link = App\Models\product::find($rates->product_id)  ?>
                                 <tr>
-                                   
-                                    <td width="40">1</td>
-                                    <td width="190">111</td>
-                                    <td width="130">1111</td>
-                                    <td>1111</td>
-                                    <td>1111</td>
-                                    <td width="120"><a href="#">Duyệt</a></td>
+                                    <td>{{$key}}</td>
+                                    <td width="40">{{$rates->name}}</td>
+                                    <td width="190">{{$rates->email}}</td>
+                                    <td width="130">{{$rates->star}}</td>
+                                    <td>{!! @$rates->content !!}</td>
+                                    <td><a href="{{ route('details', $link->Link) }}">{{ $link->Name }}</a></td>
+                                    
+                                    <td width="120"><a href="javascript:void(0)" onclick="accept({{ $rates->id }})" data-id="{{ $rates->id }}" class="accept{{ $rates->id}}">{{ $rates->active==1?'Đã duyệt':'duyệt' }}</a></td>
+                                    <input type="hidden" name="active" id="active" value="{{ $rates->active }}">
                                     
                                 </tr>
+                                @endforeach
+                                @endif
 
                                
                             </tbody>
@@ -138,14 +153,14 @@
                     <!--Start khach hang-->
                     <div>&nbsp;</div>
                     <div class="pic icon_arrow left"></div>
-                    <div class="text_arrow left">Khách hàng liên hệ qua website (<a href="?opt=customer&amp;view=customer-contact">Xem toàn bộ danh sách</a>)</div>
+                   <!--  <div class="text_arrow left">Khách hàng liên hệ qua website (<a href="?opt=customer&amp;view=customer-contact">Xem toàn bộ danh sách</a>)</div> -->
                     <div class="clear"></div>
                    
                     <!--End khach hang-->
                     <!--Start khach hang đánh giá-->
                     <div>&nbsp;</div>
                     <div class="pic icon_arrow left"></div>
-                    <div class="text_arrow left">Trao đổi chưa duyệt</div>
+                    {{ $rate->links() }}
                     <div class="clear"></div>
                     
                     <!--End khach hang đánh giá-->
@@ -156,27 +171,45 @@
         </tbody>
     </table>
     <script type="text/javascript">
-        function home_report(w){
-        	$.get("/admin/ajax/report_home.php", {
-        	    action : w
-        	}, function(data) {
-        	    $("#home_report_"+w).html(data);
-        	} );
+
+        function accept(id) {
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+             $.ajax({
+                type: 'POST',
+                url: "{{ route('accept-rate') }}",
+                data: {
+                    id: id,
+                    active:$('#active').val()
+                       
+                },
+                success: function(result){
+
+                    let status = result[1]==0?'duyệt':'Đã duyệt';
+
+                    if(result[1] ==0){
+
+                        status =='duyệt';
+                        $('#active').val(0)
+                    }
+                    else{
+                        status =='Đã duyệt';
+                        $('#active').val(1);
+                    }
+
+                   
+                   $('.accept'+result).html(status);
+                   
+                }
+            });
         }
+         
         
-           function report_top_article(type, period, holder, limit, from_date, to_date){
-               $('#'+holder).html('<img src=/includes/images/awaiting.gif> vui lòng chờ ...');
-               $.get("/admin/ajax/report.php",{
-                   action : "report-top-article",
-                   type : type ,
-                   period : period,
-                   limit : limit,
-                   from_date : from_date,
-                   to_date : to_date
-               },function(data){
-                   $('#'+holder).html(data);
-               });
-           }
+          
         
         $(function(){
         	$('.thickbox').colorbox({

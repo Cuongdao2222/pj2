@@ -39,7 +39,8 @@ class product extends Model
         'Quantily',
         'Maker',
         'Group_id',
-        'Price'
+        'Price',
+        'Meta_id'
 
     ];
 
@@ -67,7 +68,7 @@ class product extends Model
      */
     public static $rules = [
         'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-        'Name' => 'required|max:1000',
+        'Name' => 'required|unique:products|max:1000',
         'ProductSku' => 'required|unique:products',
         'Specifications' => 'required',
         'Price' => 'required',

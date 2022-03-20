@@ -28,6 +28,8 @@ class post extends Model
         'link',
         'category',
         'id_user',
+        'shortcontent',
+        'Meta_id',
     ];
 
     /**
@@ -41,6 +43,7 @@ class post extends Model
         'title' => 'string',
         'link'  => 'string',
         'category' => 'string',
+        'shortcontent'=> 'string',
     ];
 
     /**
@@ -50,15 +53,17 @@ class post extends Model
      */
     public static $rules = [
         'image' => 'required|max:10000|mimes:jpg,jpeg,png',
-        'title' =>  'required|max:4096',
+        'title' =>  'required|max:4096|unique:posts',
         'content' =>  'required',
+        'shortcontent'=> 'required|max:4096',
 
     ];
     
      public static $rulesUpdate = [
         'image' => 'max:10000|mimes:jpg,jpeg,png',
-        'title' =>  'required|max:4096',
+        'title' =>  'required|max:4096|unique:posts',
         'content' =>  'required',
+        'shortcontent'=> 'required|max:4096',
 
     ];
 

@@ -16,6 +16,8 @@ use App\Models\post;
 
 use App\Models\category;
 
+use App\Models\metaSeo;
+
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -62,8 +64,12 @@ class categoryController extends Controller
 
         $name_cate = $category->namecategory;
 
+        $meta = metaSeo::find($data->Meta_id);
+
+
+
        
-        return view('frontend.blogdetail',compact('data', 'name_cate', 'related_news'));
+        return view('frontend.blogdetail',compact('data', 'name_cate', 'related_news', 'meta'));
     }
     public function index($slug)
     {
@@ -91,7 +97,9 @@ class categoryController extends Controller
 
         $other_product = product::where('Group_id',  $data->Group_id)->get();
 
-        return view('frontend.details', compact('data', 'images', 'other_product'));
+        $meta = metaSeo::find($data->Meta_id);
+
+        return view('frontend.details', compact('data', 'images', 'other_product', 'meta'));
     }
 
     public function addProductToCart()

@@ -334,8 +334,25 @@
                     </div>
 
                     <div class="total-imgslider">
-                        <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-is-360-gallery="False" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
+                        <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-toggle="modal" data-target="#Salient_Features" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
                        
+                    </div>
+
+                    <div class="modal fade" id="Salient_Features" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                       <h5>Đặc điểm nổi bật</h5>
+                                </div>
+                                <div class="modal-body">
+                                    {!!  $data->Salient_Features  !!} 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="block-tab">

@@ -11,6 +11,54 @@
         </div>
     </section>
 
+
+
+    @if(isset($product->Meta_id ))
+
+     <?php  
+
+        $products_seo = App\Models\product::select('Meta_id')->where('id',  $product->Meta_id)->first();
+
+
+    ?>
+     @if(!empty($products_seo))
+    <div class="btn btn-info seo-click"> Dùng cho SEO </div>
+
+
+   
+   
+     
+
+   
+    <div class="content px-3">
+
+        <?php $metaSeo = App\Models\metaSeo::find($products_seo->Meta_id); ?>
+
+        @include('adminlte-templates::common.errors')
+
+        <div class="card seo">
+
+            {!! Form::model($metaSeo, ['route' => ['metaSeos.update', $metaSeo->id], 'method' => 'patch']) !!}
+
+            <div class="card-body">
+                <div class="row">
+                    @include('meta_seos.fields')
+                </div>
+            </div>
+
+            <div class="card-footer">
+                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('metaSeos.index') }}" class="btn btn-default">Cancel</a>
+            </div>
+
+            {!! Form::close() !!}
+
+        </div>
+    </div>
+    @endif
+
+    @endif
+
     <div class="content px-3">
 
         @include('adminlte-templates::common.errors')

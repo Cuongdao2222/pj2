@@ -91,23 +91,23 @@ class productController extends AppBaseController
 
         $meta_content = 'Mua '.$input['Name'].' giá rẻ. Miễn phí giao hàng & Lắp đặt. Đổi lỗi trong 7 ngày đầu. Liên hệ hotline 0247.303.6336 để mua hàng và biết thêm thông tin chi tiết'; 
 
-        $inputs_meta['meta_title'] = $meta_title;
-
-        $inputs_meta['meta_content'] = $meta_content;
-
-        $inputs_meta['meta_og_content'] = $meta_content;
-
-        $inputs_meta['meta_og_title'] = $meta_title;
-
         $meta_model = new metaSeo();
 
-        $meta_model->create($inputs_meta);
+        $meta_model->meta_title =$meta_title;
 
-        $input['Meta_id'] = $meta_model->id;
+        $meta_model->meta_content =$meta_content;
+
+        $meta_model->meta_og_content =$meta_content;
+
+        $meta_model->meta_og_title =$meta_title;
+
+        $meta_model->save();
+
+        $input['Meta_id'] = $meta_model['id'];
 
         $product = $this->productRepository->create($input);
         
-        return Redirect()->back()->with('id', $input['Meta_id']);
+        return Redirect()->back()->with('id', $product['id']);
 
         // return redirect(route('products.index'));
     }

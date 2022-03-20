@@ -88,13 +88,12 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('home', 'HomeController@index')->name('home-admin');
 
-    Route::get('rate', 'HomeController@index')->name('home-admin');
 
 
     Route::get('rate', function () {
         return view('rate.rate');
         
-    });
+    })->name('rate-client');
 
 
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');

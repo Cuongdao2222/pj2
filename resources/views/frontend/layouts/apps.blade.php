@@ -6,22 +6,43 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+         
+        @if(\Request::route()->getName()=='details') 
+
+        @if(isset($meta))
+
+
+        <title>{{ $meta->meta_title }}</title>
+        <meta name="description" content="{{ $meta->meta_content }}"/>
+        <meta property="og:title" content="{{ $meta->meta_title }}" />
+        <meta property="og:description" content="{{ $meta->meta_content }}" /> 
+
+        @endif
+        @else
+        
+        
         <title>sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến</title>
-        <meta name = "google-site-verify" content = "1AH1fN3G7ygWRcOlEQWJyhginaxmT67zTMPP8wnfFD0" />
+
+        <meta name="description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí."/>
+
+         <meta property="og:title" content="Điện Máy Người Việt - Mua sắm điện máy chính hãng giá rẻ" />
+        <meta property="og:description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí." /> 
+        @endif
+        
         <meta http-equiv="cache-control" content="no-cache" />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="/template/dienmaynguoiviet/images/favicon.ico"/>
+        <link rel="shortcut icon" href="https://dienmaynguoiviet.vn/template/dienmaynguoiviet/images/favicon.ico"/>
         <meta name="robots" content="index,follow" />
       
         <meta name="keywords" content="sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến"/>
-        <meta name="description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí."/>
+        
         <link rel="alternate" type="application/rss+xml" title="RSS Feed for https://dienmaynguoiviet.vn" href="/product.rss" />
       
         <meta name="viewport" content="width=device-width" />
-        <meta property="og:title" content="Điện Máy Người Việt - Mua sắm điện máy chính hãng giá rẻ" />
-        <meta property="og:description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí." />    
+          
         <meta property="og:image" content="https://dienmaynguoiviet.vn/media/banner/logo_logo.png" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -520,14 +541,14 @@
                         <div class="col-4 icons-heads icons-2">
                             
 
-                           <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                           <a href="tel: 02473036336" class="header__cart ">
                                  <i class="fa fa-phone" aria-hidden="true" style="font-size:22px"></i>
                             </a>
                         </div>
 
                         <div class="col-4 icons-heads icons-3">
                             
-                            <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                            <a href="{{ route('tin') }}" class="header__cart ">
                                 <i class="fa fa-newspaper-o" aria-hidden="true" style="font-size:22px"></i>
                                 
                             </a>

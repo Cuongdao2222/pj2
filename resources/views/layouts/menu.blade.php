@@ -96,6 +96,13 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('rate-client') }}"
+       class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
+        <p>Đánh giá sản phẩm </p>
+    </a>
+</li>
+
 <style type="text/css">
     
     .child-nav a{

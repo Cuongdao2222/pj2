@@ -20,14 +20,15 @@
     @if(Session::get('id'))   
 
      <?php $id = Session::get('id') ?>
-    <div class="btn btn-info"><a href="{{ route('images.create', $id) }}"> thêm ảnh chi tiết cho sản phẩm</a></div>
+    <div class="btn btn-info"><a href="{{ route('images.create', $id) }}" style="color:red"> thêm ảnh chi tiết cho sản phẩm</a></div>
 
     <div class="btn btn-info seo-click"> Dùng cho SEO </div>
    
     <?php  
 
         $products_seo = App\Models\product::select('Meta_id')->where('id',  $id)->first();
-       
+
+
     ?>
     <div class="content px-3">
 
@@ -54,7 +55,9 @@
 
         </div>
     </div>
-     @endif
+     
+
+    @else 
 
     <div class="content px-3">
 
@@ -82,16 +85,18 @@
         </div>
     </div>
 
-
+    @endif
      
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
         
         $('.seo').hide();
 
         $(".seo-click").click(function(){
            $('.seo').show();
         });
-    </script>
+    </script> -->
+
+    
 @endsection
 
 

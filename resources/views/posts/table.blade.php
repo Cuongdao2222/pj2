@@ -42,10 +42,19 @@
         <th>Title</th>
         <th>Category</th>
         <th>Content</th>
+        <th>Mô tả ngắn</th>
+
+        <th>người dùng</th>
         <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
+
+            <?php  
+
+                 $user  = App\User::orderBy('id','asc')->get()->toArray();
+
+            ?>
             
         @foreach($posts as $post)
             <tr>
@@ -54,6 +63,9 @@
             <td>{{ @$new_category[$post->category] }}</td>
 
             <td>{!! _substr($post->content,240,3) !!}</td>
+
+             <td>{!! _substr(preg_replace("#<\/p>(<\/h[1-6]>)#", '$1', $post->shortcontent),240,3) !!}</td>
+             <td>{{ @$user[$post->id_user]['name'] }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

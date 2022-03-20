@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\metaSeo;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -95,6 +96,21 @@ class postController extends AppBaseController
             }
         }
         $input['id_user'] = Auth::id();
+
+        $inputs_meta['meta_title'] = $meta_title;
+
+        $inputs_meta['meta_content'] = $meta_content;
+
+        $inputs_meta['meta_og_content'] = $meta_content;
+
+        $inputs_meta['meta_og_title'] = $meta_title;
+
+        $meta_model = new metaSeo();
+
+        $meta_model->create($inputs_meta);
+
+        $input['Meta_id'] = $meta_model->id;
+
 
 
         $post = $this->postRepository->create($input);

@@ -107,7 +107,7 @@ class productController extends AppBaseController
 
         $product = $this->productRepository->create($input);
         
-        return Redirect()->back()->with('id', $product->id);
+        return Redirect()->back()->with('id', $input['Meta_id']);
 
         // return redirect(route('products.index'));
     }

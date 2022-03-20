@@ -106,14 +106,14 @@
                         @foreach($data as $value)
                         
                         <div class="blog-list-item">
-                            <a href="/nen-chon-dieu-hoa-12000btu-nao-cho-he-2022/" class="img">
+                            <a href="{{ route('details', $value->link) }}" class="img">
                             <img src="{{ asset($value->image) }}" alt="{{ $value->title }}">
                             </a>
                             <div class="blog-flex">
-                                <a href="/nen-chon-dieu-hoa-12000btu-nao-cho-he-2022/" class="name">{{ $value->title }}</a>
+                                <a href="{{ route('details', $value->link) }}" class="name">{{ $value->title }}</a>
                                 {!! _substrs($value->content, 530) !!}...
                                 
-                                <a href="/nen-chon-dieu-hoa-12000btu-nao-cho-he-2022/" class="linkview">Xem chi tiết ›</a>
+                                <a href="{{ route('details', $value->link) }}" class="linkview">Xem chi tiết ›</a>
                             </div>
                         </div>
                         @endforeach

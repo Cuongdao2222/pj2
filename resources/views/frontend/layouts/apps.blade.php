@@ -46,6 +46,7 @@
             width: 100%;
         }
 
+
         .product_list_cart .col_price {
             color: #c10017;
         }
@@ -303,6 +304,9 @@
 
             @media screen and (max-width: 776px){
 
+                .header__top section{
+                    display: block !important;
+                }
                 .desktop{
                     display: none;
 
@@ -358,6 +362,7 @@
                 .all-icons-head{
                     height: 50px;
                     margin: 0;
+                    margin-left: 0 !important;
                 }
                 .icons-heads{
                     line-height: 50px;
@@ -401,11 +406,11 @@
         @stack('style')
         
     </head>
-    <body class="dmx-site theme-lunar-new-year">
+    <body class="theme-lunar-new-year">
         <div class="banner-media desktop">
             <div class="media-slider" data-size="1">
                 <div class="item" data-background-color="#CF1F2F" data-order="1">
-                    <a aria-label="slide" data-cate="0" data-place="1295" href="https://www.dienmayxanh.com/flashsale" onclick="jQuery.ajax({ url: '/bannertracking?bid=49608&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/1200-44-1200x44.png" alt="BF"  ></a>
+                    <a aria-label="slide" data-cate="0" data-place="1295" href="#" onclick="jQuery.ajax({ url: '/bannertracking?bid=49608&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/1200-44-1200x44.png" alt="BF"  ></a>
                 </div>
             </div>
             <style>
@@ -502,7 +507,7 @@
 
                         $active_cart =  count($cart)>0?'active':'';
                      ?>  
-                    <div class="row all-icons-head">  
+                    <div class="row col-12 all-icons-head">  
                         <div class="col-4 icons-heads icons-1">
                             
                             <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">

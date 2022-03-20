@@ -12,6 +12,9 @@ use App\Models\image;
 use App\Models\groupProduct;
 
 use App\Models\filter;
+use App\Models\post;
+
+use App\Models\category;
 
 
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -27,7 +30,7 @@ class categoryController extends Controller
         $findID = groupProduct::where('link', $link)->first();
 
         if(empty($findID)){
-            abort('404');
+            return $this->blogDetailView($slug);
         }
 
         $id_cate = $findID->id;
@@ -39,6 +42,28 @@ class categoryController extends Controller
         $filter = filter::where('group_product_id', $id_cate)->select('name', 'id')->get();
 
         return view('frontend.category', compact('data', 'filter', 'id_cate'));
+    }
+
+    public function blogDetailView($slug)
+    {
+        $link = trim($slug);
+
+        $data = post::where('link', $link)->first();
+
+
+
+        if(empty($data)){
+            abort('404');
+        }
+
+        $category = category::find($data->category);
+
+        $related_news = post::where('category', $data->category)->select('title', 'link', 'id')->get();
+
+        $name_cate = $category->namecategory;
+
+       
+        return view('frontend.blogdetail',compact('data', 'name_cate', 'related_news'));
     }
     public function index($slug)
     {

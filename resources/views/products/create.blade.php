@@ -17,16 +17,17 @@
 
 
 
-    @if(session()->get('id'))   
+    @if(Session::get('id'))   
 
-
-    <div class="btn btn-info"><a href="{{ route('images.create', [$product->id]) }}"> thêm ảnh chi tiết cho sản phẩm</a></div>
+     <?php $id = Session::get('id') ?>
+    <div class="btn btn-info"><a href="{{ route('images.create', $id) }}"> thêm ảnh chi tiết cho sản phẩm</a></div>
 
     <div class="btn btn-info seo-click"> Dùng cho SEO </div>
    
     <?php  
 
-        $products_seo = App\Models\products::select('Meta_id')->where('id', session()->get('id'))->first();
+        $products_seo = App\Models\product::select('Meta_id')->where('id',  $id)->first();
+       
     ?>
     <div class="content px-3">
 

@@ -109,18 +109,21 @@
                                 @if(isset($rate))
                                 @foreach($rate as $key => $rates)
                                 <?php  $link = App\Models\product::find($rates->product_id)  ?>
+
+                                @isset($link)
                                 <tr>
                                     <td>{{$key}}</td>
                                     <td width="40">{{$rates->name}}</td>
                                     <td width="190">{{$rates->email}}</td>
-                                    <td width="130">{{$rates->star}}</td>
+                                    <td width="130">{{@$rates->star}}</td>
                                     <td>{!! @$rates->content !!}</td>
-                                    <td><a href="{{ route('details', $link->Link) }}">{{ $link->Name }}</a></td>
+                                    <td><a href="{{ route('details', $link->Link) }}">{{ $link->Name??'' }}</a></td>
                                     
                                     <td width="120"><a href="javascript:void(0)" onclick="accept({{ $rates->id }})" data-id="{{ $rates->id }}" class="accept{{ $rates->id}}">{{ $rates->active==1?'Đã duyệt':'duyệt' }}</a></td>
                                     <input type="hidden" name="active" id="active" value="{{ $rates->active }}">
                                     
                                 </tr>
+                                @endisset
                                 @endforeach
                                 @endif
 

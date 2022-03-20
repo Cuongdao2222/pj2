@@ -135,3 +135,11 @@
 
 
 
+<li class="nav-item">
+    <a href="{{ route('gifts.index') }}"
+       class="nav-link {{ Request::is('gifts*') ? 'active' : '' }}">
+        <p>Gifts</p>
+    </a>
+</li>
+
+

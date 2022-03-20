@@ -43,3 +43,5 @@ Route::resource('images', 'imageAPIController');
 Route::resource('filters', 'filterAPIController');
 
 Route::resource('properties', 'propertyAPIController');
+
+Route::resource('gifts', 'giftAPIController');

@@ -11,6 +11,8 @@
         
         <th>Sản phẩm Hot</th>
         <th>Sản phẩm Sale</th>
+
+        <th>Quà tặng</th>
         <th>Hiển thị</th>
         
         <th colspan="3">Action</th>
@@ -82,7 +84,19 @@
             <td><input type="checkbox" id="hot{{ $product->id }}" name="hot"  onclick='handleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_hot)?'checked':'' }}></td>
             <td><input type="checkbox" id="sale{{ $product->id }}" name="sale"  onclick='saleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_sales)?'checked':'' }}></td>
 
+            <?php  
+
+                $promotion = App\Models\promotion::where('id_product', $product->id)->first(); 
+
+                if(!empty($promotion)){
+                    $gift = App\Models\gift::find($promotion->id_gift);
+
+                }
+            ?>
+            <td>{{ !empty($gift)?$gift->name:'' }}</td>
             <td><input type="checkbox" id="active{{ $product->id }}" name="active" onclick='active({{ $product->id }})'   {{ $product->active==1?'checked':'' }}></td>
+
+
             
                 <td width="120">
                     {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
@@ -101,6 +115,11 @@
                             <i class="fas fa-image"></i>
                         </a>
 
+                        <a href="javascript:void(0)"
+                           class='btn btn-default btn-xs' onclick="openModal('{{$product->Name}}', '{{$product->id}}')">
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                        </a>
+
                          <a href="{{ route('filter-property') }}?group-product={{ $product->Group_id }}&productId={{ $product->id }}"
                            class='btn btn-default btn-xs'>
                             <i class="fa fa-filter"></i>
@@ -115,7 +134,92 @@
         </tbody>
     </table>
 </div>
+<input type="hidden" name="product-click" id="product-click">
+<!-- Modal -->
+<div class="modal fade" id="modal-gift" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gift-product">Quà tặng khi mua </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php  
+                    $gift = App\Models\gift::get();
+
+                ?>
+                @isset($gift)
+                <form>
+                   
+                    <label for="username">Chọn quà tặng kèm:</label><br>
+                    <select id="gift">
+
+                        @foreach($gift as $value)
+                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                        @endforeach
+                       
+                    </select><br>
+                    <label for="pwd">Nhập số ngày khuyến mãi:</label><br>
+                    <input type="text" id="time" name="time" required>
+
+                </form>
+                @endisset
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="selectGift()">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
+
+    function openModal(name, id) {
+        $('#product-click').val(id);
+        let title ='Quà tặng khi mua '+name;
+
+        $('#gift-product').text(title);
+        $('#modal-gift').modal('show');
+
+       
+
+    }
+
+    function selectGift() {
+
+        product_id = $('#product-click').val();
+        gift_id    = $('#gift').val();
+        time       = $('#time').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+       
+        $.ajax({
+           
+            type: 'POST',
+            url: "{{ route('add-promotion') }}",
+            data: {
+                product_id: product_id,
+                gift_id: gift_id,
+                time:time,
+
+                   
+            },
+            success: function(result){
+
+                $('#modal-gift').modal('hide');
+                alert(result);
+            }
+        });
+
+    }
+
+    
 
     function handleClick(id) {
 

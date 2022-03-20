@@ -14,6 +14,8 @@ use App\Models\Order;
 
 use App\Models\filter;
 
+use App\Models\promotion;
+
 
 
 
@@ -323,6 +325,32 @@ class AjaxController extends Controller
             return response([$id,  $rate->active]);
            
         }
+    }
+
+    public function add_promotion(Request $request)
+    {
+        if($request->ajax()){
+
+            $id_product = $request->product_id;
+
+            $id_gift    = $request->gift_id;
+
+            $time       = $request->time;
+
+            $promotion  = new promotion();
+
+            $promotion->id_product = $id_product;
+
+            $promotion->id_gift = $id_gift;
+
+            $promotion->time = $time;
+
+            $promotion->save();
+
+            return response('thanh cong');
+
+
+        }    
     }
 
 

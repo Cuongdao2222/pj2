@@ -13,6 +13,8 @@
                 top: 24px;
             }
 
+
+
             @media screen and (max-width: 776px){
 
               /* .bar-top-left{
@@ -40,6 +42,20 @@
                     width: auto !important;
                 } 
 */
+            }
+
+            @media screen and (min-width: 777px){
+                #sync1 {
+                    position:relative
+                }
+                .owl-prev{
+                    position: absolute;
+                    top: 50%;
+                }
+                .owl-next{
+                    position: absolute;
+                    top: 50%;
+                }
             }
             
         </style>

@@ -148,6 +148,8 @@ Route::post(
 
     Route::post('filter-price-product', 'AjaxController@filterByValue')->name('filter-option');
 
+     Route::post('add-promotion', 'AjaxController@add_promotion')->name('add-promotion');
+
      Route::post('accept-rate', 'AjaxController@accept_rate')->name('accept-rate');
 
 
@@ -165,7 +167,10 @@ Route::post(
 
      Route::resource('properties', 'propertyController');
 
+    Route::resource('gifts', 'giftController');
+
 });
+
 
 
 

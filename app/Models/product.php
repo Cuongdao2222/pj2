@@ -72,7 +72,7 @@ class product extends Model
         'ProductSku' => 'required|unique:products',
         'Specifications' => 'required',
         'Price' => 'required',
-        'Quantily' => 'numeric',
+        
     ];
 
     public static $rule = [
@@ -81,7 +81,7 @@ class product extends Model
         'ProductSku' => 'required',
         'Specifications' => 'required',
         'Price' => 'required',
-        'Quantily' => 'integer',
+        
     ];
 
     

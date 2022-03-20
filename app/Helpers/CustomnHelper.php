@@ -56,3 +56,30 @@ if (!function_exists('convertSlug')) {
 
     }
 }
+
+if (!function_exists('promotion_product')){
+
+    function promotion_product($id, $now)
+    {
+        
+
+        $promotion = App\Models\promotion::where('id_product', $id)->get()->last(); 
+
+        $convert_time = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $promotion->created_at);
+
+        $convert_time = $convert_time->addDays(1);
+
+        $result_time = $convert_time->diffInHours($now);
+
+        $gift ='';
+
+        if(!empty($promotion)&& $result_time>=0){
+            $gift = App\Models\gift::find($promotion->id_gift);
+
+        }
+        return  $gift;
+
+    }  
+}      
+
+                

@@ -70,13 +70,18 @@
             
         ?>
 
+        <?php  
+
+            $now = Carbon\Carbon::now(); 
+        ?>
+
         @foreach($products as $product)
 
             <tr>
-                <td><img src="/{{ $product->Image }}" width="150px" height="150px"></td>
+                <td><img src="{{ asset($product->Image) }}" width="150px" height="150px"></td>
             <td>{{ $product->Name }}</td>
             <td>{{ $product->ProductSku }}</td>
-            <td>/{{ $product->Link }}</td>
+            <td><a href="{{ route('details', $product->Link) }}">{{ $product->Link }}</a></td>
             <td>{{ $product->Group_id }}</td>
             <td>{{ $product->Quantily }}</td>
 
@@ -86,13 +91,28 @@
 
             <?php  
 
-                $promotion = App\Models\promotion::where('id_product', $product->id)->first(); 
+               
+
+                $promotion = App\Models\promotion::where('id_product', $product->id)->get()->last(); 
 
                 if(!empty($promotion)){
-                    $gift = App\Models\gift::find($promotion->id_gift);
 
-                }
+                    $convert_time = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $promotion->created_at);
+
+                    $convert_time = $convert_time->addDays(1);
+
+                    $result_time = $convert_time->diffInHours($now);
+
+                    if(!empty($promotion)&& $result_time>=0){
+                        $gift = App\Models\gift::find($promotion->id_gift);
+
+                    }
+                }    
+
+                
             ?>
+            
+            
             <td>{{ !empty($gift)?$gift->name:'' }}</td>
             <td><input type="checkbox" id="active{{ $product->id }}" name="active" onclick='active({{ $product->id }})'   {{ $product->active==1?'checked':'' }}></td>
 

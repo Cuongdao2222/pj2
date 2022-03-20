@@ -124,11 +124,11 @@ class orderController extends Controller
 
                 $product_inf = product::find($value->id);
 
-                $data_product[$key]->image = $product_inf->Image;
+                $data_product[$key]->image = @$product_inf->Image;
 
-                $data_product[$key]->link  = $product_inf->Link;
+                $data_product[$key]->link  = @$product_inf->Link;
 
-                $data_product[$key]->model = $product_inf->ProductSku;
+                $data_product[$key]->model = @$product_inf->ProductSku;
 
                 
             }

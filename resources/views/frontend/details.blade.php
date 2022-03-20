@@ -722,12 +722,25 @@
         <div class="clear space10px"></div>
               
         <div class="promo line_h19">
+            <?php
+                $now = Carbon\Carbon::now();
+                $promotion =  promotion_product($data->id, $now); 
+
+               
+             ?>
+
+            @if(isset($promotion ))
             <div class="txt_b">Khuyến mại</div>
-           <!--  <p>-&nbsp;Cam kết sản phẩm mới 100%, nguyên đai nguyên kiện
-            <br>-&nbsp;Bảo hành chính hãng&nbsp;1 năm
-            <br>-&nbsp;Thùng có: Đĩa thủy tinh, Giá nướng
-            <br>-&nbsp;Giao hàng miễn phí trong 30km
-            <br>-&nbsp;Đền gấp 10 lần nếu không phải hàng chính hãng</p> -->
+            <div style="display: flex;">
+                <img src="{{ asset($promotion->image) }}" height="30px" width="30px">
+                <p>{{ $promotion->name }}</p>
+                
+            </div>
+            @endif
+            
+
+            
+            
             
         </div>
           

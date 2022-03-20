@@ -13,6 +13,30 @@
                 top: 24px;
             }
 
+            .quatang img {
+                height: 36px;
+                margin-top: 2px;
+                max-width: 50px;
+                padding: 2px;
+                border-radius: 3px;
+                box-shadow: 0 0 0px 1px #fff;
+                width: auto !important;
+
+            }
+
+            .quatang {
+                
+               
+                height: 40px;
+                width: 100%;
+                /*padding-left: 65px;*/
+                background-repeat: no-repeat;
+                background-color: #e3f5ff;
+                background-position-x: left;
+                border-radius: 4px;
+                text-align: left;
+            }
+
 
 
             @media screen and (max-width: 776px){
@@ -224,7 +248,11 @@
             <?php
                 $all_Product = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.id')->where('group_product.id', $group[$i]->id)->get();
                 $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->join('makers', 'products.Maker', '=', 'makers.id')->where('hot.group_id', $group[$i]->id)->get();
+
+
             ?>
+
+
         @if(count($data)>0)    
         <div class="box-common _cate_1942">
             <ul class="box-common__tab">
@@ -251,11 +279,11 @@
                                      <img src="{{ asset('images/saker/'.strtolower($datas->maker).'.png') }}" class="item-saker">
                                 </div>
                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                <h3>{{ $datas->Name }}{{  $datas->id }}</h3>
-                                <div class="item-compare">
+                                <h3>{{ $datas->Name }}</h3>
+                                <!-- <div class="item-compare">
                                     <span>55 inch</span>
                                     <span>4K</span>
-                                </div>
+                                </div> -->
                                 <strong class="price">{{ number_format($datas->Price , 0, ',', '.')}}&#x20AB;</strong>
                            
                                 <div class="item-rating">
@@ -266,8 +294,23 @@
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
                                     </p>
-                                    <p class="item-rating-total">55</p>
+                                    
                                 </div>
+
+                                <?php  
+                                    $now = Carbon\Carbon::now();
+
+                                    
+                                    $promotion = promotion_product($datas->product_id, $now);
+
+
+                                ?>
+
+                                @if(isset($promotion))
+
+                                    <div class="quatang"><img src="{{ asset($promotion->image) }}"></div>
+                                @endif
+                                
                             </a>
                         </div>
                         @endif

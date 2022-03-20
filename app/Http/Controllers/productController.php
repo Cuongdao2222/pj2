@@ -69,6 +69,11 @@ class productController extends AppBaseController
             $input['Link'] = convertSlug($input['Name']);
         }
 
+        if(empty($input['Quantily'])){
+
+            $input['Quantily'] = 0;
+        }
+
         if(!empty($input['Price'])){
 
             $input['Price'] = str_replace(',', '', $input['Price']);
@@ -169,6 +174,11 @@ class productController extends AppBaseController
         if(empty($input['Link'])){
 
             $input['Link'] = convertSlug($input['Name']);
+        }
+
+        if(empty($input['Quantily'])){
+
+            $input['Quantily'] = 0;
         }
 
 

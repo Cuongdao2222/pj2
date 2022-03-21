@@ -80,6 +80,7 @@ class postController extends AppBaseController
 
         preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
 
+
         $arr_change = [];
 
         if(isset($matches[1])){
@@ -98,6 +99,11 @@ class postController extends AppBaseController
                 
             }
         }
+
+        $html = str_replace($matches[1], $arr_change, $html);
+
+        $input['content'] = $html;
+
         $input['id_user'] = Auth::id();
 
         $meta_model = new metaSeo();
@@ -204,6 +210,11 @@ class postController extends AppBaseController
         preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
 
         $arr_change = [];
+
+
+        print_r($matches);
+
+        die();
 
      
 

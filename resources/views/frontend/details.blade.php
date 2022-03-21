@@ -191,7 +191,7 @@
         <section data-id="235791" data-cate-id="1942" class="detail ">
             <ul class="breadcrumb">
                 <?php  
-                    $groupProduct = App\Models\groupProduct::find($data->Maker);
+                    $groupProduct = App\Models\groupProduct::find($data->Group_id);
 
                     
                 ?>
@@ -200,12 +200,7 @@
                     <meta property="position" content="1">
                 </li>
 
-                <?php 
-
-                    dd($groupProduct);
-
-                    die();
-                ?>
+                
                 <li>
                     <span>›</span>
                     <a href="{{ route('details', @ $groupProduct->link) }} }}">{{ @$groupProduct->name }}</a>

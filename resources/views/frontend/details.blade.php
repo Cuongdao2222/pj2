@@ -196,7 +196,7 @@
                     
                 ?>
                 <li>
-                    <a href="/tivi">Trang chủ</a>
+                    <a href="{{route('homeFe')}}">Trang chủ</a>
                     <meta property="position" content="1">
                 </li>
 

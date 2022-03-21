@@ -452,7 +452,20 @@
                 }
 
                 .header__history{
-                    width: auto;
+                    width: auto !important;
+                }
+
+                 /*ẩn icon hổ*/
+                .theme-lunar-new-year .footer::before{
+                    display: none;
+                }
+
+                .theme-lunar-new-year .footer::after{
+                    display: none;
+                }
+                .col-footer #email_newsletter {
+                   
+                    width: 183px !important;
                 }
 
             </style>
@@ -570,7 +583,7 @@
                         <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
                         <div class="bar-top-lefts">
                             <ul class="main-menu">
-                                <li data-submenu-id="submenu-1">
+                                <li data-submenu-id="submenu">
                                     <div class="dropdown">
                                         <span>
                                         <i class="fa fa-arrows" aria-hidden="true"></i>
@@ -578,41 +591,10 @@
                                         </span>
                                         <a href="/dan-loa-dvd">Giảm giá đặc biệt</a>
                                     </div>
-                                    <div id="submenu-1" class="submenu">
-                                        <aside>
-                                            <p class="menuitem__title">TIVI <a href="/tivi">Xem tất cả</a></p>
-                                            <a href="/tivi-tra-gop-0-phan-tram">Tivi trả góp 0 - 1%</a>
-                                            <a href="/tivi-sony">Sony</a>
-                                            <a href="/tivi-samsung">Samsung</a>
-                                            <a href="/tivi-lg">LG</a>
-                                            <a href="/tivi-tcl">TCL</a>
-                                            <a href="/tivi-casper">Casper</a>
-                                            <a href="/tivi#c=1942&p=43170,43356,43358&pi=0">Từ 32 - 43 inch</a>
-                                            <a href="/tivi#c=1942&p=43358,44869,45198,43361,43364&pi=0 ">Từ 43 - 55 inch</a>
-                                            <a href="/tivi#c=1942&r=335,333&pi=0">Dưới 7 triệu</a>
-                                            <a href="/tivi#c=1942&r=711,576&pi=0">Tivi cao cấp</a>
-                                            <a href="/may-chieu">Máy chiếu</a>
-                                        </aside>
-                                       <!--  <aside>
-                                            <p class="menuitem__title">LOA, ÂM THANH <a href="/dan-loa-dvd?g=loa-keo#c=2162&p=90016,90017,90018&pi=0">Xem tất cả</a></p>
-                                            <a href="/dan-loa-dvd?g=loa-keo">Loa kéo</a>
-                                            <a href="/dan-loa-dvd-loa-bluetooth">Loa Bluetooth</a>
-                                            <a href="/dan-loa-dvd-loa-thanh">Loa thanh (Soundbar)</a>
-                                            <a href="/dan-loa-dvd?g=dan-am-thanh">Dàn âm thanh</a>
-                                            <a href="/dan-loa-dvd-dan-karaoke-amply">Dàn Karaoke, Amply</a>
-                                            <a href="/micro">Micro</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">PHỤ KIỆN TIVI</p>
-                                            <a href="/cap-hdmi-cap-tivi">Cáp HDMI, cáp Tivi</a>
-                                            <a href="/khung-treo-tivi">Khung treo Tivi</a>
-                                            <a href="/dieu-khien-tivi">Điều khiển TV</a>
-                                            <a href="/android-tv-box">Android TV Box</a>
-                                        </aside> -->
-                                    </div>
+                                   
                                 </li>
 
-                                <li data-submenu-id="submenu-2">
+                                <li data-submenu-id="submenu-1">
                                     <div class="dropdown">
                                         <span>
                                         <i class="fa fa-television" aria-hidden="true"></i>
@@ -621,39 +603,132 @@
                                     </div>
                                     <div id="submenu-1" class="submenu">
                                         <aside>
-                                            <p class="menuitem__title">TIVI <a href="/tivi">Xem tất cả</a></p>
-                                            <a href="/tivi-tra-gop-0-phan-tram">Tivi trả góp 0 - 1%</a>
-                                            <a href="/tivi-sony">Sony</a>
-                                            <a href="/tivi-samsung">Samsung</a>
-                                            <a href="/tivi-lg">LG</a>
-                                            <a href="/tivi-tcl">TCL</a>
-                                            <a href="/tivi-casper">Casper</a>
-                                            <a href="/tivi#c=1942&p=43170,43356,43358&pi=0">Từ 32 - 43 inch</a>
-                                            <a href="/tivi#c=1942&p=43358,44869,45198,43361,43364&pi=0 ">Từ 43 - 55 inch</a>
-                                            <a href="/tivi#c=1942&r=335,333&pi=0">Dưới 7 triệu</a>
-                                            <a href="/tivi#c=1942&r=711,576&pi=0">Tivi cao cấp</a>
-                                            <a href="/may-chieu">Máy chiếu</a>
+                                            <p class="menuitem__title">Thương hiệu </p>
+
+                                            <ul class="main-child">
+                    
+                                            <li>
+                                              <a href="/tivi-samsung/">Tivi Samsung</a>
+                                            </li>
+                                            
+                                            <li>
+                                              <a href="/tivi-lg/">Tivi LG</a>
+                                            </li>
+                                            
+                                            <li>
+                                              <a href="/tivi-sony/">Tivi Sony</a>
+                                            </li>
+                                            
+                                            <li>
+                                              <a href="/tivi-tcl/">Tivi TCL</a>
+                                            </li>
+                                            
+                                            <li>
+                                              <a href="/tivi-philips/">Tivi Philips</a>
+                                            </li>
+                                            
+                                          </ul>
+                                           
                                         </aside>
-                                       <!--  <aside>
-                                            <p class="menuitem__title">LOA, ÂM THANH <a href="/dan-loa-dvd?g=loa-keo#c=2162&p=90016,90017,90018&pi=0">Xem tất cả</a></p>
-                                            <a href="/dan-loa-dvd?g=loa-keo">Loa kéo</a>
-                                            <a href="/dan-loa-dvd-loa-bluetooth">Loa Bluetooth</a>
-                                            <a href="/dan-loa-dvd-loa-thanh">Loa thanh (Soundbar)</a>
-                                            <a href="/dan-loa-dvd?g=dan-am-thanh">Dàn âm thanh</a>
-                                            <a href="/dan-loa-dvd-dan-karaoke-amply">Dàn Karaoke, Amply</a>
-                                            <a href="/micro">Micro</a>
-                                        </aside>
+
                                         <aside>
-                                            <p class="menuitem__title">PHỤ KIỆN TIVI</p>
-                                            <a href="/cap-hdmi-cap-tivi">Cáp HDMI, cáp Tivi</a>
-                                            <a href="/khung-treo-tivi">Khung treo Tivi</a>
-                                            <a href="/dieu-khien-tivi">Điều khiển TV</a>
-                                            <a href="/android-tv-box">Android TV Box</a>
-                                        </aside> -->
+                                            <p class="menuitem__title">Loại Tivi</p>
+                                            <ul class="main-child">
+                    
+                                                <li>
+                                                  <a href="/8k/">8K</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-4k/">4K</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-man-hinh-cong/">Tivi Màn Hình Cong</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-3d/">Tivi 3D</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/smart-tivi/">Smart Tivi</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-led/">Tivi LED</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-oled/">Tivi OLED</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-qled/">Tivi QLED</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-frame/">Tivi Frame</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-neo-qled/">Tivi Neo QLED</a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </aside>
+
+                                        <aside>
+                                            <p class="menuitem__title">Kích cỡ Tivi</p>
+                                            <ul class="main-child">
+                    
+                                                <li>
+                                                  <a href="/8k/">8K</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-4k/">4K</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-man-hinh-cong/">Tivi Màn Hình Cong</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-3d/">Tivi 3D</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/smart-tivi/">Smart Tivi</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-led/">Tivi LED</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-oled/">Tivi OLED</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-qled/">Tivi QLED</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-frame/">Tivi Frame</a>
+                                                </li>
+                                                
+                                                <li>
+                                                  <a href="/tivi-neo-qled/">Tivi Neo QLED</a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </aside>
+                                       
                                     </div>
                                 </li>
 
-                                <li data-submenu-id="submenu-3">
+                                <li data-submenu-id="submenu-2">
                                     <div class="dropdown">
                                         <span>
                                             <img src="https://dienmaynguoiviet.vn/media/category/cat_34ead602847eccffd2bc5af611a422d2.png" style="width: 100%";">
@@ -661,30 +736,87 @@
                                         <a href="{{ route('category-product', 'tu-lanh') }}">Tủ lạnh</a>
                                     </div>
                                     <div id="submenu-2" class="submenu">
+
+                                        
+                
                                         <aside>
-                                            <p class="menuitem__title">TỦ LẠNH<a href="/tu-lanh">Xem tất cả</a></p>
-                                            <a href="/tu-lanh-tra-gop-0-phan-tram">Trả góp 0 - 0.5%</a>
-                                            <a href="/tu-lanh?g=tu-150-300-lit">Tủ lạnh từ 150 - 300 lít</a>
-                                            <a href="/tu-lanh?g=tu-301-400-lit">Tủ lạnh từ 301 - 400 lít</a>
-                                            <a href="/tu-lanh?g=tu-lon-side-by-side">Tủ lạnh Side by side</a>
-                                            <a href="/tu-lanh?g=mini">Tủ lạnh Mini</a>
-                                            <a href="/tu-lanh-panasonic">Panasonic</a>
-                                            <a href="/tu-lanh-samsung">Samsung</a>
-                                            <a href="/tu-lanh-toshiba">Toshiba</a>
-                                            <a href="/tu-lanh-aqua-sanyo">Aqua</a>
-                                            <a href="/tu-lanh-lg">LG</a>
-                                            <a href="/tu-lanh?p=tu-8tr-12tr">Từ 8 - 12 triệu</a>
+                                            <p class="menuitem__title">Thương hiệu</p>
+                                            
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/tu-lanh-hitachi/">Hitachi</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-panasonic/">Panasonic</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-samsung/">Samsung</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-sharp/">Sharp</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-lg/">LG</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-electrolux/">Electrolux</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-funiki/">Funiki</a>
+                                                </li>
+                                            </ul>
                                         </aside>
-                                        <aside>
-                                            <p class="menuitem__title">TỦ ĐÔNG, TỦ MÁT<a href="/tu-dong">Xem tất cả</a></p>
-                                            <a href="/tu-dong-kangaroo">Kangaroo</a>
-                                            <a href="/tu-dong-sanaky">Sanaky</a>
-                                            <a href="/tu-dong-sunhouse">Sunhouse</a>
-                                            <a href="/tu-dong-lg">LG</a>
+
+                                        <aside class="item-sub">
+                                            
+                                            <p class="menuitem__title">Dung Tích</p>
+                                            
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/duoi-150-lit/">Dưới 150 lít</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-150-200-lit/">Từ 150 - 200 lít</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-200-300-lit/">Từ 200 - 300 lít</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-300-400-lit/">Từ 300 - 400 lít</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-400-500-lit/">Từ 400 - 500 lít</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-500-600-lit/">Từ 500 - 600 lít</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tren-600-lit/">Trên 600 lít</a>
+                                                </li>
+                                            </ul>
                                         </aside>
+                                        <aside class="item-sub">
+                                            <p class="menuitem__title">Loại tủ</p>
+                                          
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/tu-lanh-side-by-side/">Tủ lạnh Side By Side</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-ngan-da-duoi/">Tủ lạnh ngăn đá dưới</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-ngan-da-tren/">Tủ Lạnh Ngăn Đá Trên</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-lanh-mini/">Tủ Lạnh Mini</a>
+                                                </li>
+                                            </ul>
+                                        </aside>
+                                       
                                     </div>
                                 </li>
-                                <!-- <li data-submenu-id="submenu-4">
+                                <li data-submenu-id="submenu-3">
                                     <div class="dropdown">
                                         <span>
                                         <i class="icon-maygiat"></i>
@@ -694,104 +826,279 @@
                                     </div>
                                     <div id="submenu-3" class="submenu">
                                         <aside>
-                                            <p class="menuitem__title">MÁY GIẶT<a href="/may-giat">Xem tất cả</a></p>
-                                            <a href="/may-giat-moi">Đời mới 2021</a>
-                                            <a href="/may-giat-toshiba">Toshiba</a>
-                                            <a href="/may-giat-lg">LG</a>
-                                            <a href="/may-giat-panasonic">Panasonic</a>
-                                            <a href="/may-giat-samsung">Samsung</a>
-                                            <a href="/may-giat-electrolux">Electrolux</a>
-                                            <a href="/may-giat-aqua-sanyo">Aqua</a>
-                                            <a href="/may-giat?g=cua-truoc">Máy giặt cửa ngang (cửa trước)</a>
-                                            <a href="/may-giat-co-say">Máy giặt sấy</a>
-                                            <a href="/may-giat?p=duoi-5-trieu">Giá dưới 5 triệu</a>
+                                            <p class="menuitem__title">Thương hiệu</p>
+                                           
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/may-giat-electrolux/">Máy giặt Electrolux</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-giat-lg/">Máy giặt LG</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-giat-panasonic/">Máy giặt Panasonic</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-giat-samsung/">Máy giặt Samsung</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-giat-sharp/">Máy giặt Sharp</a>
+                                                </li>
+                                            </ul>
                                         </aside>
                                         <aside>
-                                            <p class="menuitem__title">MÁY SẤY QUẦN ÁO<a href="/may-say-quan-ao">Xem tất cả</a></p>
-                                            <a href="/may-say-quan-ao?p=tu-5tr-10tr">Giá từ 5 - 10 triệu</a>
-                                            <a href="/may-say-quan-ao-electrolux">Electrolux</a>
-                                            <a href="/may-say-quan-ao-beko">Beko</a>
-                                            <a href="/may-say-quan-ao-candy">Candy</a>
+                                             <p class="menuitem__title">Kiểu giặt</p>
+                                           
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/may-giat-long-ngang/">Lồng Ngang</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-giat-long-dung/">Lồng Đứng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/long-nghieng/">Lồng Nghiêng</a>
+                                                </li>
+                                            </ul>
                                         </aside>
                                         <aside>
-                                            <p class="menuitem__title">PHỤ KIỆN MÁY GIẶT</p>
-                                            <a href="/ao-trum-may-giat">Áo trùm máy giặt</a>
-                                            <a href="/gia-do-may-giat">Giá đỡ máy giặt</a>
-                                            <a href="/tui-giat">Túi giặt</a>
+                                             <p class="menuitem__title">Khối lượng giặt</p>
+                                           
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/duoi-7kg/">Dưới 7kg</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-7-8kg/">Từ 7 - 8kg</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tu-8-9kg/">Từ 8 - 9kg</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tren-9kg/">Trên 9kg</a>
+                                                </li>
+                                            </ul>
                                         </aside>
                                     </div>
                                 </li>
-                                <li data-submenu-id="submenu-5">
+
+
+                                <li data-submenu-id="submenu-4">
                                     <div class="dropdown">
                                         <span>
                                         <i class="icon-maylanh"></i>
                                         </span>
-                                        <a href="/may-lanh">Máy lạnh</a>
+                                        <a href="/may-lanh">Máy Điều hòa</a>
                                     </div>
                                     <div id="submenu-4" class="submenu">
-                                        <aside>
-                                            <p class="menuitem__title">M&#xC1;Y L&#x1EA0;NH<a href="/may-lanh">Xem tất cả</a></p>
-                                            <a href="/may-lanh-tra-gop-0-phan-tram">Trả góp 0 - 0.5%</a>
-                                            <a href="/may-lanh-moi">Đời mới 2021</a>
-                                            <a href="/may-lanh-panasonic">Panasonic</a>
-                                            <a href="/may-lanh-daikin">Daikin</a>
-                                            <a href="/may-lanh-samsung">Samsung</a>
-                                            <a href="/may-lanh?g=1-hp">M&#xE1;y l&#x1EA1;nh 1 HP</a>
-                                            <a href="/may-lanh?g=15-hp">M&#xE1;y l&#x1EA1;nh 1.5 HP</a>
-                                            <a href="/may-lanh?g=may-lanh-inverter">M&#xE1;y l&#x1EA1;nh Inverter ti&#x1EBF;t ki&#x1EC7;m &#x111;i&#x1EC7;n</a>
-                                            <a href="/may-lanh?p=duoi-7-trieu">M&#xE1;y l&#x1EA1;nh d&#x1B0;&#x1EDB;i 7 tri&#x1EC7;u</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">QUẠT ĐIỀU HÒA<a href="/quat-dieu-hoa">Xem tất cả</a></p>
-                                            <a href="/quat-dieu-hoa-kangaroo">Kangaroo</a>
-                                            <a href="/quat-dieu-hoa-daikiosan">Daikiosan</a>
-                                            <a href="/quat-dieu-hoa-sunhouse">Sunhouse</a>
-                                            <a href="/quat-dieu-hoa-midea">Midea</a>
-                                            <a href="/quat-dieu-hoa-delites">Delites</a>
-                                            <a href="/quat-dieu-hoa?p=tu-1-3-trieu">Từ 1 đến 3 triệu</a>
-                                            <a href="/quat-dieu-hoa?p=tu-3-5-trieu">Từ 3 đến 5 triệu</a>
-                                            <a href="/quat-dieu-hoa?g=duoi-20-m">Quạt mát dưới 20 m²</a>
-                                            <a href="/quat-dieu-hoa?g=tu-20-34-m">Quạt mát từ 20 - 34 m²</a>
-                                            <a href="/quat-dieu-hoa?g=tu-35-50-m">Quạt mát từ 35 - 50 m²</a>
-                                            <a href="/quat-dieu-hoa?g=tren-50-m">Quạt mát trên 50 m²</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">QUẠT<a href="/quat">Xem tất cả</a></p>
-                                            <a href="/quat?g=quat-treo-tuong">Quạt treo tường</a>
-                                            <a href="/quat?g=quat-sac-dien">Quạt sạc điện</a>
-                                            <a href="/quat?g=quat-dung">Quạt đứng</a>
-                                            <a href="/quat?g=quat-hop">Quạt hộp</a>
-                                            <a href="/quat?g=quat-lung">Quạt lửng</a>
-                                            <a href="/quat-ban">Quạt bàn</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">M&#xC1;Y N&#x1AF;&#x1EDA;C N&#xD3;NG </p>
-                                            <a href="/may-nuoc-nong?g=lam-nong-truc-tiep">M&#xE1;y n&#x1B0;&#x1EDB;c n&#xF3;ng trực tiếp</a>
-                                            <a href="/may-nuoc-nong-nang-luong-mat-troi">M&#xE1;y n&#x1B0;&#x1EDB;c n&#xF3;ng năng lượng mặt trời</a>
-                                            <a href="/may-nuoc-nong-lam-nong-gian-tiep">M&#xE1;y n&#x1B0;&#x1EDB;c n&#xF3;ng gián tiếp</a>
-                                            <a href="/may-nuoc-nong-bom-tro-luc">Máy có bơm trợ lực</a>
-                                            <a href="/may-nuoc-nong-ariston">Ariston</a>
-                                            <a href="/may-nuoc-nong-panasonic">Panasonic</a>
-                                            <a href="/may-nuoc-nong-ferroli">Ferroli</a>
-                                            <a href="/may-nuoc-nong-electrolux">Electrolux</a>
-                                            <a href="/may-nuoc-nong-kangaroo">Kangaroo</a>
-                                            <a href="/may-nuoc-nong-beko">Beko</a>
-                                            <a href="/may-nuoc-nong-rossi">Rossi</a>
-                                        </aside>
+                                        <ul class="main-child">
+                                            <aside>
+                                                <p class="menuitem__title">Thương hiệu</p>
+                                               
+                                                <ul class="main-child">
+                                                    <li>
+                                                        <a href="/dieu-hoa-daikin/">Điều hòa Daikin</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-panasonic/">Điều hòa Panasonic</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-mitsubishi/">Điều hòa Mitsubishi</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-lg/">Điều hòa LG</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-sharp/">Điều hòa Sharp</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-funiki/">Điều hòa Funiki</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-samsung/">Điều hòa Samsung</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-nagakawa/">Điều hòa Nagakawa</a>
+                                                    </li>
+                                                </ul>
+                                            </aside>
+                                            
+                                            <aside>
+                                                <p class="menuitem__title">Tiết kiệm điện</p>
+                                                <ul class="main-child">
+                                                    <li>
+                                                        <a href="/dieu-hoa-tiet-kiem-dien/">Điều hòa tiết kiệm điện</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/co/">Có</a>
+                                                    </li>
+                                                </ul>
+                                            </aside>
+                                            <aside>
+                                                <p class="menuitem__title">Công Suất</p>
+                                                
+                                                <ul class="main-child">
+                                                    <li>
+                                                        <a href="/1hp/">1HP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/15hp/">1.5HP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/2hp/">2HP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/25hp/">2.5HP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/3hp/">3HP</a>
+                                                    </li>
+                                                </ul>
+                                            </aside>
+                                            <aside>
+                                                <p class="menuitem__title">Loại Điều Hòa</p>
+                                                
+                                                <ul class="main-child">
+                                                    <li>
+                                                        <a href="/dieu-hoa-1-chieu/">Điều Hòa 1 Chiều</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-2-chieu/">Điều Hòa 2 Chiều</a>
+                                                    </li>
+                                                </ul>
+                                            </aside>
+                                            <aside>
+                                                 <p class="menuitem__title">Kiểu Máy Điều Hòa</p>
+                                                
+                                                <ul class="main-child">
+                                                    <li>
+                                                        <a href="/treo-tuong/">Treo Tường</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/tu-dung/">Tủ Đứng</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-am-tran/">Âm Trần</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/dieu-hoa-ap-tran/">Áp Trần</a>
+                                                    </li>
+                                                </ul>
+                                            </aside>
+                                        </ul>
                                     </div>
                                 </li>
+                                
+
+                                <li data-submenu-id="submenu-5">
+                                    <div class="dropdown">
+                                        <span>
+                                            <i class="icon-diengiadung"></i>
+                                        </span>
+                                        <a href="/may-lanh">Đồ gia dụng</a>
+                                    </div>
+
+                                    <div id="submenu-5" class="submenu">
+
+                                       
+                                        <aside>
+                                            <p class="menuitem__title">Sản Phẩm Gia Dụng</p>
+                                           
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/may-hut-bui/">Máy Hút Bụi</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/binh-nong-lanh/">Bình nóng lạnh</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ban-la/">Bàn Là, Bàn Ủi</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-say-toc/">Máy Sấy Tóc</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-loc-khong-khi-samsung/">Máy lọc không khí Samsung</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-loc-khong-khi-sharp/">Máy lọc không khí Sharp</a>
+                                                </li>
+                                            </ul>
+                                        </aside>
+                                        <aside>
+                                            <p class="menuitem__title">Sản Phẩm Nhà Bếp</p>
+                                            
+                                            <ul class="main-child">
+                                                <li>
+                                                    <a href="/noi-com-dien/">Nồi Cơm Điện</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/lo-vi-song/">Lò Vi Sóng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/binh-thuy-dien/">Bình Thủy Điện</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/am-sieu-toc/">Ấm Siêu Tốc</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-xay-sinh-to/">Máy Xay Sinh Tố</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-ep-hoa-qua/">Máy Ép Hoa Quả</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/may-xay-da-nang/">Máy Xay Đa Năng</a>
+                                                </li>
+                                            </ul>
+                                        </aside>
+
+                                    </div>
+                                    
+                                </li>
+
                                 <li data-submenu-id="submenu-6">
                                     <div class="dropdown">
-                                        <span><i class="icon-diengiadung"></i></span>
-                                        <a href="/gia-dung">Điện gia dụng</a>,
-                                        <a href="/dung-cu-cam-tay">Dụng cụ</a>
+                                        <span>
+                                            <i class="icon-maylanh"></i>
+                                        </span>
+                                        <a href="/may-lanh">Tủ đông</a>
                                     </div>
-                                    <div id="submenu-5" class="submenu">
-                                            
+                                    
+                                </li>
+
+                                <li data-submenu-id="submenu-7">
+                                    <div class="dropdown">
+                                        <span>
+                                            <i class="icon-maylanh"></i>
+                                        </span>
+                                        <a href="/may-lanh">Tủ mát</a>
                                     </div>
-                                </li> -->
-                                
-                            </ul>
+                                    
+                                </li>
+
+                                <li data-submenu-id="submenu-8">
+                                    <div class="dropdown">
+                                        <span>
+                                            <i class="icon-maylanh"></i>
+                                        </span>
+                                        <a href="/may-lanh">Máy sấy quần áo</a>
+                                    </div>
+                                    
+                                </li>
+
+                                <li data-submenu-id="submenu-9">
+                                    <div class="dropdown">
+                                        <span>
+                                            <i class="icon-maylanh"></i>
+                                        </span>
+                                        <a href="/may-lanh">Máy đổi trả</a>
+                                    </div>
+                                    
+                                </li>
+
+                            </ul>  
+                            
                         </div>
                     </div>
                     <!-- <ul class="txt-list" data-id="706">
@@ -1014,16 +1321,16 @@
                         <h3 class="title">Thông tin</h3>
                         <ul class="footer_list-link">
                             <li>
-                                <a href="/gioi-thieu">Giới thiệu</a>
+                                <a href="#">Giới thiệu</a>
                             </li>
                             <li>
-                                <a href="/lien-he">Liên hệ</a>
+                                <a href="#">Liên hệ</a>
                             </li>
                             <li>
-                                <a href="/nha-phan-phoi-dien-may-uy-tin-chuyen-nghiep/">Dự án bán buôn</a>
+                                <a href="#">Dự án bán buôn</a>
                             </li>
                             <li>
-                                <a href="/tuyen-dung/">Tuyển dụng</a>
+                                <a href="#">Tuyển dụng</a>
                             </li>
                         </ul>
                     </div>
@@ -1031,13 +1338,13 @@
                         <h3 class="title">Hỗ trợ mua hàng</h3>
                         <ul class="footer_list-link">
                             <li>
-                                <a href="/huong-dan-mua-dien-may-tra-gop-online-qua-the-tin-dung-tren-dien-may-nguoi-viet/">Hướng dẫn trả góp</a>
+                                <a href="#">Hướng dẫn trả góp</a>
                             </li>
                             <li>
-                                <a href="/page/cach-thuc-thanh-toan">Cách thức thanh toán</a>
+                                <a href="#">Cách thức thanh toán</a>
                             </li>
                             <li>
-                                <a href="/page/bang-gia-vat-tu-lap-dat">Bảng giá vật tư lắp đặt</a>
+                                <a href="#">Bảng giá vật tư lắp đặt</a>
                             </li>
                         </ul>
                     </div>
@@ -1059,16 +1366,16 @@
                         <h3 class="title">Chính sách</h3>
                         <ul class="footer_list-link">
                             <li>
-                                <a href="/page/chinh-sach-quy-dinh-chung">Chính sách &amp; quy định chung</a>
+                                <a href="#">Chính sách &amp; quy định chung</a>
                             </li>
                             <li>
-                                <a href="/page/chinh-sach-doi-tra-hang">Chính sách đổi trả sản phẩm</a>
+                                <a href="#">Chính sách đổi trả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="/page/chinh-sach-bao-hanh">Chính sách bảo hành</a>
+                                <a href="#">Chính sách bảo hành</a>
                             </li>
                             <li>
-                                <a href="/page/chinh-sach-van-chuyen">Chính sách giao hàng</a>
+                                <a href="#">Chính sách giao hàng</a>
                             </li>
                         </ul>
                     </div>

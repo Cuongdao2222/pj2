@@ -6,14 +6,7 @@
         <style type="text/css">
 
 
-            /*ẩn icon hổ*/
-            .theme-lunar-new-year .footer::before{
-                display: none;
-            }
-
-            .theme-lunar-new-year .footer::after{
-                display: none;
-            }
+           
 
             .item-saker{
                 position: absolute;

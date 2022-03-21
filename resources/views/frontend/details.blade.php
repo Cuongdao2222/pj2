@@ -199,6 +199,13 @@
                     <a href="/tivi">Trang chủ</a>
                     <meta property="position" content="1">
                 </li>
+
+                <?php 
+
+                    dd($groupProduct->link);
+
+                    die();
+                ?>
                 <li>
                     <span>›</span>
                     <a href="{{ route('details', @ $groupProduct->link) }} }}">{{ @$groupProduct->name }}</a>

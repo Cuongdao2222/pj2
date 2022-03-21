@@ -332,6 +332,9 @@
                     display: none;
 
                 }
+                .submenu{
+                    display: none;
+                }
                 .header__top-mobile .header__logo{
                     width: 100%;
                 }

@@ -203,7 +203,7 @@
                 
                 <li>
                     <span>›</span>
-                    <a href="{{ route('details', @ $groupProduct->link) }} }}">{{ @$groupProduct->name }}</a>
+                    <a href="{{ route('details', $groupProduct->link) }}">{{ @$groupProduct->name }}</a>
                     <meta property="position" content="2">
                 </li>
                 <!-- <li>

@@ -202,7 +202,7 @@
 
                 <?php 
 
-                    dd($groupProduct->link);
+                    dd($groupProduct);
 
                     die();
                 ?>

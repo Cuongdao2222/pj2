@@ -5,6 +5,16 @@
 
         <style type="text/css">
 
+
+            /*ẩn icon hổ*/
+            .theme-lunar-new-year .footer::before{
+                display: none;
+            }
+
+            .theme-lunar-new-year .footer::after{
+                display: none;
+            }
+
             .item-saker{
                 position: absolute;
                 width: 45px !important;
@@ -175,7 +185,7 @@
         <!-- Săn sale online -->
         <div class="prd-promo has-banner" style="background-color:#FFE602; " data-html-id="3109">
             <div class="prd-promo__top clearfix" >
-                <a data-cate="0" data-place="1868" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47543&r='+ (new Date).getTime(), async: true, cache: false });"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
+                <a data-cate="0" data-place="1868" href="#" ><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
             </div>
 
 

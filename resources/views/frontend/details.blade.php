@@ -12,6 +12,10 @@
 
            /*form đánh giá */
 
+           .modal-body table{
+            width: 100% !important;
+           }
+
            div.stars {
               width: 270px;
               display: inline-block;
@@ -223,7 +227,7 @@
                             <i class="icondetail-star"></i>
                             <i class="icondetail-star-dark"></i>
                         </p>
-                        <p class="detail-rate-total"> <span>Đánh giá</span></p>
+                        <p class="detail-rate-total" > <span data-toggle="modal" data-target="#specifications">Thông số kỹ thuật</span></p>
                     </div>
                 </div>
                 
@@ -360,6 +364,23 @@
                                 </div>
                                 <div class="modal-body">
                                     {!!  $data->Salient_Features  !!} 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="specifications" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                       <h5>Thông số kỹ thuật</h5>
+                                </div>
+                                <div class="modal-body">
+                                    {!!  $data->Specifications  !!} 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

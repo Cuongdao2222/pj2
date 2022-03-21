@@ -3,7 +3,7 @@
     @extends('frontend.layouts.apps')
 
     @section('content') 
-    <link rel="stylesheet" type="text/css" href="http://localhost/pj2/css/dienmay.css"> 
+    <link rel="stylesheet" type="text/css" href="{{asset('css/dienmay.css')}}"> 
     <link rel="stylesheet" href="https://dienmaynguoiviet.vn/template/dienmaynguoiviet/script/owl.carousel.min.css">
     <link rel="stylesheet" href="https://dienmaynguoiviet.vn/template/dienmaynguoiviet/script/styles.css?v=8881288.8883.151">
     <link rel="stylesheet" href="https://dienmaynguoiviet.vn/template/dienmaynguoiviet/script/customs.css?v=245754.75.52928">

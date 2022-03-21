@@ -13,6 +13,7 @@ class rate extends Model
         'product_id',
         'star',
         'active',
+        'content',
     ];    
 
     

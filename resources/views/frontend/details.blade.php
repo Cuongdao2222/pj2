@@ -293,7 +293,21 @@
                                     </div>
                                     <div class="pdetail-status">
                                         <div class="pdetail-stockavailable">
-                                            <span>CÒN HÀNG </span>
+                                            <?php
+                                                if($data->Quantily==0){
+                                                    $status ='Liên hệ';
+
+                                                }
+                                                elseif($data->Quantily==-1){
+                                                    $status ='Hết hàng';
+                                                }
+                                                else{
+                                                    $status = 'Còn hàng';
+                                                }
+                                             
+
+                                            ?>
+                                            <span>{{ $status }}</span>
                                         </div>
                                         <div class="pdetail-add-to-cart add-to-cart">
                                             <div class="inline">
@@ -473,7 +487,7 @@
                                 </div>
                                 <div class="pdetail-status">
                                     <div class="pdetail-stockavailable">
-                                        <span>CÒN HÀNG </span>
+                                        <span>{{ $status }} </span>
                                     </div>
                                     <div class="pdetail-add-to-cart add-to-cart">
                                         <form class="inline">
@@ -596,7 +610,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="submit" value="Gửi bình luận" class="btn btn-red" onclick="postComment()"></td>
+                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="submit" value="Gửi bình luận" class="btn btn-red" ></td>
                                                     <td></td>
                                                 </tr>
                                             </tbody>
@@ -720,29 +734,25 @@
         <div class="clear space3px"></div>
         
         <div class="clear space10px"></div>
-              
+
+         <?php
+            $now = Carbon\Carbon::now();
+            $promotion =  promotion_product($data->id, $now); 
+
+           
+         ?>
+        @if(!empty($promotion ))      
         <div class="promo line_h19">
-            <?php
-                $now = Carbon\Carbon::now();
-                $promotion =  promotion_product($data->id, $now); 
-
-               
-             ?>
-
-            @if(isset($promotion ))
+           
             <div class="txt_b">Khuyến mại</div>
             <div style="display: flex;">
                 <img src="{{ asset($promotion->image) }}" height="30px" width="30px">
                 <p>{{ $promotion->name }}</p>
                 
             </div>
-            @endif
-            
-
-            
-            
-            
+        
         </div>
+        @endif
           
          
   <div class="buy-group">
@@ -894,9 +904,6 @@
 
             $( document ).ready(function() {
 
-
-                
-
                 $('.star-click').bind('click',function(){
                     id_star = $(this).attr('id');    
                     number_star = id_star.substr(5, 6);
@@ -926,7 +933,8 @@
                       
                     },
                     submitHandler: function(form) {
-                       return false;
+                        
+                      postComment();
 
                     }
                    

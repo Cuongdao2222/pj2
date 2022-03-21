@@ -221,7 +221,7 @@
                                 <i class="icon-star"></i>
                                 <i class="icon-star-dark"></i>
                             </p>
-                            <p class="item-rating-total">{{strtolower($value->maker) }}</p>
+                            
                         </div>
                     </a>
                 </div>
@@ -303,10 +303,12 @@
                                     
                                     $promotion = promotion_product($datas->product_id, $now);
 
+                                   
+
 
                                 ?>
 
-                                @if(isset($promotion))
+                                @if(!empty($promotion))
 
                                     <div class="quatang"><img src="{{ asset($promotion->image) }}"></div>
                                 @endif
@@ -432,6 +434,7 @@
             loop:true,
             margin:10,
             nav:true,
+             navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
             responsive:{
                 0:{
                     items:1

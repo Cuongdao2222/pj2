@@ -658,7 +658,7 @@
                     <div class="listproduct slider-promo owl-carousel banner-sales">
 
                         @foreach($other_product as  $value)
-                        @if($value->active==1)
+                        @if($value->active==1 && $value->id != $data->id)
                         <div class="item">
                             <a href='{{ route('details', $value->Link) }}' class=" main-contain">
                                 <div class="item-label">

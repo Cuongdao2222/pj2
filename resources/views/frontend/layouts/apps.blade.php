@@ -333,7 +333,7 @@
 
                 }
                 .submenu{
-                    display: none;
+                    display: none !important;
                 }
                 .header__top-mobile .header__logo{
                     width: 100%;

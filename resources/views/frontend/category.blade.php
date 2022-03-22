@@ -16,6 +16,10 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 margin-bottom: 5px;
+
+            }
+            .list-pro h2{
+                margin-left:20px ;
             }
 
             .list-pro .price {
@@ -250,7 +254,10 @@
                      <span class="lists-id">{{ json_encode($arr_id_pro) }}</span>
 
                     @else
-                    <h2>Không tìm thấy sản phẩm</h2>
+                    <div style="margin-left: 20px;">
+                        <h2>Không tìm thấy sản phẩm</h2>
+                    </div>
+                    
                     @endif
                 </div>
                 <!-- <div class="view-more ">

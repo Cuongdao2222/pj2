@@ -188,12 +188,6 @@
            <?php  
 
            $product_sale =  DB::table('products')->join('sale_product', 'products.id', '=', 'sale_product.product_id')->join('makers', 'products.Maker', '=', 'makers.id')->get();
-           
-
-           
-
-            
-
            ?>
 
            @if(count($product_sale)>0)
@@ -297,18 +291,12 @@
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
                                     </p>
-                                    
                                 </div>
 
                                 <?php  
                                     $now = Carbon\Carbon::now();
 
-                                    
                                     $promotion = promotion_product($datas->product_id, $now);
-
-                                   
-
-
                                 ?>
 
                                 @if(!empty($promotion))

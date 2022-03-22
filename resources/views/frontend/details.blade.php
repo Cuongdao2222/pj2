@@ -633,7 +633,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="submit" value="Gửi bình luận" class="btn btn-red" ></td>
+                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="submit" value="Gửi bình luận" class="btn btn-red comments-rate" ></td>
                                                     <td></td>
                                                 </tr>
                                             </tbody>
@@ -986,6 +986,13 @@
                            
                     },
                     success: function(result){
+
+                        $('.comments-rate').text('Đã gửi bình luận');
+                        $('.comments-rate').val('Đã gửi bình luận');
+
+                        $('#email0').val('');
+                        $('#name0').val('');
+                        $('#content0').val('');
                       
                       alert(result);
                     }
@@ -1022,14 +1029,6 @@
                 });
             });
 
-            
-
-           
-
-          
-                
-                
-    
         </script>
 
 

@@ -298,6 +298,7 @@
 
                                     $promotion = promotion_product($datas->product_id, $now);
                                 ?>
+                                
 
                                 @if(!empty($promotion))
 

@@ -92,28 +92,36 @@
             <?php  
 
                
+              
+
 
                 $promotion = App\Models\promotion::where('id_product', $product->id)->get()->last(); 
+
+                $gift = '';
 
                 if(!empty($promotion)){
 
                     $convert_time = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $promotion->created_at);
 
-                    $convert_time = $convert_time->addDays(1);
+                    $convert_time = $convert_time->addDays($product->time);
 
                     $result_time = $convert_time->diffInHours($now);
 
-                    if(!empty($promotion)&& $result_time>=0){
+                    if(!empty($promotion)&& $result_time>=0 &&$promotion->id_gift!=0){
                         $gift = App\Models\gift::find($promotion->id_gift);
 
                     }
-                }    
+                    
+                } 
+               
+
+
 
                 
             ?>
             
             
-            <td>{{ !empty($gift)?$gift->name:'' }}</td>
+            <td><?php   ?>{{ !empty($promotion)&&!empty($gift)?$gift->name:'' }}</td>
             <td><input type="checkbox" id="active{{ $product->id }}" name="active" onclick='active({{ $product->id }})'   {{ $product->active==1?'checked':'' }}></td>
 
 
@@ -175,7 +183,7 @@
                    
                     <label for="username">Chọn quà tặng kèm:</label><br>
                     <select id="gift">
-
+                        <option value="0">Không chọn</option>
                         @foreach($gift as $value)
                         <option value="{{ $value->id }}">{{ $value->name }}</option>
                         @endforeach
@@ -234,6 +242,7 @@
 
                 $('#modal-gift').modal('hide');
                 alert(result);
+                location.reload();
             }
         });
 

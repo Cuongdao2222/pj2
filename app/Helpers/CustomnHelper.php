@@ -67,9 +67,9 @@ if (!function_exists('promotion_product')){
 
         if(!empty($promotion->created_at)){
 
-            $convert_time = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $promotion->created_at);
+            $convert_time = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $promotion->updated_at);
 
-            $convert_time = $convert_time->addDays(1);
+            $convert_time = $convert_time->addDays($promotion->time);
 
             $result_time = $convert_time->diffInHours($now);
         }
@@ -78,7 +78,7 @@ if (!function_exists('promotion_product')){
 
         if(!empty($promotion->created_at)){
 
-            if(!empty($promotion)&& $result_time>=0){
+            if(!empty($promotion)&& $result_time>=0&&$promotion->id_gift!=0){
                 $gift = App\Models\gift::find($promotion->id_gift);
 
             }

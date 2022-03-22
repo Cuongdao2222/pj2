@@ -1387,6 +1387,7 @@
                             <input id="email_newsletter" type="text" placeholder="Nhận thông tin khuyến mại">
                             <span id="now_submit">Gửi</span>
                         </form>
+
                         <!-- <h4 style="margin-top: 20px;margin-bottom: 10px;">Kết nối với chúng tôi</h4>
                         <a class="ft-fb" rel="nofollow" href="https://www.facebook.com/dienmaynguoiviet/"><i class="fab fa-facebook-f"></i></a>
                         <a class="ft-yt" rel="nofollow" href="https://www.youtube.com/channel/UCRVWFSZs8k81B61_hwmkMIA"><i class="fab fa-youtube"></i></a>
@@ -1436,7 +1437,23 @@
     @stack('script')
     <script type="text/javascript">
 
+      
 
+        $('#now_submit').click(function() {
+            const value = $('#email_newsletter').val();
+            if(value==''){
+                alert('bạn chưa nhập thông tin email');
+            }
+            else{
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
+                {
+                    alert('Quý khách đã đăng ký thành công');
+                }
+                else{
+                    alert('email không đúng đinh dạng');
+                }
+            }
+        })
         $(window).resize(function(){
             if($(window).width()<768){
 
@@ -1444,7 +1461,8 @@
             }
          
         });
-        
+
+
          $("#exampleModal").on("hidden.bs.modal", function () {
             $('#tbl_list_carts').html('');
         });

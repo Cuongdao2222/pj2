@@ -174,8 +174,8 @@
                     <div class="select">
                       <select id="sort-by-option">
                         <option value="id">Nổi bật</option>
-                        <option value="desc">Giá tăng dần</option>
-                        <option value="asc">Giá giảm dần</option>
+                        <option value="asc">Giá tăng dần</option>
+                        <option value="desc">Giá giảm dần</option>
                       </select>
                     </div>
                 </div>

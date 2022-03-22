@@ -115,6 +115,7 @@
                                
                             </div>
                             <div class="emtry_content Description nd">
+                                <h2>{{ @$data->shortcontent }}</h2><br>
                                 {!! $data->content !!}
                             </div>
                             <div class="blog-related">

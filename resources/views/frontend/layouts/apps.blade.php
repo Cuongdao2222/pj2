@@ -20,8 +20,6 @@
 
         @endif
         @else
-        
-        
         <title>sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến</title>
 
         <meta name="description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí."/>
@@ -55,6 +53,33 @@
             /*padding: 10px;*/
             margin-bottom: 20px;
         }
+        /*menu top*/
+        .header__top  .list-menu{
+            color: #000;
+            line-height: 16px;
+            width: 100%;
+            display: flex;
+            padding: 0 9px;
+            height: 43px;
+            align-items: center;
+            position: relative;
+        } 
+        .list-mn{
+            color: #000;
+            line-height: 16px;
+            width: 100%;
+            display: flex;
+            padding: 0 9px;
+            height: 43px;
+            align-items: center;
+            position: relative;
+        }
+        .header__top .list-menu li i {
+            margin-right: 5px;
+        }
+
+
+
 
         .product_list_cart .cart_col_3 {
             width: 36%;
@@ -320,7 +345,21 @@
             .footer .row{
                 margin-top: 30px;
             }
+            .navmwg  .PKCH strong a {
+                display: initial;
+                text-transform: initial;
+                color: #4a90e2;
+            }
 
+            .navmwg .TBNTM {
+                width: 250px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+            }
+
+            .list-menu>li:hover, .main-menu>li.active {
+                background-color: #fff;
+            }
           /*  phần responsive*/
 
             @media screen and (max-width: 776px){
@@ -471,6 +510,90 @@
                     width: 183px !important;
                 }
 
+                .menu-pc{
+                    background: #fed100;
+                }
+
+
+                .navmwg{
+                    display: none;
+                    position: absolute;
+                    background: #fff;
+                    top: 43px;
+                    width: 770px;
+                    border-radius: 4px;
+                    padding: 10px;
+                    z-index: 10;
+                    border: 1px solid #eee;
+                    left: 0;
+                }
+
+                .navmwg .sub-cate {
+                    width: 67%;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                .navmwg div {
+                    width: 33%;
+                    float: left;
+                    margin-bottom: 10px;
+                }
+
+                .navmwg .sub-cate>div {
+                    width: 50%;
+                }
+
+                .navmwg .TBLT {
+                    width: 250px;
+                    margin-bottom: 10px;
+                }
+
+                .navmwg strong {
+                    text-transform: uppercase;
+                    border-bottom: 1px solid #eee;
+                    font-size: 13px;
+                    padding-bottom: 5px;
+                    color: #333;
+                }
+
+                
+
+                .navmwg {
+                    position: absolute;
+                    background: #fff;
+                    top: 43px;
+                    width: 770px;
+                    border-radius: 4px;
+                    padding: 10px;
+                    z-index: 10;
+                    border: 1px solid #eee;
+                    left: 0;
+                }
+
+                .navmwg div {
+                    width: 33%;
+                    float: left;
+                    margin-bottom: 10px;
+                }
+
+                .navmwg div a {
+                    display: block;
+                    padding: 10px 5px 0 0;
+                    color: #000;
+                    font-size: 11px;
+                    position: relative;
+                }
+
+                .navmwg strong {
+                    text-transform: uppercase;
+                    border-bottom: 1px solid #eee;
+                    font-size: 13px;
+                    padding-bottom: 5px;
+                    color: #333;
+                }
+                    
+
             </style>
         </div>
         <header class="header   theme-lunar-new-year" data-sub="0">
@@ -578,9 +701,188 @@
                 
                 </section>
             </div>
+            <div class="header__top desktop menu-pc">
+                <section>
+                    <ul class="list-menu">
+                        <li>
+                            <a class="list-mn" href="/dtdd">
+                                <i class="fa fa-television" aria-hidden="true"></i>
+                                <span>Tivi</span>
+                            </a>
+                            <div class="navmwg accessories">
+                                <div class="PKDD">
+                                    <strong>Phụ kiện di động</strong>
+                                    <a href="/sac-dtdd">
+                                        <h3>Pin sạc dự phòng</h3>
+                                    </a>
+                                    <a href="/sac-cap">
+                                        <h3>Sạc, cáp</h3>
+                                    </a>
+                                    <a href="/mieng-dan-man-hinh">
+                                        <h3>Miếng dán màn hình</h3>
+                                    </a>
+                                    <a href="/op-lung-flipcover">
+                                        <h3>Ốp lưng điện thoại</h3>
+                                    </a>
+                                    <a href="/op-lung-may-tinh-bang">
+                                        <h3>Ốp lưng máy tính bảng</h3>
+                                    </a>
+                                    <a href="/gay-tu-suong">
+                                        <h3>Gậy chụp ảnh, Gimbal</h3>
+                                    </a>
+                                    <a href="/gia-do-dien-thoai">
+                                        <h3>Giá đỡ laptop, điện thoại</h3>
+                                    </a>
+                                    <a href="/de-moc-dien-thoai">
+                                        <h3>Đế, móc điện thoại</h3>
+                                    </a>
+                                    <a href="/tui-chong-nuoc">
+                                        <h3>Túi chống nước</h3>
+                                    </a>
+                                    <a href="/tui-dung-airpods">
+                                        <h3>Túi đựng Airpods</h3>
+                                    </a>
+                                    <a href="/phu-kien-thong-minh">
+                                        <h3>Phụ kiện Tablet</h3>
+                                    </a>
+                                    <a href="/airtag">
+                                        <h3>Airtag</h3>
+                                    </a>
+                                    <br><br>
+                                </div>
+                                <div class="sub-cate">
+                                    <div class="PKLT">
+                                        <strong>Phụ kiện Laptop</strong>
+                                        <a href="/chuot-may-tinh">
+                                            <h3>Chuột, bàn phím</h3>
+                                        </a>
+                                        <a href="/thiet-bi-mang">
+                                            <h3>Thiết bị mạng</h3>
+                                        </a>
+                                        <a href="/camera-giam-sat">
+                                            <h3>Camera, Webcam</h3>
+                                        </a>
+                                        <a href="/tui-chong-soc">
+                                            <h3>Balo, túi chống sốc</h3>
+                                        </a>
+                                        <a href="/phan-mem">
+                                            <h3>Phần mềm</h3>
+                                        </a>
+                                    </div>
+                                    <div class="PKCH">
+                                        <strong>
+                                        Thương hiệu hàng đầu
+                                        <a href="/phu-kien/chinh-hang" class="">Xem tất cả</a>
+                                        </strong>
+                                        <a href="/phu-kien/apple">
+                                            <h3>Apple</h3>
+                                        </a>
+                                        <a href="/phu-kien/samsung">
+                                            <h3>Samsung</h3>
+                                        </a>
+                                        <a href="/phu-kien/sony">
+                                            <h3>Sony</h3>
+                                        </a>
+                                        <a href="/phu-kien/jbl">
+                                            <h3>JBL</h3>
+                                        </a>
+                                        <a href="/phu-kien/xiaomi">
+                                            <h3>Xiaomi</h3>
+                                        </a>
+                                    </div>
+                                    <div class="TBAT">
+                                        <strong>Thiết bị âm thanh</strong>
+                                        <a href="/tai-nghe">
+                                            <h3>Tai nghe</h3>
+                                        </a>
+                                        <a href="/loa-laptop">
+                                            <h3>Loa</h3>
+                                        </a>
+                                        <div class="TBNTM">
+                                            <strong>Thiết bị nhà thông minh</strong>
+                                            <a href="/khoa-dien-tu">
+                                                <h3>Khóa điện tử</h3>
+                                            </a>
+                                            <a href="/android-tv-box">
+                                                <h3>TV Box</h3>
+                                            </a>
+                                            <a href="/o-cam-thong-minh">
+                                                <h3>Ổ cắm thông minh</h3>
+                                            </a>
+                                            <a href="/may-chieu">
+                                                <h3>Máy chiếu</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="PKK">
+                                        <div class="TBLT">
+                                            <strong>Thiết bị lưu trữ</strong>
+                                            <a href="/the-nho-dien-thoai">
+                                                <h3>Thẻ nhớ</h3>
+                                            </a>
+                                            <a href="/usb">
+                                                <h3>USB</h3>
+                                            </a>
+                                            <a href="/o-cung-di-dong">
+                                                <h3>Ổ cứng di động</h3>
+                                            </a>
+                                        </div>
+                                        <strong>Phụ kiện khác</strong>
+                                        <a href="/phu-kien-oto">
+                                            <h3>Phụ kiện ô tô</h3>
+                                        </a>
+                                        <a href="/may-tinh-cam-tay">
+                                            <h3>Máy tính cầm tay</h3>
+                                        </a>
+                                        <a href="/quat-mini">
+                                            <h3>Quạt mini</h3>
+                                        </a>
+                                        <a href="/pin">
+                                            <h3>Pin tiểu, pin điện thoại</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/tu-lanh">
+                            <i class="icon-tulanh"></i>
+                            <span>Tủ lạnh</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="list-mn" href="/may-giat">
+                                <i class="icon-maygiat"></i>
+                                <span>Máy giặt</span>
+                            </a>
+                        </li>
 
+                        <li>
+                            <a class="list-mn" href="/dieu-hoa">
+                                <i class="icon-maylanh"></i>
+                                <span>Điều hòa</span>
+                            </a>
+                        </li>
 
-            <div class="header__main">
+                        <li>
+                            <a class="list-mn" href="#">
+                                <i class="icon-diengiadung"></i>
+                                <span>Đồ gia dụng</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="list-mn" href="#">
+                                <i class="icon-diengiadung"></i>
+                                <span>Tủ đông</span>
+                            </a>
+                        </li>
+                      
+                    </ul>
+                </section>
+                
+
+            </div>
             
             <div class="header__main">
                 <section>
@@ -1104,7 +1406,6 @@
                                 </li>
 
                             </ul>  
-                            
                         </div>
                     </div>
                     <!-- <ul class="txt-list" data-id="706">

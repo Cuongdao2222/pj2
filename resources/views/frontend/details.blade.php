@@ -741,7 +741,7 @@
               <a id="btn-vote" class="txt_555 fl" href="javascript:;" onclick="go_comm()"> Đánh giá: </a>
               
            
-                <div class=" totalRate " id="js-total-rating" style="    display: inline-block;"><i class="icons icon-star star"><span></span></i></div>
+                <div class=" totalRate " id="js-total-rating" style="display: inline-block;"><i class="icons icon-star star"><span></span></i></div>
                 (<span class="reviewCount">0</span>)
             </div>
            
@@ -761,8 +761,6 @@
          <?php
             $now = Carbon\Carbon::now();
             $promotion =  promotion_product($data->id, $now); 
-
-           
          ?>
         @if(!empty($promotion ))      
         <div class="promo line_h19">
@@ -784,7 +782,15 @@
     <div class="clear space10px in">
      
         <a class="btn-buy txt_center cor5px" onclick="addToShoppingCart('pro','3036',document.getElementById('s_quantity').value,'2350000');" href="javascript:;">
-            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Thêm Vào Giỏ Hàng</span>
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Mua ngay</span>
+        </a>
+
+        <a class="btn-buy txt_center cor5px"  href="javascript:;" style="background: #ffde00; border-bottom: 0;" >
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Trả góp</span>
+        </a>
+
+        <a class="btn-buy txt_center cor5px"  href="javascript:;" style="background: #ffde00; border-bottom: 0;">
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Trả góp qua thẻ</span>
         </a>
         
     </div>

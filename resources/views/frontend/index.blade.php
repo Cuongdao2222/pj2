@@ -244,7 +244,7 @@
 
             <?php
                 $all_Product = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.id')->where('group_product.id', $group[$i]->id)->get();
-                $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->join('makers', 'products.Maker', '=', 'makers.id')->where('hot.group_id', $group[$i]->id)->get();
+                $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->join('group_product', 'products.Group_id', '=', 'group_product.id')->where('hot.group_id', $group[$i]->id)->get();
 
 
             ?>
@@ -263,17 +263,23 @@
                 <div class="box-common__content">
                     <div class="listproduct slider-home owl-carousel" id="banner-product_{{ $i }}" data-size="10">
 
+                        <?php 
+                            $Maker = App\Models\maker::get()->toArray();  
+
+                        ?>
+ 
                         @foreach($data as $datas)
                         @if($datas->active==1)
                         <div class="item"  data-pos="1">
                             <a href='{{ route('details', $datas->Link) }}'>
                                 <div class="item-label">
-                                    <span class="lb-tragop">Trả góp 0%</span>
+                                    <span class="lb-tragop">trả góp 0%</span>
+
                                 </div>
                                 <div class="item-img">
                                     <img data-src="{{ asset($datas->Image) }}" class="lazyload" alt="{{ $datas->Name }}" width=210 height=210>
 
-                                     <img src="{{ asset('images/saker/'.strtolower($datas->maker).'.png') }}" class="item-saker">
+                                     <img src="{{ asset('images/saker/'.strtolower($Maker[$datas->Maker]['maker']).'.png') }}" class="item-saker">
                                 </div>
                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
                                 <h3>{{ $datas->Name }}</h3>

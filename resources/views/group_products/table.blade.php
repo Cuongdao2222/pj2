@@ -21,7 +21,10 @@
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
-
+                         <a href="{{ route('filters.create') }}?groupid={{ $groupProduct->id }}"
+                           class='btn btn-default btn-xs'>
+                            <i class="fa fa-filter"></i>
+                        </a>
                        
 
 

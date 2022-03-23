@@ -515,6 +515,8 @@
                 </section>
             </div>
 
+            
+
             <div class="header__top header__top-mobile mobiles">
                 <section>
                     <div class="col-xs-12">
@@ -578,7 +580,8 @@
             </div>
 
 
-
+            <div class="header__main">
+            
             <div class="header__main">
                 <section>
                     <div class="category">
@@ -639,43 +642,43 @@
                                             <ul class="main-child">
                     
                                                 <li>
-                                                  <a href="/8k/">8K</a>
+                                                  <a href="#">8K</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-4k/">4K</a>
+                                                  <a href="#">4K</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-man-hinh-cong/">Tivi Màn Hình Cong</a>
+                                                  <a href="#">Tivi Màn Hình Cong</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-3d/">Tivi 3D</a>
+                                                  <a href="#">Tivi 3D</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/smart-tivi/">Smart Tivi</a>
+                                                  <a href="#">Smart Tivi</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-led/">Tivi LED</a>
+                                                  <a href="#">Tivi LED</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-oled/">Tivi OLED</a>
+                                                  <a href="#">Tivi OLED</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-qled/">Tivi QLED</a>
+                                                  <a href="#">Tivi QLED</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-frame/">Tivi Frame</a>
+                                                  <a href="#">Tivi Frame</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-neo-qled/">Tivi Neo QLED</a>
+                                                  <a href="#">Tivi Neo QLED</a>
                                                 </li>
                                                 
                                             </ul>
@@ -686,43 +689,43 @@
                                             <ul class="main-child">
                     
                                                 <li>
-                                                  <a href="/8k/">8K</a>
+                                                  <a href="#">8K</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-4k/">4K</a>
+                                                  <a href="#">4K</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-man-hinh-cong/">Tivi Màn Hình Cong</a>
+                                                  <a href="#">Tivi Màn Hình Cong</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-3d/">Tivi 3D</a>
+                                                  <a href="#">Tivi 3D</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/smart-tivi/">Smart Tivi</a>
+                                                  <a href="#">Smart Tivi</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-led/">Tivi LED</a>
+                                                  <a href="#">Tivi LED</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-oled/">Tivi OLED</a>
+                                                  <a href="#">Tivi OLED</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-qled/">Tivi QLED</a>
+                                                  <a href="#">Tivi QLED</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-frame/">Tivi Frame</a>
+                                                  <a href="#">Tivi Frame</a>
                                                 </li>
                                                 
                                                 <li>
-                                                  <a href="/tivi-neo-qled/">Tivi Neo QLED</a>
+                                                  <a href="#">Tivi Neo QLED</a>
                                                 </li>
                                                 
                                             </ul>
@@ -1075,7 +1078,7 @@
                                         <span>
                                             <i class="icon-maylanh"></i>
                                         </span>
-                                        <a href="/may-lanh">Tủ mát</a>
+                                        <a href="/tu-mat">Tủ mát</a>
                                     </div>
                                     
                                 </li>

@@ -211,7 +211,8 @@
                                        
                                             //document.getElementById('svg').innerHTML = xmlSvg;
                                         
-                                            
+                                            time = 10986;
+                                            number_deal_product =10;
                                             //in time 
                                               var h = 12;
                                               var i = 0;
@@ -320,8 +321,6 @@
                                                                                
                                                                                
                                                                                
-                                        
-                                            
                                         
                                         
                                         

@@ -666,11 +666,69 @@
                 .header__logo{
                     width: 222px;
                 }
+
+                /*box quang cao slider*/
+                .box-promotion-item{
+                    position: absolute;
+                    z-index: 999;
+                }
+
+                .box-promotion {
+                    background: transparent url(https://pico.vn/Images/fancybox_overlay.png) repeat scroll 0 0;
+                    display: block;
+                    left: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    z-index: 9999;
+                }
+
+                .box-promotion-active {
+                    bottom: 0;
+                    display: block;
+                    position: fixed;
+                    right: 0;
+                    vertical-align: middle;
+                }
+
+                .box-promotion .box-promotion-item a.box-promotion-close {
+                    background-image: url(https://pico.vn/Images/icons/stop@2x.png);
+                    background-repeat: no-repeat;
+                    width: 48px;
+                    height: 48px;
+                    top: -51px;
+                }
+
+                .box-promotion .box-promotion-item a.box-promotion-close {
+                    cursor: pointer;
+                    position: absolute;
+                    right: 0;
+                    z-index: 999;
+                    text-indent: -99999px
+        
+                }
               
 
 
             </style>
         </div>
+
+        @if(\Request::route()->getName() == 'homeFe')
+
+        <!-- popup quảng cáo  -->
+
+        <div id="box-promotion" class="box-promotion box-promotion-active">
+            <div class="box-promotion-item" style="width: 500px;height: 500px;left: 701.5px;top: 206px;">
+                <div class="box-banner">
+                    <a href="https://pico.vn/BannerClick.aspx?BannerId=6532" target="_blank" rel="nofollow"><img src="//cdn.pico.vn/Banner/6532_popup-xa-hang-dong-don-he-22022.png" alt="XẢ HÀNG ĐÔNG - ĐÓN HÈ"></a>
+                </div>
+                <a class="box-promotion-close" href="javascript:;" title="Đóng lại">[x]</a>
+            </div>
+        </div>
+        
+        @endif
+
+
         <header class="header   theme-lunar-new-year" data-sub="0">
 
 

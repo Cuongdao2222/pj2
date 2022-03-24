@@ -40,6 +40,32 @@
                 text-align: left;
             }
 
+            /*deal*/
+
+            .title-deal {
+                text-align: center;
+                text-transform: uppercase;
+                background: #B20000;
+                color: #fff;
+                height: 33px;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+
+            .promotion-price {
+                color: #ff0202;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            .woocommerce-loop-product__title a {
+                font-size: 17px;
+                font-weight: bold;
+                color: #ff0202;
+            }
+
 
 
             @media screen and (max-width: 776px){
@@ -159,12 +185,196 @@
                 <!-- <h1>gdfgdfgdfgdgdgdgd</h1> -->
                 <!-- End -->
             </div>
-            <div class="preorder-hot">
+            <div class="preorder-hot"> <!-- banner phải -->
+                <div class="banner-right">
+                    <a href="/deal">
+                        <div class="title-deal">
+                            <strong>Deal of the day</strong> 
+                        </div>
+                    </a>
+                    <div class="col-inner box-shadow-1">
+                        <div class="row prod-1 large-columns-1 medium-columns- small-columns- row-collapse">
+                            <div class="col">
+                                <div class="col-inner">
+                                    <style type="text/css">
+                                        .ux-timer {
+                                        width: 100%;
+                                        position: relative;
+                                        border-spacing: 5px;
+                                        /*margin: 0.3em 0 0.2em;*/
+                                        display: table;
+                                        }
+                                        .ux-timer span{display:table-cell;font-weight:bolder;text-align:center;color:#FFF;border-radius:5px;background-color:rgba(0,0,0,.85)}
+                                    </style>
+                                    <script></script>
+                                    <script>
+                                       
+                                            //document.getElementById('svg').innerHTML = xmlSvg;
+                                        
+                                            
+                                            //in time 
+                                              var h = 12;
+                                              var i = 0;
+                                              var s = 0;
+                                        
+                                              amount = time //calc milliseconds between dates
+                                              days = 0;
+                                              hours = 0;
+                                              mins = 0;
+                                              secs = 0;
+                                              out = "";
+                                        
+                                        
+                                              hours = Math.floor(amount / 3600);
+                                              amount = amount % 3600;
+                                              mins = Math.floor(amount / 60);
+                                              amount = amount % 60;
+                                              secs = Math.floor(amount);
+                                                
+                                                
+                                        
+                                        
+                                                //time run 
+                                                if(parseInt(time)>0 && parseInt(number_deal_product)>0){
+                                                 h = hours;
+                                                  m = mins;
+                                                  s = secs;
+                                                }   
+                                                else{
+                                                    let today =  new Date();
+                                                    h = 99 - parseInt(today.getHours());
+                                                    m = 59 - parseInt(today.getMinutes());
+                                                    s = 59 - parseInt(today.getSeconds());
+                                                    
+                                                }
+                                        
+                                                 start();    
+                                                  function start()
+                                                  {
+                                        
+                                                      /*BƯỚC 1: LẤY GIÁ TRỊ BAN ĐẦU*/
+                                                      if (h === null)
+                                                      {
+                                                          h = parseInt($('.hour').text());
+                                        
+                                                      }
+                                        
+                                                      /*BƯỚC 1: CHUYỂN ĐỔI DỮ LIỆU*/
+                                                      // Nếu số giây = -1 tức là đã chạy ngược hết số giây, lúc này:
+                                                      //  - giảm số phút xuống 1 đơn vị
+                                                      //  - thiết lập số giây lại 59
+                                                      if (s === -1){
+                                                          m -= 1;
+                                                          s = 59;
+                                                      }
+                                        
+                                                      // Nếu số phút = -1 tức là đã chạy ngược hết số phút, lúc này:
+                                                      //  - giảm số giờ xuống 1 đơn vị
+                                                      //  - thiết lập số phút lại 59
+                                                      if (m === -1){
+                                                          h -= 1;
+                                                          m = 59;
+                                                      }
+                                        
+                                                      // Nếu số giờ = -1 tức là đã hết giờ, lúc này:
+                                                      //  - Dừng chương trình
+                                                      //if (h == -1){
+                                        
+                                                         //clearTimeout(timeout);
+                                                         //$('#timer-391923717').hide();
+                                                          //return false;
+                                        
+                                        
+                                                      //}
+                                        
+                                        
+                                        
+                                                      /*BƯỚC 1: HIỂN THỊ ĐỒNG HỒ*/
+                                        
+                                        
+                                        
+                                                      var hour =  h.toString()+' giờ';
+                                        
+                                                      var seconds =  s.toString()+' giây';
+                                        
+                                                      var minutes =  m.toString()+' phút';
+                                        
+                                        
+                                        
+                                                      $('.hour').text(h<10?'0'+hour:''+hour);
+                                                      $('.second').text(s<10?'0'+seconds:''+seconds);
+                                                      $('.minutes').text(m<10?'0'+minutes:''+minutes);
+                                        
+                                        
+                                                      /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */
+                                                      timeout = setTimeout(function(){
+                                                          s--;
+                                                          start();
+                                        
+                                        
+                                                      }, 1000);
+                                                  }
+                                                                               
+                                                  
+                                                  //mua ngay sản phẩm đẩy giỏ hàng   
+                                                                               
+                                                                               
+                                                                               
+                                        
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </script>
+                                    <div class="product-small box prod-1 has-hover box-normal box-text-bottom">
+                                        <div class="box-image">
+
+                                            <div class="box-image">
+                                                <div class="box-image-child">
+                                                    <a href="/smart-tivi-samsung-ua43au7700-43-inch-4k/" class="img-href">
+                                                    <img width="300" height="300" src="https://dienmaynguoiviet.vn/media/product/6015_1.jpg"  class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazy-load-active"  sizes="(max-width: 300px) 100vw, 300px">    
+                                                    </a>
+                                                </div>
+                                                <div class="image-tools top right show-on-hover">
+                                                </div>
+                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                </div>
+                                            </div>
+                                          
+                                            <div class="image-tools top right show-on-hover">
+                                            </div>
+                                            <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="box-text text-center">
+                                            <div class="title-wrapper">
+                                                <p class="name product-title woocommerce-loop-product__title"><a class="title_promotion" href="/smart-tivi-samsung-ua43au7700-43-inch-4k/">Smart Tivi Samsung UA43AU7700 43 inch 4K</a></p>
+                                            </div>
+                                            <div class="price-wrapper">
+                                                <span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi class="cost">11.000.000 VNĐ</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi class="promotion-price">10.650.000 VNĐ</bdi></span></ins></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="timer-391923717" class="ux-timer dark" data-text-plural="s" data-text-hour="hour" data-text-day="day" data-text-week="week" data-text-min="min" data-text-sec="sec" data-text-hour-p="Giờ" data-text-day-p="" data-text-week-p="" data-text-min-p="Phút" data-text-sec-p="Giây" data-countdown="2022/01/09 21:00"><span class="hour">31 giờ</span> <span class="minutes">05 phút</span><span class="second">31 giây</span></div>
+                        <style>
+                            #timer-391923717 {
+                            font-size: 132%;
+                            margin: 0;
+                            }
+                        </style>
+                    </div>
+                </div>
                 <!-- Banner hot -->
-                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/tivi" onclick="jQuery.ajax({ url: '/bannertracking?bid=44915&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/CEDesktop1-254x254-2.png" alt="San pham hot CE Tivi"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/san-pham-doc-quyen" onclick="jQuery.ajax({ url: '/bannertracking?bid=46316&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Diệntử-254x254.png" alt="Sản phẩm hot CE - Doc quyen"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-online-only" onclick="jQuery.ajax({ url: '/bannertracking?bid=49203&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-gia-soc" onclick="jQuery.ajax({ url: '/bannertracking?bid=49365&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-1-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a>
+                <!-- <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/tivi" onclick="jQuery.ajax({ url: '/bannertracking?bid=44915&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/CEDesktop1-254x254-2.png" alt="San pham hot CE Tivi"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/san-pham-doc-quyen" onclick="jQuery.ajax({ url: '/bannertracking?bid=46316&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Diệntử-254x254.png" alt="Sản phẩm hot CE - Doc quyen"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-online-only" onclick="jQuery.ajax({ url: '/bannertracking?bid=49203&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-gia-soc" onclick="jQuery.ajax({ url: '/bannertracking?bid=49365&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-1-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a> -->
                 <!-- End -->
                 <!-- Banner vệ sinh máy lạnh -->
-                <a class = "w100" aria-label="slide" data-cate="0" data-place="1542" href="https://matbang.thegioididong.com?utm_source=dmx&utm_medium=banner_hot" onclick="jQuery.ajax({ url: '/bannertracking?bid=45341&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/BANNER(262x96)-524x192.jpg" alt="Banner trang chủ hot"  ></a>
+                <!-- <a class = "w100" aria-label="slide" data-cate="0" data-place="1542" href="https://matbang.thegioididong.com?utm_source=dmx&utm_medium=banner_hot" onclick="jQuery.ajax({ url: '/bannertracking?bid=45341&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/BANNER(262x96)-524x192.jpg" alt="Banner trang chủ hot"  ></a> -->
                 <!-- End -->
             </div>
         </div>
@@ -391,6 +601,8 @@
 
     <script type="text/javascript">
 
+
+
         if(window.innerWidth>768){
             $('.bar-top-lefts').show();
         } 
@@ -457,7 +669,28 @@
                     items:1
                 }
             }
-        })
+        });
+
+        if(sessionStorage.getItem('popup')){
+             $('.box-promotion-active').hide();
+
+        }
+
+        $('.box-promotion-close').bind("click", function(){
+
+            if ( typeof(Storage) !== "undefined") {
+               
+                sessionStorage.setItem('popup','1');
+               
+               
+            } else {
+                alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+            }
+            $('.box-promotion-active').hide();
+
+        });
+
+       
     </script>
     @endpush
 @endsection      

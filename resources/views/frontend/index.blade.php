@@ -5,7 +5,7 @@
 
         <style type="text/css">
 
-
+           
            
 
             .item-saker{
@@ -91,13 +91,44 @@
                     height: auto !important;
                 }  
 
+                .owl-dots{
+                    display: none;
+                }
+
                /* .homebanner .item img{
                     width: auto !important;
                 } 
+
 */
             }
 
             @media screen and (min-width: 777px){
+
+                /* dot owlcarousel*/
+
+               .owl-dots .owl-dot span {
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    height: 55px;
+                    border-top: 3px solid transparent;
+                    font-size: 26px;
+                }
+                
+                .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+                    border-top: 3px solid #0083d1;
+                    color: #0083d1;
+                   
+                }
+                .owl-dots{
+                    display: flex;
+                    margin-top: 19px;
+                }
+
+                /*end dot*/
+
                 #sync1 {
                     position:relative
                 }
@@ -109,6 +140,14 @@
                     position: absolute;
                     top: 50%;
                 }
+                .banner-right{
+                    max-width: 260px;
+                    width: 100%;
+                    margin-left: 10px;
+                } 
+                .title-deal strong{
+                    line-height: 33px;
+                }   
             }
             
         </style>
@@ -152,7 +191,7 @@
     
     <section>
         <div class="bar-top">
-            <div class="bar-top-left-none"></div>
+           <!--  <div class="bar-top-left-none"></div> -->
             <div class="homebanner-container">
                 <!-- Banner chính -->
                 <aside class="homebanner">
@@ -161,7 +200,7 @@
                         @if(isset($banners))
 
                         @foreach($banners as $value)
-                        <div class="item">
+                        <div class="item" data-dot="<span>{{ $value->title }}</span>">
                             <a aria-label="slide" data-cate="0" data-place="1535" href="{{ $value->link }}"><img  src="{{ asset($value->image) }}" alt="{{ $value->title }}"  ></a>
                         </div>
                         @endforeach
@@ -186,6 +225,7 @@
                 <!-- End -->
             </div>
             <div class="preorder-hot"> <!-- banner phải -->
+
                 <div class="banner-right">
                     <a href="/deal">
                         <div class="title-deal">
@@ -193,8 +233,8 @@
                         </div>
                     </a>
                     <div class="col-inner box-shadow-1">
-                        <div class="row prod-1 large-columns-1 medium-columns- small-columns- row-collapse">
-                            <div class="col">
+                        <div class="prod-1 large-columns-1 medium-columns- small-columns- row-collapse">
+                            <div class="">
                                 <div class="col-inner">
                                     <style type="text/css">
                                         .ux-timer {
@@ -206,134 +246,15 @@
                                         }
                                         .ux-timer span{display:table-cell;font-weight:bolder;text-align:center;color:#FFF;border-radius:5px;background-color:rgba(0,0,0,.85)}
                                     </style>
-                                    <script></script>
-                                    <script>
-                                       
-                                            //document.getElementById('svg').innerHTML = xmlSvg;
-                                        
-                                            time = 10986;
-                                            number_deal_product =10;
-                                            //in time 
-                                              var h = 12;
-                                              var i = 0;
-                                              var s = 0;
-                                        
-                                              amount = time //calc milliseconds between dates
-                                              days = 0;
-                                              hours = 0;
-                                              mins = 0;
-                                              secs = 0;
-                                              out = "";
-                                        
-                                        
-                                              hours = Math.floor(amount / 3600);
-                                              amount = amount % 3600;
-                                              mins = Math.floor(amount / 60);
-                                              amount = amount % 60;
-                                              secs = Math.floor(amount);
-                                                
-                                                
-                                        
-                                        
-                                                //time run 
-                                                if(parseInt(time)>0 && parseInt(number_deal_product)>0){
-                                                 h = hours;
-                                                  m = mins;
-                                                  s = secs;
-                                                }   
-                                                else{
-                                                    let today =  new Date();
-                                                    h = 99 - parseInt(today.getHours());
-                                                    m = 59 - parseInt(today.getMinutes());
-                                                    s = 59 - parseInt(today.getSeconds());
-                                                    
-                                                }
-                                        
-                                                 start();    
-                                                  function start()
-                                                  {
-                                        
-                                                      /*BƯỚC 1: LẤY GIÁ TRỊ BAN ĐẦU*/
-                                                      if (h === null)
-                                                      {
-                                                          h = parseInt($('.hour').text());
-                                        
-                                                      }
-                                        
-                                                      /*BƯỚC 1: CHUYỂN ĐỔI DỮ LIỆU*/
-                                                      // Nếu số giây = -1 tức là đã chạy ngược hết số giây, lúc này:
-                                                      //  - giảm số phút xuống 1 đơn vị
-                                                      //  - thiết lập số giây lại 59
-                                                      if (s === -1){
-                                                          m -= 1;
-                                                          s = 59;
-                                                      }
-                                        
-                                                      // Nếu số phút = -1 tức là đã chạy ngược hết số phút, lúc này:
-                                                      //  - giảm số giờ xuống 1 đơn vị
-                                                      //  - thiết lập số phút lại 59
-                                                      if (m === -1){
-                                                          h -= 1;
-                                                          m = 59;
-                                                      }
-                                        
-                                                      // Nếu số giờ = -1 tức là đã hết giờ, lúc này:
-                                                      //  - Dừng chương trình
-                                                      //if (h == -1){
-                                        
-                                                         //clearTimeout(timeout);
-                                                         //$('#timer-391923717').hide();
-                                                          //return false;
-                                        
-                                        
-                                                      //}
-                                        
-                                        
-                                        
-                                                      /*BƯỚC 1: HIỂN THỊ ĐỒNG HỒ*/
-                                        
-                                        
-                                        
-                                                      var hour =  h.toString()+' giờ';
-                                        
-                                                      var seconds =  s.toString()+' giây';
-                                        
-                                                      var minutes =  m.toString()+' phút';
-                                        
-                                        
-                                        
-                                                      $('.hour').text(h<10?'0'+hour:''+hour);
-                                                      $('.second').text(s<10?'0'+seconds:''+seconds);
-                                                      $('.minutes').text(m<10?'0'+minutes:''+minutes);
-                                        
-                                        
-                                                      /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */
-                                                      timeout = setTimeout(function(){
-                                                          s--;
-                                                          start();
-                                        
-                                        
-                                                      }, 1000);
-                                                  }
-                                                                               
-                                                  
-                                                  //mua ngay sản phẩm đẩy giỏ hàng   
-                                                                               
-                                                                               
-                                                                               
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    </script>
+                                   
+                                   
                                     <div class="product-small box prod-1 has-hover box-normal box-text-bottom">
                                         <div class="box-image">
 
                                             <div class="box-image">
                                                 <div class="box-image-child">
                                                     <a href="/smart-tivi-samsung-ua43au7700-43-inch-4k/" class="img-href">
-                                                    <img width="300" height="300" src="https://dienmaynguoiviet.vn/media/product/6015_1.jpg"  class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazy-load-active"  sizes="(max-width: 300px) 100vw, 300px">    
+                                                    <img src="https://dienmaynguoiviet.vn/media/product/6015_1.jpg">    
                                                     </a>
                                                 </div>
                                                 <div class="image-tools top right show-on-hover">
@@ -600,8 +521,115 @@
 
     <script type="text/javascript">
 
+        // đếm thời gian 
+
+         //document.getElementById('svg').innerHTML = xmlSvg;
+                                        
+        time = 10986;
+        number_deal_product =10;
+        //in time 
+        var h = 12;
+        var i = 0;
+        var s = 0;
+    
+        amount = time //calc milliseconds between dates
+        days = 0;
+        hours = 0;
+        mins = 0;
+        secs = 0;
+        out = "";
+    
+    
+        hours = Math.floor(amount / 3600);
+        amount = amount % 3600;
+        mins = Math.floor(amount / 60);
+        amount = amount % 60;
+        secs = Math.floor(amount);
+            
+            
+    
+    
+        //time run 
+        if(parseInt(time)>0 && parseInt(number_deal_product)>0){
+         h = hours;
+          m = mins;
+          s = secs;
+        }   
+        else{
+            let today =  new Date();
+            h = 99 - parseInt(today.getHours());
+            m = 59 - parseInt(today.getMinutes());
+            s = 59 - parseInt(today.getSeconds());
+            
+        }
+
+        start();    
+        function start()
+        {
+
+              /*BƯỚC 1: LẤY GIÁ TRỊ BAN ĐẦU*/
+              if (h === null)
+              {
+                  h = parseInt($('.hour').text());
+
+              }
+
+              /*BƯỚC 1: CHUYỂN ĐỔI DỮ LIỆU*/
+              // Nếu số giây = -1 tức là đã chạy ngược hết số giây, lúc này:
+              //  - giảm số phút xuống 1 đơn vị
+              //  - thiết lập số giây lại 59
+              if (s === -1){
+                  m -= 1;
+                  s = 59;
+              }
+
+              // Nếu số phút = -1 tức là đã chạy ngược hết số phút, lúc này:
+              //  - giảm số giờ xuống 1 đơn vị
+              //  - thiết lập số phút lại 59
+              if (m === -1){
+                  h -= 1;
+                  m = 59;
+              }
+
+              // Nếu số giờ = -1 tức là đã hết giờ, lúc này:
+              //  - Dừng chương trình
+              //if (h == -1){
+
+                 //clearTimeout(timeout);
+                 //$('#timer-391923717').hide();
+                  //return false;
 
 
+              //}
+
+
+
+              /*BƯỚC 1: HIỂN THỊ ĐỒNG HỒ*/
+
+
+
+              var hour =  h.toString()+' giờ';
+
+              var seconds =  s.toString()+' giây';
+
+              var minutes =  m.toString()+' phút';
+
+
+
+              $('.hour').text(h<10?'0'+hour:''+hour);
+              $('.second').text(s<10?'0'+seconds:''+seconds);
+              $('.minutes').text(m<10?'0'+minutes:''+minutes);
+
+
+              /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */
+              timeout = setTimeout(function(){
+                  s--;
+                  start();
+
+
+              }, 1000);
+        }
+                                                                                                                                                                 
         if(window.innerWidth>768){
             $('.bar-top-lefts').show();
         } 
@@ -654,6 +682,8 @@
             loop:true,
             margin:10,
             nav:true,
+            dots:true,
+            dotsData: true,
             navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
             responsive:{
                 0:{
@@ -670,26 +700,7 @@
             }
         });
 
-        if(sessionStorage.getItem('popup')){
-             $('.box-promotion-active').hide();
-
-        }
-
-        $('.box-promotion-close').bind("click", function(){
-
-            if ( typeof(Storage) !== "undefined") {
-               
-                sessionStorage.setItem('popup','1');
-               
-               
-            } else {
-                alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
-            }
-            $('.box-promotion-active').hide();
-
-        });
-
-       
+        
     </script>
     @endpush
 @endsection      

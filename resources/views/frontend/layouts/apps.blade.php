@@ -490,7 +490,7 @@
                     min-height: 40px;
                     margin: 10px 0px 5px 15px;
                     padding: 4px 0;
-                    /* text-align: center; */
+                     text-align: center; 
                     width: calc(20% - 0px);
 
                 }
@@ -504,6 +504,21 @@
                     position: absolute;
                     top: 50%;
                     
+                }
+                .nav-list a span.item__label {
+                    background-color: #f51212;
+                    border-radius: 3px;
+                    color: #fff;
+                    font-size: 9px;
+                    font-weight: normal;
+                    position: absolute;
+                    padding: 0 3px;
+                    right: -2px;
+                    top: 0;
+                    line-height: 11px;
+                }
+                .promotion-menu{
+                    position: relative;
                 }
 
 
@@ -674,7 +689,7 @@
                 }
 
                 .box-promotion {
-                    background: transparent url(https://pico.vn/Images/fancybox_overlay.png) repeat scroll 0 0;
+                    background: transparent url({{ asset('images/css/fancybox_overlay.png')  }}) repeat scroll 0 0;
                     display: block;
                     left: 0;
                     overflow: hidden;
@@ -692,7 +707,7 @@
                 }
 
                 .box-promotion .box-promotion-item a.box-promotion-close {
-                    background-image: url(https://pico.vn/Images/icons/stop@2x.png);
+                    background-image: url({{ asset('images/css/close-button.png')  }});
                     background-repeat: no-repeat;
                     width: 48px;
                     height: 48px;
@@ -713,20 +728,20 @@
             </style>
         </div>
 
-        @if(\Request::route()->getName() == 'homeFe')
+       
 
         <!-- popup quảng cáo  -->
 
         <div id="box-promotion" class="box-promotion box-promotion-active">
             <div class="box-promotion-item" style="width: 500px;height: 500px;left: 701.5px;top: 206px;">
                 <div class="box-banner">
-                    <a href="https://pico.vn/BannerClick.aspx?BannerId=6532" target="_blank" rel="nofollow"><img src="//cdn.pico.vn/Banner/6532_popup-xa-hang-dong-don-he-22022.png" alt="XẢ HÀNG ĐÔNG - ĐÓN HÈ"></a>
+                    <a href="#" target="_blank" rel="nofollow"><img src="{{ asset('images/banner-popup/banner-popup1.png') }}" alt="XẢ HÀNG ĐÔNG - ĐÓN HÈ"></a>
                 </div>
                 <a class="box-promotion-close" href="javascript:;" title="Đóng lại">[x]</a>
             </div>
         </div>
         
-        @endif
+      
 
 
         <header class="header   theme-lunar-new-year" data-sub="0">
@@ -861,7 +876,7 @@
                 <div class="menu-section">
                     <ul class="list-menu">
                         <li class="child" data-id="tivi-child">
-                            <a class="list-mn" href="/dtdd">
+                            <a class="list-mn" href="{{ route('details', 'ti-vi') }}">
                                 <i class="fa fa-television" aria-hidden="true"></i>
                                 <span>Tivi</span>
                             </a>
@@ -1056,16 +1071,19 @@
                         </span></p>
                         <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
                         <nav class="nav-list">
-                            <a href="/dtdd">Điện thoại</a>
-                            <a href="/laptop-ldp">Laptop</a>
-                            <a href="/may-tinh-bang">Tablet</a>
-                            <a href="/phu-kien">Phụ kiện</a>
-                            <a href="/dong-ho-thong-minh-ldp">Đồng hồ <br> thông minh</a>
-                            <a href="/avaji">AVAJi<span class="item__label__new"><label>MỚI</label></span></a>
-                            <a href="/pc-may-in">PC<br>Máy in</a>
-                            <a href="/may-doi-tra">Máy cũ <br> giá rẻ</a>
-                            <a href="/sim-so-dep">Sim <br> thẻ cào<span class="item__label">- 5%</span></a>
-                            <a href="/tien-ich">Điện nước<br>Trả góp</a>
+                            <a href="/dtdd">Tivi</a>
+                            <a href="/laptop-ldp">Tủ lạnh</a>
+                            <a href="/may-tinh-bang">Máy giặt</a>
+                            <a href="/phu-kien">Điều hòa</a>
+                            <a href="/dong-ho-thong-minh-ldp">Đồ gia dụng</a>
+                            <a href="/avaji">Tủ đông</a>
+                            <a href="/pc-may-in">Tủ mát</a>
+                            <a href="/may-doi-tra">Máy sấy quần áo</a>
+                            <a href="/sim-so-dep">A.O.Smith</a>
+                            <a href="/tien-ich" class="promotion-menu">
+                                Giảm giá <br>đặc biệt
+                                <span class="item__label">- 5%</span>
+                            </a>
                         </nav>
                     </div>
                     <!-- <ul class="txt-list" data-id="706">
@@ -1400,6 +1418,27 @@
 
     @stack('script')
     <script type="text/javascript">
+        // turn off popup
+        $('.box-promotion-close').bind("click", function(){
+
+            if ( typeof(Storage) !== "undefined") {
+               
+                sessionStorage.setItem('popup','1');
+               
+               
+            } else {
+                alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+            }
+            $('.box-promotion-active').hide();
+
+        });
+
+
+        if(sessionStorage.getItem('popup')){
+             $('.box-promotion-active').hide();
+
+        }
+
         // hover menu
 
         $(".child").mouseenter(function(){

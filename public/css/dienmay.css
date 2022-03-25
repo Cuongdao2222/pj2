@@ -12092,7 +12092,7 @@ h1 {
 }
 
 .homebanner-container {
-	width: calc(100% - 500px);
+	width: calc(100% - 270px);
 	height: 370px;
 	padding: 10px 0 0 10px
 }
@@ -12178,11 +12178,7 @@ h1 {
 	width: 270px
 }
 
-.preorder-hot a {
-	margin-bottom: 3px;
-	padding-left: 8px;
-	width: 50%
-}
+
 
 .preorder-hot a.w100 {
 	width: 100%

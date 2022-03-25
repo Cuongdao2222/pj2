@@ -137,7 +137,11 @@
                 </div> -->
             </section>
         </div>
+
+
+
         <div class="box-filter top-box  block-scroll-main cate-1942">
+
             <section>
                 <div class="jsfix scrolling_inner scroll-right">
                     <div class="box-filter block-scroll-main scrolling">
@@ -161,10 +165,14 @@
                         
                         @endforeach
                         @endif
-                       
+                    </div>    
+                </div>       
             </section>
         </div>
         <section id="categoryPage" class="desktops" data-id="1942" data-name="Tivi" data-template="cate">
+
+            
+
             <div class="box-sort ">
                  @if(count($data)>0)
                 <p class="sort-total"><b>{{ count($data) }}</b> Sản phẩm <strong class="manu-sort"></strong></p>

@@ -127,6 +127,10 @@
             .rate_view {
                 margin-bottom: 10px;
             }
+            .credit{
+                margin-top: 10px;
+
+            }
             
             @media screen and (max-width: 776px){
                 section.detail {
@@ -785,6 +789,11 @@
             <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Mua ngay</span>
         </a>
 
+      
+        
+    </div>
+
+    <div class="clear space10px credit">
         <a class="btn-buy txt_center cor5px"  href="javascript:;" style="background: #ffde00; border-bottom: 0;" >
             <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Trả góp</span>
         </a>
@@ -792,7 +801,6 @@
         <a class="btn-buy txt_center cor5px"  href="javascript:;" style="background: #ffde00; border-bottom: 0;">
             <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Trả góp qua thẻ</span>
         </a>
-        
     </div>
     
       Gọi đặt mua:  <span class="txt_b txt_red"><a href="tel:0967025111">098 361 2828</a></span> (sau 17h)<br>

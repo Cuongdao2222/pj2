@@ -19,10 +19,7 @@ Route::get('/tin-khuyen-mai/', 'Frontend\blogController@index')->name('tin')->mi
 Route::get('/', 'Frontend\indexController@index')->name('homeFe')->middleware('auth');
 
 
-Route::get('/pop-up', function () {
-    return view('funcmore.popup');
-    
-})->middleware('auth');
+
 
 
 Route::get('/tin-chi-tiet', function () {
@@ -88,7 +85,9 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('home', 'HomeController@index')->name('home-admin');
 
+    Route::post('info-pop-up', 'showController@addPopup')->name('add-popup');
 
+    Route::post('add-image-background', 'showController@addBackgroundSite')->name('add-image-background');
 
     Route::get('rate', function () {
         return view('rate.rate');
@@ -102,23 +101,23 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
 
-Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate')->name('io_field_template');
+    Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate')->name('io_field_template');
 
-Route::get('relation_field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@relationFieldTemplate')->name('io_relation_field_template');
+    Route::get('relation_field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@relationFieldTemplate')->name('io_relation_field_template');
 
-Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate')->name('io_generator_builder_generate');
+    Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate')->name('io_generator_builder_generate');
 
-Route::post('generator_builder/rollback', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@rollback')->name('io_generator_builder_rollback');
+    Route::post('generator_builder/rollback', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@rollback')->name('io_generator_builder_rollback');
 
-Route::get('show/pop-up', function () {
-    return view('funcmore.popup');
-    
-})->name('pop-up-show');
+    Route::get('show/pop-up', function () {
+        return view('funcmore.popup');
+        
+    })->name('pop-up-show');
 
-Route::post(    
-    'generator_builder/generate-from-file',
-    '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
-)->name('io_generator_builder_generate_from_file');
+    Route::post(    
+        'generator_builder/generate-from-file',
+        '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
+    )->name('io_generator_builder_generate_from_file');
 
     Route::resource('metaSeos', 'metaSeoController');
 
@@ -168,9 +167,9 @@ Route::post(
 
     Route::post('check-active', 'AjaxController@checkActive')->name('check-active');
 
-     Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');
+    Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');
 
-     Route::resource('properties', 'propertyController');
+    Route::resource('properties', 'propertyController');
 
     Route::resource('gifts', 'giftController');
 

@@ -227,6 +227,18 @@
 
         $('.hover-eye').text('view');
     });
+
+    // $(".fa-trash-alt").hover(function(){
+    //     const parent = $(this).parent();
+
+    //     parent.addClass('fa-trash-alt');
+
+    //     $(this).remove();
+
+    //     $('.fa-trash-alt').text('xóa');
+    // });
+
+    
     // $(".hover-edit" ).mouseout(function() {
     //     alert('1');
     //    // $(this).text('');

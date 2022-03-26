@@ -85,15 +85,10 @@
             <td>{{ $product->Group_id }}</td>
             <td>{{ $product->Quantily }}</td>
 
-
             <td><input type="checkbox" id="hot{{ $product->id }}" name="hot"  onclick='handleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_hot)?'checked':'' }}></td>
             <td><input type="checkbox" id="sale{{ $product->id }}" name="sale"  onclick='saleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_sales)?'checked':'' }}></td>
 
             <?php  
-
-               
-              
-
 
                 $promotion = App\Models\promotion::where('id_product', $product->id)->get()->last(); 
 
@@ -113,13 +108,8 @@
                     }
                     
                 } 
-               
-
-
-
                 
             ?>
-            
             
             <td><?php   ?>{{ !empty($promotion)&&!empty($gift)?$gift->name:'' }}</td>
             <td><input type="checkbox" id="active{{ $product->id }}" name="active" onclick='active({{ $product->id }})'   {{ $product->active==1?'checked':'' }}></td>

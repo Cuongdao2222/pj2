@@ -34,6 +34,21 @@
     
 ?>
 
+<style type="text/css">
+    
+    .content h3, .content h2{
+        font-size: 20px !important;
+        font-weight: 330 !important;
+
+    }
+
+    .content h3 a, .content h2 {
+        color: #212529;
+    }
+</style>
+
+
+
 <div class="table-responsive">
     <table class="table" id="posts-table">
         <thead>
@@ -62,7 +77,7 @@
             <td>{{ $post->title }}</td>
             <td>{{ @$new_category[$post->category] }}</td>
 
-            <td>{!! _substr($post->content,240,3) !!}</td>
+            <td class="content">{!! _substr($post->content,240,3) !!}</td>
 
              <td>{!! _substr(preg_replace("#<\/p>(<\/h[1-6]>)#", '$1', $post->shortcontent),240,3) !!}</td>
              <td>{{ @$user[$post->id_user]['name'] }}</td>

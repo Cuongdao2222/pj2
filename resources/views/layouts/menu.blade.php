@@ -25,22 +25,35 @@
 
 
 
-<li class="nav-item" style="display: flex; height:44px;"  >
-
-    <a href="{{ route('groupProducts.index') }}"
-       class="nav-link {{ Request::is('groupProducts*') ? 'active' : '' }}" style="width: 68%;">
-        <p>Hiển thị</p>
+<li class="nav-item"  >
+    <div style="display:flex;">
+        <a href="{{ route('groupProducts.index') }}"
+           class="nav-link {{ Request::is('groupProducts*') ? 'active' : '' }}" style="width: 68%;">
+            <p>Hiển thị</p>
+            
+        </a>
+       
+        <span class="btn btn-link opens-fe" style="width: 12%;">+</span>
+    </div>    
         
-    </a>
-    
-    <span class="btn btn-link opens-fe" style="width: 32%;">+</span>
 
-    <ul style="width: 68%;">
+    <ul style="width: 68%">
         
-        <li class="child-nav">
-            <a href="#"
-               class="nav-link">
-                <p>Popup</p>
+        <li class="child-navs" style="">
+            <a href="{{ route('pop-up-show') }}" class="nav-link">
+                <p>Popup-toàn trang</p>
+            </a>
+        </li>
+
+        <li class="child-navs" style="">
+            <a href="#" class="nav-link">
+                <p>Tìm kiếm nhiều cuối trang</p>
+            </a>
+        </li>
+
+        <li class="child-navs" style="">
+            <a href="#" class="nav-link">
+                <p>Đổi hình nền toàn trang</p>
             </a>
         </li>
         
@@ -65,7 +78,7 @@
     ?>
 
     @if(count($listGroup)>0)
-     <span class="btn btn-link open" style="width: 32%;">+</span>
+     <span class="btn btn-link open" style="width: 12%;">+</span>
      @endif 
     
     
@@ -140,6 +153,8 @@
 <script type="text/javascript">
     $('.child-nav').hide();
 
+    $('.child-navs').hide();
+
     $(".open").bind("click", function(){
 
         var acction = $(".open").text();
@@ -153,13 +168,24 @@
             $('.open').text('+');
         }
     });
+
+    $(".opens-fe").bind("click", function(){
+
+        var acction = $(this).text();
+
+        if(acction =='+'){
+            
+            $(".opens-fe").text('-');
+            $('.child-navs').show();
+        }
+        else{
+            
+            $(this).text('+');
+            $('.child-navs').hide();
+        }
+    });
     
 </script>
-
-
-
-
-
 
 
 <li class="nav-item">

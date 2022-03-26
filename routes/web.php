@@ -19,8 +19,8 @@ Route::get('/tin-khuyen-mai/', 'Frontend\blogController@index')->name('tin')->mi
 Route::get('/', 'Frontend\indexController@index')->name('homeFe')->middleware('auth');
 
 
-Route::get('/ckfinder.html', function () {
-    return view('frontend.ckfinder');
+Route::get('/pop-up', function () {
+    return view('funcmore.popup');
     
 })->middleware('auth');
 
@@ -109,6 +109,11 @@ Route::get('relation_field_template', '\InfyOm\GeneratorBuilder\Controllers\Gene
 Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate')->name('io_generator_builder_generate');
 
 Route::post('generator_builder/rollback', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@rollback')->name('io_generator_builder_rollback');
+
+Route::get('show/pop-up', function () {
+    return view('funcmore.popup');
+    
+})->name('pop-up-show');
 
 Route::post(    
     'generator_builder/generate-from-file',

@@ -25,6 +25,8 @@
 </div>
 
 <!-- Meta Keywords Field -->
+
+
 <div class="form-group col-sm-6">
     {!! Form::label('meta_keywords', 'Meta Keywords:Khuyến nghị 60 kí tự', ['class' => 'form-keywords']) !!}
     {!! Form::text('meta_keywords', null, ['class' => 'form-control']) !!}

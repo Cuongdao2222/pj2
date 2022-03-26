@@ -106,6 +106,8 @@ class productController extends AppBaseController
 
         $meta_model->meta_og_title =$meta_title;
 
+        $meta_model->meta_key_words =$meta_title;
+
         $meta_model->save();
 
         $input['Meta_id'] = $meta_model['id'];

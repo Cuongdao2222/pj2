@@ -6,7 +6,9 @@
 
         <style type="text/css">
         
-
+            .breadcrumb{
+                padding: 0;
+            }
             .list-pro h3{
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
@@ -76,7 +78,7 @@
         </style>
     @endpush
         <div class="locationbox__overlay"></div>
-        <div class="locationbox">
+        <!-- <div class="locationbox">
             <div class="locationbox__item locationbox__item--right" onclick="OpenLocation()">
                 <p>Chọn địa chỉ nhận hàng</p>
                 <a class="cls-location" href="javascript:void(0)">Đóng</a>
@@ -95,7 +97,7 @@
                 </div>
             </div>
             <b id="h-provincename" style="display:none!important" data-provinceid="3">Hồ Chí Minh</b>
-        </div>
+        </div> -->
         <div class="locationbox__popup new-popup hide" id="lc_pop--sugg">
             <div class="locationbox__popup--cnt locationbox__popup--suggestion new-locale">
                 <div class="flex-block">
@@ -111,10 +113,10 @@
         
         <div class="bsc-block">
             <section>
-                <ul class="breadcrumb hide">
-                    <li><a href="tivi">Tivi</a></li>
+                <ul class="breadcrumb">
+                    <li><a href="tivi">Trang chủ</a></li>
                     <li>
-                        <p class="sort-total"><b>153</b> ...</p>
+                        <a href="">Tivi</a>
                     </li>
                 </ul>
             </section>
@@ -136,14 +138,16 @@
                     </a>
                 </div> -->
             </section>
+
         </div>
 
-
+ 
 
         <div class="box-filter top-box  block-scroll-main cate-1942">
 
             <section>
                 <div class="jsfix scrolling_inner scroll-right">
+                    <div><h4>DienmayABC.com là địa chỉ bán tivi chính hãng uy tín tại Hà Nội. Chúng tôi cam kết tất cả sản phẩm đều là hàng chính hãng, nguyên đai, nguyên kiện, mới 100%. Chúng tôi sẽ đền gấp 10 lần giá trị đơn hàng nếu như khách hàng phát hiện sản phẩm không phải hàng chính hãng.</h4></div>
                     <div class="box-filter block-scroll-main scrolling">
                         @if(isset($filter))
                         @foreach($filter as $filters)
@@ -267,11 +271,15 @@
                     </div>
                     
                     @endif
+
+
                 </div>
                 <!-- <div class="view-more ">
                     <a href="javascript:;">Xem thêm <span class="remain">133</span> Tivi</a>
                 </div> -->
             </div>
+
+
           
             <div class="errorcompare" style="display:none;"></div>
            <!--  <div class="block__banner banner__topzone">
@@ -279,6 +287,7 @@
             </div> -->
             <div class="watched"></div>
             <div class="overlay"></div>
+            {{ $data->links() }}
         </section>
         @push('script')
         <script type="text/javascript">

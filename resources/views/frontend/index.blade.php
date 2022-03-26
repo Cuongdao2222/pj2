@@ -4,9 +4,13 @@
     @push('style')
 
         <style type="text/css">
-
+            .news-hot{
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 5px;
+                padding-bottom: 5px;
+            }
            
-           
+            
 
             .item-saker{
                 position: absolute;
@@ -28,7 +32,6 @@
             }
 
             .quatang {
-                
                
                 height: 40px;
                 width: 100%;
@@ -106,7 +109,11 @@
 
                 /* dot owlcarousel*/
 
-               .owl-dots .owl-dot span {
+                .banner-right {
+                    max-width: 100% !important;
+                } 
+
+               .homebanner .owl-dots .owl-dot span {
                     width: 100%;
                     border: 1px solid #ccc;
                     padding: 10px;
@@ -114,15 +121,15 @@
                     box-sizing: border-box;
                     height: 55px;
                     border-top: 3px solid transparent;
-                    font-size: 26px;
+                    font-size: 15px;
                 }
                 
-                .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+                .homebanner .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
                     border-top: 3px solid #0083d1;
                     color: #0083d1;
                    
                 }
-                .owl-dots{
+                .homebanner .owl-dots{
                     display: flex;
                     margin-top: 19px;
                 }
@@ -148,6 +155,39 @@
                 .title-deal strong{
                     line-height: 33px;
                 }   
+
+                .prod-1{
+                    display: flex;
+                }
+                .box-info-promotion{
+                    height: 128px;
+                }
+                .box-image .box-image-child img{
+                    height: 128px;
+                }
+                .blog-list-item ul{
+                    list-style-type: disc !important;
+                }
+                .box-info-promotion{
+                    margin-top: 18px;
+                }
+
+                .box-info-promotion .price-wrapper{
+                    margin-top: 6px;
+                }
+                .ux-timer{
+                    margin-top: 25px !important;
+                }
+                .preorder-hot a {
+                    margin-bottom: 3px;
+                    padding-left: 8px;
+                    width: 50%;
+                }
+                .preorder-hot a img {
+                    width: 100%;
+                    border-radius: 4px;
+                }
+                
             }
             
         </style>
@@ -226,77 +266,50 @@
             </div>
             <div class="preorder-hot"> <!-- banner phải -->
 
-                <div class="banner-right">
-                    <a href="/deal">
-                        <div class="title-deal">
-                            <strong>Deal of the day</strong> 
-                        </div>
-                    </a>
-                    <div class="col-inner box-shadow-1">
-                        <div class="prod-1 large-columns-1 medium-columns- small-columns- row-collapse">
-                            <div class="">
-                                <div class="col-inner">
-                                    <style type="text/css">
-                                        .ux-timer {
-                                        width: 100%;
-                                        position: relative;
-                                        border-spacing: 5px;
-                                        /*margin: 0.3em 0 0.2em;*/
-                                        display: table;
-                                        }
-                                        .ux-timer span{display:table-cell;font-weight:bolder;text-align:center;color:#FFF;border-radius:5px;background-color:rgba(0,0,0,.85)}
-                                    </style>
-                                   
-                                   
-                                    <div class="product-small box prod-1 has-hover box-normal box-text-bottom">
-                                        <div class="box-image">
 
-                                            <div class="box-image">
-                                                <div class="box-image-child">
-                                                    <a href="/smart-tivi-samsung-ua43au7700-43-inch-4k/" class="img-href">
-                                                    <img src="https://dienmaynguoiviet.vn/media/product/6015_1.jpg">    
-                                                    </a>
-                                                </div>
-                                                <div class="image-tools top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                          
-                                            <div class="image-tools top right show-on-hover">
-                                            </div>
-                                            <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="box-text text-center">
-                                            <div class="title-wrapper">
-                                                <p class="name product-title woocommerce-loop-product__title"><a class="title_promotion" href="/smart-tivi-samsung-ua43au7700-43-inch-4k/">Smart Tivi Samsung UA43AU7700 43 inch 4K</a></p>
-                                            </div>
-                                            <div class="price-wrapper">
-                                                <span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi class="cost">11.000.000 VNĐ</bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi class="promotion-price">10.650.000 VNĐ</bdi></span></ins></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="timer-391923717" class="ux-timer dark" data-text-plural="s" data-text-hour="hour" data-text-day="day" data-text-week="week" data-text-min="min" data-text-sec="sec" data-text-hour-p="Giờ" data-text-day-p="" data-text-week-p="" data-text-min-p="Phút" data-text-sec-p="Giây" data-countdown="2022/01/09 21:00"><span class="hour">31 giờ</span> <span class="minutes">05 phút</span><span class="second">31 giây</span></div>
-                        <style>
-                            #timer-391923717 {
-                            font-size: 132%;
-                            margin: 0;
-                            }
-                        </style>
-                    </div>
-                </div>
                 <!-- Banner hot -->
-                <!-- <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/tivi" onclick="jQuery.ajax({ url: '/bannertracking?bid=44915&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/CEDesktop1-254x254-2.png" alt="San pham hot CE Tivi"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/san-pham-doc-quyen" onclick="jQuery.ajax({ url: '/bannertracking?bid=46316&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Diệntử-254x254.png" alt="Sản phẩm hot CE - Doc quyen"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-online-only" onclick="jQuery.ajax({ url: '/bannertracking?bid=49203&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-gia-soc" onclick="jQuery.ajax({ url: '/bannertracking?bid=49365&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-1-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a> -->
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/tivi">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/CEDesktop1-254x254-2.png" alt="San pham hot CE Tivi"  >
+                </a>
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/san-pham-doc-quyen">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/Diệntử-254x254.png" alt="Sản phẩm hot CE - Doc quyen"  >
+                </a>
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-online-only">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  >
+                </a>
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-gia-soc">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-1-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  >
+                </a>
                 <!-- End -->
-                <!-- Banner vệ sinh máy lạnh -->
-                <!-- <a class = "w100" aria-label="slide" data-cate="0" data-place="1542" href="https://matbang.thegioididong.com?utm_source=dmx&utm_medium=banner_hot" onclick="jQuery.ajax({ url: '/bannertracking?bid=45341&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/BANNER(262x96)-524x192.jpg" alt="Banner trang chủ hot"  ></a> -->
-                <!-- End -->
+                
             </div>
+            
+            @if(\Request::route()->getName()=='homeFe')        
+            <div class="category mobile">
+                <p class="category__txts">
+                <span class="menu-list">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </span></p>
+                <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
+                <nav class="nav-list" style="display: none;">
+                    <a href="/dtdd">Tivi</a>
+                    <a href="/laptop-ldp">Tủ lạnh</a>
+                    <a href="/may-tinh-bang">Máy giặt</a>
+                    <a href="/phu-kien">Điều hòa</a>
+                    <a href="/dong-ho-thong-minh-ldp">Đồ gia dụng</a>
+                    <a href="/avaji">Tủ đông</a>
+                    <a href="/pc-may-in">Tủ mát</a>
+                    <a href="/may-doi-tra">Máy sấy quần áo</a>
+                    <a href="/sim-so-dep">A.O.Smith</a>
+                    <a href="/tien-ich" class="promotion-menu">
+                        Giảm giá <br>đặc biệt
+                        <span class="item__label">- 5%</span>
+                    </a>
+                </nav>
+            </div>
+            @endif
+            
+               
         </div>
         <!-- Banner sub -->
         <!-- div class="sub-banner">
@@ -473,6 +486,8 @@
         </div>
         
     </section>
+
+
 
     
    

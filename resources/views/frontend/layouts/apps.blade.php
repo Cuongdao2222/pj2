@@ -17,6 +17,7 @@
         <meta name="description" content="{{ $meta->meta_content }}"/>
         <meta property="og:title" content="{{ $meta->meta_title }}" />
         <meta property="og:description" content="{{ $meta->meta_content }}" /> 
+        <meta name="keywords" content="{{ $meta->meta_keywords??'sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến' }}"/>
 
         @endif
         @else
@@ -26,6 +27,8 @@
 
          <meta property="og:title" content="Điện Máy Người Việt - Mua sắm điện máy chính hãng giá rẻ" />
         <meta property="og:description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí." /> 
+
+        <meta name="keywords" content="sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến"/>
         @endif
         
         <meta http-equiv="cache-control" content="no-cache" />
@@ -105,6 +108,12 @@
             color: #c10017;
         }
 
+
+
+        /*body.theme-lunar-new-year {
+            background-image: url(//cdn.tgdd.vn/mwgcart/mwg-site/ContentMwg/images/lunar_new_year/Background/bg_dmx.png);
+        }    
+*/
         .product_list_cart .col_input input, .product_list_cart .col_input a {
             width: 35px;
             height: 30px;
@@ -520,6 +529,9 @@
                 .promotion-menu{
                     position: relative;
                 }
+                .category {
+                    width: 100% !important;
+                }    
 
 
             }
@@ -1061,9 +1073,11 @@
                 
 
             </div>
-            
+
+            @if(\Request::route()->getName()!='homeFe')
             <div class="header__main">
                 <section>
+
                     <div class="category mobile">
                         <p class="category__txts">
                         <span class="menu-list">
@@ -1093,6 +1107,7 @@
                     </ul> -->
                 </section>
             </div>
+            @endif
         </header>
 
         @yield('content')
@@ -1366,7 +1381,7 @@
                     </div>
                     <div class="col-md-3 col-footer">
                         <form>
-                            <input id="email_newsletter" type="text" placeholder="Nhận thông tin khuyến mại">
+                            <input id="email_newsletter" type="text" placeholder="Đăng ký email nhận thông tin khuyến mại">
                             <span id="now_submit">Gửi</span>
                         </form>
 

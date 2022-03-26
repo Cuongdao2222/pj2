@@ -12092,7 +12092,7 @@ h1 {
 }
 
 .homebanner-container {
-	width: calc(100% - 270px);
+	width: calc(100% - 350px);
 	height: 370px;
 	padding: 10px 0 0 10px
 }
@@ -12175,7 +12175,7 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 10px;
-	width: 270px
+	width: 350px
 }
 
 
@@ -12891,7 +12891,7 @@ img.lazyload {
 }
 
 body.theme-lunar-new-year {
-	background-image: url(//cdn.tgdd.vn/mwgcart/mwg-site/ContentMwg/images/lunar_new_year/Background/bg_dmx.png);
+	
 	background-size: cover;
 	background-attachment: fixed;
 	overflow-x: hidden

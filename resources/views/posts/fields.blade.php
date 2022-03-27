@@ -1,7 +1,9 @@
 
 <?php  $url_domain =  Config::get('app.url') ?>
 
-
+<div class="col-md-12 draft-article" >
+    <button type="button" class="btn btn-info article-but" onclick="setDataForm()">Bài viết nháp</button>
+</div>
 
 <!-- Title Field -->
 <div class="form-group col-sm-6">
@@ -57,15 +59,74 @@
 <div class="clearfix"></div>
 
 
+
+
 <script>
+
+    $('.draft-article').hide();
+
+    var item_local_store =  JSON.parse(localStorage.getItem('infopost'));
+
+    function getDataform(){
+
+        if(item_local_store !=null){
+
+            localStorage.removeItem('infopost');
+
+        }
+
+        const title = $('#title').val();
+        const shortcontent = $('#shortcontent').val();
+        const content = CKEDITOR.instances.content.getData();
+
+        infopost = [title, shortcontent, content];
+
+        localStorage.setItem('infopost', JSON.stringify(infopost));
+
+         $('.draft-article').show();
+
+    }
+
+    $('#shortcontent').bind("change", function() { 
+        getDataform();
+
+    });
+    
+    
+    
+
+    
     CKEDITOR.replace( 'content', {
         filebrowserBrowseUrl: '{{ $url_domain }}/ckfinder.html',
         filebrowserImageBrowseUrl: '{{ $url_domain }}/ckfinder.html?Type=Images',
         filebrowserUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Files',
         filebrowserImageUploadUrl: '{{ $url_domain }}/js/core/connector/php/connector.php?command=QuickUpload&type=Images',
         filebrowserWindowWidth : '1000',
-        filebrowserWindowHeight : '700'
+        filebrowserWindowHeight : '700',
+
+        on: {
+            change: function( evt ) {
+
+                
+                getDataform();
+            }
+        }
     } );
+
+    function setDataForm() {
+
+        item_local_stores =  JSON.parse(localStorage.getItem('infopost'));
+        
+        CKEDITOR.instances.content.setData(item_local_stores[2]);
+        $('#title').val(item_local_stores[0]);
+        $('#shortcontent').val(item_local_stores[1]);
+        $('.article-but').css('color', 'red');
+
+    }
+
+
+
+
 
    
 
@@ -73,7 +134,10 @@
     {
         $(window).bind("beforeunload", function() { 
             return confirm("Do you really want to close?"); 
+
         });
+
+       
     });
 </script>
 

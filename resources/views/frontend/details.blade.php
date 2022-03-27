@@ -1108,7 +1108,7 @@
                 },
                 success: function(result){
 
-                    console.log(result);
+                    // console.log(result);
                   
                    // numberCart = result.find("#number-product-cart").text();
                    $('.viewer-product').append(result);

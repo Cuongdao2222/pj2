@@ -144,6 +144,32 @@ class AjaxController extends Controller
 
     }
 
+    public function showViewerProduct(Request $request)
+    {
+        if($request->ajax()){
+            $clear_data = json_decode($request->product_id);
+
+
+               // kiểm tra dữ liệu đầu vào
+            $data_product_id = [];
+
+            if(isset($clear_data)){
+                foreach ($clear_data as $value) {
+                    $value = strip_tags($value);
+
+                    array_push($data_product_id, $value);
+
+                }
+            }
+            $product_viewer = product::whereIn('id', $data_product_id)
+                  ->Orderby('id')->take(25)->get();
+
+            
+            return view('frontend.ajax.viewer-product', compact('product_viewer'));      
+
+        }    
+    }
+
     
 
     public function addProductToCart(Request $request)

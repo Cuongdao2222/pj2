@@ -559,6 +559,16 @@
 
                 <div class="clearfix"></div>
 
+               
+
+
+                <div class="related view-more-related viewer-product">
+                    
+            
+                </div>
+
+
+
                 <div class="col-md-8 clearfix" id="comment_pro">
 
                     <article id="article-comment-2131" itemprop="comment" itemscope="" itemtype="https://schema.org/Comment">
@@ -685,7 +695,7 @@
                         
                     </div>
                     @endif
-            <!-- <a class="readmore-btn" href="https://www.dienmayxanh.com/flashsale#game"><span>Xem tất cả</span></a> -->
+            
                 </div>
                     <!-- <div class="scrolling_inner">
                         <div class="box03 box03--nopadd scrolling">
@@ -1017,22 +1027,40 @@
 
             // chức năng sản phẩm đã xem
 
+
+            function toUniqueArray(a){
+                var newArr = [];
+                for (var i = 0; i < a.length; i++) {
+                    if (newArr.indexOf(a[i]) === -1) {
+                        newArr.push(a[i]);
+                    }
+                }
+              return newArr;
+            }
+
             product_id_item_viewer = [];
 
             const item_local_store =  JSON.parse(localStorage.getItem('viewed_product'));
 
-            if(item_local_store.length>0){
+            if(item_local_store !=null){
 
                 product_id_item_viewer = item_local_store;
             }
 
-            product_id_item_viewer.push($data->id)
+            product_id_item_viewer.push('{{ $data->id }}');
+
+            product_id_item_viewer = toUniqueArray(product_id_item_viewer);
 
 
 
             localStorage.setItem('viewed_product', JSON.stringify(product_id_item_viewer));
 
-            console.log(localStorage.getItem('viewed_product'));
+            view_product_id = localStorage.getItem('viewed_product');
+
+
+
+
+          
 
 
             button_buy_height = $('.scroll-box').offset().top;
@@ -1069,6 +1097,26 @@
         <script type="text/javascript">
 
             $('.bar-top-left').hide();
+
+
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('show-viewed-product') }}",
+                data: {
+                    product_id: view_product_id,
+                       
+                },
+                success: function(result){
+
+                    console.log(result);
+                  
+                   // numberCart = result.find("#number-product-cart").text();
+                   $('.viewer-product').append(result);
+
+                   
+                    
+                }
+            });    
             
             function addToCart(id) {
                 $.ajaxSetup({

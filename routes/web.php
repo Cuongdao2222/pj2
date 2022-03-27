@@ -165,6 +165,8 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::post('remove-sale-product', 'AjaxController@removeSaleProduct')->name('remove-sale-product');
 
+     Route::get('show-viewer-poduct', 'AjaxController@showViewerProduct')->name('show-viewed-product');
+
     Route::post('check-active', 'AjaxController@checkActive')->name('check-active');
 
     Route::post('add-active-confirm-product', 'AjaxController@addConfirm')->name('add-active-confirm');

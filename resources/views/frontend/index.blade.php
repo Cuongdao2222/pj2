@@ -4,6 +4,13 @@
     @push('style')
 
         <style type="text/css">
+            .news-hot{
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 5px;
+                padding-bottom: 5px;
+            }
+           
+            
 
             .item-saker{
                 position: absolute;
@@ -25,7 +32,6 @@
             }
 
             .quatang {
-                
                
                 height: 40px;
                 width: 100%;
@@ -35,6 +41,32 @@
                 background-position-x: left;
                 border-radius: 4px;
                 text-align: left;
+            }
+
+            /*deal*/
+
+            .title-deal {
+                text-align: center;
+                text-transform: uppercase;
+                background: #B20000;
+                color: #fff;
+                height: 33px;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+
+            .promotion-price {
+                color: #ff0202;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            .woocommerce-loop-product__title a {
+                font-size: 17px;
+                font-weight: bold;
+                color: #ff0202;
             }
 
 
@@ -62,13 +94,48 @@
                     height: auto !important;
                 }  
 
+                .owl-dots{
+                    display: none;
+                }
+
                /* .homebanner .item img{
                     width: auto !important;
                 } 
+
 */
             }
 
             @media screen and (min-width: 777px){
+
+                /* dot owlcarousel*/
+
+                .banner-right {
+                    max-width: 100% !important;
+                } 
+
+               .homebanner .owl-dots .owl-dot span {
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    height: 55px;
+                    border-top: 3px solid transparent;
+                    font-size: 15px;
+                }
+                
+                .homebanner .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+                    border-top: 3px solid #0083d1;
+                    color: #0083d1;
+                   
+                }
+                .homebanner .owl-dots{
+                    display: flex;
+                    margin-top: 19px;
+                }
+
+                /*end dot*/
+
                 #sync1 {
                     position:relative
                 }
@@ -80,6 +147,47 @@
                     position: absolute;
                     top: 50%;
                 }
+                .banner-right{
+                    max-width: 260px;
+                    width: 100%;
+                    margin-left: 10px;
+                } 
+                .title-deal strong{
+                    line-height: 33px;
+                }   
+
+                .prod-1{
+                    display: flex;
+                }
+                .box-info-promotion{
+                    height: 128px;
+                }
+                .box-image .box-image-child img{
+                    height: 128px;
+                }
+                .blog-list-item ul{
+                    list-style-type: disc !important;
+                }
+                .box-info-promotion{
+                    margin-top: 18px;
+                }
+
+                .box-info-promotion .price-wrapper{
+                    margin-top: 6px;
+                }
+                .ux-timer{
+                    margin-top: 25px !important;
+                }
+                .preorder-hot a {
+                    margin-bottom: 3px;
+                    padding-left: 8px;
+                    width: 50%;
+                }
+                .preorder-hot a img {
+                    width: 100%;
+                    border-radius: 4px;
+                }
+                
             }
             
         </style>
@@ -123,7 +231,7 @@
     
     <section>
         <div class="bar-top">
-            <div class="bar-top-left-none"></div>
+           <!--  <div class="bar-top-left-none"></div> -->
             <div class="homebanner-container">
                 <!-- Banner chính -->
                 <aside class="homebanner">
@@ -132,7 +240,7 @@
                         @if(isset($banners))
 
                         @foreach($banners as $value)
-                        <div class="item">
+                        <div class="item" data-dot="<span>{{ $value->title }}</span>">
                             <a aria-label="slide" data-cate="0" data-place="1535" href="{{ $value->link }}"><img  src="{{ asset($value->image) }}" alt="{{ $value->title }}"  ></a>
                         </div>
                         @endforeach
@@ -156,14 +264,52 @@
                 <!-- <h1>gdfgdfgdfgdgdgdgd</h1> -->
                 <!-- End -->
             </div>
-            <div class="preorder-hot">
+            <div class="preorder-hot"> <!-- banner phải -->
+
+
                 <!-- Banner hot -->
-                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/tivi" onclick="jQuery.ajax({ url: '/bannertracking?bid=44915&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/CEDesktop1-254x254-2.png" alt="San pham hot CE Tivi"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/san-pham-doc-quyen" onclick="jQuery.ajax({ url: '/bannertracking?bid=46316&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Diệntử-254x254.png" alt="Sản phẩm hot CE - Doc quyen"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-online-only" onclick="jQuery.ajax({ url: '/bannertracking?bid=49203&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a><a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-gia-soc" onclick="jQuery.ajax({ url: '/bannertracking?bid=49365&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-1-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  ></a>
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/tivi">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/CEDesktop1-254x254-2.png" alt="San pham hot CE Tivi"  >
+                </a>
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/san-pham-doc-quyen">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/Diệntử-254x254.png" alt="Sản phẩm hot CE - Doc quyen"  >
+                </a>
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-online-only">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  >
+                </a>
+                <a class = "" aria-label="slide" data-cate="0" data-place="1539" href="https://www.dienmayxanh.com/gia-dung-gia-soc">
+                    <img  src="https://cdn.tgdd.vn/2022/01/banner/Giadụnglớn-1-254x254-1.png" alt="2021 - Trang chủ hot - Desktop"  >
+                </a>
                 <!-- End -->
-                <!-- Banner vệ sinh máy lạnh -->
-                <a class = "w100" aria-label="slide" data-cate="0" data-place="1542" href="https://matbang.thegioididong.com?utm_source=dmx&utm_medium=banner_hot" onclick="jQuery.ajax({ url: '/bannertracking?bid=45341&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/BANNER(262x96)-524x192.jpg" alt="Banner trang chủ hot"  ></a>
-                <!-- End -->
+                
             </div>
+            
+            @if(\Request::route()->getName()=='homeFe')        
+            <div class="category mobile">
+                <p class="category__txts">
+                <span class="menu-list">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </span></p>
+                <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
+                <nav class="nav-list" style="display: none;">
+                    <a href="/dtdd">Tivi</a>
+                    <a href="/laptop-ldp">Tủ lạnh</a>
+                    <a href="/may-tinh-bang">Máy giặt</a>
+                    <a href="/phu-kien">Điều hòa</a>
+                    <a href="/dong-ho-thong-minh-ldp">Đồ gia dụng</a>
+                    <a href="/avaji">Tủ đông</a>
+                    <a href="/pc-may-in">Tủ mát</a>
+                    <a href="/may-doi-tra">Máy sấy quần áo</a>
+                    <a href="/sim-so-dep">A.O.Smith</a>
+                    <a href="/tien-ich" class="promotion-menu">
+                        Giảm giá <br>đặc biệt
+                        <span class="item__label">- 5%</span>
+                    </a>
+                </nav>
+            </div>
+            @endif
+            
+               
         </div>
         <!-- Banner sub -->
         <!-- div class="sub-banner">
@@ -175,7 +321,7 @@
         <!-- Săn sale online -->
         <div class="prd-promo has-banner" style="background-color:#FFE602; " data-html-id="3109">
             <div class="prd-promo__top clearfix" >
-                <a data-cate="0" data-place="1868" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47543&r='+ (new Date).getTime(), async: true, cache: false });"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
+                <a data-cate="0" data-place="1868" href="#" ><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
             </div>
 
 
@@ -185,12 +331,6 @@
            <?php  
 
            $product_sale =  DB::table('products')->join('sale_product', 'products.id', '=', 'sale_product.product_id')->join('makers', 'products.Maker', '=', 'makers.id')->get();
-           
-
-           
-
-            
-
            ?>
 
            @if(count($product_sale)>0)
@@ -221,7 +361,7 @@
                                 <i class="icon-star"></i>
                                 <i class="icon-star-dark"></i>
                             </p>
-                            <p class="item-rating-total">{{strtolower($value->maker) }}</p>
+                            
                         </div>
                     </a>
                 </div>
@@ -247,7 +387,7 @@
 
             <?php
                 $all_Product = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.id')->where('group_product.id', $group[$i]->id)->get();
-                $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->join('makers', 'products.Maker', '=', 'makers.id')->where('hot.group_id', $group[$i]->id)->get();
+                $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->join('group_product', 'products.Group_id', '=', 'group_product.id')->where('hot.group_id', $group[$i]->id)->get();
 
 
             ?>
@@ -266,17 +406,23 @@
                 <div class="box-common__content">
                     <div class="listproduct slider-home owl-carousel" id="banner-product_{{ $i }}" data-size="10">
 
+                        <?php 
+                            $Maker = App\Models\maker::get()->toArray();  
+
+                        ?>
+ 
                         @foreach($data as $datas)
                         @if($datas->active==1)
                         <div class="item"  data-pos="1">
                             <a href='{{ route('details', $datas->Link) }}'>
                                 <div class="item-label">
-                                    <span class="lb-tragop">Trả góp 0%</span>
+                                    <span class="lb-tragop">trả góp 0%</span>
+
                                 </div>
                                 <div class="item-img">
                                     <img data-src="{{ asset($datas->Image) }}" class="lazyload" alt="{{ $datas->Name }}" width=210 height=210>
 
-                                     <img src="{{ asset('images/saker/'.strtolower($datas->maker).'.png') }}" class="item-saker">
+                                     <img src="{{ asset('images/saker/'.strtolower($Maker[$datas->Maker]['maker']).'.png') }}" class="item-saker">
                                 </div>
                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
                                 <h3>{{ $datas->Name }}</h3>
@@ -294,19 +440,16 @@
                                         <i class="icon-star"></i>
                                         <i class="icon-star"></i>
                                     </p>
-                                    
                                 </div>
 
                                 <?php  
                                     $now = Carbon\Carbon::now();
 
-                                    
                                     $promotion = promotion_product($datas->product_id, $now);
-
-
                                 ?>
+                                
 
-                                @if(isset($promotion))
+                                @if(!empty($promotion))
 
                                     <div class="quatang"><img src="{{ asset($promotion->image) }}"></div>
                                 @endif
@@ -328,12 +471,23 @@
      
     
         <!-- Banner dọc 2 bên -->
-        <div class="sticky-sidebar" style="display: none;">
+        <!-- <div class="sticky-sidebar" style="display: none;">
             <a data-cate="0" data-place="1863" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47538&r='+ (new Date).getTime(), async: true, cache: false });" class="banner-left"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/tttt-79x271-1.png" alt="Theme Giáng Sinh Trái" width="79" height="271"></a>
             <a data-cate="0" data-place="1864" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47537&r='+ (new Date).getTime(), async: true, cache: false });" class="banner-right"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/ppp-79x271-1.png" alt="Theme Giáng Sinh Phải" width="79" height="271"></a>        
+        </div> -->
+
+        <div class="bottom-search">
+            <p>Tìm kiếm nhiều:</p>
+            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a> 
+            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a>
+            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a>
+            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a>
+
         </div>
         
     </section>
+
+
 
     
    
@@ -382,6 +536,115 @@
 
     <script type="text/javascript">
 
+        // đếm thời gian 
+
+         //document.getElementById('svg').innerHTML = xmlSvg;
+                                        
+        time = 10986;
+        number_deal_product =10;
+        //in time 
+        var h = 12;
+        var i = 0;
+        var s = 0;
+    
+        amount = time //calc milliseconds between dates
+        days = 0;
+        hours = 0;
+        mins = 0;
+        secs = 0;
+        out = "";
+    
+    
+        hours = Math.floor(amount / 3600);
+        amount = amount % 3600;
+        mins = Math.floor(amount / 60);
+        amount = amount % 60;
+        secs = Math.floor(amount);
+            
+            
+    
+    
+        //time run 
+        if(parseInt(time)>0 && parseInt(number_deal_product)>0){
+         h = hours;
+          m = mins;
+          s = secs;
+        }   
+        else{
+            let today =  new Date();
+            h = 99 - parseInt(today.getHours());
+            m = 59 - parseInt(today.getMinutes());
+            s = 59 - parseInt(today.getSeconds());
+            
+        }
+
+        start();    
+        function start()
+        {
+
+              /*BƯỚC 1: LẤY GIÁ TRỊ BAN ĐẦU*/
+              if (h === null)
+              {
+                  h = parseInt($('.hour').text());
+
+              }
+
+              /*BƯỚC 1: CHUYỂN ĐỔI DỮ LIỆU*/
+              // Nếu số giây = -1 tức là đã chạy ngược hết số giây, lúc này:
+              //  - giảm số phút xuống 1 đơn vị
+              //  - thiết lập số giây lại 59
+              if (s === -1){
+                  m -= 1;
+                  s = 59;
+              }
+
+              // Nếu số phút = -1 tức là đã chạy ngược hết số phút, lúc này:
+              //  - giảm số giờ xuống 1 đơn vị
+              //  - thiết lập số phút lại 59
+              if (m === -1){
+                  h -= 1;
+                  m = 59;
+              }
+
+              // Nếu số giờ = -1 tức là đã hết giờ, lúc này:
+              //  - Dừng chương trình
+              //if (h == -1){
+
+                 //clearTimeout(timeout);
+                 //$('#timer-391923717').hide();
+                  //return false;
+
+
+              //}
+
+
+
+              /*BƯỚC 1: HIỂN THỊ ĐỒNG HỒ*/
+
+
+
+              var hour =  h.toString()+' giờ';
+
+              var seconds =  s.toString()+' giây';
+
+              var minutes =  m.toString()+' phút';
+
+
+
+              $('.hour').text(h<10?'0'+hour:''+hour);
+              $('.second').text(s<10?'0'+seconds:''+seconds);
+              $('.minutes').text(m<10?'0'+minutes:''+minutes);
+
+
+              /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */
+              timeout = setTimeout(function(){
+                  s--;
+                  start();
+
+
+              }, 1000);
+        }
+                                                                                                                                                                 
         if(window.innerWidth>768){
             $('.bar-top-lefts').show();
         } 
@@ -394,6 +657,7 @@
                 loop: false,
                 margin:10,
                 nav:true,
+                navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
                 responsive:{
                     0:{
                         items:1.5
@@ -414,6 +678,7 @@
 
             margin:10,
             nav:true,
+            navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
             responsive:{
                 0:{
                     items:1.5
@@ -432,6 +697,9 @@
             loop:true,
             margin:10,
             nav:true,
+            dots:true,
+            dotsData: true,
+            navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
             responsive:{
                 0:{
                     items:1
@@ -445,7 +713,9 @@
                     items:1
                 }
             }
-        })
+        });
+
+        
     </script>
     @endpush
 @endsection      

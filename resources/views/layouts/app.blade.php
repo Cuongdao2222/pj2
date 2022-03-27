@@ -46,6 +46,13 @@
        #box_tuvan{
            display:none !important;
        }
+       .btn-group a{
+        font-size: 22px;
+       }
+
+       .btn-danger{
+        font-size: 22px;
+       }
    </style>
     
 
@@ -167,6 +174,80 @@
     $("input[data-bootstrap-switch]").each(function(){
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
+
+    
+
+
+    $(".fa-edit").hover(function(){
+        const parent = $(this).parent();
+
+        parent.addClass('hover-edit');
+
+        $(this).remove();
+
+        $('.hover-edit').text('sửa');
+    });
+
+    $(".fa-filter").hover(function(){
+        const parent = $(this).parent();
+
+        parent.addClass('hover-filter');
+
+        $(this).remove();
+
+        $('.hover-filter').text('lọc');
+    });
+
+    $(".fa-image").hover(function(){
+        const parent = $(this).parent();
+
+        parent.addClass('hover-image');
+
+        $(this).remove();
+
+        $('.hover-image').text('ảnh');
+    });
+
+    $(".fa-gift").hover(function(){
+        const parent = $(this).parent();
+
+        parent.addClass('hover-gift');
+
+        $(this).remove();
+
+        $('.hover-gift').text('quà');
+    });
+
+    $(".fa-eye").hover(function(){
+        const parent = $(this).parent();
+
+        parent.addClass('hover-eye');
+
+        $(this).remove();
+
+        $('.hover-eye').text('view');
+    });
+
+    // $(".fa-trash-alt").hover(function(){
+    //     const parent = $(this).parent();
+
+    //     parent.addClass('fa-trash-alt');
+
+    //     $(this).remove();
+
+    //     $('.fa-trash-alt').text('xóa');
+    // });
+
+    
+    // $(".hover-edit" ).mouseout(function() {
+    //     alert('1');
+    //    // $(this).text('');
+
+    //    // $(this).append('<i class="far fa-edit"></i>');
+    //    // $(this).removeClass('hover-edit');
+    // });
+
+
 </script>
 
 @stack('third_party_scripts')

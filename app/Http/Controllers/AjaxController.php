@@ -16,6 +16,8 @@ use App\Models\filter;
 
 use App\Models\promotion;
 
+use App\Models\popup;
+
 
 
 
@@ -141,6 +143,8 @@ class AjaxController extends Controller
         echo "thanh cong";
 
     }
+
+    
 
     public function addProductToCart(Request $request)
     {

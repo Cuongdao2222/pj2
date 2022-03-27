@@ -17,17 +17,18 @@
         <meta name="description" content="{{ $meta->meta_content }}"/>
         <meta property="og:title" content="{{ $meta->meta_title }}" />
         <meta property="og:description" content="{{ $meta->meta_content }}" /> 
+        <meta name="keywords" content="{{ $meta->meta_keywords??'sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến' }}"/>
 
         @endif
         @else
-        
-        
         <title>sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến</title>
 
         <meta name="description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí."/>
 
          <meta property="og:title" content="Điện Máy Người Việt - Mua sắm điện máy chính hãng giá rẻ" />
         <meta property="og:description" content="Siêu thị Điện Máy Người Việt mua sắm thiết bị điện tử điện lạnh, gia dụng, máy lọc nước chính hãng giá rẻ. Nhiều ưu đãi, giao và lắp đặt miễn phí." /> 
+
+        <meta name="keywords" content="sieu thi dien may, siêu thị điện máy, mua điện máy giá rẻ, siêu thị điện máy uy tín, siêu thị điện máy trực tuyến"/>
         @endif
         
         <meta http-equiv="cache-control" content="no-cache" />
@@ -55,6 +56,41 @@
             /*padding: 10px;*/
             margin-bottom: 20px;
         }
+        /*menu top*/
+        .header__top .list-menu{
+            color: #000;
+            line-height: 16px;
+            width: 100%;
+            display: flex;
+            padding: 0;
+            height: 43px;
+            align-items: center;
+            position: relative;
+        } 
+        .list-mn{
+            color: #000;
+            line-height: 16px;
+            width: 100%;
+            display: flex;
+            padding: 0 15px;
+            height: 43px;
+            align-items: center;
+            position: relative;
+        }
+        .header__top .list-menu li i {
+            margin-right: 5px;
+        }
+
+
+        .child span::before {
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #333;
+            content: '';
+            position: absolute;
+            top: 19px;
+            right: 0;
+        }
 
         .product_list_cart .cart_col_3 {
             width: 36%;
@@ -72,6 +108,12 @@
             color: #c10017;
         }
 
+
+
+        /*body.theme-lunar-new-year {
+            background-image: url(//cdn.tgdd.vn/mwgcart/mwg-site/ContentMwg/images/lunar_new_year/Background/bg_dmx.png);
+        }    
+*/
         .product_list_cart .col_input input, .product_list_cart .col_input a {
             width: 35px;
             height: 30px;
@@ -172,6 +214,14 @@
             .prod-info h1 {
                 font-size: 20px;
                 font-weight: 600;
+            }
+            .menu-section{
+
+                width: 100%;
+                max-width: 1200px;
+                margin: auto;
+
+
             }
 
 
@@ -320,7 +370,21 @@
             .footer .row{
                 margin-top: 30px;
             }
+            .navmwg  .PKCH strong a {
+                display: initial;
+                text-transform: initial;
+                color: #4a90e2;
+            }
 
+            .navmwg .TBNTM {
+                width: 250px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+            }
+
+            .list-menu>li:hover, .main-menu>li.active {
+                background-color: #fff;
+            }
           /*  phần responsive*/
 
             @media screen and (max-width: 776px){
@@ -331,6 +395,9 @@
                 .desktop{
                     display: none;
 
+                }
+                .submenu{
+                    display: none !important;
                 }
                 .header__top-mobile .header__logo{
                     width: 100%;
@@ -410,6 +477,61 @@
                 .bar-top-lefts {
                     position: sticky !important;
                 }  
+                .menu-list{
+                    margin-left: 10px;
+                    font-size: 27px;
+                }
+
+                .nav-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                .nav-list a {
+                    align-items: center;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 4px;
+                    color: #333;
+                    display: flex;
+                    justify-content: center;
+                    font-size: 12px;
+                    line-height: 16px;
+                    min-height: 40px;
+                    margin: 10px 0px 5px 15px;
+                    padding: 4px 0;
+                     text-align: center; 
+                    width: calc(20% - 0px);
+
+                }
+                .fa-chevron-right{
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                }
+
+                .fa-chevron-left{
+                    position: absolute;
+                    top: 50%;
+                    
+                }
+                .nav-list a span.item__label {
+                    background-color: #f51212;
+                    border-radius: 3px;
+                    color: #fff;
+                    font-size: 9px;
+                    font-weight: normal;
+                    position: absolute;
+                    padding: 0 3px;
+                    right: -2px;
+                    top: 0;
+                    line-height: 11px;
+                }
+                .promotion-menu{
+                    position: relative;
+                }
+                .category {
+                    width: 100% !important;
+                }    
 
 
             }
@@ -452,29 +574,217 @@
                 }
 
                 .header__history{
-                    width: auto;
+                    width: auto !important;
                 }
+
+                 /*ẩn icon hổ*/
+                .theme-lunar-new-year .footer::before{
+                    display: none;
+                }
+
+                .theme-lunar-new-year .footer::after{
+                    display: none;
+                }
+                .col-footer #email_newsletter {
+                   
+                    width: 183px !important;
+                }
+
+                .menu-pc{
+                    background: #fed100;
+                }
+
+
+                .navmwg{
+                    display: none;
+                    position: absolute;
+                    background: #fff;
+                    top: 43px;
+                    width: 770px;
+                    border-radius: 4px;
+                    padding: 10px;
+                    z-index: 10;
+                    border: 1px solid #eee;
+                    left: 0;
+                }
+
+                .navmwg .sub-cate {
+                    width: 67%;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                .navmwg div {
+                    width: 33%;
+                    float: left;
+                    margin-bottom: 10px;
+                }
+
+                .navmwg .sub-cate>div {
+                    width: 50%;
+                }
+
+                .navmwg .TBLT {
+                    width: 250px;
+                    margin-bottom: 10px;
+                }
+
+                .navmwg strong {
+                    text-transform: uppercase;
+                    border-bottom: 1px solid #eee;
+                    font-size: 13px;
+                    padding-bottom: 5px;
+                    color: #333;
+                }
+
+                
+
+                .navmwg {
+                    position: absolute;
+                    background: #fff;
+                    top: 43px;
+                    width: 770px;
+                    border-radius: 4px;
+                    padding: 10px;
+                    z-index: 10;
+                    border: 1px solid #eee;
+                    left: 0;
+                }
+
+                .navmwg div {
+                    width: 33%;
+                    float: left;
+                    margin-bottom: 10px;
+                }
+
+                .navmwg div a {
+                    display: block;
+                    padding: 10px 5px 0 0;
+                    color: #000;
+                    font-size: 11px;
+                    position: relative;
+                }
+
+                .navmwg strong {
+                    text-transform: uppercase;
+                    border-bottom: 1px solid #eee;
+                    font-size: 13px;
+                    padding-bottom: 5px;
+                    color: #333;
+                }
+                .fas-phones{
+                    display: flex;
+                }
+                .tel-head{
+                    margin-bottom: 5px;
+
+                }
+                .tvbhclient{
+                    width: 100px;
+                }
+                .header-pc{
+                    height: 80px;
+                }
+
+                .header-pc section{
+                    height: 80px;
+                }
+
+                .header__logo{
+                    width: 222px;
+                }
+
+                /*box quang cao slider*/
+                .box-promotion-item{
+                    position: absolute;
+                    z-index: 999;
+                }
+
+                .box-promotion {
+                    background: transparent url({{ asset('images/css/fancybox_overlay.png')  }}) repeat scroll 0 0;
+                    display: block;
+                    left: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    z-index: 9999;
+                }
+
+                .box-promotion-active {
+                    bottom: 0;
+                    display: block;
+                    position: fixed;
+                    right: 0;
+                    vertical-align: middle;
+                }
+
+                .box-promotion .box-promotion-item a.box-promotion-close {
+                    background-image: url({{ asset('images/css/close-button.png')  }});
+                    background-repeat: no-repeat;
+                    width: 48px;
+                    height: 48px;
+                    top: -51px;
+                }
+
+                .box-promotion .box-promotion-item a.box-promotion-close {
+                    cursor: pointer;
+                    position: absolute;
+                    right: 0;
+                    z-index: 999;
+                    text-indent: -99999px
+        
+                }
+              
+
 
             </style>
         </div>
+
+       
+
+        <!-- popup quảng cáo  -->
+
+        <div id="box-promotion" class="box-promotion box-promotion-active">
+            <div class="box-promotion-item" style="width: 500px;height: 500px;left: 701.5px;top: 206px;">
+                <div class="box-banner">
+                    <a href="#" target="_blank" rel="nofollow"><img src="{{ asset('images/banner-popup/banner-popup1.png') }}" alt="XẢ HÀNG ĐÔNG - ĐÓN HÈ"></a>
+                </div>
+                <a class="box-promotion-close" href="javascript:;" title="Đóng lại">[x]</a>
+            </div>
+        </div>
+        
+      
+
+
         <header class="header   theme-lunar-new-year" data-sub="0">
 
 
-            <div class="header__top desktop">
+            <div class="header__top desktop header-pc">
                 <section>
                     <a href="{{route('homeFe')}}" class="header__logo">
                         <img src="{{ asset('images/template/logochuan.png') }}" style="height:40px;">   
                    
                     </a>
-                    <div class="bordercol"></div>
                    
-                    <form  class="header__search" method="get" action="{{ route('search-product-frontend') }}">
-                        <input id="skw" type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
-                        <button type="submit">
-                        <i class="icon-search"></i>
-                        </button>
-                        <div id="search-result"></div>
-                    </form>
+                    <a href="tel: 02473036336" class="header__cart fas-phones">
+                         <i class="fa fa-phone" aria-hidden="true" style="font-size:44px; line-height:44px"></i>
+                         <div>
+                            <span class="tel-head">024.7303.6336</span>
+                            <span class="tvbhclient">Tư vấn bán hàng</span>
+
+                            
+                        </div>
+                    </a>
+
+                    <a href="https://goo.gl/maps/TozxKHRZeHfrafMt9" class="header__cart fas-phones">
+                         <i class="fa fa-map-marker" aria-hidden="true" style="font-size:44px; line-height:44px"></i>
+                         <div>
+                            <span class="tel-head">Xem kho hàng</span>
+                            <span class="tvbhclient">Mở cửa 8h-17h</span>
+
+                        </div>
+                    </a>
+
 
                     <?php
                         $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
@@ -494,10 +804,24 @@
                         <!-- <span>Giỏ hàng</span> -->
                     </a>
                     <a href="{{ route('tin') }}" class="header__history">Tin tức khuyến mãi</a>
-                    <div class="bordercol"></div>
+                    <!-- <div class="bordercol"></div> -->
+
+                  
+                   
+                    <form  class="header__search" method="get" action="{{ route('search-product-frontend') }}">
+                        <input id="skw" type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
+                        <button type="submit">
+                        <i class="icon-search"></i>
+                        </button>
+                        <div id="search-result"></div>
+                    </form>
+
+                    
                    
                 </section>
             </div>
+
+            
 
             <div class="header__top header__top-mobile mobiles">
                 <section>
@@ -531,7 +855,7 @@
                     <div class="row col-12 all-icons-head">  
                         <div class="col-4 icons-heads icons-1">
                             
-                            <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                            <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()" style="width: auto;">
                                 <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
                                 <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
                             </a>
@@ -560,239 +884,221 @@
                 
                 </section>
             </div>
+            <div class="header__top desktop menu-pc">
+                <div class="menu-section">
+                    <ul class="list-menu">
+                        <li class="child" data-id="tivi-child">
+                            <a class="list-mn" href="{{ route('details', 'ti-vi') }}">
+                                <i class="fa fa-television" aria-hidden="true"></i>
+                                <span>Tivi</span>
+                            </a>
+                            <div class="navmwg accessories tivi-child">
+                                <div class="PKDD">
+                                    <strong>Phụ kiện di động</strong>
+                                    <a href="/sac-dtdd">
+                                        <h3>Pin sạc dự phòng</h3>
+                                    </a>
+                                    <a href="/sac-cap">
+                                        <h3>Sạc, cáp</h3>
+                                    </a>
+                                    <a href="/mieng-dan-man-hinh">
+                                        <h3>Miếng dán màn hình</h3>
+                                    </a>
+                                    <a href="/op-lung-flipcover">
+                                        <h3>Ốp lưng điện thoại</h3>
+                                    </a>
+                                    <a href="/op-lung-may-tinh-bang">
+                                        <h3>Ốp lưng máy tính bảng</h3>
+                                    </a>
+                                    <a href="/gay-tu-suong">
+                                        <h3>Gậy chụp ảnh, Gimbal</h3>
+                                    </a>
+                                    <a href="/gia-do-dien-thoai">
+                                        <h3>Giá đỡ laptop, điện thoại</h3>
+                                    </a>
+                                    <a href="/de-moc-dien-thoai">
+                                        <h3>Đế, móc điện thoại</h3>
+                                    </a>
+                                    <a href="/tui-chong-nuoc">
+                                        <h3>Túi chống nước</h3>
+                                    </a>
+                                    <a href="/tui-dung-airpods">
+                                        <h3>Túi đựng Airpods</h3>
+                                    </a>
+                                    <a href="/phu-kien-thong-minh">
+                                        <h3>Phụ kiện Tablet</h3>
+                                    </a>
+                                    <a href="/airtag">
+                                        <h3>Airtag</h3>
+                                    </a>
+                                    <br><br>
+                                </div>
+                                <div class="sub-cate">
+                                    <div class="PKLT">
+                                        <strong>Phụ kiện Laptop</strong>
+                                        <a href="/chuot-may-tinh">
+                                            <h3>Chuột, bàn phím</h3>
+                                        </a>
+                                        <a href="/thiet-bi-mang">
+                                            <h3>Thiết bị mạng</h3>
+                                        </a>
+                                        <a href="/camera-giam-sat">
+                                            <h3>Camera, Webcam</h3>
+                                        </a>
+                                        <a href="/tui-chong-soc">
+                                            <h3>Balo, túi chống sốc</h3>
+                                        </a>
+                                        <a href="/phan-mem">
+                                            <h3>Phần mềm</h3>
+                                        </a>
+                                    </div>
+                                    <div class="PKCH">
+                                        <strong>
+                                        Thương hiệu hàng đầu
+                                        <a href="/phu-kien/chinh-hang" class="">Xem tất cả</a>
+                                        </strong>
+                                        <a href="/phu-kien/apple">
+                                            <h3>Apple</h3>
+                                        </a>
+                                        <a href="/phu-kien/samsung">
+                                            <h3>Samsung</h3>
+                                        </a>
+                                        <a href="/phu-kien/sony">
+                                            <h3>Sony</h3>
+                                        </a>
+                                        <a href="/phu-kien/jbl">
+                                            <h3>JBL</h3>
+                                        </a>
+                                        <a href="/phu-kien/xiaomi">
+                                            <h3>Xiaomi</h3>
+                                        </a>
+                                    </div>
+                                    <div class="TBAT">
+                                        <strong>Thiết bị âm thanh</strong>
+                                        <a href="/tai-nghe">
+                                            <h3>Tai nghe</h3>
+                                        </a>
+                                        <a href="/loa-laptop">
+                                            <h3>Loa</h3>
+                                        </a>
+                                        <div class="TBNTM">
+                                            <strong>Thiết bị nhà thông minh</strong>
+                                            <a href="/khoa-dien-tu">
+                                                <h3>Khóa điện tử</h3>
+                                            </a>
+                                            <a href="/android-tv-box">
+                                                <h3>TV Box</h3>
+                                            </a>
+                                            <a href="/o-cam-thong-minh">
+                                                <h3>Ổ cắm thông minh</h3>
+                                            </a>
+                                            <a href="/may-chieu">
+                                                <h3>Máy chiếu</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="PKK">
+                                        <div class="TBLT">
+                                            <strong>Thiết bị lưu trữ</strong>
+                                            <a href="/the-nho-dien-thoai">
+                                                <h3>Thẻ nhớ</h3>
+                                            </a>
+                                            <a href="/usb">
+                                                <h3>USB</h3>
+                                            </a>
+                                            <a href="/o-cung-di-dong">
+                                                <h3>Ổ cứng di động</h3>
+                                            </a>
+                                        </div>
+                                        <strong>Phụ kiện khác</strong>
+                                        <a href="/phu-kien-oto">
+                                            <h3>Phụ kiện ô tô</h3>
+                                        </a>
+                                        <a href="/may-tinh-cam-tay">
+                                            <h3>Máy tính cầm tay</h3>
+                                        </a>
+                                        <a href="/quat-mini">
+                                            <h3>Quạt mini</h3>
+                                        </a>
+                                        <a href="/pin">
+                                            <h3>Pin tiểu, pin điện thoại</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/tu-lanh" class="list-mn">
+                            <i class="icon-tulanh"></i>
+                            <span>Tủ lạnh</span>
+                            </a>
+                        </li>
+                        <li class="child" data-id="may-giat-child">
+                            <a class="list-mn" href="/may-giat">
+                                <i class="icon-maygiat"></i>
+                                <span>Máy giặt</span>
+                            </a>
 
+                            <div class="navmwg may-giat-child">
+                                <a href="/dong-ho"><h3>Đồng hồ thời trang</h3></a>
+                                <a href="/trang-suc"><h3>Trang sức</h3></a>
+                                <a href="/mat-kinh"><h3>Mắt kính</h3></a>
+                            </div>
 
+                        </li>
 
+                        <li>
+                            <a class="list-mn" href="/dieu-hoa">
+                                <i class="icon-maylanh"></i>
+                                <span>Điều hòa</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="list-mn" href="#">
+                                <i class="icon-diengiadung"></i>
+                                <span>Đồ gia dụng</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="list-mn" href="#">
+                                <i class="icon-diengiadung"></i>
+                                <span>Tủ đông</span>
+                            </a>
+                        </li>
+                      
+                    </ul>
+                </div>
+                
+
+            </div>
+
+            @if(\Request::route()->getName()!='homeFe')
             <div class="header__main">
                 <section>
-                    <div class="category">
-                        <p class="category__txt"><span class="menu-list">Danh mục</span></p>
+
+                    <div class="category mobile">
+                        <p class="category__txts">
+                        <span class="menu-list">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </span></p>
                         <!-- <a href="/danh-muc-nhom-hang" class="category__all">Tất cả nhóm hàng</a> -->
-                        <div class="bar-top-lefts">
-                            <ul class="main-menu">
-                                <li data-submenu-id="submenu-1">
-                                    <div class="dropdown">
-                                        <span>
-                                        <i class="fa fa-arrows" aria-hidden="true"></i>
-
-                                        </span>
-                                        <a href="/dan-loa-dvd">Giảm giá đặc biệt</a>
-                                    </div>
-                                    <div id="submenu-1" class="submenu">
-                                        <aside>
-                                            <p class="menuitem__title">TIVI <a href="/tivi">Xem tất cả</a></p>
-                                            <a href="/tivi-tra-gop-0-phan-tram">Tivi trả góp 0 - 1%</a>
-                                            <a href="/tivi-sony">Sony</a>
-                                            <a href="/tivi-samsung">Samsung</a>
-                                            <a href="/tivi-lg">LG</a>
-                                            <a href="/tivi-tcl">TCL</a>
-                                            <a href="/tivi-casper">Casper</a>
-                                            <a href="/tivi#c=1942&p=43170,43356,43358&pi=0">Từ 32 - 43 inch</a>
-                                            <a href="/tivi#c=1942&p=43358,44869,45198,43361,43364&pi=0 ">Từ 43 - 55 inch</a>
-                                            <a href="/tivi#c=1942&r=335,333&pi=0">Dưới 7 triệu</a>
-                                            <a href="/tivi#c=1942&r=711,576&pi=0">Tivi cao cấp</a>
-                                            <a href="/may-chieu">Máy chiếu</a>
-                                        </aside>
-                                       <!--  <aside>
-                                            <p class="menuitem__title">LOA, ÂM THANH <a href="/dan-loa-dvd?g=loa-keo#c=2162&p=90016,90017,90018&pi=0">Xem tất cả</a></p>
-                                            <a href="/dan-loa-dvd?g=loa-keo">Loa kéo</a>
-                                            <a href="/dan-loa-dvd-loa-bluetooth">Loa Bluetooth</a>
-                                            <a href="/dan-loa-dvd-loa-thanh">Loa thanh (Soundbar)</a>
-                                            <a href="/dan-loa-dvd?g=dan-am-thanh">Dàn âm thanh</a>
-                                            <a href="/dan-loa-dvd-dan-karaoke-amply">Dàn Karaoke, Amply</a>
-                                            <a href="/micro">Micro</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">PHỤ KIỆN TIVI</p>
-                                            <a href="/cap-hdmi-cap-tivi">Cáp HDMI, cáp Tivi</a>
-                                            <a href="/khung-treo-tivi">Khung treo Tivi</a>
-                                            <a href="/dieu-khien-tivi">Điều khiển TV</a>
-                                            <a href="/android-tv-box">Android TV Box</a>
-                                        </aside> -->
-                                    </div>
-                                </li>
-
-                                <li data-submenu-id="submenu-2">
-                                    <div class="dropdown">
-                                        <span>
-                                        <i class="fa fa-television" aria-hidden="true"></i>
-                                        </span>
-                                        <a href="{{ route('category-product', 'ti-vi') }}">Tivi</a>
-                                    </div>
-                                    <div id="submenu-1" class="submenu">
-                                        <aside>
-                                            <p class="menuitem__title">TIVI <a href="/tivi">Xem tất cả</a></p>
-                                            <a href="/tivi-tra-gop-0-phan-tram">Tivi trả góp 0 - 1%</a>
-                                            <a href="/tivi-sony">Sony</a>
-                                            <a href="/tivi-samsung">Samsung</a>
-                                            <a href="/tivi-lg">LG</a>
-                                            <a href="/tivi-tcl">TCL</a>
-                                            <a href="/tivi-casper">Casper</a>
-                                            <a href="/tivi#c=1942&p=43170,43356,43358&pi=0">Từ 32 - 43 inch</a>
-                                            <a href="/tivi#c=1942&p=43358,44869,45198,43361,43364&pi=0 ">Từ 43 - 55 inch</a>
-                                            <a href="/tivi#c=1942&r=335,333&pi=0">Dưới 7 triệu</a>
-                                            <a href="/tivi#c=1942&r=711,576&pi=0">Tivi cao cấp</a>
-                                            <a href="/may-chieu">Máy chiếu</a>
-                                        </aside>
-                                       <!--  <aside>
-                                            <p class="menuitem__title">LOA, ÂM THANH <a href="/dan-loa-dvd?g=loa-keo#c=2162&p=90016,90017,90018&pi=0">Xem tất cả</a></p>
-                                            <a href="/dan-loa-dvd?g=loa-keo">Loa kéo</a>
-                                            <a href="/dan-loa-dvd-loa-bluetooth">Loa Bluetooth</a>
-                                            <a href="/dan-loa-dvd-loa-thanh">Loa thanh (Soundbar)</a>
-                                            <a href="/dan-loa-dvd?g=dan-am-thanh">Dàn âm thanh</a>
-                                            <a href="/dan-loa-dvd-dan-karaoke-amply">Dàn Karaoke, Amply</a>
-                                            <a href="/micro">Micro</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">PHỤ KIỆN TIVI</p>
-                                            <a href="/cap-hdmi-cap-tivi">Cáp HDMI, cáp Tivi</a>
-                                            <a href="/khung-treo-tivi">Khung treo Tivi</a>
-                                            <a href="/dieu-khien-tivi">Điều khiển TV</a>
-                                            <a href="/android-tv-box">Android TV Box</a>
-                                        </aside> -->
-                                    </div>
-                                </li>
-
-                                <li data-submenu-id="submenu-3">
-                                    <div class="dropdown">
-                                        <span>
-                                            <img src="https://dienmaynguoiviet.vn/media/category/cat_34ead602847eccffd2bc5af611a422d2.png" style="width: 100%";">
-                                        </span>
-                                        <a href="{{ route('category-product', 'tu-lanh') }}">Tủ lạnh</a>
-                                    </div>
-                                    <div id="submenu-2" class="submenu">
-                                        <aside>
-                                            <p class="menuitem__title">TỦ LẠNH<a href="/tu-lanh">Xem tất cả</a></p>
-                                            <a href="/tu-lanh-tra-gop-0-phan-tram">Trả góp 0 - 0.5%</a>
-                                            <a href="/tu-lanh?g=tu-150-300-lit">Tủ lạnh từ 150 - 300 lít</a>
-                                            <a href="/tu-lanh?g=tu-301-400-lit">Tủ lạnh từ 301 - 400 lít</a>
-                                            <a href="/tu-lanh?g=tu-lon-side-by-side">Tủ lạnh Side by side</a>
-                                            <a href="/tu-lanh?g=mini">Tủ lạnh Mini</a>
-                                            <a href="/tu-lanh-panasonic">Panasonic</a>
-                                            <a href="/tu-lanh-samsung">Samsung</a>
-                                            <a href="/tu-lanh-toshiba">Toshiba</a>
-                                            <a href="/tu-lanh-aqua-sanyo">Aqua</a>
-                                            <a href="/tu-lanh-lg">LG</a>
-                                            <a href="/tu-lanh?p=tu-8tr-12tr">Từ 8 - 12 triệu</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">TỦ ĐÔNG, TỦ MÁT<a href="/tu-dong">Xem tất cả</a></p>
-                                            <a href="/tu-dong-kangaroo">Kangaroo</a>
-                                            <a href="/tu-dong-sanaky">Sanaky</a>
-                                            <a href="/tu-dong-sunhouse">Sunhouse</a>
-                                            <a href="/tu-dong-lg">LG</a>
-                                        </aside>
-                                    </div>
-                                </li>
-                                <!-- <li data-submenu-id="submenu-4">
-                                    <div class="dropdown">
-                                        <span>
-                                        <i class="icon-maygiat"></i>
-                                        </span>
-                                        <a href="/may-giat">Máy giặt</a>
-                                       
-                                    </div>
-                                    <div id="submenu-3" class="submenu">
-                                        <aside>
-                                            <p class="menuitem__title">MÁY GIẶT<a href="/may-giat">Xem tất cả</a></p>
-                                            <a href="/may-giat-moi">Đời mới 2021</a>
-                                            <a href="/may-giat-toshiba">Toshiba</a>
-                                            <a href="/may-giat-lg">LG</a>
-                                            <a href="/may-giat-panasonic">Panasonic</a>
-                                            <a href="/may-giat-samsung">Samsung</a>
-                                            <a href="/may-giat-electrolux">Electrolux</a>
-                                            <a href="/may-giat-aqua-sanyo">Aqua</a>
-                                            <a href="/may-giat?g=cua-truoc">Máy giặt cửa ngang (cửa trước)</a>
-                                            <a href="/may-giat-co-say">Máy giặt sấy</a>
-                                            <a href="/may-giat?p=duoi-5-trieu">Giá dưới 5 triệu</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">MÁY SẤY QUẦN ÁO<a href="/may-say-quan-ao">Xem tất cả</a></p>
-                                            <a href="/may-say-quan-ao?p=tu-5tr-10tr">Giá từ 5 - 10 triệu</a>
-                                            <a href="/may-say-quan-ao-electrolux">Electrolux</a>
-                                            <a href="/may-say-quan-ao-beko">Beko</a>
-                                            <a href="/may-say-quan-ao-candy">Candy</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">PHỤ KIỆN MÁY GIẶT</p>
-                                            <a href="/ao-trum-may-giat">Áo trùm máy giặt</a>
-                                            <a href="/gia-do-may-giat">Giá đỡ máy giặt</a>
-                                            <a href="/tui-giat">Túi giặt</a>
-                                        </aside>
-                                    </div>
-                                </li>
-                                <li data-submenu-id="submenu-5">
-                                    <div class="dropdown">
-                                        <span>
-                                        <i class="icon-maylanh"></i>
-                                        </span>
-                                        <a href="/may-lanh">Máy lạnh</a>
-                                    </div>
-                                    <div id="submenu-4" class="submenu">
-                                        <aside>
-                                            <p class="menuitem__title">M&#xC1;Y L&#x1EA0;NH<a href="/may-lanh">Xem tất cả</a></p>
-                                            <a href="/may-lanh-tra-gop-0-phan-tram">Trả góp 0 - 0.5%</a>
-                                            <a href="/may-lanh-moi">Đời mới 2021</a>
-                                            <a href="/may-lanh-panasonic">Panasonic</a>
-                                            <a href="/may-lanh-daikin">Daikin</a>
-                                            <a href="/may-lanh-samsung">Samsung</a>
-                                            <a href="/may-lanh?g=1-hp">M&#xE1;y l&#x1EA1;nh 1 HP</a>
-                                            <a href="/may-lanh?g=15-hp">M&#xE1;y l&#x1EA1;nh 1.5 HP</a>
-                                            <a href="/may-lanh?g=may-lanh-inverter">M&#xE1;y l&#x1EA1;nh Inverter ti&#x1EBF;t ki&#x1EC7;m &#x111;i&#x1EC7;n</a>
-                                            <a href="/may-lanh?p=duoi-7-trieu">M&#xE1;y l&#x1EA1;nh d&#x1B0;&#x1EDB;i 7 tri&#x1EC7;u</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">QUẠT ĐIỀU HÒA<a href="/quat-dieu-hoa">Xem tất cả</a></p>
-                                            <a href="/quat-dieu-hoa-kangaroo">Kangaroo</a>
-                                            <a href="/quat-dieu-hoa-daikiosan">Daikiosan</a>
-                                            <a href="/quat-dieu-hoa-sunhouse">Sunhouse</a>
-                                            <a href="/quat-dieu-hoa-midea">Midea</a>
-                                            <a href="/quat-dieu-hoa-delites">Delites</a>
-                                            <a href="/quat-dieu-hoa?p=tu-1-3-trieu">Từ 1 đến 3 triệu</a>
-                                            <a href="/quat-dieu-hoa?p=tu-3-5-trieu">Từ 3 đến 5 triệu</a>
-                                            <a href="/quat-dieu-hoa?g=duoi-20-m">Quạt mát dưới 20 m²</a>
-                                            <a href="/quat-dieu-hoa?g=tu-20-34-m">Quạt mát từ 20 - 34 m²</a>
-                                            <a href="/quat-dieu-hoa?g=tu-35-50-m">Quạt mát từ 35 - 50 m²</a>
-                                            <a href="/quat-dieu-hoa?g=tren-50-m">Quạt mát trên 50 m²</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">QUẠT<a href="/quat">Xem tất cả</a></p>
-                                            <a href="/quat?g=quat-treo-tuong">Quạt treo tường</a>
-                                            <a href="/quat?g=quat-sac-dien">Quạt sạc điện</a>
-                                            <a href="/quat?g=quat-dung">Quạt đứng</a>
-                                            <a href="/quat?g=quat-hop">Quạt hộp</a>
-                                            <a href="/quat?g=quat-lung">Quạt lửng</a>
-                                            <a href="/quat-ban">Quạt bàn</a>
-                                        </aside>
-                                        <aside>
-                                            <p class="menuitem__title">M&#xC1;Y N&#x1AF;&#x1EDA;C N&#xD3;NG </p>
-                                            <a href="/may-nuoc-nong?g=lam-nong-truc-tiep">M&#xE1;y n&#x1B0;&#x1EDB;c n&#xF3;ng trực tiếp</a>
-                                            <a href="/may-nuoc-nong-nang-luong-mat-troi">M&#xE1;y n&#x1B0;&#x1EDB;c n&#xF3;ng năng lượng mặt trời</a>
-                                            <a href="/may-nuoc-nong-lam-nong-gian-tiep">M&#xE1;y n&#x1B0;&#x1EDB;c n&#xF3;ng gián tiếp</a>
-                                            <a href="/may-nuoc-nong-bom-tro-luc">Máy có bơm trợ lực</a>
-                                            <a href="/may-nuoc-nong-ariston">Ariston</a>
-                                            <a href="/may-nuoc-nong-panasonic">Panasonic</a>
-                                            <a href="/may-nuoc-nong-ferroli">Ferroli</a>
-                                            <a href="/may-nuoc-nong-electrolux">Electrolux</a>
-                                            <a href="/may-nuoc-nong-kangaroo">Kangaroo</a>
-                                            <a href="/may-nuoc-nong-beko">Beko</a>
-                                            <a href="/may-nuoc-nong-rossi">Rossi</a>
-                                        </aside>
-                                    </div>
-                                </li>
-                                <li data-submenu-id="submenu-6">
-                                    <div class="dropdown">
-                                        <span><i class="icon-diengiadung"></i></span>
-                                        <a href="/gia-dung">Điện gia dụng</a>,
-                                        <a href="/dung-cu-cam-tay">Dụng cụ</a>
-                                    </div>
-                                    <div id="submenu-5" class="submenu">
-                                            
-                                    </div>
-                                </li> -->
-                                
-                            </ul>
-                        </div>
+                        <nav class="nav-list">
+                            <a href="/dtdd">Tivi</a>
+                            <a href="/laptop-ldp">Tủ lạnh</a>
+                            <a href="/may-tinh-bang">Máy giặt</a>
+                            <a href="/phu-kien">Điều hòa</a>
+                            <a href="/dong-ho-thong-minh-ldp">Đồ gia dụng</a>
+                            <a href="/avaji">Tủ đông</a>
+                            <a href="/pc-may-in">Tủ mát</a>
+                            <a href="/may-doi-tra">Máy sấy quần áo</a>
+                            <a href="/sim-so-dep">A.O.Smith</a>
+                            <a href="/tien-ich" class="promotion-menu">
+                                Giảm giá <br>đặc biệt
+                                <span class="item__label">- 5%</span>
+                            </a>
+                        </nav>
                     </div>
                     <!-- <ul class="txt-list" data-id="706">
                         <li><a data-cate="0" data-place="706" href="https://www.dienmayxanh.com/may-giat" onclick="jQuery.ajax({ url: '/bannertracking?bid=46706&r='+ (new Date).getTime(), async: true, cache: false });">Máy giặt giảm sốc đến 31%</a></li>
@@ -801,6 +1107,7 @@
                     </ul> -->
                 </section>
             </div>
+            @endif
         </header>
 
         @yield('content')
@@ -1014,16 +1321,16 @@
                         <h3 class="title">Thông tin</h3>
                         <ul class="footer_list-link">
                             <li>
-                                <a href="/gioi-thieu">Giới thiệu</a>
+                                <a href="#">Giới thiệu</a>
                             </li>
                             <li>
-                                <a href="/lien-he">Liên hệ</a>
+                                <a href="#">Liên hệ</a>
                             </li>
                             <li>
-                                <a href="/nha-phan-phoi-dien-may-uy-tin-chuyen-nghiep/">Dự án bán buôn</a>
+                                <a href="#">Dự án bán buôn</a>
                             </li>
                             <li>
-                                <a href="/tuyen-dung/">Tuyển dụng</a>
+                                <a href="#">Tuyển dụng</a>
                             </li>
                         </ul>
                     </div>
@@ -1031,13 +1338,13 @@
                         <h3 class="title">Hỗ trợ mua hàng</h3>
                         <ul class="footer_list-link">
                             <li>
-                                <a href="/huong-dan-mua-dien-may-tra-gop-online-qua-the-tin-dung-tren-dien-may-nguoi-viet/">Hướng dẫn trả góp</a>
+                                <a href="#">Hướng dẫn trả góp</a>
                             </li>
                             <li>
-                                <a href="/page/cach-thuc-thanh-toan">Cách thức thanh toán</a>
+                                <a href="#">Cách thức thanh toán</a>
                             </li>
                             <li>
-                                <a href="/page/bang-gia-vat-tu-lap-dat">Bảng giá vật tư lắp đặt</a>
+                                <a href="#">Bảng giá vật tư lắp đặt</a>
                             </li>
                         </ul>
                     </div>
@@ -1059,28 +1366,29 @@
                         <h3 class="title">Chính sách</h3>
                         <ul class="footer_list-link">
                             <li>
-                                <a href="/page/chinh-sach-quy-dinh-chung">Chính sách &amp; quy định chung</a>
+                                <a href="#">Chính sách &amp; quy định chung</a>
                             </li>
                             <li>
-                                <a href="/page/chinh-sach-doi-tra-hang">Chính sách đổi trả sản phẩm</a>
+                                <a href="#">Chính sách đổi trả sản phẩm</a>
                             </li>
                             <li>
-                                <a href="/page/chinh-sach-bao-hanh">Chính sách bảo hành</a>
+                                <a href="#">Chính sách bảo hành</a>
                             </li>
                             <li>
-                                <a href="/page/chinh-sach-van-chuyen">Chính sách giao hàng</a>
+                                <a href="#">Chính sách giao hàng</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-footer">
                         <form>
-                            <input id="email_newsletter" type="text" placeholder="Nhận thông tin khuyến mại">
+                            <input id="email_newsletter" type="text" placeholder="Đăng ký email nhận thông tin khuyến mại">
                             <span id="now_submit">Gửi</span>
                         </form>
-                        <!-- <h4 style="margin-top: 20px;margin-bottom: 10px;">Kết nối với chúng tôi</h4>
+
+                        <h4 style="margin-top: 20px;margin-bottom: 10px;">Kết nối với chúng tôi</h4>
                         <a class="ft-fb" rel="nofollow" href="https://www.facebook.com/dienmaynguoiviet/"><i class="fab fa-facebook-f"></i></a>
                         <a class="ft-yt" rel="nofollow" href="https://www.youtube.com/channel/UCRVWFSZs8k81B61_hwmkMIA"><i class="fab fa-youtube"></i></a>
-                        <a rel="nofollow" href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=1180"><img style="max-height: 40px" src="/template/dienmaynguoiviet/images/dathongbao.png"></a> -->
+                        <a rel="nofollow" href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=1180"><img style="max-height: 40px" src="/images/template/dathongbao.png"></a>
                     </div>
                 </div>
                 <div class="footer-bottom">
@@ -1125,8 +1433,57 @@
 
     @stack('script')
     <script type="text/javascript">
+        // turn off popup
+        $('.box-promotion-close').bind("click", function(){
+
+            if ( typeof(Storage) !== "undefined") {
+               
+                sessionStorage.setItem('popup','1');
+               
+               
+            } else {
+                alert('Trình duyệt của bạn đã quá cũ. Hãy nâng cấp trình duyệt ngay!');
+            }
+            $('.box-promotion-active').hide();
+
+        });
 
 
+        if(sessionStorage.getItem('popup')){
+             $('.box-promotion-active').hide();
+
+        }
+
+        // hover menu
+
+        $(".child").mouseenter(function(){
+            const child = $( this ).attr('data-id');
+
+           
+            $('.'+child).show();
+        }).mouseleave(function(){
+            
+            $('.navmwg').hide();
+        });
+
+        
+        
+       
+        $('#now_submit').click(function() {
+            const value = $('#email_newsletter').val();
+            if(value==''){
+                alert('bạn chưa nhập thông tin email');
+            }
+            else{
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
+                {
+                    alert('Quý khách đã đăng ký thành công');
+                }
+                else{
+                    alert('email không đúng đinh dạng');
+                }
+            }
+        })
         $(window).resize(function(){
             if($(window).width()<768){
 
@@ -1134,7 +1491,8 @@
             }
          
         });
-        
+
+
          $("#exampleModal").on("hidden.bs.modal", function () {
             $('#tbl_list_carts').html('');
         });
@@ -1189,6 +1547,19 @@
             }
 
             
+        });
+
+        
+
+        $('.menu-list .fa-bars').bind("click", function(){
+            if($('.nav-list').is(":visible")){
+
+                $('.nav-list').hide();
+            }
+            else{
+                $('.nav-list').show();
+            }
+
         });
 
         $(".st_opt").bind("click", function(){

@@ -17,8 +17,6 @@ class post extends Model
 {
 
     public $table = 'posts';
-    
-
 
 
     public $fillable = [

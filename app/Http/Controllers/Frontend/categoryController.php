@@ -37,7 +37,7 @@ class categoryController extends Controller
 
         $id_cate = $findID->id;
         
-        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.id','products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->get();
+        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.id','products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->Orderby('id', 'desc')->paginate(10);
 
         // $filter = DB::table('properties')->join('filters', 'properties.filterId', '=', 'filters.id')->where('filters.group_product_id', $id_cate)->select()->get();
 
@@ -60,7 +60,7 @@ class categoryController extends Controller
 
         $category = category::find($data->category);
 
-        $related_news = post::where('category', $data->category)->select('title', 'link', 'id')->get();
+        $related_news = post::where('category', $data->category)->select('title', 'link', 'id')->paginate(10);
 
         $name_cate = $category->namecategory;
 

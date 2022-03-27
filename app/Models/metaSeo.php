@@ -20,13 +20,12 @@ class metaSeo extends Model
     public $table = 'meta_seos';
     
 
-
-
     public $fillable = [
         'meta_title',
         'meta_content',
         'meta_og_title',
-        'meta_og_content'
+        'meta_og_content',
+        'meta_keywords'
     ];
 
     /**
@@ -39,7 +38,8 @@ class metaSeo extends Model
         'meta_title' => 'string',
         'meta_content' => 'string',
         'meta_og_title' => 'string',
-        'meta_og_content' => 'string'
+        'meta_og_content' => 'string',
+        'meta_keywords' => 'string',
     ];
 
     /**

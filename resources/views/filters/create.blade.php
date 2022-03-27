@@ -4,7 +4,7 @@
     <?php  
 
         $groupProduct = $_GET['groupid'];
-        $productId = $_GET['productId'];
+       
 
     ?>
     <section class="content-header">
@@ -27,7 +27,7 @@
 
             <input type="hidden" name="group_product_id" value="{{ $_GET['groupid']  }}">
 
-            <input type="hidden" name="productId" value="{{ $productId  }}">
+           
 
             <div class="card-body">
 

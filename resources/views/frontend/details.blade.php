@@ -12,6 +12,10 @@
 
            /*form đánh giá */
 
+           .modal-body table{
+            width: 100% !important;
+           }
+
            div.stars {
               width: 270px;
               display: inline-block;
@@ -123,6 +127,10 @@
             .rate_view {
                 margin-bottom: 10px;
             }
+            .credit{
+                margin-top: 10px;
+
+            }
             
             @media screen and (max-width: 776px){
                 section.detail {
@@ -187,17 +195,19 @@
         <section data-id="235791" data-cate-id="1942" class="detail ">
             <ul class="breadcrumb">
                 <?php  
-                    $groupProduct = App\Models\groupProduct::find($data->Maker);
+                    $groupProduct = App\Models\groupProduct::find($data->Group_id);
 
                     
                 ?>
                 <li>
-                    <a href="/tivi">Trang chủ</a>
+                    <a href="{{route('homeFe')}}">Trang chủ</a>
                     <meta property="position" content="1">
                 </li>
+
+                
                 <li>
                     <span>›</span>
-                    <a href="/{{ $groupProduct->link }}">{{ $groupProduct->name }}</a>
+                    <a href="{{ route('details', $groupProduct->link) }}">{{ @$groupProduct->name }}</a>
                     <meta property="position" content="2">
                 </li>
                 <!-- <li>
@@ -223,7 +233,7 @@
                             <i class="icondetail-star"></i>
                             <i class="icondetail-star-dark"></i>
                         </p>
-                        <p class="detail-rate-total"> <span>Đánh giá</span></p>
+                        <p class="detail-rate-total" > <span data-toggle="modal" data-target="#specifications">Thông số kỹ thuật</span></p>
                     </div>
                 </div>
                 
@@ -293,7 +303,21 @@
                                     </div>
                                     <div class="pdetail-status">
                                         <div class="pdetail-stockavailable">
-                                            <span>CÒN HÀNG </span>
+                                            <?php
+                                                if($data->Quantily==0){
+                                                    $status ='Liên hệ';
+
+                                                }
+                                                elseif($data->Quantily==-1){
+                                                    $status ='Hết hàng';
+                                                }
+                                                else{
+                                                    $status = 'Còn hàng';
+                                                }
+                                             
+
+                                            ?>
+                                            <span>{{ $status }}</span>
                                         </div>
                                         <div class="pdetail-add-to-cart add-to-cart">
                                             <div class="inline">
@@ -346,6 +370,23 @@
                                 </div>
                                 <div class="modal-body">
                                     {!!  $data->Salient_Features  !!} 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="specifications" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                       <h5>Thông số kỹ thuật</h5>
+                                </div>
+                                <div class="modal-body">
+                                    {!!  $data->Specifications  !!} 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
@@ -473,7 +514,7 @@
                                 </div>
                                 <div class="pdetail-status">
                                     <div class="pdetail-stockavailable">
-                                        <span>CÒN HÀNG </span>
+                                        <span>{{ $status }} </span>
                                     </div>
                                     <div class="pdetail-add-to-cart add-to-cart">
                                         <form class="inline">
@@ -596,7 +637,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="submit" value="Gửi bình luận" class="btn btn-red" onclick="postComment()"></td>
+                                                    <td><input style="margin-top: 15px;width: calc(100% - 6px);border-radius: 3px;" type="submit" value="Gửi bình luận" class="btn btn-red comments-rate" ></td>
                                                     <td></td>
                                                 </tr>
                                             </tbody>
@@ -623,7 +664,7 @@
                     <div class="listproduct slider-promo owl-carousel banner-sales">
 
                         @foreach($other_product as  $value)
-                        @if($value->active==1)
+                        @if($value->active==1 && $value->id != $data->id)
                         <div class="item">
                             <a href='{{ route('details', $value->Link) }}' class=" main-contain">
                                 <div class="item-label">
@@ -704,7 +745,7 @@
               <a id="btn-vote" class="txt_555 fl" href="javascript:;" onclick="go_comm()"> Đánh giá: </a>
               
            
-                <div class=" totalRate " id="js-total-rating" style="    display: inline-block;"><i class="icons icon-star star"><span></span></i></div>
+                <div class=" totalRate " id="js-total-rating" style="display: inline-block;"><i class="icons icon-star star"><span></span></i></div>
                 (<span class="reviewCount">0</span>)
             </div>
            
@@ -720,29 +761,23 @@
         <div class="clear space3px"></div>
         
         <div class="clear space10px"></div>
-              
+
+         <?php
+            $now = Carbon\Carbon::now();
+            $promotion =  promotion_product($data->id, $now); 
+         ?>
+        @if(!empty($promotion ))      
         <div class="promo line_h19">
-            <?php
-                $now = Carbon\Carbon::now();
-                $promotion =  promotion_product($data->id, $now); 
-
-               
-             ?>
-
-            @if(isset($promotion ))
+           
             <div class="txt_b">Khuyến mại</div>
             <div style="display: flex;">
                 <img src="{{ asset($promotion->image) }}" height="30px" width="30px">
                 <p>{{ $promotion->name }}</p>
                 
             </div>
-            @endif
-            
-
-            
-            
-            
+        
         </div>
+        @endif
           
          
   <div class="buy-group">
@@ -751,9 +786,21 @@
     <div class="clear space10px in">
      
         <a class="btn-buy txt_center cor5px" onclick="addToShoppingCart('pro','3036',document.getElementById('s_quantity').value,'2350000');" href="javascript:;">
-            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Thêm Vào Giỏ Hàng</span>
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Mua ngay</span>
         </a>
+
+      
         
+    </div>
+
+    <div class="clear space10px credit">
+        <a class="btn-buy txt_center cor5px"  href="javascript:;" style="background: #ffde00; border-bottom: 0;" >
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Trả góp</span>
+        </a>
+
+        <a class="btn-buy txt_center cor5px"  href="javascript:;" style="background: #ffde00; border-bottom: 0;">
+            <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Trả góp qua thẻ</span>
+        </a>
     </div>
     
       Gọi đặt mua:  <span class="txt_b txt_red"><a href="tel:0967025111">098 361 2828</a></span> (sau 17h)<br>
@@ -894,9 +941,6 @@
 
             $( document ).ready(function() {
 
-
-                
-
                 $('.star-click').bind('click',function(){
                     id_star = $(this).attr('id');    
                     number_star = id_star.substr(5, 6);
@@ -926,7 +970,8 @@
                       
                     },
                     submitHandler: function(form) {
-                       return false;
+                        
+                      postComment();
 
                     }
                    
@@ -955,6 +1000,13 @@
                            
                     },
                     success: function(result){
+
+                        $('.comments-rate').text('Đã gửi bình luận');
+                        $('.comments-rate').val('Đã gửi bình luận');
+
+                        $('#email0').val('');
+                        $('#name0').val('');
+                        $('#content0').val('');
                       
                       alert(result);
                     }
@@ -1011,14 +1063,6 @@
                 });
             });
 
-            
-
-           
-
-          
-                
-                
-    
         </script>
 
 

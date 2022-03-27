@@ -106,9 +106,42 @@ class productController extends AppBaseController
 
         $meta_model->meta_og_title =$meta_title;
 
+        $meta_model->meta_key_words =$meta_title;
+
         $meta_model->save();
 
         $input['Meta_id'] = $meta_model['id'];
+         // cắt ảnh khi đi cóp
+
+        $html = $input['Detail'];
+
+        preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
+
+
+        $arr_change = [];
+
+        if(isset($matches[1])){
+            foreach($matches[1] as $value){
+
+                $file_headers = @get_headers($value);
+                if ($file_headers) {
+                    $img = public_path('images/product/'.basename($value));
+
+           
+                    file_put_contents($img, file_get_contents($value));
+
+                    array_push($arr_change, env('APP_URL').'/images/product/'.basename($value));
+                } 
+               
+                
+            }
+        }
+
+        $html = str_replace($matches[1], $arr_change, $html);
+
+        $input['Detail'] = $html;
+
+
 
         $product = $this->productRepository->create($input);
         
@@ -203,6 +236,43 @@ class productController extends AppBaseController
 
             $input['Image'] = $filePath;
         }
+
+         // cắt ảnh khi đi cóp
+
+        $html = $input['Detail'];
+
+        preg_match_all('/<img.*?src=[\'"](.*?)[\'"].*?>/i', $html, $matches);
+
+    
+        $arr_change = [];
+
+        if(isset($matches[1])){
+            foreach($matches[1] as $value){
+
+                $arr_image = explode('/', $value);
+
+                if($arr_image[0] != env('APP_URL')){
+
+                    $file_headers = @get_headers($value);
+                    if ($file_headers) {
+                        $img = public_path('images/product/'.basename($value));
+
+               
+                        file_put_contents($img, file_get_contents($value));
+
+                        array_push($arr_change, env('APP_URL').'/images/product/'.basename($value));
+                    } 
+                }    
+               
+                
+            }
+        }
+
+
+        $html = str_replace($matches[1], $arr_change, $html);
+
+        $input['Detail'] = $html;
+        
 
         $product = $this->productRepository->update($input, $id);
 

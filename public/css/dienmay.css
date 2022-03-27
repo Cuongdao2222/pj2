@@ -3103,15 +3103,15 @@ header.header.manusearch .header__search input {
 	border-radius: 4px;
 	color: #fff;
 	font-size: 12px;
-	line-height: 14px;
+	/*line-height: 14px;*/
 	margin-left: 10px;
 	padding: 5px 8px;
 	width: 100px
 }
 
-.header__cart:hover {
+/*.header__cart:hover {
 	background: rgba(255, 255, 255, .4)
-}
+}*/
 
 .header__cart.active .icon-cart {
 	background-color: #f00;
@@ -12092,7 +12092,7 @@ h1 {
 }
 
 .homebanner-container {
-	width: calc(100% - 500px);
+	width: calc(100% - 350px);
 	height: 370px;
 	padding: 10px 0 0 10px
 }
@@ -12175,14 +12175,10 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 10px;
-	width: 270px
+	width: 350px
 }
 
-.preorder-hot a {
-	margin-bottom: 3px;
-	padding-left: 8px;
-	width: 50%
-}
+
 
 .preorder-hot a.w100 {
 	width: 100%
@@ -12895,7 +12891,7 @@ img.lazyload {
 }
 
 body.theme-lunar-new-year {
-	background-image: url(//cdn.tgdd.vn/mwgcart/mwg-site/ContentMwg/images/lunar_new_year/Background/bg_dmx.png);
+	
 	background-size: cover;
 	background-attachment: fixed;
 	overflow-x: hidden

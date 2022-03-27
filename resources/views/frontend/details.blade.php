@@ -963,6 +963,26 @@
             }  
 
 
+            // chức năng sản phẩm đã xem
+
+            product_id_item_viewer = [];
+
+            const item_local_store =  JSON.parse(localStorage.getItem('viewed_product'));
+
+            if(item_local_store.length>0){
+
+                product_id_item_viewer = item_local_store;
+            }
+
+            product_id_item_viewer.push($data->id)
+
+
+
+            localStorage.setItem('viewed_product', JSON.stringify(product_id_item_viewer));
+
+            console.log(localStorage.getItem('viewed_product'));
+
+
             button_buy_height = $('.scroll-box').offset().top;
             view_more_height  = ($('.view-more-related').offset().top);
 

@@ -352,7 +352,7 @@
                        <!--  <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p> -->
                         <h3>{{ $value->Name }}</h3>
                        
-                        <strong class="price">{{  @str_replace(',' ,'.', number_format($value->Price))  }}&#x20AB;</strong>
+                        <strong class="price">{{  @str_replace(',' ,'.', number_format($value->Price))  }}.&#x20AB;</strong>
                         <div class="item-rating">
                             <p>
                                 <i class="icon-star"></i>

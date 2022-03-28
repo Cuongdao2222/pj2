@@ -742,6 +742,9 @@
                     text-indent: -99999px
         
                 }
+                .modal-body .error{
+                    color: red;
+                }
               
 
 
@@ -750,7 +753,9 @@
 
        
         <?php  
+            $userClient = session()->get('status-login');
 
+            
             $popup = App\Models\popup::find(4);
         ?>
         <!-- popup quảng cáo  -->
@@ -760,7 +765,7 @@
                 <div class="box-banner">
                     <a href="#" target="_blank" rel="nofollow"><img src="{{ asset( $popup->image) }}" alt="pop-up"></a>
                 </div>
-                <a class="box-promotion-close" href="javascript:;" title="Đóng lại">[x]</a>
+                <a class="box-promotion-close" href="javascript:void(0)" title="Đóng lại">[x]</a>
             </div>
         </div>
         
@@ -797,7 +802,7 @@
                     </a>
 
                     <form  class="header__search" method="get" action="{{ route('search-product-frontend') }}">
-                        <input id="skw" type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
+                        <input  type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
                         <button type="submit">
                         <i class="icon-search"></i>
                         </button>
@@ -822,6 +827,28 @@
                         <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
                         <!-- <span>Giỏ hàng</span> -->
                     </a>
+
+                    @if(!empty($userClient)&& $userClient=='Đăng nhập thành công')
+
+                        <a rel="nofollow"  href="javascript:void(0)">
+                            <span style="color:#fff; font-size: 12px;">Xin chào</span>
+                        </a>
+
+                        <a rel="nofollow"  href="{{ route('logout-Fe') }}">
+                            <span style="color:#fff; font-size: 12px;">Đăng xuất</span>
+                        </a>
+                    
+                    @else
+                    <a rel="nofollow" class="logins-modal" href="javascript:void(0)">
+                        <span style="color:#fff; font-size: 12px;">Đăng nhập</span>
+                    </a>
+                
+                    <a rel="nofollow" class="register-form" href="javascript:void(0)">
+                        <span style="color: #fff; font-size:12px;">Đăng ký</span>
+                    </a>
+                    @endif
+
+                               
                     <a href="{{ route('tin') }}" class="header__history">Tin tức khuyến mãi</a>
                     <!-- <div class="bordercol"></div> -->
 
@@ -1325,6 +1352,110 @@
             </div>
         </div>
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="Modal-register" tabindex="-1" role="dialog" aria-labelledby="Modal-register" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabels">Đăng ký</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" role="form" id="registers-form-submit" action="#">
+                            {{ csrf_field() }}
+                            <div class="clearfix pt-3"></div>
+                            <h4>Tạo tài khoản mới.</h4>
+                            <hr>
+                            <div class="text-danger validation-summary-valid" data-valmsg-summary="true">
+                                <ul>
+                                    <li style="display:none"></li>
+                                </ul>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="Email">Địa chỉ email</label>
+                                <div class="col-md-8"><input class="form-control" type="email" data-val="true" data-val-email="The Địa chỉ email field is not a valid e-mail address." data-val-required="Trường Địa chỉ email là bắt buộc." id="Emails" name="Emails"> <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="FullName">Họ và tên</label>
+                                <div class="col-md-8"><input class="form-control" data-val="true" data-val-required="Trường Tên là bắt buộc." id="FullName" name="FullName"> <span class="text-danger field-validation-valid" data-valmsg-for="FullName" data-valmsg-replace="true"></span></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="Password">Mật khẩu</label>
+                                <div class="col-md-8"><input class="form-control" type="password" data-val="true" data-val-length="The Mật khẩu must be at least 4 and at max 100 characters long." data-val-length-max="100" data-val-length-min="4" data-val-required="Trường Mật khẩu là bắt buộc." id="Passwords" maxlength="100" name="Passwords"> <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="ConfirmPassword">Xác nhận mật khẩu</label>
+                                <div class="col-md-8"><input class="form-control" type="password" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword"> <span class="text-danger field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span></div>
+                            </div>
+
+                             
+                            <button type="submit" class="btn btn-primary">Đăng ký</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+       <!--  Endmodal -->
+
+       <!-- Modal -->
+        <div class="modal fade" id="Modal-login" tabindex="-1" role="dialog" aria-labelledby="Modal-login" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="login-modals">Đăng nhập</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="{{ route('login-Fe') }}"  id="login-forms-fe">
+                            {{ csrf_field() }}
+
+                            <h2>Đăng nhập</h2>
+                            <div class="clearfix pt-3"></div>
+                            <h4>Sử dụng tài khoản của bạn để đăng nhập</h4>
+                            <hr>
+                            <div class="text-danger validation-summary-valid" data-valmsg-summary="true">
+                                <ul>
+                                    <li style="display:none"></li>
+                                </ul>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="Email">Địa chỉ email</label>
+                                <div class="col-md-8"><input class="form-control" type="email"  id="email" name="email"> <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label" for="Password">Mật khẩu</label>
+                                <div class="col-md-8"><input class="form-control" type="password"  name="password"> <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></div>
+                            </div>
+                            
+                            <div class="form-group row">
+                               <div class="modal-footer">
+                                    
+                                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            <p><a href="javascript::void(0)" class="register-forms">Đăng ký người dùng mới</a></p>
+
+
+                            
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
        <!--  Endmodal -->
 
         <footer class="footer">
@@ -1446,6 +1577,25 @@
 
     @stack('script')
     <script type="text/javascript">
+
+        $('.register-forms').click(function(){
+            $("#Modal-login").modal("hide");
+            $("#Modal-register").modal("show");
+        })
+
+        $('.logins-modal').click(function(){
+             $("#Modal-login").modal("show");
+
+
+        })
+
+        $('.register-form').click(function(){
+             $("#Modal-register").modal("show");
+
+
+        })
+       
+
         // turn off popup
         $('.box-promotion-close').bind("click", function(){
 
@@ -1605,6 +1755,121 @@
                     return false;
                 };
             }, "Invalid phone number");
+
+            $("#registers-form-submit").validate({
+                rules: {
+                   
+                    "FullName": {
+                        required: true,
+                        maxlength:150
+                         
+                    },
+
+                    "Emails": {
+                        required: true,
+                        email: true,
+                        
+                    },
+
+                    "Passwords":{
+                        required:true,
+                    },
+                    "ConfirmPassword":{
+                        required:true,
+                        equalTo: "#Passwords"
+                    }
+
+                   
+                },
+
+                messages: {
+                    "FullName": {
+                        required: "Bắt buộc nhập Họ và tên",
+                        maxlength: "Hãy nhập tối đa 150 ký tự"
+                    },
+                   
+                    "Emails":{
+                        email: "Email không đúng định dạng",
+                        required: "Bắt buộc nhập Email",
+                    },
+
+                    "Passwords":{
+                        required:"Bắt buộc nhập Password",
+                    },
+                    "ConfirmPassword":{
+                        required:"Bắt buộc nhập xác nhận Password",
+                        equalTo:'Xác nhận Password phải giống với Password'
+                    }
+                   
+                }
+               
+            }); 
+
+             $("#login-forms-fe").validate({
+                rules: {
+                   
+                   
+
+                    "email": {
+                        required: true,
+                        email: true,
+                        
+                    },
+
+                    "password":{
+                        required:true,
+                    },
+                   
+
+                   
+                },
+
+                messages: {
+                    
+                    "email":{
+                        email: "Email không đúng định dạng",
+                        required: "Bắt buộc nhập Email",
+                    },
+
+                    "password":{
+                        required:"Bắt buộc nhập Password",
+                    },
+                  
+                   
+                }
+               
+            }); 
+
+
+            $('#registers-form-submit').submit(function (e) {
+                e.preventDefault();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('register-client-fe') }}",
+                    data: {
+                        fullname: $('#FullName').val(),
+                        password: $('#Passwords').val(),
+                        email: $('#Emails').val(),
+                        
+                    },
+                   
+                    success: function(result){
+                        $("#Modal-register").modal("hide");
+                        alert(result);
+
+                        
+                    }
+                });
+            })    
+
+            
 
             $("#form-sub").validate({
                 rules: {

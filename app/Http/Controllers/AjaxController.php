@@ -18,20 +18,53 @@ use App\Models\promotion;
 
 use App\Models\popup;
 
+use Validator;
 
-
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Auth;
-
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 use DB;
+use Illuminate\Support\Facades\Session;
 use App\Models\rate;
 
 class AjaxController extends Controller
 {
+    public function loginClientsFe(Request $request)
+    {
+        $email =  strip_tags(trim($request->email), '@') ;
 
+       
+
+        $password = $request->password;
+
+        $check  =   DB::table('loginclient')->where('email', $email)->first();
+
+        if(!empty($check)){
+            if( Hash::check($request->password, $check->password) == true){
+
+                Session::put('status-login', 'Đăng nhập thành công');
+
+                return redirect()->route('homeFe');
+
+            }
+
+        }
+
+        Session::put('status-login', 'Đăng nhập thất bại, xin kiểm tra lại');
+        
+        return redirect()->route('homeFe');
+        
+    }
+
+    public function logout()
+    {
+        Session::forget('status-login');
+        return redirect()->back();
+
+    }
   
     public function addHotProduct(Request $request)
     {
@@ -50,6 +83,34 @@ class AjaxController extends Controller
             return "thêm thành công sản phẩm có product_id ".$request->product_id;
 
         }
+    }
+
+    public function registerClient(Request $request)
+    {
+        if($request->ajax())
+        {
+            $validator = Validator::make($request->all(), [
+           'email' => 'required|email|unique:loginClient',
+           'fullname' => 'required|string|max:150',
+           'password' => 'required'
+           ]);
+            
+           if ($validator->fails()) {
+
+                return response($validator->messages()->first());
+                
+           }
+           else{
+                $input['password'] = bcrypt($request->password);
+                $input['email'] = strip_tags($request->email);
+                $input['fullname'] = strip_tags($request->fullname);
+                $result = DB::table('loginClient')->insert($input);
+                return response('Đăng ký thành công');
+
+           }
+        }    
+
+        
     }
 
     public function removeHotProduct(Request $request)

@@ -25,7 +25,9 @@ Route::get('/ckfinder.html', function () {
 
 
 
+Route::post('login-Fe', 'AjaxController@loginClientsFe')->name('login-Fe');
 
+Route::get('logout-Fe', 'AjaxController@logout')->name('logout-Fe');
 
 Route::get('/tin-chi-tiet', function () {
     return view('frontend.blogdetail');
@@ -82,6 +84,8 @@ Route::post('rate-form', 'AjaxController@rateForm')->name('rate-form');
 Route::get('/category/{slug}', 'Frontend\categoryController@index')->name('category-product')->middleware('auth');
 
 Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->middleware('auth');
+
+Route::post('ajax-clent-register', 'AjaxController@registerClient')->name('register-client-fe');
 
 
 

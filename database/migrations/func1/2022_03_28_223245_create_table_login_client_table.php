@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableBackground extends Migration
+class CreateTableLoginClientTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateTableBackground extends Migration
      */
     public function up()
     {
-        Schema::create('background', function (Blueprint $table) {
+        Schema::create('loginClient', function (Blueprint $table) {
+            
             $table->bigIncrements('id');
-            $table->string('background_color');
-            $table->string('background_image');
-           
+            $table->string('password', 500);
+            $table->string('fullname', 500);
+            $table->string('email', 500);
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ class CreateTableBackground extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('background');
+        Schema::dropIfExists('loginClient');
     }
 }

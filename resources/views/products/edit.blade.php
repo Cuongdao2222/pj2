@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if(isset($product->Meta_id ))
+
+     <?php  
+
+        $products_seo = App\Models\product::select('Meta_id')->where('id',  $product->Meta_id)->first();
+
+        print_r($product->Meta_id);
+
+
+    ?>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -11,16 +22,13 @@
         </div>
     </section>
 
+    <div class="btn btn-warning"><a href="{{ route('metaSeos.edit', 1) }}"></a>Seo</div>
+    <div class="btn btn-warning"><a href="#mo-ta"></a>Mô tả</div>
+    <div class="btn btn-warning" >Thông số</div>
+    <div class="btn btn-warning">Ảnh</div>
 
 
-    @if(isset($product->Meta_id ))
-
-     <?php  
-
-        $products_seo = App\Models\product::select('Meta_id')->where('id',  $product->Meta_id)->first();
-
-
-    ?>
+    
      @if(!empty($products_seo))
     <div class="btn btn-info seo-click"> Dùng cho SEO </div>
 

@@ -27,7 +27,7 @@
 
 <li class="nav-item"  >
     <div style="display:flex;">
-        <a href="{{ route('groupProducts.index') }}"
+        <a href="{{ route('pop-up-show') }}"
            class="nav-link {{ Request::is('groupProducts*') ? 'active' : '' }}" style="width: 68%;">
             <p>Hiển thị</p>
             
@@ -37,7 +37,7 @@
     </div>    
         
 
-    <ul style="width: 68%">
+   <!--  <ul style="width: 68%">
         
         <li class="child-navs" style="">
             <a href="{{ route('pop-up-show') }}" class="nav-link">
@@ -57,7 +57,7 @@
             </a>
         </li>
         
-    </ul>
+    </ul> -->
     
 </li>
 
@@ -68,7 +68,7 @@
 
     <a href="{{ route('groupProducts.index') }}"
        class="nav-link {{ Request::is('groupProducts*') ? 'active' : '' }}" style="width: 68%;">
-        <p>Group Products</p>
+        <p>Nhóm sản phẩm</p>
         
     </a>
 
@@ -111,7 +111,7 @@
 <li class="nav-item">
     <a href="{{ route('products.index') }}"
        class="nav-link {{ Request::is('products*') ? 'active' : '' }}">
-        <p>Products</p>
+        <p>Sản phẩm</p>
     </a>
 </li>
 

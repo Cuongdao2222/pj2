@@ -145,7 +145,7 @@
 </div>
 
 <div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('Detail', 'Mô tả:') !!}
+    {!! Form::label('Detail', 'Mô tả:', ['id' =>'mo-ta'], ['rel' =>'nofollow']) !!}
     {!! Form::textarea('Detail', null, ['class' => 'form-control', 'id' =>'content']) !!}
 </div>
 
@@ -214,12 +214,13 @@
     } );
 
     
-    // $(document).ready(function()
-    // {
-    //     $(window).bind("beforeunload", function() { 
-    //         return confirm("Do you really want to close?"); 
-    //     });
-    // });
+    $(document).ready(function()
+    {
+
+        $(window).bind("beforeunload", function() { 
+            return confirm("Do you really want to close?"); 
+        });
+    });
 
 </script>
 

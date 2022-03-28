@@ -39,41 +39,11 @@
     {!! Form::textarea('shortcontent', null, ['class' => 'form-control content-input']) !!}
 </div>
 
-<div class="form-group col-md-2">
-    <div id="descript-gallery-title">Thư viện ảnh Sản phẩm</div>
-    <div style="margin-bottom:6px; margin-top:5px;">
-        <input type="file" name="file-image-content" id="file-image-content">
-        
 
-    </div>
-    <table border="1" bordercolor="#CCCCCC" cellspacing="0" cellpadding="3" style="width:100%">
-       <tbody>
-            <tr> 
-                <td width="50%" align="center">
-                    <a href="javascript:void(0);" onclick="insert_tinymce_content('<img src='\'https://dienmaynguoiviet.vn/media/lib/4678_anh-hoa-co-mua-xuan-tuyet-dep-01.jpg; />'\');" title="Click để chuyển ảnh vào mô tả"><img src="https://dienmaynguoiviet.vn/media/lib/4678_anh-hoa-co-mua-xuan-tuyet-dep-01.jpg" width="60" height="60"></a>
-                </td>
-                <td width="50%" align="center">
-                    <a href="javascript:void(0);" onclick="insert_tinymce_content('<img src=&quot;/media/product/4678_n4010s8_141.jpg&quot; />');" title="Click để chuyển ảnh vào mô tả"><img src="https://dienmaynguoiviet.vn/media/lib/4678_anh-hoa-co-mua-xuan-tuyet-dep-01.jpg" width="60" height="60"></a>
-                </td>
-            </tr>
-
-            <tr>
-                <td width="50%" align="center">
-                    <a href="javascript:void(0);" onclick="insert_tinymce_content('<img src='\'https://dienmaynguoiviet.vn/media/lib/4678_anh-hoa-co-mua-xuan-tuyet-dep-01.jpg; />'\');" title="Click để chuyển ảnh vào mô tả"><img src="https://dienmaynguoiviet.vn/media/lib/4678_anh-hoa-co-mua-xuan-tuyet-dep-01.jpg" width="60" height="60"></a>
-                </td>
-                <td width="50%" align="center">
-                    <a href="javascript:void(0);" onclick="insert_tinymce_content('<img src=&quot;/media/product/4678_n4010s8_141.jpg&quot; />');" title="Click để chuyển ảnh vào mô tả"><img src="https://dienmaynguoiviet.vn/media/lib/4678_anh-hoa-co-mua-xuan-tuyet-dep-01.jpg" width="60" height="60"></a>
-                </td>
-            </tr>
-          
-       </tbody>
-    </table>
-
-</div>
 
 
 <!-- Content Field -->
-<div class="form-group col-sm-12 col-md-10">
+<div class="form-group col-sm-12 col-md-12">
     {!! Form::label('content', 'Content:') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control content-input']) !!}
 </div>
@@ -96,7 +66,7 @@
 <script>
     var item_local_store =  JSON.parse(localStorage.getItem('infopost'));
 
-    if(item_local_store.length>0){
+    if(item_local_store!=null){
         $('.draft-article').show();
     }
     else{
@@ -134,27 +104,27 @@
     
     let ar_image = [];
 
-    function getBase64(file) {
-       var reader = new FileReader();
-       reader.readAsDataURL(file);
-       reader.onload = function () {
-            ar_image.push(reader.result);
-            console.log(ar_image);
+    // function getBase64(file) {
+    //    var reader = new FileReader();
+    //    reader.readAsDataURL(file);
+    //    reader.onload = function () {
+    //         ar_image.push(reader.result);
+    //         console.log(ar_image);
            
-            const max = parseInt((ar_image.length)/2)
-            for (i = 0; i <= max; i++) {
-                '<tr>'+
-                    for(j=i; j<=i*2; j++){
-                        '<td width="50%" align="center"><a href="javascript:void(0); title="Click để chuyển ảnh vào mô tả"><img src="++" height="60"></a></td>';
-                    }'+ 
-                </tr>'
-            }
+    //         const max = parseInt((ar_image.length)/2)
+    //         for (i = 0; i <= max; i++) {
+                
+    //                 for(j=i; j<=i*2; j++){
+    //                     '<td width="50%" align="center"><a href="javascript:void(0); title="Click để chuyển ảnh vào mô tả"><img src="++" height="60"></a></td>';
+    //                 } 
+               
+    //         }
          
-       };
-       reader.onerror = function (error) {
-         // console.log('Error: ', error);
-       };
-    }
+    //    };
+    //    reader.onerror = function (error) {
+    //      // console.log('Error: ', error);
+    //    };
+    // }
 
     $('#file-image-content').bind("change", function() { 
         
@@ -165,15 +135,6 @@
 
     });
 
-    
-
-
-
-
-
-    
-    
-    
 
     
     CKEDITOR.replace( 'content', {
@@ -190,7 +151,9 @@
                 
                 getDataform();
             }
-        }
+        },
+
+        
     } );
 
     function setDataForm() {

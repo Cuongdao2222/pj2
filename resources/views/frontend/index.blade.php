@@ -430,7 +430,7 @@
                                     <span>55 inch</span>
                                     <span>4K</span>
                                 </div> -->
-                                <strong class="price">{{ number_format($datas->Price , 0, ',', '.')}}&#x20AB;</strong>
+                                <strong class="price">{{ @number_format($datas->Price , 0, ',', '.')}}&#x20AB;</strong>
                            
                                 <div class="item-rating">
                                     <p>

@@ -39,8 +39,9 @@
             <tbody> 
 
                 <?php
+                    $group_id = $_GET['groupid']
                    
-                    $filter = App\Models\filter::where('group_product_id', $product_id)->get();
+                    $filter = App\Models\filter::where('group_product_id', $group_id)->get();
                 ?>
                 @if(count($filter)>0)
                 @foreach($filter as $filters)

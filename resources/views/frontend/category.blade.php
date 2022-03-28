@@ -287,7 +287,12 @@
             </div> -->
             <div class="watched"></div>
             <div class="overlay"></div>
+
+           
+            @if(\Request::route()->getName()!='search-product-frontend')
             {{ @$data->links() }}
+
+            @endif
         </section>
         @push('script')
         <script type="text/javascript">

@@ -72,7 +72,7 @@
             line-height: 16px;
             width: 100%;
             display: flex;
-            padding: 0 15px;
+            padding: 0 35px;
             height: 43px;
             align-items: center;
             position: relative;
@@ -756,7 +756,7 @@
         <!-- popup quảng cáo  -->
 
         <div id="box-promotion" class="box-promotion box-promotion-active">
-            <div class="box-promotion-item" style="width: 500px;height: 500px;left: 701.5px;top: 206px;">
+            <div class="box-promotion-item" style="width: 500px;height: 500px;left: 34%;top: 206px;">
                 <div class="box-banner">
                     <a href="#" target="_blank" rel="nofollow"><img src="{{ asset( $popup->image) }}" alt="pop-up"></a>
                 </div>

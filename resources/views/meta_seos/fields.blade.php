@@ -28,8 +28,8 @@
 
 
 <div class="form-group col-sm-6">
-    {!! Form::label('meta_keywords', 'Meta Keywords:Khuyến nghị 60 kí tự', ['class' => 'form-keywords']) !!}
-    {!! Form::text('meta_keywords', null, ['class' => 'form-control']) !!}
+    {!! Form::label('meta_key_words', 'Meta Keywords:Khuyến nghị 60 kí tự', ['class' => 'form-keywords']) !!}
+    {!! Form::text('meta_key_words', null, ['class' => 'form-control']) !!}
 </div>
 
 <script type="text/javascript">
@@ -62,7 +62,7 @@
         
     });
 
-    $('#meta_keywords').bind("keydown", function(){
+    $('#meta_key_words').bind("keydown", function(){
         const valuecontent = $(this).val();
         number_text      = valuecontent.length;
         $('.form-keywords').text('Meta Keywords:Khuyến nghị 60 kí tự:Kí tự nhập '+number_text)

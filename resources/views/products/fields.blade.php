@@ -131,10 +131,7 @@
 
 
 
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('Detail', 'Mô tả:') !!}
-    {!! Form::textarea('Detail', null, ['class' => 'form-control', 'id' =>'content']) !!}
-</div>
+
 
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('Salient_Features', 'Đặc điểm nổi bật') !!}
@@ -145,6 +142,11 @@
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('Specifications', 'Thông số kỹ thuật:') !!}
     {!! Form::textarea('Specifications', null, ['class' => 'form-control', 'id' =>'content-2']) !!}
+</div>
+
+<div class="form-group col-sm-12 col-lg-12">
+    {!! Form::label('Detail', 'Mô tả:') !!}
+    {!! Form::textarea('Detail', null, ['class' => 'form-control', 'id' =>'content']) !!}
 </div>
 
 <!-- Quantily Field -->

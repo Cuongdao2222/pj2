@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\background;
 
+use App\Models\popup;
+
 class showController extends Controller
 {
 

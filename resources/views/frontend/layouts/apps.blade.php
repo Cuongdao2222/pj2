@@ -540,6 +540,14 @@
                 .mobiles{
                     display: none;
                 }
+                .div-text{
+                    font-size: 10px;
+                    line-height: 10px;
+                }
+                .phones-customn{
+                    font-size: 20px;
+                    line-height: 30px;
+                }
                
             }
            
@@ -683,11 +691,11 @@
                     width: 100px;
                 }
                 .header-pc{
-                    height: 80px;
+                    height: 43px;
                 }
 
                 .header-pc section{
-                    height: 80px;
+                    height: 43px;
                 }
 
                 .header__logo{
@@ -741,13 +749,16 @@
         </div>
 
        
+        <?php  
 
+            $popup = App\Models\popup::find(4);
+        ?>
         <!-- popup quảng cáo  -->
 
         <div id="box-promotion" class="box-promotion box-promotion-active">
             <div class="box-promotion-item" style="width: 500px;height: 500px;left: 701.5px;top: 206px;">
                 <div class="box-banner">
-                    <a href="#" target="_blank" rel="nofollow"><img src="{{ asset('images/banner-popup/banner-popup1.png') }}" alt="XẢ HÀNG ĐÔNG - ĐÓN HÈ"></a>
+                    <a href="#" target="_blank" rel="nofollow"><img src="{{ asset( $popup->image) }}" alt="pop-up"></a>
                 </div>
                 <a class="box-promotion-close" href="javascript:;" title="Đóng lại">[x]</a>
             </div>
@@ -767,8 +778,8 @@
                     </a>
                    
                     <a href="tel: 02473036336" class="header__cart fas-phones">
-                         <i class="fa fa-phone" aria-hidden="true" style="font-size:44px; line-height:44px"></i>
-                         <div>
+                         <i class="fa fa-phone phones-customn" aria-hidden="true"></i>
+                         <div class="div-text">
                             <span class="tel-head">024.7303.6336</span>
                             <span class="tvbhclient">Tư vấn bán hàng</span>
 
@@ -777,13 +788,21 @@
                     </a>
 
                     <a href="https://goo.gl/maps/TozxKHRZeHfrafMt9" class="header__cart fas-phones">
-                         <i class="fa fa-map-marker" aria-hidden="true" style="font-size:44px; line-height:44px"></i>
-                         <div>
+                         <i class="fa fa-map-marker" aria-hidden="true"></i>
+                         <div class="div-text">
                             <span class="tel-head">Xem kho hàng</span>
                             <span class="tvbhclient">Mở cửa 8h-17h</span>
 
                         </div>
                     </a>
+
+                    <form  class="header__search" method="get" action="{{ route('search-product-frontend') }}">
+                        <input id="skw" type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
+                        <button type="submit">
+                        <i class="icon-search"></i>
+                        </button>
+                        <div id="search-result"></div>
+                    </form>
 
 
                     <?php
@@ -808,13 +827,7 @@
 
                   
                    
-                    <form  class="header__search" method="get" action="{{ route('search-product-frontend') }}">
-                        <input id="skw" type="text" class="input-search" placeholder="tìm sản phẩm..." name="key" autocomplete="off" maxlength="100">
-                        <button type="submit">
-                        <i class="icon-search"></i>
-                        </button>
-                        <div id="search-result"></div>
-                    </form>
+                    
 
                     
                    
@@ -866,7 +879,7 @@
                             
 
                            <a href="tel: 02473036336" class="header__cart ">
-                                 <i class="fa fa-phone" aria-hidden="true" style="font-size:22px"></i>
+                                 <i class="fa fa-phone phones-customn" aria-hidden="true" style="font-size:22px"></i>
                             </a>
                         </div>
 

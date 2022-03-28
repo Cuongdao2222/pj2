@@ -39,7 +39,7 @@
             <tbody> 
 
                 <?php
-                    $group_id = $_GET['groupid']
+                    $group_id = $_GET['groupid'];
                    
                     $filter = App\Models\filter::where('group_product_id', $group_id)->get();
                 ?>

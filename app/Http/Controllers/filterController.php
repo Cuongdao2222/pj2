@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Models\filter;
 
 class filterController extends AppBaseController
 {
@@ -124,9 +125,13 @@ class filterController extends AppBaseController
 
         $filter = $this->filterRepository->update($request->all(), $id);
 
-        Flash::success('Filter updated successfully.');
+        $filter_link = filter::find($id);
 
-        return redirect(route('filters.index'));
+        $group_id = $filter_link->group_product_id;
+
+       
+
+        return redirect(route('filters.create').'?groupid='.$group_id);
     }
 
     /**
@@ -148,10 +153,13 @@ class filterController extends AppBaseController
             return redirect(route('filters.index'));
         }
 
+        $filter_link = filter::find($id);
+
+        $group_id = $filter_link->group_product_id;
+        
+
         $this->filterRepository->delete($id);
 
-        Flash::success('Filter deleted successfully.');
-
-        return redirect(route('filters.index'));
+       return redirect(route('filters.create').'?groupid='.$group_id);
     }
 }

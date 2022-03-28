@@ -60,13 +60,29 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        @if(count($property)>0)
+                                    @if(isset($property))
 
                                         <?php  
                                             $product_id = $_GET['productId'];
 
 
+
                                         ?>
+
+                                        @if($product_id !=0)
+
+                                            @foreach($property as $propertys)
+
+                                            <?php
+
+                                                $search_arr = $filters->value;
+
+                                            ?>
+
+                                            <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $product_id }}',  '{{$filters->id}}', '{{ $propertys->id }}')" {{ isset($arr_value[$propertys->id])&& in_array($product_id  ,$arr_value[$propertys->id])?'checked':'' }}> <label for="code">{{ $propertys->name }}</label></span><br></td>
+                                            @endforeach
+                                        @else
+
 
                                         @foreach($property as $propertys)
 
@@ -74,10 +90,20 @@
 
                                             $search_arr = $filters->value;
 
+                                           
                                         ?>
-                                        <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $product_id }}',  '{{$filters->id}}', '{{ $propertys->id }}')" {{ isset($arr_value[$propertys->id])&& in_array($product_id  ,$arr_value[$propertys->id])?'checked':'' }}> <label for="code">{{ $propertys->name }}</label></span><br></td>
+
+
+
+                                        <td valign="top"><span><input type="checkbox"> <label for="code">{{ $propertys->name }}</label></span><br></td>
                                         @endforeach
+
                                         @endif
+
+
+                                        
+                                    @endif
+                                        
                                     </tr> 
                                 </tbody>
                             </table>

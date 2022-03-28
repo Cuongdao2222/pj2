@@ -97,4 +97,7 @@
         @endif
        
     </table>
+
+    <h2>Danh sách thuộc tính con của nhóm</h2>
+    <a href="{{ route('filter-property') }}?group-product={{ $groupProduct }}&productId=0">xem thuộc tính</a>
 @endsection

@@ -125,7 +125,7 @@ class metaSeoController extends AppBaseController
 
         Flash::success('Meta Seo updated successfully.');
 
-        return redirect(route('metaSeos.index'));
+        return redirect(route('products.index'));
     }
 
     /**

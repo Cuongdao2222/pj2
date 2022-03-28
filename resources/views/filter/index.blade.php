@@ -40,7 +40,7 @@
 
                 <?php
                    
-                    $filter = App\Models\filter::get();
+                    $filter = App\Models\filter::where('group_product_id', $product_id)->get();
                 ?>
                 @if(count($filter)>0)
                 @foreach($filter as $filters)
@@ -51,7 +51,7 @@
         
                         $property = App\Models\property::where('filterId', $filters->id)->get();
                     ?>
-                    <td width="120px"><b>{{ $filters->name }}</b><br>Tu_Mat_01<br><span style="color:red">Dùng là bộ lọc</span></td>
+                    <td width="120px"><b>{{ $filters->name }}</b><br><span style="color:red">Dùng là bộ lọc</span></td>
                     <td>
                         <div style="max-height:250px; overflow:auto">
                             <table>

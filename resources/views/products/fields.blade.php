@@ -32,9 +32,9 @@
 
    
 
-<div class="col-md-12">
+<!-- <div class="col-md-12">
      <button>Seo sản phẩm</button><br>
-</div>
+</div> -->
 
 
 <?php  $url_domain =  Config::get('app.url') ?>

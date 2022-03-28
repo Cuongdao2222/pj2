@@ -287,7 +287,7 @@
             </div> -->
             <div class="watched"></div>
             <div class="overlay"></div>
-            {{ $data->links() }}
+            {{ @$data->links() }}
         </section>
         @push('script')
         <script type="text/javascript">

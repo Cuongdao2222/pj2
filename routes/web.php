@@ -18,6 +18,11 @@ Route::get('/tin-khuyen-mai/', 'Frontend\blogController@index')->name('tin')->mi
 
 Route::get('/', 'Frontend\indexController@index')->name('homeFe')->middleware('auth');
 
+Route::get('/ckfinder.html', function () {
+    return view('frontend.ckfinder');
+    
+})->middleware('auth');
+
 
 
 

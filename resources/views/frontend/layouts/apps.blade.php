@@ -757,8 +757,14 @@
 
             
             $popup = App\Models\popup::find(4);
+
+            
         ?>
         <!-- popup quảng cáo  -->
+
+        @if($popup->active==1)
+
+        @if($popup->option ==0)
 
         <div id="box-promotion" class="box-promotion box-promotion-active">
             <div class="box-promotion-item" style="width: 500px;height: 500px;left: 34%;top: 23%;">
@@ -768,8 +774,23 @@
                 <a class="box-promotion-close" href="javascript:void(0)" title="Đóng lại">[x]</a>
             </div>
         </div>
+        @else
+
+        @if(\Request::route()->getName() =="homeFe")
+        <div id="box-promotion" class="box-promotion box-promotion-active">
+            <div class="box-promotion-item" style="width: 500px;height: 500px;left: 34%;top: 23%;">
+                <div class="box-banner">
+                    <a href="#" target="_blank" rel="nofollow"><img src="{{ asset( $popup->image) }}" alt="pop-up"></a>
+                </div>
+                <a class="box-promotion-close" href="javascript:void(0)" title="Đóng lại">[x]</a>
+            </div>
+        </div>
+
+        @endif
+
+        @endif
         
-      
+        @endif
 
 
         <header class="header   theme-lunar-new-year" data-sub="0">
@@ -1597,6 +1618,7 @@
        
 
         // turn off popup
+
         $('.box-promotion-close').bind("click", function(){
 
             if ( typeof(Storage) !== "undefined") {

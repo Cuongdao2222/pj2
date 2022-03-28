@@ -418,34 +418,49 @@ class AjaxController extends Controller
         }
     }
 
-    public function add_promotion(Request $request)
+    public function add_group_promotion(Request $request)
     {
         if($request->ajax()){
 
-            $id_product = $request->product_id;
+            $input['time']       = $request->time;
 
-            $id_gift    = $request->gift_id;
+            $input['group_name'] = $request->name_promotion;
 
-            $time       = $request->time;
+            $input['gift1'] =$request->gift1;
 
-            $promotion  = new promotion();
+            $input['gift2'] =$request->gift2;
 
-            $promotion->id_product = $id_product;
+            if(!empty($request->type)){
 
-            $promotion->id_gift = $id_gift;
+                 $input['type'] = 1;
+            }
+            else{
+                $input['type'] = 0;
+            }
 
-            $promotion->time = $time;
-
-            $promotion->save();
-
-            return response('thanh cong');
-
+            $result = DB::table('group_gift')->insert($input);
+            
+            return response('tạo nhóm gift thành công');
 
         }    
     }
 
+    public function add_gift(Request $request)
+    {
+        if($request->ajax()){
 
+            $input['id_product']       = $request->product_id;
 
+            $input['id_group_gift'] = $request->id_group_gift;
+
+           
+
+            $result = DB::table('promotion')->insert($input);
+            
+            return response('thanh cong');
+
+        }    
+    }
 
 }
 

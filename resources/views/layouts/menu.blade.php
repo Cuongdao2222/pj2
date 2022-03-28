@@ -106,7 +106,7 @@
 </li>
 
 
-
+@if(Auth::user()->id==2 || Auth::user()->id==1)
 
 <li class="nav-item">
     <a href="{{ route('products.index') }}"
@@ -114,6 +114,19 @@
         <p>Sản phẩm</p>
     </a>
 </li>
+
+@endif
+
+@if(Auth::user()->id==1)
+
+<li class="nav-item">
+    <a href="{{ route('view-user') }}"
+       class="nav-link {{ Request::is('products*') ? 'active' : '' }}">
+        <p>Quản trị người dùng</p>
+    </a>
+</li>
+
+@endif
 
 <li class="nav-item">
     <a href="{{ route('banners.index') }}"

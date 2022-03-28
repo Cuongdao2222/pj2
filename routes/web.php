@@ -103,6 +103,18 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
         
     })->name('rate-client');
 
+    Route::get('view-user', function () {
+
+        if(Auth::user()->permision==1){
+            return view('user.index');
+        }
+        else{
+            echo"bạn không có quyền vào trang này";
+        }
+        
+        
+    })->name('view-user');
+
 
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 
@@ -162,6 +174,10 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
     Route::post('filter-price-product', 'AjaxController@filterByValue')->name('filter-option');
 
      Route::post('add-promotion', 'AjaxController@add_promotion')->name('add-promotion');
+
+    Route::post('add-group-gift', 'AjaxController@add_group_promotion')->name('add-group-gift');
+
+    Route::post('add-gift', 'AjaxController@add_gift')->name('add-gift');
 
      Route::post('accept-rate', 'AjaxController@accept_rate')->name('accept-rate');
 

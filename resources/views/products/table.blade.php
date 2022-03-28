@@ -88,6 +88,7 @@
             <td><input type="checkbox" id="hot{{ $product->id }}" name="hot"  onclick='handleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_hot)?'checked':'' }}></td>
             <td><input type="checkbox" id="sale{{ $product->id }}" name="sale"  onclick='saleClick({{ $product->id }});' data-id ="{{ $product->Group_id }}" {{ in_array($product->id, $list_sales)?'checked':'' }}></td>
 
+            
             <?php  
 
                 $promotion = App\Models\promotion::where('id_product', $product->id)->get()->last(); 
@@ -96,22 +97,44 @@
 
                 if(!empty($promotion)){
 
-                    $convert_time = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $promotion->created_at);
+                    // $convert_time = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $promotion->created_at);
 
-                    $convert_time = $convert_time->addDays($product->time);
+                    // $convert_time = $convert_time->addDays($product->time);
 
-                    $result_time = $convert_time->diffInHours($now);
+                    // $result_time = $convert_time->diffInHours($now);
 
-                    if(!empty($promotion)&& $result_time>=0 &&$promotion->id_gift!=0){
-                        $gift = App\Models\gift::find($promotion->id_gift);
+                    // if(!empty($promotion)&& $result_time>=0 &&$promotion->id_gift!=0){
+                    //     $gift = App\Models\gift::find($promotion->id_gift);
 
-                    }
+                    // }
                     
                 } 
+
+                $group_gift = DB::table('group_gift')->select('id', 'group_name')->get();
+
+                $promotion = DB::table('promotion')->where('id_product', $product->id)->first();
+
+                $id_group_gift = $promotion->id_group_gift??'';
+
+               
+
+                
                 
             ?>
+
+
             
-            <td><?php   ?>{{ !empty($promotion)&&!empty($gift)?$gift->name:'' }}</td>
+            <td>
+                <select id="gift" onchange="add_gift_group({{ $product->id }})">
+                    <option value="0">Không chọn</option>
+                    @if(isset($group_gift))
+                    @foreach($group_gift as $value)
+                    <option value="{{ $value->id }}" {{ $id_group_gift == $value->id?'selected':'' }}>{{ $value->group_name }}</option>
+                    @endforeach
+                    @endif
+
+                       
+                </select></td>
             <td><input type="checkbox" id="active{{ $product->id }}" name="active" onclick='active({{ $product->id }})'   {{ $product->active==1?'checked':'' }}></td>
 
 
@@ -152,6 +175,7 @@
         </tbody>
     </table>
 </div>
+
 <input type="hidden" name="product-click" id="product-click">
 <!-- Modal -->
 <div class="modal fade" id="modal-gift" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -170,25 +194,83 @@
                 ?>
                 @isset($gift)
                 <form>
-                   
+                    <label for="username">Tên nhóm khuyến mãi:</label><br>
+                    <input type="text" name="name_group_promotion" id="name_group_promotion" required><br>
+                    <label for="type">Kiểu chọn:</label><br>
+
+                    <input id= "type" name="type" type="checkbox" value="1" /> 1 trong 2<br>
+
+
+                    
                     <label for="username">Chọn quà tặng kèm:</label><br>
-                    <select id="gift">
+                    <select id="gift1">
                         <option value="0">Không chọn</option>
                         @foreach($gift as $value)
                         <option value="{{ $value->id }}">{{ $value->name }}</option>
                         @endforeach
                        
-                    </select><br>
-                    <label for="pwd">Nhập số ngày khuyến mãi:</label><br>
+                    </select>
+
+                    <select id="gift2">
+                        <option value="0">Không chọn</option>
+                        @foreach($gift as $value)
+                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                        @endforeach
+                       
+                    </select>
+
+                    <br>
+                    <label for="pwd">Nhập số giờ khuyến mãi:</label><br>
                     <input type="text" id="time" name="time" required>
 
                 </form>
                 @endisset
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" onclick="selectGift()">Xác nhận</button>
             </div>
+
+            <hr>
+
+            <h2>Danh sách nhóm quà tặng</h2>
+
+            <?php 
+
+                $list = DB::table('group_gift')->get();
+
+                $gifts_list = DB::table('gifts')->select('name')->get()->toArray();
+            ?>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Nhóm khuyến mãi</th>
+                        <th>Quà 1</th>
+                        <th>Quà 2</th>
+                        <th>kiểu chọn</th>
+                    </tr>
+                    @isset($list)
+                    @foreach($list as $lists)
+                    <tr>
+                        <td>{{ $lists->group_name  }}</td>
+                        <?php  $gift1 = DB::table('gifts')->select('name')->where('id', $lists->gift1)->first();  $gift2 = DB::table('gifts')->select('name')->where('id', $lists->gift2)->first();   ?>
+                        
+                        <td>{{  @$gift1->name }} </td>
+                        <td>
+                           {{ @$gift2->name }}
+                        </td>
+                        <td>{{ $lists->type==1?'chọn 1 trong 2 sản phẩm':'chọn toàn bộ sản phẩm' }}</td>
+                    </tr>
+                    @endforeach   
+                    @endif
+                                   
+                </tbody>
+            </table>
+
+
         </div>
     </div>
 </div>
@@ -205,10 +287,43 @@
 
     }
 
+    function add_gift_group(product_id) {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+       
+        $.ajax({
+           
+            type: 'POST',
+            url: "{{ route('add-gift') }}",
+            data: {
+                
+                product_id:product_id,
+                id_group_gift:$('#gift').val(),
+                   
+            },
+            success: function(result){
+
+                console.log('thanh cong');
+                
+            }
+        });
+        
+    }
+
     function selectGift() {
 
-        product_id = $('#product-click').val();
-        gift_id    = $('#gift').val();
+        type = $('#type').val();
+        name_promotion    = $('#name_group_promotion').val();
+
+        gift2    = $('#gift2').val();
+
+        gift1    = $('#gift1').val();
+
         time       = $('#time').val();
         $.ajaxSetup({
             headers: {
@@ -220,11 +335,14 @@
         $.ajax({
            
             type: 'POST',
-            url: "{{ route('add-promotion') }}",
+            url: "{{ route('add-group-gift') }}",
             data: {
-                product_id: product_id,
-                gift_id: gift_id,
+                
+                gift1: gift1,
+                gift2: gift2,
                 time:time,
+                type:type,
+                name_promotion:name_promotion,
 
                    
             },
@@ -232,7 +350,7 @@
 
                 $('#modal-gift').modal('hide');
                 alert(result);
-                location.reload();
+                
             }
         });
 

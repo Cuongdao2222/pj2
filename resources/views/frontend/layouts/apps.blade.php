@@ -756,7 +756,7 @@
         <!-- popup quảng cáo  -->
 
         <div id="box-promotion" class="box-promotion box-promotion-active">
-            <div class="box-promotion-item" style="width: 500px;height: 500px;left: 34%;top: 206px;">
+            <div class="box-promotion-item" style="width: 500px;height: 500px;left: 34%;top: 23%;">
                 <div class="box-banner">
                     <a href="#" target="_blank" rel="nofollow"><img src="{{ asset( $popup->image) }}" alt="pop-up"></a>
                 </div>

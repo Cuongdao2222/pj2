@@ -43,7 +43,7 @@
         <li id="tab_1"><a href="?opt=system&amp;view=store-design&amp;section=header">Phần header</a></li>
         <li id="tab_2" class="tab-select"><a href="?opt=system&amp;view=store-design&amp;section=popup">Banner Pop-Up</a></li>
         <li id="tab_3"><a href="#" onclick="imageCss()">Hình nền website</a></li>
-        <li id="tab_4"><a href="#" onclick="muchSearch()">Tìm kiếm nhiều</a></li>
+        <li id="tab_4"><a href="javascript:void(0)" onclick="muchSearch()">Tìm kiếm nhiều</a></li>
         
     </ul>
     <form method="post" enctype="multipart/form-data" action="{{route('add-popup')}}">
@@ -145,41 +145,57 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thay Ảnh nền</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Link tìm kiếm nhiều</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" action="{{ route('add-image-background') }}">
+                <form method="post" action="{{ route('add-image-background') }}" id="form-search-link">
                     @csrf
-                    <!-- <p class="sub-section-header">Thay Ảnh nền</p> -->
-                    <p style="color:#F00; margin-bottom:20px">Bạn có thể thay nền website bằng màu hoặc hình ảnh. Với file ảnh, yêu cầu là  .jpg, .gif, hoặc .png và dung lượng tối đa 300KB.</p>
+                    
                     <table>
                         <tbody>
+
                             <tr>
-                                <td>Dùng màu nền: </td>
+                                <td>Title: </td>
                                 <td>
-                                    <script type="text/javascript" src="/includes/js/jscolor/jscolor.js"></script>
-                                    <input type="text" class="color" name="background_color" value="FFFFFF"> (&lt;- click chuột vào ô để chọn màu)
+                                    
+                                    <input type="text" class="color" name="background_color" id="title" required> 
                                 </td>
                             </tr>
                             <tr>
-                                <td>Dùng file ảnh</td>
+                                <td>Link</td>
                                 <td>
-                                    <input type="file" name="background_image" size="50">
+                                    <input type="text" class="color" name="link" id="link" required> 
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
+                    
                     
                 </form>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="muchSearchs()">Save changes</button>
+                </div>
+
+                <hr>
+                <div class="append-link">
+                    <?php $link = DB::table('muchsearch')->get();  ?>
+
+                    @if(isset($link))
+                        @foreach($link as $links)
+                            <a href="{{ $links->link }}">{{ $links->title }}</a>
+                        @endforeach
+                    @endif
+                </div>
+
             </div>
+
+
             
         </div>
     </div>
@@ -187,6 +203,31 @@
 
 
 <script type="text/javascript">
+
+    function muchSearchs() {
+       $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    
+        $.ajax({
+           
+            type: 'POST',
+            url: "{{ route('muchSearch') }}",
+            data: {
+                title: $('#title').val(),
+                link:$('#link').val()
+                   
+            },
+            success: function(result){
+                $('.append-link').append(result);
+            }
+        });
+    }
+    
+
+
 
     function imageCss() {
         $('#cssimageModel').modal('show');

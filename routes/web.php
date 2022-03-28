@@ -87,6 +87,10 @@ Route::get('/{slug}', 'Frontend\categoryController@details')->name('details')->m
 
 Route::post('ajax-clent-register', 'AjaxController@registerClient')->name('register-client-fe');
 
+Route::post('muchsearch', 'AjaxController@muchSearch')->name('muchSearch');
+
+Route::post('get-email-user', 'AjaxController@getEmail')->name('getemail');
+
 
 
 

@@ -478,10 +478,15 @@
 
         <div class="bottom-search">
             <p>Tìm kiếm nhiều:</p>
-            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a> 
-            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a>
-            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a>
-            <a href="/kinh-nghiem-hay/6-dieu-dang-mong-doi-o-sieu-pham-iphone-13-iphone-1332649">• Iphone 13</a>
+
+            <?php  $link =  DB::table('muchsearch')->get();  ?>
+
+            @isset($link)
+            @foreach($link as $links)
+            <a href="{{ $links->link }}">• {{@$links->title  }}</a> 
+            @endforeach
+            @endif
+           
 
         </div>
         

@@ -113,6 +113,32 @@ class AjaxController extends Controller
         
     }
 
+    public function getEmail(Request $request)
+    {
+        if($request->ajax())
+        {
+            $validator = Validator::make($request->all(), [
+           'email' => 'required|email|unique:user_email',
+           
+           ]);
+            
+           if ($validator->fails()) {
+
+                return response($validator->messages()->first());
+                
+           }
+           else{
+                $input['email'] = $request->email;
+                
+                $result = DB::table('user_email')->insert($input);
+                return response('Đăng ký thành công');
+
+           }
+        }    
+
+        
+    }
+
     public function removeHotProduct(Request $request)
     {
         $product_id = $request->product_id;
@@ -458,6 +484,23 @@ class AjaxController extends Controller
             $result = DB::table('promotion')->insert($input);
             
             return response('thanh cong');
+
+        }    
+    }
+
+    public function muchSearch(Request $request)
+    {
+        if($request->ajax()){
+
+            $input['link']       = $request->link;
+
+            $input['title'] = $request->title;
+
+           
+
+            $result = DB::table('muchsearch')->insert($input);
+            
+            return response('<a href="'.$request->link.'">'.$request->title.'</a><br>');
 
         }    
     }

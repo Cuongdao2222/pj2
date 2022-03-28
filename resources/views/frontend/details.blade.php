@@ -774,15 +774,33 @@
 
          <?php
             $now = Carbon\Carbon::now();
-            $promotion =  promotion_product($data->id, $now); 
+            
+            
+            $promotion = DB::table('promotion')->where('id_product', $data->id)->get()->first();
+
+
+            if(!empty($promotion)){
+                $gifts     = DB::table('group_gift')->where('id', $promotion->id_group_gift)->first();
+
+
+                $gift1 = DB::table('gifts')->where('id',  $gifts->gift1)->first();  
+
+                $gift2 = DB::table('gifts')->where('id',  $gifts->gift2)->first();  
+
+            }
+  
          ?>
         @if(!empty($promotion ))      
         <div class="promo line_h19">
-           
-            <div class="txt_b">Khuyến mại</div>
+
+            <div class="txt_b">Khuyến mại: {{ $gifts->type ==1?'Lựa chọn 1 trong 2 sản phẩm sau':'' }}</div>
             <div style="display: flex;">
-                <img src="{{ asset($promotion->image) }}" height="30px" width="30px">
-                <p>{{ $promotion->name }}</p>
+                <img src="{{ asset($gift1->image) }}" height="30px" width="30px">
+                <p>{{ $gift1->name }}</p>
+                <br>
+
+                <img src="{{ asset($gift2->image) }}" height="30px" width="30px">
+                <p>{{ $gift2->name }}</p>
                 
             </div>
         

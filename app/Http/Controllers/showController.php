@@ -53,10 +53,14 @@ class showController extends Controller
 
             $input['background_image'] = $filePath;
 
+            $input['background_color'] = '';
+
         }
         else{
 
             $input['background_color'] = $request->background_color;
+
+            $input['background_image'] = '';
 
         }
 

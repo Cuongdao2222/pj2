@@ -72,7 +72,7 @@
             line-height: 16px;
             width: 100%;
             display: flex;
-            padding: 0 35px;
+            padding: 0 24px;
             height: 43px;
             align-items: center;
             position: relative;
@@ -110,10 +110,8 @@
 
 
 
-        /*body.theme-lunar-new-year {
-            background-image: url(//cdn.tgdd.vn/mwgcart/mwg-site/ContentMwg/images/lunar_new_year/Background/bg_dmx.png);
-        }    
-*/
+       
+
         .product_list_cart .col_input input, .product_list_cart .col_input a {
             width: 35px;
             height: 30px;
@@ -388,7 +386,9 @@
           /*  phần responsive*/
 
             @media screen and (max-width: 776px){
-
+                .box-promotion-active{
+                    display: none !important;
+                }
                 .header__top section{
                     display: block !important;
                 }
@@ -553,6 +553,25 @@
            
         </style>
 
+        <?php  $background = App\Models\background::find(1); ?> 
+        @if(!empty($background->background_image))
+        <style type="text/css">
+            
+
+             body.theme-lunar-new-year {
+                background-image: url('{{ asset($background->background_image)  }}');
+            }    
+        </style>
+        @else
+
+        <style type="text/css">
+            
+
+             body.theme-lunar-new-year {
+                background:'#'{{ asset($background->background_image)  }};
+            }    
+        </style>
+        @endif
 
         @stack('style')
         
@@ -953,7 +972,7 @@
                                 <i class="fa fa-television" aria-hidden="true"></i>
                                 <span>Tivi</span>
                             </a>
-                            <div class="navmwg accessories tivi-child">
+                            <!-- <div class="navmwg accessories tivi-child">
                                 <div class="PKDD">
                                     <strong>Phụ kiện di động</strong>
                                     <a href="/sac-dtdd">
@@ -1086,7 +1105,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
                         <li>
                             <a href="/tu-lanh" class="list-mn">
@@ -1094,17 +1113,26 @@
                             <span>Tủ lạnh</span>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="/may-giat" class="list-mn">
+                            <i class="icon-tulanh"></i>
+                            <span>Máy giặt</span>
+                            </a>
+                        </li>
+
+
                         <li class="child" data-id="may-giat-child">
                             <a class="list-mn" href="/may-giat">
                                 <i class="icon-maygiat"></i>
                                 <span>Máy giặt</span>
                             </a>
 
-                            <div class="navmwg may-giat-child">
+                            <!-- <div class="navmwg may-giat-child">
                                 <a href="/dong-ho"><h3>Đồng hồ thời trang</h3></a>
                                 <a href="/trang-suc"><h3>Trang sức</h3></a>
                                 <a href="/mat-kinh"><h3>Mắt kính</h3></a>
-                            </div>
+                            </div> -->
 
                         </li>
 
@@ -1126,6 +1154,20 @@
                             <a class="list-mn" href="#">
                                 <i class="icon-diengiadung"></i>
                                 <span>Tủ đông</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="list-mn" href="#">
+                                <i class="icon-diengiadung"></i>
+                                <span>A.O.Smith</span>
+                            </a>
+                        </li>
+
+                         <li>
+                            <a class="list-mn" href="#">
+                                <i class="icon-diengiadung"></i>
+                                <span>Tủ Mát</span>
                             </a>
                         </li>
                       
@@ -1597,27 +1639,12 @@
 
 
     @stack('script')
+
+    @if($popup->option ==0)
     <script type="text/javascript">
-
-        $('.register-forms').click(function(){
-            $("#Modal-login").modal("hide");
-            $("#Modal-register").modal("show");
-        })
-
-        $('.logins-modal').click(function(){
-             $("#Modal-login").modal("show");
-
-
-        })
-
-        $('.register-form').click(function(){
-             $("#Modal-register").modal("show");
-
-
-        })
-       
-
+        
         // turn off popup
+
 
         $('.box-promotion-close').bind("click", function(){
 
@@ -1638,6 +1665,49 @@
              $('.box-promotion-active').hide();
 
         }
+
+        
+    </script>
+
+    @else
+
+    <script type="text/javascript">
+
+    $('.box-promotion-close').bind("click", function(){
+
+           
+            $('.box-promotion-active').hide();
+
+    });
+
+
+    </script>
+
+    @endif
+
+    <script type="text/javascript">
+
+        $('.register-forms').click(function(){
+            $("#Modal-login").modal("hide");
+            $("#Modal-register").modal("show");
+        })
+
+        $('.logins-modal').click(function(){
+             $("#Modal-login").modal("show");
+
+
+        })
+
+        $('.register-form').click(function(){
+             $("#Modal-register").modal("show");
+
+
+        })
+       
+
+
+
+
 
         // hover menu
 
@@ -1662,7 +1732,27 @@
             else{
                 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
                 {
-                    alert('Quý khách đã đăng ký thành công');
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                
+                    $.ajax({
+                       
+                        type: 'POST',
+                        url: "{{ route('getemail') }}",
+                        data: {
+                            email: $('#email_newsletter').val(),
+                           
+                               
+                        },
+                        success: function(result){
+                            alert(result);
+                        }
+                    });
+                    
                 }
                 else{
                     alert('email không đúng đinh dạng');

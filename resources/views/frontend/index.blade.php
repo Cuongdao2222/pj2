@@ -422,7 +422,7 @@
                                 <div class="item-img">
                                     <img data-src="{{ asset($datas->Image) }}" class="lazyload" alt="{{ $datas->Name }}" width=210 height=210>
 
-                                     <img src="{{ asset('images/saker/'.strtolower($Maker[$datas->Maker]['maker']).'.png') }}" class="item-saker">
+                                     
                                 </div>
                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
                                 <h3>{{ $datas->Name }}</h3>

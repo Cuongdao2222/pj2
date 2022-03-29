@@ -70,6 +70,240 @@
             }
 
 
+            /*flashsale*/
+
+            .flash-sale {
+                display: flex;
+                display: -webkit-flex;
+                background: #fff;
+                width: 100%;
+                border: 2px
+        
+             solid #FE0000;
+                box-sizing: border-box;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .img {
+
+                width: 220px;
+                padding: 10px;
+
+
+            }    
+
+            .flash-sale .flash-product .col-flash-2 .item .desc{
+                width: calc(100% - 220px);
+                width: -webkit-calc(100% - 220px);
+                padding: 19px 0 0 0
+            }
+
+            .flash-sale .flash-product .img img {
+                max-width: 100%;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc h4.title{
+                max-height: 32px;
+            }
+            .flash-sale .flash-product .col-flash-2 .item:nth-child(1) {
+                border-right: 1px solid #f3f5f7;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .container-price .price-old{
+                margin-left: 7px;
+                font-size: 14px;
+                line-height: 16px;
+                color: #a6a6a6;
+                text-decoration: line-through;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item {
+                display: flex;
+                display: -webkit-flex;
+                height: 100%;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item:nth-child(1) {
+                border-right: 1px solid #f3f5f7;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .title-shock-price{
+                margin-top: 6px;
+                margin-bottom: 4px;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 1.20;
+                color: #3F3F3F;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc h4.title {
+                font-size: 14px;
+                line-height: 1.20;
+                width: 184px;
+                color: #3f3f3f;
+                overflow: hidden;
+            }
+
+            .flash-sale .flash-product {
+                width: calc(100% - 256px);
+                width: -webkit-calc(100% - 256px);
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc h4.title {
+                font-size: 14px;
+                line-height: 1.20;
+                width: 184px;
+                color: #3f3f3f;
+                overflow: hidden;
+            }
+            .flash-sale .flash-product .col-flash-2 .item .img{
+                width: 220px;
+                padding: 10px;
+                display: flex;
+                display: -webkit-flex;
+                align-items: flex-start;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .container-timeline span.timeline::before {
+                content: "";
+                width: 100%;
+                height: 10px;
+                border-radius: 8px;
+                background-color: #d4d7d9;
+                display: block;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .container-timeline span.timeline::before {
+                content: "";
+                width: 100%;
+                height: 10px;
+                border-radius: 8px;
+                background-color: #d4d7d9;
+                display: block;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .container-timeline span.timeline::before {
+                content: "";
+                width: 100%;
+                height: 10px;
+                border-radius: 8px;
+                background-color: #d4d7d9;
+                display: block;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd {
+                width: 100%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .container-price .reduce-percent{
+                display: inline-grid;
+                justify-content: center;
+                align-content: center;
+                width: 46px;
+                height: 22px;
+                background: #EE1E25;
+                border-radius: 4px;
+                font-size: 14px;
+                line-height: 14px;
+                color: #FFF;
+            }
+
+            .nk-top-stickers .nk-sticker.nk-new{
+                background: #1FB349;
+                border-radius: 2px;
+                color: #FFFFFF;
+                z-index: 4
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .nk-sticker {
+                font-size: 10px;
+                line-height: 14px;
+                margin-right: 4px;
+                padding: 3px;
+                float: left;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .container-price .black-price {
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 1.20;
+                color: #3F3F3F;
+                margin-bottom: 3px;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .title-shock-price {
+                margin-top: 6px;
+                margin-bottom: 4px;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 1.20;
+                color: #3F3F3F;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .title-shock-price {
+                margin-top: 6px;
+                margin-bottom: 4px;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 1.20;
+                color: #3F3F3F;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .price-new {
+                font-weight: bold;
+                font-size: 22px;
+                line-height: 1.20;
+                color: #EE1E25;
+            }
+            [class^="nki-"], [class*="nki-"]{
+                font-family: 'nk-font' !important;
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiase
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .review_product {
+                display: flex;
+                font-size: 12px;
+                margin-top: 7px;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .review_product{
+                display: flex;
+                font-size: 12px;
+                margin-top: 7px;
+            }
+
+            .nki-Star-o-new:before {
+                content: "\e960";
+                color: #ff6b00;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .review_product .reviewCount {
+                color: #A6A6A6;
+            }
+
+            .time{
+
+                background: #000;
+                border-radius: 13px;
+                width: 96px;
+
+            }
+            .hours, .minutes{
+                color: #fff;
+                font-weight: 700;
+            }
+
+
+
+
 
             @media screen and (max-width: 776px){
 
@@ -319,10 +553,72 @@
         <!-- Mời đánh giá sản phẩm đã mua -->
         <!-- End -->
         <!-- Săn sale online -->
+
+
+        <!-- flash sale -->
+            <div class="row">
+                <div class="flash-sale" style="height: 398px;">
+                    <span id="banner-flash-sale"><a href="https://www.nguyenkim.com/loa-di-dong-energizer-bts106bk.html">
+                    <img width="256" src="https://cdn.nguyenkimmall.com/images/companies/_1/MKT_ECM/0820/Flash_Sale_Theme_256x396.png" style="width: 256px; height: 396px" alt="banner-fs">
+                    </a></span>
+                    <div class="flash-product nk-product-of-flash-sales">
+                        <div class="col-flash col-flash-2 active">
+                            <div id="sync1S" class="slider-banner owl-carousel homebanners">
+
+                                <div class="item">
+                                    <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
+                                        <div class="img">
+                                            <img width="327" src="https://cdn.nguyenkimmall.com/images/thumbnails/200/200/thumbnails/250/250/detailed/763/10050489-ban-ui-hoi-nuoc-philips-dst3030-70-1.jpg" title="Bàn ủi hơi nước Philips DST3030/70">
+                                        </div>
+                                    </a>
+                                    <div class="desc">
+                                      <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
+                                        <h4 class="title">Bàn ủi hơi nước Philips DST3030/70</h4>
+                                        <div class="container-price">
+                                               <div>
+                                                    <p class="black-price">890.000đ</p><p class="reduce-percent">-29%</p><span class="price-old">1.190.000đ</span>
+                                               </div>
+                                        </div>
+                                        <div style="margin-top: 11px">
+                                            <div class="nk-top-stickers"><span class="nk-sticker nk-new">Mới</span></div><div>
+                                                    <p class="title-shock-price">Giá sốc online</p>
+                                                    <span class="price-new">849.000đ</span>
+                                                </div>
+                                        </div><div class="review_product star"><span class="star_icon_avg_rate_npv" 0="" 5="" title="0/5"><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span></span><div class="line_break">|</div><div class="reviewCount">0 đánh giá</div></div><div class="container-timeline">
+                                            <span class="timeline"><span style="width: 2%"></span></span>
+                                            <p>Đã bán <span style="color: #EE1E25">2</span> / 100 sản phẩm</p>
+                                        </div>
+                                        <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
+                                        <div class="countdown-flash-sale">
+                                            <div class="time-cd time-fl"><h4>Kết thúc trong</h4><div class="time"><span class="hours"> 6<div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div><span>Giờ</span></span><p style="font-size: 28px; line-height: 18px;font-weight: bold;color: #101010; margin: 0 7px">:</p><span class="minutes"> 39<div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div><span>Phút</span></span><h1 style="text-transform: uppercase; font-size: 28px; line-height: 18px;font-weight: bold;color: #101010; margin: 0 7px">:</h1><span class="seconds"> 00<div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div><span>Giây</span></span></div></div>
+                                        </div>
+                                      </a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+           <!--  end flash  -->
+
+           <div class="clearfix"></div>  
+
+
         <div class="prd-promo has-banner" style="background-color:#FFE602; " data-html-id="3109">
+
+
+
+
+
+
             <div class="prd-promo__top clearfix" >
                 <a data-cate="0" data-place="1868" href="#" ><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
             </div>
+
 
 
 
@@ -371,7 +667,10 @@
                 
             </div>
             @endif
-            <!-- <a class="readmore-btn" href="https://www.dienmayxanh.com/flashsale#game"><span>Xem tất cả</span></a> -->
+
+
+
+            
         </div>
 
         <?php

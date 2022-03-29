@@ -67,12 +67,16 @@
             align-items: center;
             position: relative;
         } 
+
+        .menu-section span{
+            font-weight: bold;
+        }
         .list-mn{
             color: #000;
             line-height: 16px;
-            width: 100%;
+            width: 124px;
             display: flex;
-            padding: 0 24px;
+            /*padding: 0 24px;*/
             height: 43px;
             align-items: center;
             position: relative;
@@ -531,7 +535,11 @@
                 }
                 .category {
                     width: 100% !important;
-                }    
+                }  
+
+                .list-menu li{
+                    width: 100px;
+                }  
 
 
             }
@@ -862,10 +870,6 @@
 
                         <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:22px"></i>
                         <b id="count_shopping_cart_store"><span class="number-cart">{{ $number_cart }}</span></b>
-
-                        
-                        <!-- <i class="icon-cart">{{ $number_cart }}</i> -->
-                        <!-- <span>Giỏ hàng</span> -->
                     </a>
 
                     @if(!empty($userClient)&& $userClient=='Đăng nhập thành công')
@@ -879,13 +883,21 @@
                         </a>
                     
                     @else
-                    <a rel="nofollow" class="logins-modal" href="javascript:void(0)">
+
+                    <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+
+                        <i class="fa fa-user" aria-hidden="true" style="font-size:22px"></i>
+                        
+                    </a>
+
+
+                   <!--  <a rel="nofollow" class="logins-modal" href="javascript:void(0)">
                         <span style="color:#fff; font-size: 12px;">Đăng nhập</span>
                     </a>
                 
                     <a rel="nofollow" class="register-form" href="javascript:void(0)">
                         <span style="color: #fff; font-size:12px;">Đăng ký</span>
-                    </a>
+                    </a> -->
                     @endif
 
                                
@@ -1168,6 +1180,13 @@
                             <a class="list-mn" href="#">
                                 <i class="icon-diengiadung"></i>
                                 <span>Tủ Mát</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="list-mn" href="#">
+                                <i class="icon-diengiadung"></i>
+                                <span>Tủ Đông</span>
                             </a>
                         </li>
                       

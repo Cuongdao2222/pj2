@@ -3,7 +3,7 @@
     {!! Form::label('image', 'Image:') !!}
     <div class="input-group">
         <div class="custom-file">
-            {!! Form::file('image', ['class' => 'custom-file-input']) !!}
+            {!! Form::file('image[]', ['class' => 'custom-file-input', 'multiple']) !!}
             {!! Form::label('image', 'Choose file', ['class' => 'custom-file-label']) !!}
         </div>
     </div>

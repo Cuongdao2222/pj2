@@ -60,24 +60,26 @@ class imageController extends AppBaseController
 
             $file_upload = $request->file('image');
 
-            $name = time() . '_' . $file_upload->getClientOriginalName();
+            foreach ($file_upload as $key => $value) {
+                $name = time() . '_' . $value->getClientOriginalName();
 
-            $filePath = $file_upload->storeAs('uploads/product', $name, 'public');
+                $filePath = $value->storeAs('uploads/product', $name, 'public');
 
-            $input['image'] = $filePath;
+                $input['image'] = $filePath;
 
-            $input['link'] = $filePath;
+                $input['link'] = $filePath;
+
+                $input['order'] = 0;
+
+                $image = $this->imageRepository->create($input);
+            }
+
+            Flash::success('Image saved successfully.');
+
+            return redirect()->back();
+            
         }
 
-        if(empty($request->order)){
-            $input['order'] = 0;
-        }
-
-        $image = $this->imageRepository->create($input);
-
-        Flash::success('Image saved successfully.');
-
-        return redirect()->back();
     }
 
     /**

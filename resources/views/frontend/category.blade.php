@@ -5,7 +5,11 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/category.css') }}"> 
 
         <style type="text/css">
-        
+            
+
+            .item-img_1942{
+                height: 290px;
+            }
             .breadcrumb{
                 padding: 0;
             }

@@ -131,6 +131,20 @@
                 margin-top: 10px;
 
             }
+
+            .but-1-gop{
+                background: #ffde00;
+                border-bottom: 0;
+                width: 134.97px !important;
+                text-align: center;
+            }
+            /*.space10px{
+                width: 270px;
+            }*/
+            .buy-nows-popup{
+                width: 271px;
+                text-align: center;
+            }
             
             @media screen and (max-width: 776px){
                 section.detail {
@@ -165,6 +179,7 @@
                  .box_left{
                     padding: 15px;
                  }
+
                  
             }    
         </style>
@@ -813,7 +828,7 @@
     
     <div class="clear space10px in">
      
-        <a class="btn-buy txt_center cor5px" onclick="addToShoppingCart('pro','3036',document.getElementById('s_quantity').value,'2350000');" href="javascript:;">
+        <a class="btn-buy txt_center cor5px buy-nows-popup" onclick="addToShoppingCart('pro','3036',document.getElementById('s_quantity').value,'2350000');" href="javascript:;">
             <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Mua ngay</span>
         </a>
 
@@ -822,7 +837,7 @@
     </div>
 
     <div class="clear space10px credit">
-        <a class="btn-buy txt_center cor5px"  href="javascript:;" style="background: #ffde00; border-bottom: 0;" >
+        <a class="btn-buy txt_center cor5px but-1-gop"  href="javascript:;" style="background: #ffde00; border-bottom: 0;" >
             <i class="fa fa-shopping-cart"></i> <span class="txt_15" onclick="addToCart({{ $data->id }})">Trả góp</span>
         </a>
 

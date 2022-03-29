@@ -12094,7 +12094,7 @@ h1 {
 .homebanner-container {
 	width: calc(100% - 350px);
 	height: 370px;
-	padding: 10px 0 0 10px
+	/*padding: 10px 0 0 10px*/
 }
 
 #sync1 .owl-prev,

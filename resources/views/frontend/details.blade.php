@@ -372,11 +372,40 @@
                         </div>
                     </div>
 
-                    <div class="total-imgslider">
+                    <!-- <div class="total-imgslider">
                         <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-toggle="modal" data-target="#Salient_Features" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
                        
                     </div>
 
+                    <div class="scrolling_inner">
+                        <div class="box01__tab scrolling">
+                            <div id="thumb-featured-images-gallery-0" class="item itemTab active " data-gallery-id="featured-images-gallery" data-color-id="0" data-is-full-spec="False" data-color-order-id="0" data-isfeatureimage="True">
+                                <div class="item-border">
+                                    <i class="icondetail-noibat"></i>
+                                </div>
+                                <p>Điểm nổi bật</p>
+                            </div>
+                            <div id="thumb-color-images-gallery-12" class="item itemTab  " data-gallery-id="color-images-gallery" data-color-id="12" data-is-full-spec="False" data-color-order-id="0" data-isfeatureimage="True">
+                                <div class="item-border">
+                                    <img data-src="//cdn.tgdd.vn/Products/Images/3385/200078/aosmith-c1-8-180x120.jpg" alt="Trắng" width="41" height="41" loading="lazy" class=" lazyloaded" src="//cdn.tgdd.vn/Products/Images/3385/200078/aosmith-c1-8-180x120.jpg">
+                                </div>
+                                <p>Trắng</p>
+                            </div>
+                            <div id="thumb-specification-gallery-0" class="item itemTab  is-show-popup" data-gallery-id="specification-gallery" data-color-id="0" data-is-full-spec="True" data-color-order-id="0" data-isfeatureimage="True">
+                                <div class="item-border">
+                                    <i class="icondetail-thongso"></i>
+                                </div>
+                                <p>Thông số kỹ thuật</p>
+                            </div>
+                            <div id="thumb-article-gallery-0" class="item itemTab  is-show-popup" data-gallery-id="article-gallery" data-color-id="0" data-is-full-spec="False" data-color-order-id="0" data-isfeatureimage="True">
+                                <div class="item-border">
+                                    <i class="icondetail-danhgia"></i>
+                                </div>
+                                <p>Thông tin sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+ -->
                     <div class="modal fade" id="Salient_Features" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -466,12 +495,7 @@
                         <div class="pop">
                         </div>
                     </div>
-                    <div class="box-available"></div>
-                    <div class="border7"></div>
-                   
-                    <div class="border7"></div>
-                    <div class="border7"></div>
-                   
+                  
                     <div class="content">
                         {!! $data->Detail !!}
                     </div>
@@ -594,25 +618,25 @@
                     ?>
                     @if(isset($comment))
                     @foreach($comment as $comments)
-                    <header class="comment-header">
-                        <p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-                            <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyGNr2qL63Sfugk2Z1-KBEwMGOfycBribew&usqp=CAU" height="30px" width="30px">
+                        <header class="comment-header">
+                            <p class="comment-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                                <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyGNr2qL63Sfugk2Z1-KBEwMGOfycBribew&usqp=CAU" height="30px" width="30px">
 
-                            <span class="comment-author-name" itemprop="name">
-                                <a href="#" class="comment-author-link" rel="external nofollow" itemprop="url">{{ $comments->name }}</a>
-                            </span> 
+                                <span class="comment-author-name" itemprop="name">
+                                    <a href="#" class="comment-author-link" rel="external nofollow" itemprop="url">{{ $comments->name }}</a>
+                                </span> 
 
 
-                        <p class="comment-meta"><time class="comment-time" itemprop="datePublished"><a class="comment-time-link" href="https://nguyenhung.net/comment-trong-html.html#comment-2131" itemprop="url">{{ $comments->created_at->format('d/m/Y, H:i' )  }}</a></time></p>        </header>
+                            <p class="comment-meta"><time class="comment-time" itemprop="datePublished"><a class="comment-time-link" href="https://nguyenhung.net/comment-trong-html.html#comment-2131" itemprop="url">{{ $comments->created_at->format('d/m/Y, H:i' )  }}</a></time></p>        </header>
 
-                    <div class="comment-content" itemprop="text">
+                        <div class="comment-content" itemprop="text">
+                            
+                            <p>{!!  $comments->content  !!}</p>
+                        </div>
+                        @endforeach
+                        @endif
                         
-                        <p>{!!  $comments->content  !!}</p>
-                    </div>
-                    @endforeach
-                    @endif
-                    
-                </article>
+                    </article>
 
 
 
@@ -672,8 +696,6 @@
                                 </div>
                             </div>
 
-                            
-                            
                         </form>
                         <input type="hidden" name="star" id="star_number" value="5">
                         <!--comment-form-->
@@ -1187,13 +1209,15 @@
                 margin:10,
                 nav:false,
                 autoplay:true,
+                dots:true,
+               
                 responsive:{
                     0:{
                         items:1
 
                     },
                     600:{
-                        items:4
+                        items:1
                     },
                     
                     1000:{

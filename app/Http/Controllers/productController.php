@@ -77,6 +77,7 @@ class productController extends AppBaseController
         if(!empty($input['Price'])){
 
             $input['Price'] = str_replace(',', '', $input['Price']);
+            $input['Price'] = str_replace('.', '', $input['Price']);
         }
 
         if ($request->hasFile('Image')) {
@@ -195,6 +196,7 @@ class productController extends AppBaseController
         if(!empty($input['Price'])){
 
             $input['Price'] = str_replace(',', '', $request->Price);
+            $input['Price'] = str_replace('.', '', $input['Price']);
         }
 
         if ($request->hasFile('Image')) {

@@ -291,14 +291,56 @@
 
             .time{
 
-                background: #000;
+               /* background: #000;
                 border-radius: 13px;
-                width: 96px;
+                width: 96px;*/
+                display: flex;
 
             }
             .hours, .minutes{
                 color: #fff;
                 font-weight: 700;
+            }
+
+            .time span{
+                background: #000;
+                border-radius: 5px;
+                width: 40px;
+            }
+
+            .time-fl h4{
+                margin-right: 4px;
+            }
+
+            /*menu samnec*/
+
+            .menus-banner ul li img {
+                margin: auto;
+                margin-bottom: 5px;
+                display: block;
+                width: 100%;
+                height: auto;
+                width: 170px;
+            }
+
+
+            .menus-banner ul{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .menus-banner ul li p a {
+                text-decoration: none;
+                color: #000000;
+            }
+
+            .menus-banner ul li p{
+                text-align: center;
+            }
+
+            .menus-banner{
+                padding: 20px 0;
+                background: #FFF3EE;
             }
 
 
@@ -545,6 +587,65 @@
             
                
         </div>
+
+        <section class="menus-banner">
+            <ul>
+                <li>
+                    <a href="tivi-cao-cap">
+                        <picture>
+                            <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/cao-cap.png">
+                            <img src="https://samnec.com.vn/public/image/menu-cate/03/cao-cap.png" alt="Samnec điện máy">
+                        </picture>
+                    </a>
+                    <p><a href="tivi-cao-cap">TV cao cấp</a></p>
+                </li>
+                <li>
+                    <a href="tu-lanh">
+                        <picture>
+                            <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/tu-lanh.png">
+                            <img src="https://samnec.com.vn/public/image/menu-cate/03/tu-lanh.png" alt="Samnec điện máy">
+                        </picture>
+                    </a>
+                    <p><a href="tu-lanh">Tủ lạnh</a></p>
+                </li>
+                <li>
+                    <a href="may-giat">
+                        <picture>
+                            <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/may-giat.png">
+                            <img src="https://samnec.com.vn/public/image/menu-cate/03/may-giat.png" alt="Samnec điện máy">
+                        </picture>
+                    </a>
+                    <p><a href="may-giat">Máy giặt</a></p>
+                </li>
+                <li>
+                    <a href="gia-dung">
+                        <picture>
+                            <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/gia-dung.png">
+                            <img src="https://samnec.com.vn/public/image/menu-cate/03/gia-dung.png" alt="Samnec điện máy">
+                        </picture>
+                    </a>
+                    <p><a href="gia-dung">Gia dụng</a></p>
+                </li>
+                <li>
+                    <a href="tivi-inch-lon-gia-re">
+                        <picture>
+                            <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/sale.png">
+                            <img src="public/image/menu-cate/03/sale.png" alt="Samnec điện máy">
+                        </picture>
+                    </a>
+                    <p><a href="tivi-inch-lon-gia-re">TV Inch lớn giá rẻ</a></p>
+                </li>
+                <li>
+                    <a href="tra-gop">
+                        <picture>
+                            <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/tra-gop.png">
+                            <img src="https://samnec.com.vn/public/image/menu-cate/03/tra-gop.png" alt="Samnec điện máy">
+                        </picture>
+                    </a>
+                    <p><a href="tra-gop">Trả góp</a></p>
+                </li>
+            </ul>
+        </section>
         <!-- Banner sub -->
         <!-- div class="sub-banner">
             <a aria-label="slide" data-cate="0" data-place="1595" href="https://www.topzone.vn/topnews/chuoi-topzone-ra-mat-them-loat-cua-hang-moi-1405860" onclick="jQuery.ajax({ url: '/bannertracking?bid=49071&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/1200-60-1200x60-2.png" alt="topzone"  ></a>    
@@ -556,14 +657,14 @@
 
 
         <!-- flash sale -->
-            <div class="row">
+            <div class="">
                 <div class="flash-sale" style="height: 398px;">
                     <span id="banner-flash-sale"><a href="https://www.nguyenkim.com/loa-di-dong-energizer-bts106bk.html">
                     <img width="256" src="https://cdn.nguyenkimmall.com/images/companies/_1/MKT_ECM/0820/Flash_Sale_Theme_256x396.png" style="width: 256px; height: 396px" alt="banner-fs">
                     </a></span>
                     <div class="flash-product nk-product-of-flash-sales">
                         <div class="col-flash col-flash-2 active">
-                            <div id="sync1S" class="slider-banner owl-carousel homebanners">
+                            <div id="sync1S" class="slider-banner owl-carousel flash-sale-banner">
 
                                 <div class="item">
                                     <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
@@ -590,7 +691,86 @@
                                         </div>
                                         <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
                                         <div class="countdown-flash-sale">
-                                            <div class="time-cd time-fl"><h4>Kết thúc trong</h4><div class="time"><span class="hours"> 6<div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div><span>Giờ</span></span><p style="font-size: 28px; line-height: 18px;font-weight: bold;color: #101010; margin: 0 7px">:</p><span class="minutes"> 39<div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div><span>Phút</span></span><h1 style="text-transform: uppercase; font-size: 28px; line-height: 18px;font-weight: bold;color: #101010; margin: 0 7px">:</h1><span class="seconds"> 00<div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div><span>Giây</span></span></div></div>
+                                            <div class="time-cd time-fl">
+                                                <h4>Kết thúc trong</h4>
+                                                <div class="time">
+                                                    <span class="hours">
+                                                        6
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>Giờ</span>
+                                                    </span>
+                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
+
+                                                    <span class="hours">
+                                                        2
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>phút</span>
+                                                    </span>
+                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
+                                                    <span class="hours">
+                                                        0
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>giây</span>
+                                                    </span>
+                                                   
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </a>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
+                                        <div class="img">
+                                            <img width="327" src="https://cdn.nguyenkimmall.com/images/thumbnails/200/200/thumbnails/250/250/detailed/763/10050489-ban-ui-hoi-nuoc-philips-dst3030-70-1.jpg" title="Bàn ủi hơi nước Philips DST3030/70">
+                                        </div>
+                                    </a>
+                                    <div class="desc">
+                                      <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
+                                        <h4 class="title">Bàn ủi hơi nước Philips DST3030/70</h4>
+                                        <div class="container-price">
+                                               <div>
+                                                    <p class="black-price">890.000đ</p><p class="reduce-percent">-29%</p><span class="price-old">1.190.000đ</span>
+                                               </div>
+                                        </div>
+                                        <div style="margin-top: 11px">
+                                            <div class="nk-top-stickers"><span class="nk-sticker nk-new">Mới</span></div><div>
+                                                    <p class="title-shock-price">Giá sốc online</p>
+                                                    <span class="price-new">849.000đ</span>
+                                                </div>
+                                        </div><div class="review_product star"><span class="star_icon_avg_rate_npv" 0="" 5="" title="0/5"><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span></span><div class="line_break">|</div><div class="reviewCount">0 đánh giá</div></div><div class="container-timeline">
+                                            <span class="timeline"><span style="width: 2%"></span></span>
+                                            <p>Đã bán <span style="color: #EE1E25">2</span> / 100 sản phẩm</p>
+                                        </div>
+                                        <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
+                                        <div class="countdown-flash-sale">
+                                            <div class="time-cd time-fl">
+                                                <h4>Kết thúc trong</h4>
+                                                <div class="time">
+                                                    <span class="hours">
+                                                        6
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>Giờ</span>
+                                                    </span>
+                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
+
+                                                    <span class="hours">
+                                                        2
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>phút</span>
+                                                    </span>
+                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
+                                                    <span class="hours">
+                                                        0
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>giây</span>
+                                                    </span>
+                                                   
+                                                  
+                                                </div>
+                                            </div>
                                         </div>
                                       </a>
                                     </div>
@@ -608,18 +788,11 @@
            <div class="clearfix"></div>  
 
 
-        <div class="prd-promo has-banner" style="background-color:#FFE602; " data-html-id="3109">
-
-
-
-
-
+        <div class="prd-promo has-banner" style="background-color:#FFF3EE; " data-html-id="3109">
 
             <div class="prd-promo__top clearfix" >
                 <a data-cate="0" data-place="1868" href="#" ><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
             </div>
-
-
 
 
            <!--  Sale -->
@@ -1015,6 +1188,28 @@
                
                 1000:{
                     items:1
+                }
+            }
+        });
+
+        $('.flash-sale-banner').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            dots:false,
+            
+            navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+            responsive:{
+                0:{
+                    items:1
+                },
+
+                 600:{
+                    items:2
+                },
+               
+                1000:{
+                    items:2
                 }
             }
         });

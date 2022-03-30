@@ -320,7 +320,7 @@
                                         <div class="pdetail-stockavailable">
                                             <?php
                                                 if($data->Quantily==0){
-                                                    $status ='Liên hệ';
+                                                    $status ='Tạm hết hàng';
 
                                                 }
                                                 elseif($data->Quantily==-1){

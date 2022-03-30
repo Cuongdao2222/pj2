@@ -772,6 +772,14 @@
                 .modal-body .error{
                     color: red;
                 }
+                .client-login{
+                    display: none;
+                    position: absolute;
+                    top: 87px;
+                    background: red;
+                    padding: 10px;
+                    z-index: 999;
+                }
               
 
 
@@ -883,21 +891,26 @@
                         </a>
                     
                     @else
+                    <div class="cliens-login">
+                        <a href="javascript:void(0)" class="header__cart {{ $active_cart }}">
 
-                    <a href="javascript:void(0)" class="header__cart {{ $active_cart }}" onclick="showToCart()">
+                            <i class="fa fa-user" aria-hidden="true" style="font-size:22px"></i>
+                            
+                        </a>
 
-                        <i class="fa fa-user" aria-hidden="true" style="font-size:22px"></i>
+                        <div class="client-login">
+                            <a rel="nofollow" class="logins-modal" href="javascript:void(0)">
+                                <span style="color:#fff; font-size: 12px;">Đăng nhập</span>
+                            </a>
                         
-                    </a>
+                            <a rel="nofollow" class="register-form" href="javascript:void(0)">
+                                <span style="color: #fff; font-size:12px;">Đăng ký</span>
+                            </a>
+                        </div>
+                    </div>
+                    
 
-
-                   <!--  <a rel="nofollow" class="logins-modal" href="javascript:void(0)">
-                        <span style="color:#fff; font-size: 12px;">Đăng nhập</span>
-                    </a>
-                
-                    <a rel="nofollow" class="register-form" href="javascript:void(0)">
-                        <span style="color: #fff; font-size:12px;">Đăng ký</span>
-                    </a> -->
+                    
                     @endif
 
                                
@@ -2050,8 +2063,22 @@
                 }
             });
         });
+
+        
+        $( ".fa-user" ).click(function(){
+            if($('.client-login').is(':visible')){
+                 $('.client-login').hide();
+            }
+            else{
+                $('.client-login').show();
+            }
+        })
+
+       
     
     </script>
+
+
       
     </body>
 </html>

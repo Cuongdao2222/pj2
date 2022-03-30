@@ -4,7 +4,7 @@
         <tr>
             <th>Image</th>
         <th>Tên sản phẩm</th>
-        <th>Productsku</th>
+        <th>Sửa nhanh</th>
         <th>Link</th>
         <th>Nhóm sản phẩm</th>
         <th>Số lượng trong kho</th>
@@ -116,10 +116,6 @@
 
                 $id_group_gift = $promotion->id_group_gift??'';
 
-               
-
-                
-                
             ?>
 
 

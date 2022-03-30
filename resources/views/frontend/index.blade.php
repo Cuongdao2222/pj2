@@ -297,10 +297,53 @@
                 display: flex;
 
             }
+
+            .flash-sale .flash-product .owl-nav .owl-prev{
+                height: 61px;
+                width: 32px;
+                border: 1px solid #F1F5F6;
+                border-radius: 0 4px 4px 0;
+                background-color: #FFFFFF;
+                box-shadow: 0 7px 10px 0 rgb(72 139 216 / 20%);
+                position: absolute;
+                top: 50%;
+                transform: translate3d(0, -75%, 0);
+                left: 0px;
+                line-height: 62px;
+                text-align: center;
+                border: none;
+            }
+            .flash-sale .flash-product .owl-nav .owl-next{
+
+                height: 62px;
+                width: 32px;
+                border: 1px solid #F1F5F6;
+                border-radius: 4px 0 0 4px;
+                background-color: #FFFFFF;
+                box-shadow: 0 7px 10px 0 rgb(72 139 216 / 20%);
+                position: absolute;
+                top: 50%;
+                transform: translate3d(0, -75%, 0);
+                right: 0px;
+                text-align: center;
+                line-height: 62px;
+                border: none;
+            } 
+
+            .col-flash{
+                height: 100%;
+            }   
+
+            .flash-sale-banner{
+                height: 100%;
+            }
+
             .hours, .minutes{
                 color: #fff;
                 font-weight: 700;
             }
+
+            .
 
             .time span{
                 background: #000;
@@ -338,10 +381,120 @@
                 text-align: center;
             }
 
-            .menus-banner{
+            .menus-banner{  
                 padding: 20px 0;
                 background: #FFF3EE;
             }
+
+            /*box tin noi bat*/
+            .col1__ct{
+                display: flex;
+            }
+            .applications .col1-simple {
+                width: calc(35% - 10px);
+            }
+
+            .applications .spl-item__img {
+                position: relative;
+                width: 120px;
+                height: 70px;
+            }
+
+            .applications .spl-item {
+                border-bottom: 1px solid #ebebeb;
+                padding: 10px 0;
+                margin-bottom: 0;
+            }
+
+            .applications .spl-item__img {
+                position: relative;
+                width: 120px;
+                height: 70px;
+            }
+
+            .applications img {
+                border-radius: 4px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .applications .col1-big {
+                border: 1px solid #ebebeb;
+                border-radius: 4px;
+                width: 65%;
+            }
+
+            .applications .spl-item {
+                align-items: center;
+                display: flex;
+                margin-bottom: 10px
+           
+            }
+
+            .applications .spl-item-title {
+                font-size: 12px;
+                line-height: 17px;
+                overflow: hidden;
+                -webkit-line-clamp: 3;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+            }
+
+            .applications .spl-item__content {
+                padding-left: 10px;
+                width: calc(100% - 120px);
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.hours,
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.minutes,
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.seconds {
+                width: 48px;
+                height: 55px;
+                display: block;
+                align-items: center;
+                border-radius: 8px;
+                background-color: #101010;
+                font-size: 24px;
+                font-weight: bold;
+                color: #ffffff;
+                padding: 3px 0 0 0;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.hours span,
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.minutes span,
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.seconds span {
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 16px;
+                color: #ffffff;
+                display: block;
+                margin: 3px 0 0 0;
+            }
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .review_product .line_break{
+                color: #C4C4C4;
+                padding: 0 9px;
+            }
+
+
+
+            .flash-sale .flash-product .col-flash-2 .item .desc .container-timeline {
+                display: block;
+                align-items: center;
+                margin: 15px 0 0 0;
+            }
+
+            .application .spl-item {
+                border-bottom: 1px solid #ebebeb;
+                padding: 10px 0;
+                margin-bottom: 0;
+            }
+            .countdown-flash-sale{
+                margin-top: 15px;
+            }
+
 
 
 
@@ -692,7 +845,7 @@
                                         <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
                                         <div class="countdown-flash-sale">
                                             <div class="time-cd time-fl">
-                                                <h4>Kết thúc trong</h4>
+                                                
                                                 <div class="time">
                                                     <span class="hours">
                                                         6
@@ -747,7 +900,62 @@
                                         <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
                                         <div class="countdown-flash-sale">
                                             <div class="time-cd time-fl">
-                                                <h4>Kết thúc trong</h4>
+                                                
+                                                <div class="time">
+                                                    <span class="hours">
+                                                        6
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>Giờ</span>
+                                                    </span>
+                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
+
+                                                    <span class="hours">
+                                                        2
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>phút</span>
+                                                    </span>
+                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
+                                                    <span class="hours">
+                                                        0
+                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
+                                                        <span>giây</span>
+                                                    </span>
+                                                   
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </a>
+                                    </div>
+                                </div>
+
+                                                                <div class="item">
+                                    <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
+                                        <div class="img">
+                                            <img width="327" src="https://cdn.nguyenkimmall.com/images/thumbnails/200/200/thumbnails/250/250/detailed/763/10050489-ban-ui-hoi-nuoc-philips-dst3030-70-1.jpg" title="Bàn ủi hơi nước Philips DST3030/70">
+                                        </div>
+                                    </a>
+                                    <div class="desc">
+                                      <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
+                                        <h4 class="title">Bàn ủi hơi nước Philips DST3030/70</h4>
+                                        <div class="container-price">
+                                               <div>
+                                                    <p class="black-price">890.000đ</p><p class="reduce-percent">-29%</p><span class="price-old">1.190.000đ</span>
+                                               </div>
+                                        </div>
+                                        <div style="margin-top: 11px">
+                                            <div class="nk-top-stickers"><span class="nk-sticker nk-new">Mới</span></div><div>
+                                                    <p class="title-shock-price">Giá sốc online</p>
+                                                    <span class="price-new">849.000đ</span>
+                                                </div>
+                                        </div><div class="review_product star"><span class="star_icon_avg_rate_npv" 0="" 5="" title="0/5"><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span></span><div class="line_break">|</div><div class="reviewCount">0 đánh giá</div></div><div class="container-timeline">
+                                            <span class="timeline"><span style="width: 2%"></span></span>
+                                            <p>Đã bán <span style="color: #EE1E25">2</span> / 100 sản phẩm</p>
+                                        </div>
+                                        <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
+                                        <div class="countdown-flash-sale">
+                                            <div class="time-cd time-fl">
+                                                
                                                 <div class="time">
                                                     <span class="hours">
                                                         6
@@ -840,9 +1048,6 @@
                 
             </div>
             @endif
-
-
-
             
         </div>
 
@@ -947,6 +1152,61 @@
             <a data-cate="0" data-place="1863" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47538&r='+ (new Date).getTime(), async: true, cache: false });" class="banner-left"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/tttt-79x271-1.png" alt="Theme Giáng Sinh Trái" width="79" height="271"></a>
             <a data-cate="0" data-place="1864" href="https://www.dienmayxanh.com/flashsale#game" onclick="jQuery.ajax({ url: '/bannertracking?bid=47537&r='+ (new Date).getTime(), async: true, cache: false });" class="banner-right"><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/ppp-79x271-1.png" alt="Theme Giáng Sinh Phải" width="79" height="271"></a>        
         </div> -->
+
+        <div class="applications">
+            <div class="col1">
+                <!-- Tư vấn chọn mua -->
+                <div class="ttl-main">
+                    <h4 class="title-layout">Tin tức nổi bật</h4>
+                    <a href="/kinh-nghiem-hay" class="readmore-txt blue">Xem thêm</a>
+                </div>
+                <div class="col1__ct" data-size="6">
+                    <a href="/kinh-nghiem-hay/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-1421172" class="col1-big">
+                        <div class="col1-big-img">
+                            <img data-src="https://cdn.tgdd.vn/Files/2022/03/19/1421172/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-760x367.jpg" class=" ls-is-cached lazyloaded" alt="Đón đầu hè nóng - Top 10 tủ lạnh mua sớm, giảm sâu đến 28%, miễn phí giao hàng - Chỉ có tại ĐMX" src="https://cdn.tgdd.vn/Files/2022/03/19/1421172/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-760x367.jpg">
+                        </div>
+                        <p class="col1-title">Đón đầu hè nóng - Top 10 tủ lạnh mua sớm, giảm sâu đến 28%, miễn phí giao hàng - Chỉ có tại ĐMX</p>
+                    </a>
+                    <div class="col1-simple">
+                        <a href="/kinh-nghiem-hay/don-dau-he-nong-top-may-lanh-thuong-hieu-viet-mu-1421098" class="spl-item">
+                            <div class="spl-item__img">
+                                <img data-src="https://cdn.tgdd.vn/Files/2022/03/18/1421098/don-dau-he-nong-top-may-lanh-thuong-hieu-viet-mu-318x154.jpg" class=" lazyloaded" alt="Đón đầu hè nóng - Top máy lạnh thương hiệu Việt mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!" src="https://cdn.tgdd.vn/Files/2022/03/18/1421098/don-dau-he-nong-top-may-lanh-thuong-hieu-viet-mu-318x154.jpg">
+                            </div>
+                            <div class="spl-item__content">
+                                <p class="spl-item-title">Đón đầu hè nóng - Top máy lạnh thương hiệu Việt mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!</p>
+                            </div>
+                        </a>
+                        <a href="/kinh-nghiem-hay/don-dau-he-nong-top-may-lanh-samsung-mua-som-gi-1420993" class="spl-item">
+                            <div class="spl-item__img">
+                                <img data-src="https://cdn.tgdd.vn/Files/2022/03/18/1420993/don-dau-he-nong-top-may-lanh-samsung-mua-som-gi-318x154.jpg" class=" lazyloaded" alt="Đón đầu hè nóng - Top máy lạnh Samsung mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!" src="https://cdn.tgdd.vn/Files/2022/03/18/1420993/don-dau-he-nong-top-may-lanh-samsung-mua-som-gi-318x154.jpg">
+                            </div>
+                            <div class="spl-item__content">
+                                <p class="spl-item-title">Đón đầu hè nóng - Top máy lạnh Samsung mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!</p>
+                            </div>
+                        </a>
+                        <a href="/kinh-nghiem-hay/may-lanh-hang-nao-tot-nhat-nen-mua-cua-hang-nao-1112663" class="spl-item">
+                            <div class="spl-item__img">
+                                <img data-src="https://cdn.tgdd.vn/Files/2018/08/26/1112663/may-lanh-hang-nao-tot-nhat-nen-mua-cua-hang-nao--36-318x154.jpg" class=" lazyloaded" alt="Nên mua máy lạnh hãng nào tốt nhất 2022?" src="https://cdn.tgdd.vn/Files/2018/08/26/1112663/may-lanh-hang-nao-tot-nhat-nen-mua-cua-hang-nao--36-318x154.jpg">
+                            </div>
+                            <div class="spl-item__content">
+                                <p class="spl-item-title">Nên mua máy lạnh hãng nào tốt nhất 2022?</p>
+                            </div>
+                        </a>
+                        <a href="/kinh-nghiem-hay/nen-mua-tu-lanh-hieu-nao-708244" class="spl-item">
+                            <div class="spl-item__img">
+                                <img data-src="https://cdn.tgdd.vn/Files/2015/09/25/708244/nen-mua-tu-lanh-hieu-nao--32-318x154.jpg" class=" lazyloaded" alt="Nên mua tủ lạnh hãng nào tốt, tiết kiệm điện nhất 2022" src="https://cdn.tgdd.vn/Files/2015/09/25/708244/nen-mua-tu-lanh-hieu-nao--32-318x154.jpg">
+                            </div>
+                            <div class="spl-item__content">
+                                <p class="spl-item-title">Nên mua tủ lạnh hãng nào tốt, tiết kiệm điện nhất 2022</p>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+                <!-- End -->
+            </div>
+        </div>
+        
 
         <div class="bottom-search">
             <p>Tìm kiếm nhiều:</p>
@@ -1197,8 +1457,9 @@
             margin:10,
             nav:true,
             dots:false,
+            autoplay:false,
             
-            navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+            navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa fa-angle-right'></i>"],
             responsive:{
                 0:{
                     items:1

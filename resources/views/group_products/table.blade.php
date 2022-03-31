@@ -1,8 +1,30 @@
 <div class="table-responsive">
     <div>
-        <button class="groupProduct">Thêm danh mục liên quan</button>
+        <button class="groupProduct">Xem toàn bộ danh mục liên quan</button>
 
     </div>
+
+    <?php  
+
+        function recursiveMenu($data, $parent_id=0, $sub=true){
+            echo $sub ? '<ul>': '<ul class="sub-menu">';
+            foreach ($data as $key => $item) {
+                 if($item['group_product_id'] == $parent_id){
+                    unset($data[$key]);
+                  ?>    
+             <li>
+              <a href="<?php echo $item['slug']?>"><?php echo $item['name']?></a>
+              
+              <?php recursiveMenu($data, $item['id'], false); ?>
+             </li>
+                <?php }} 
+             echo "</ul>";
+        }
+
+        
+        
+
+    ?>
     <table class="table" id="groupProducts-table">
         <thead>
         <tr>
@@ -51,33 +73,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="email">Tên danh mục:</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Mô tả (nếu có):</label>
-                            <textarea></textarea>
-                        </div>
+                    
 
-                        <div class="form-group">
-                            <label for="pwd">Danh mục liên quan:</label>
-                            <select class="form-select">
-                                 <option value="0">Không chọn</option>
-                                <option>danh mục 1</option>
-                                <option>danh mục 2</option>
-                                
-                            </select>
-                        </div>
+                     <?php   recursiveMenu($groupProducts); ?>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        
-                        
-                    </form>
                 </div>
                 
             </div>

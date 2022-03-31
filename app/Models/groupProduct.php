@@ -20,7 +20,7 @@ class groupProduct extends Model
 
 
     public $fillable = [
-        'name', 'link'
+        'name', 'link', 'group_product_id'
     ];
 
     /**
@@ -31,6 +31,8 @@ class groupProduct extends Model
     protected $casts = [
         'id' => 'integer',
         'link'=> 'string',
+        'name'=> 'string',
+        'group_product_id' => 'integer',
     ];
 
     /**

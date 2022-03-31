@@ -15,6 +15,8 @@
         foreach($data as $item){
             if($item['group_product_id'] == $parent_id){
                 $item['level'] = $level;
+
+                $item['parent_id'] = $item['id'];
                 $result[] = $item;
                 unset($data[$item['id']]);
                 $child = data_tree($data, $item['id'], $level + 1 );
@@ -27,10 +29,14 @@
 
     $list_cat = data_tree($groupProduct, 0);
 
+    // dd( $list_cat);
+
 
     $arr_new_list_cat = [];
 
     if(isset($list_cat)){
+
+        $arr_new_list_cat[0] = 'Không chọn';
 
         foreach($list_cat as $value){
             $arr_new_list_cat[$value['id']] = str_repeat(html_entity_decode('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'), $value['level']).' - '.$value['name'];
@@ -48,7 +54,11 @@
    
 </div>
 
-<input type="hidden" name="level" value="{{ json_encode($list_cat) }}" id="data_value">
+<input type="hidden" name="data_value" value="{{ json_encode($list_cat) }}" id="data_value">
+
+<input type="hidden" name="level" id="level">
+
+<input type="hidden" name="parent_id" id="parent_id">
 
 
 
@@ -57,16 +67,30 @@
     $('.custom-select').change(function(){
         id = $(this).val();
 
-        data_value = $('#data_value').val();
+        console.log(id);
 
-        data_value = JSON.parse($('#data_value').val());
+        if(parseInt(id)==0){
+            level = 0
 
+            parent_id = 0;
+        }
+        else{
+            data_value = $('#data_value').val();
 
-        filter = data_value.filter(data => data.id ==  id);
+            data_value = JSON.parse($('#data_value').val());
 
+            filter = data_value.filter(data => data.id ==  id);
 
-       
-        console.log( filter[0].level);
+            level  = parseInt(filter[0].level)+1;
+
+            parent_id = filter[0].parent_id;
+
+        }
+
+        $('#level').val(parseInt(filter[0].level)+1);
+
+        $('#parent_id').val(filter[0].parent_id);
+            
     })
 
 </script>

@@ -317,6 +317,8 @@
                                         </div> -->
                                     </div>
                                     <div class="pdetail-status">
+
+                                        
                                         <div class="pdetail-stockavailable">
                                             <?php
                                                 if($data->Quantily==0){

@@ -449,7 +449,7 @@
 
             .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.hours,
             .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.minutes,
-            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.seconds {
+            .flash-sale .flash-product .col-flash-2 .item .desc .countdown-flash-sale .time-cd span.seconds{
                 width: 48px;
                 height: 55px;
                 display: block;
@@ -496,11 +496,15 @@
             }
 
 
-
-
-
-
             @media screen and (max-width: 776px){
+
+                .flash-sale .flash-product{
+                    width: 100%;
+
+                }
+                #banner-flash-sale{
+                    display: none;
+                }
 
               /* .bar-top-left{
                     display: none !important;
@@ -531,7 +535,31 @@
                     width: auto !important;
                 } 
 
-*/
+                /*banner mobile samnect*/
+
+                .menus-banner ul li{
+                    text-align: center;
+                    width: calc(33.33% - 12px);
+                    margin-bottom: 16px;
+                }
+
+                .menus-banner ul {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    padding: 0 8px;
+                }
+
+                .menus-banner ul li img {
+                    margin: auto;
+                    margin-bottom: 5px;
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+
+
             }
 
             @media screen and (min-width: 777px){
@@ -743,7 +771,7 @@
 
         <section class="menus-banner">
             <ul>
-                <li>
+                <li class="col-">
                     <a href="tivi-cao-cap">
                         <picture>
                             <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/cao-cap.png">
@@ -783,7 +811,7 @@
                     <a href="tivi-inch-lon-gia-re">
                         <picture>
                             <source media="(min-width:1201px)" srcset="https://samnec.com.vn/public/image/menu-cate/03/sale.png">
-                            <img src="public/image/menu-cate/03/sale.png" alt="Samnec điện máy">
+                            <img src="https://samnec.com.vn/public/image/menu-cate/03/sale.png" alt="Samnec điện máy">
                         </picture>
                     </a>
                     <p><a href="tivi-inch-lon-gia-re">TV Inch lớn giá rẻ</a></p>
@@ -848,20 +876,21 @@
                                                 
                                                 <div class="time">
                                                     <span class="hours">
-                                                        6
+                                                        <span class="hourss"> 6</span>
+                                                        
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>Giờ</span>
                                                     </span>
                                                     <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
 
                                                     <span class="hours">
-                                                        2
+                                                        <span class="minutess"> 6</span>
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>phút</span>
                                                     </span>
                                                     <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
                                                     <span class="hours">
-                                                        0
+                                                        <span class="secondss"> 6</span>
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>giây</span>
                                                     </span>
@@ -903,20 +932,21 @@
                                                 
                                                 <div class="time">
                                                     <span class="hours">
-                                                        6
+                                                        <span class="hourss"> 6</span>
+                                                        
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>Giờ</span>
                                                     </span>
                                                     <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
 
                                                     <span class="hours">
-                                                        2
+                                                        <span class="minutess"> 6</span>
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>phút</span>
                                                     </span>
                                                     <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
                                                     <span class="hours">
-                                                        0
+                                                        <span class="secondss"> 6</span>
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>giây</span>
                                                     </span>
@@ -929,7 +959,7 @@
                                     </div>
                                 </div>
 
-                                                                <div class="item">
+                                <div class="item">
                                     <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
                                         <div class="img">
                                             <img width="327" src="https://cdn.nguyenkimmall.com/images/thumbnails/200/200/thumbnails/250/250/detailed/763/10050489-ban-ui-hoi-nuoc-philips-dst3030-70-1.jpg" title="Bàn ủi hơi nước Philips DST3030/70">
@@ -958,20 +988,21 @@
                                                 
                                                 <div class="time">
                                                     <span class="hours">
-                                                        6
+                                                        <span class="hourss"> 6</span>
+                                                        
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>Giờ</span>
                                                     </span>
                                                     <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
 
                                                     <span class="hours">
-                                                        2
+                                                        <span class="minutess"> 6</span>
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>phút</span>
                                                     </span>
                                                     <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
                                                     <span class="hours">
-                                                        0
+                                                        <span class="secondss"> 6</span>
                                                         <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
                                                         <span>giây</span>
                                                     </span>
@@ -983,6 +1014,8 @@
                                       </a>
                                     </div>
                                 </div>
+
+                                
                                 
                             </div>
                         </div>
@@ -990,11 +1023,10 @@
                 </div>
             </div>
 
-
            <!--  end flash  -->
 
-           <div class="clearfix"></div>  
 
+        <div class="clearfix"></div> 
 
         <div class="prd-promo has-banner" style="background-color:#FFF3EE; " data-html-id="3109">
 
@@ -1360,17 +1392,17 @@
 
 
 
-              var hour =  h.toString()+' giờ';
+              var hour =  h.toString();
 
-              var seconds =  s.toString()+' giây';
+              var seconds =  s.toString();
 
-              var minutes =  m.toString()+' phút';
+              var minutes =  m.toString();
 
 
 
-              $('.hour').text(h<10?'0'+hour:''+hour);
-              $('.second').text(s<10?'0'+seconds:''+seconds);
-              $('.minutes').text(m<10?'0'+minutes:''+minutes);
+              $('.hourss').text(h<10?'0'+hour:''+hour);
+              $('.secondss').text(s<10?'0'+seconds:''+seconds);
+              $('.minutess').text(m<10?'0'+minutes:''+minutes);
 
 
               /*BƯỚC 1: GIẢM PHÚT XUỐNG 1 GIÂY VÀ GỌI LẠI SAU 1 GIÂY */

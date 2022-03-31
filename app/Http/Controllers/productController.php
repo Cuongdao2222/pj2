@@ -6,6 +6,7 @@ use App\Http\Requests\CreateproductRequest;
 use App\Http\Requests\UpdateproductRequest;
 use App\Repositories\productRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\groupProduct;
 
 use App\Models\product;
 use Illuminate\Http\Request;
@@ -80,6 +81,37 @@ class productController extends AppBaseController
             $input['Price'] = str_replace('.', '', $input['Price']);
         }
 
+        if(!empty($input['Group_id'])){
+
+            // tìm sản phẩm cha để add vào 
+
+            $add_parent = [];
+
+            $parent = groupProduct::find($input['Group_id']);
+
+            $level = $parent->level;
+
+            if($level>0){
+
+                for($i = 0; $i<= $level; $i++){
+
+                    if($parent->parent_id != 0){
+
+                        $parent = (groupProduct::find($parent->parent_id));
+
+                        array_push($add_parent, $parent->id);
+                    }
+
+                }
+
+            }
+            else{
+                array_push($add_parent, $parent->id);
+            }
+
+            $input['Price'] = str_replace(',', '', $input['Price']);
+            $input['Price'] = str_replace('.', '', $input['Price']);
+        }
         if ($request->hasFile('Image')) {
 
             $file_upload = $request->file('Image');
@@ -113,13 +145,16 @@ class productController extends AppBaseController
 
         $input['Meta_id'] = $meta_model['id'];
 
+        foreach($add_parent as $val){
+           
+           
+            $input['Group_id'] = $val;
+            $product = $this->productRepository->create($input);
 
-
-        $product = $this->productRepository->create($input);
+        }
         
         return Redirect()->back()->with('id', $product['id']);
 
-        // return redirect(route('products.index'));
     }
 
     /**

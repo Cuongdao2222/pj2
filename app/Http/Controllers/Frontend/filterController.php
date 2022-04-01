@@ -95,7 +95,7 @@ class filterController extends Controller
 
                 $product_search = product::whereIn('id', $result_product)->get();
 
-                return redirect('/'.$link.'?filter='.$filter);
+                return redirect('/'.$link.'?filter='.implode(', ', $filter));
 
                 return view('frontend.ajax.product', compact('product_search'));
 

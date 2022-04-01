@@ -21,6 +21,8 @@ use App\Models\metaSeo;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
+use App\Http\Controllers\Frontend\filterController;
+
 class categoryController extends Controller
 {
 
@@ -36,6 +38,13 @@ class categoryController extends Controller
             return $this->blogDetailView($slug);
         }
 
+        if(!empty($_GET['filter'])){
+            $data = new filterController();
+
+
+            $data = $data->filter();
+
+        }
        
 
         $id_cate = $findID->id;

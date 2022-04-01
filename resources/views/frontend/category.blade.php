@@ -355,7 +355,7 @@
                             group_id:{{ @$id_cate }},
                             filter: filter,
                             property: propertys,
-                            slug:{{ $link}},
+                            slug:'{{ $link}}',
                             
                         },
                         success: function(result){

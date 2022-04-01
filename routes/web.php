@@ -175,15 +175,15 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::post('add-selected-value-filter', 'AjaxController@addValueSelectFilter')->name('add-value-selected-filter');
 
-    Route::post('filter-price-product', 'AjaxController@filterByValue')->name('filter-option');
+    Route::get('filter-price-product', 'AjaxController@filterByValue')->name('filter-option');
 
-     Route::post('add-promotion', 'AjaxController@add_promotion')->name('add-promotion');
+    Route::post('add-promotion', 'AjaxController@add_promotion')->name('add-promotion');
 
     Route::post('add-group-gift', 'AjaxController@add_group_promotion')->name('add-group-gift');
 
     Route::post('add-gift', 'AjaxController@add_gift')->name('add-gift');
 
-     Route::post('accept-rate', 'AjaxController@accept_rate')->name('accept-rate');
+    Route::post('accept-rate', 'AjaxController@accept_rate')->name('accept-rate');
 
 
     Route::post('add-hot-product', 'AjaxController@addHotProduct')->name('add-hot-product');

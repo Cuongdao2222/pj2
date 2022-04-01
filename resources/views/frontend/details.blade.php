@@ -374,7 +374,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="total-imgslider">
+                    <div class="total-imgslider">
                         <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-toggle="modal" data-target="#Salient_Features" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
                        
                     </div>
@@ -407,7 +407,7 @@
                             </div>
                         </div>
                     </div>
- -->
+
                     <div class="modal fade" id="Salient_Features" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -811,11 +811,13 @@
         
         <div class="clear space10px"></div>
 
+
          <?php
             $now = Carbon\Carbon::now();
             
             
             $promotion = DB::table('promotion')->where('id_product', $data->id)->get()->first();
+
 
 
             if(!empty($promotion)){
@@ -827,6 +829,7 @@
                 $gift2 = DB::table('gifts')->where('id',  $gifts->gift2)->first();  
 
             }
+             
   
          ?>
         @if(!empty($promotion ))      
@@ -834,13 +837,15 @@
 
             <div class="txt_b">Khuyến mại: {{ $gifts->type ==1?'Lựa chọn 1 trong 2 sản phẩm sau':'' }}</div>
             <div style="display: flex;">
-                <img src="{{ asset($gift1->image) }}" height="30px" width="30px">
-                <p>{{ $gift1->name }}</p>
+                <img src="{{ @asset($gift1->image) }}" height="30px" width="30px">
+                <p>{{ @$gift1->name??'' }}</p>
                 <br>
 
+                @if(!empty($gift2->name))
+
                 <img src="{{ asset($gift2->image) }}" height="30px" width="30px">
-                <p>{{ $gift2->name }}</p>
-                
+                <p>{{ ($gift2->name)??'' }}</p>
+                @endif
             </div>
         
         </div>

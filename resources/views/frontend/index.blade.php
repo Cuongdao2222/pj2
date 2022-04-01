@@ -558,6 +558,24 @@
                     width: 100%;
                     height: auto;
                 }
+                 .flash-sale .item a{
+                    width: 48% !important;
+                    position: relative;
+                }
+
+                .flash-sale .item .img{
+                    width: 80% !important;
+                }
+
+                .flash-sale .item img{
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 80% !important;
+
+                }
+
+                
 
 
             }
@@ -644,6 +662,7 @@
                     width: 100%;
                     border-radius: 4px;
                 }
+
                 
             }
             

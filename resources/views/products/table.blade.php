@@ -152,11 +152,6 @@
                             <i class="fas fa-image"></i>
                         </a>
 
-                        <a href="javascript:void(0)"
-                           class='btn btn-default btn-xs' onclick="openModal('{{$product->Name}}', '{{$product->id}}')">
-                            <i class="fa fa-gift" aria-hidden="true"></i>
-                        </a>
-
                          <a href="{{ route('filter-property') }}?group-product={{ $product->Group_id }}&productId={{ $product->id }}"
                            class='btn btn-default btn-xs'>
                             <i class="fa fa-filter"></i>

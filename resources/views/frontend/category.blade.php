@@ -377,7 +377,7 @@
 
                 $.ajax({
        
-                type: 'POST',
+                type: 'GET',
                     url: "{{ route('filter-option') }}",
                     data: {
                         json_id_product: $('.lists-id').text(),

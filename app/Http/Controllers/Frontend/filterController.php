@@ -18,10 +18,13 @@ class filterController extends Controller
 
     public function filter()
     {
-        $group_id = $_GET('group_id');
-        $filter = $_GET('filter');
 
-        $property = $_GET('property');
+        $group_id = $_GET['group_id'];
+        $filter = $_GET['filter'];
+
+        $property = $_GET['property'];
+
+        dd(1);
 
        
     

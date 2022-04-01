@@ -110,7 +110,7 @@
                         </div>
                         <div>
                             <b>Bổ sung giá trị :</b> (mỗi giá trị 1 dòng) <!-- - <a href="{{ route('add-property-filter') }}?">sửa thuộc tính</a> --><br>
-                            <form method="post" action="{{ !empty($_SERVER['HTTPS'])?'https':'http'}}://{{ $_SERVER['HTTP_HOST'] }}/admins/properties">
+                            <form method="post" action="{{ env('APP_URL') }}/admins/properties">
                                 @csrf
 
                                 <textarea id="add_value_to_attr_94" name="name" style="width:400px; height:60px" ></textarea>

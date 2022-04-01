@@ -144,18 +144,18 @@
             </section>
 
         </div>
-
-    
-
+       
+ 
         <div class="box-filter top-box  block-scroll-main cate-1942">
 
             <section>
                 <div class="jsfix scrolling_inner scroll-right">
-                    <div><h4>Điện máy nguời việt là địa chỉ bán tivi chính hãng uy tín tại Hà Nội. Chúng tôi cam kết tất cả sản phẩm đều là hàng chính hãng, nguyên đai, nguyên kiện, mới 100%. Chúng tôi sẽ đền gấp 10 lần giá trị đơn hàng nếu như khách hàng phát hiện sản phẩm không phải hàng chính hãng.</h4></div>
+                    <div><h4>Điện máy nguời việt là địa chỉ bán tivi chính hãng uy tín tại Hà Nội. Chúng tôi cam kết tất cả sản phẩm đều là hàng chính hãng, nguyên đai, nguyên kiện, mới 100%.</h4></div>
                     <div class="box-filter block-scroll-main scrolling">
                         @if(isset($filter))
                         @foreach($filter as $filters)
 
+                        
                         <?php
                             $propertyId =  App\Models\property::where('filterId', $filters->id)->get();
                         ?>
@@ -355,6 +355,7 @@
                             group_id:{{ @$id_cate }},
                             filter: filter,
                             property: propertys,
+                            slug:{{ $link}},
                             
                         },
                         success: function(result){

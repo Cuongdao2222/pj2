@@ -22,6 +22,8 @@ class filterController extends Controller
         $filter = $request->filter;
 
         $property = $request->property;
+
+        $link    = $request->link;
     
         $list_data_group = filter::where('group_product_id', $group_id)->whereIn('id', $filter)->select('value')->get()->toArray();
 
@@ -92,6 +94,8 @@ class filterController extends Controller
                 }
 
                 $product_search = product::whereIn('id', $result_product)->get();
+
+                return redirect('/'.$link.'?filter='.$filter);
 
                 return view('frontend.ajax.product', compact('product_search'));
 

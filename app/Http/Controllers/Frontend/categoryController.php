@@ -40,6 +40,8 @@ class categoryController extends Controller
 
         $id_cate = $findID->id;
 
+        $link   =  $findID->link;
+
         // dd($id_cate);
 
         // die();
@@ -50,7 +52,7 @@ class categoryController extends Controller
 
         $filter = filter::where('group_product_id', $id_cate)->select('name', 'id')->get();
 
-        return view('frontend.category', compact('data', 'filter', 'id_cate'));
+        return view('frontend.category', compact('data', 'filter', 'id_cate', 'link'));
     }
 
     public function blogDetailView($slug)

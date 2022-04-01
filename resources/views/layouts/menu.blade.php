@@ -105,6 +105,13 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="#"
+       class="nav-link {{ Request::is('makers*') ? 'active' : '' }}">
+        <p>Sửa css trang</p>
+    </a>
+</li>
+
 
 @if(Auth::user()->id==2 || Auth::user()->id==1)
 

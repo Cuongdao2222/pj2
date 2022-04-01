@@ -25,6 +25,8 @@ Route::get('/ckfinder.html', function () {
 
 
 
+Route::get('readfile', 'Frontend\indexController@readFile')->name('readfile');
+
 Route::post('login-Fe', 'AjaxController@loginClientsFe')->name('login-Fe');
 
 Route::get('logout-Fe', 'AjaxController@logout')->name('logout-Fe');

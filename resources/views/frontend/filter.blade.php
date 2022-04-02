@@ -81,7 +81,6 @@
             
         </style>
     @endpush
-
         <div class="locationbox__overlay"></div>
         <!-- <div class="locationbox">
             <div class="locationbox__item locationbox__item--right" onclick="OpenLocation()">
@@ -115,13 +114,27 @@
                 </div>
             </div>
         </div>
+
+        <?php  
+            $propery_url = $_GET['property'];
+
+            $propery_url_id = explode(',',$propery_url);
+            
+        ?>
         
         <div class="bsc-block">
             <section>
                 <ul class="breadcrumb">
-                    <li><a href="tivi">Trang chủ</a></li>
+                    <li><a href="tivi">Trang chủs</a></li>
+
+                   
+                        
+
+                        
+                       
+                       
                     <li>
-                        <a href="">Tivi</a>
+                        <a href="">tivi</a>
                     </li>
                 </ul>
             </section>
@@ -149,6 +162,8 @@
  
         <div class="box-filter top-box  block-scroll-main cate-1942">
 
+
+
             <section>
                 <div class="jsfix scrolling_inner scroll-right">
                     <div><h4>Điện máy nguời việt là địa chỉ bán tivi chính hãng uy tín tại Hà Nội. Chúng tôi cam kết tất cả sản phẩm đều là hàng chính hãng, nguyên đai, nguyên kiện, mới 100%.</h4></div>
@@ -159,14 +174,19 @@
                         
                         <?php
                             $propertyId =  App\Models\property::where('filterId', $filters->id)->get();
+
                         ?>
 
+
+
+
+                       
                         <div class="filter-item block-manu ">
-                            <select class="form-control" id="selectfilter{{ $filters->id }}" name="selectfilter" onchange='mySelectHandler("{{ $filters->id }}")'>
+                            <select class="form-control" id="selectfilter{{ $filters->id }}" name="selectfilter" onchange='demo("{{ $filters->id }}")'>
                                 <option value="0">{{ $filters->name }}</option>
                                 @if(isset($propertyId))
                                 @foreach($propertyId as $property)
-                                <option value="{{ $property->id}}"> {{ $property->name}}</option>
+                                <option value="{{ $property->id}}" {{  in_array($property->id, $propery_url_id)?'selected':'' }}> {{ $property->name}}</option>
                                 @endforeach
                                 @endif
                             </select>
@@ -181,10 +201,10 @@
         <section id="categoryPage" class="desktops" data-id="1942" data-name="Tivi" data-template="cate">
 
             
-
+            
             <div class="box-sort ">
-                @if(isset($data))
-                <p class="sort-total"><b>{{ count($data) }}</b> Sản phẩm <strong class="manu-sort"></strong></p>
+                @if(isset($product_search))
+                <p class="sort-total"><b>{{ count($product_search) }}</b> Sản phẩm <strong class="manu-sort"></strong></p>
 
                 @endif
                 <div class="sort-select ">
@@ -204,10 +224,10 @@
                     <div id="loader"></div>
                 </div> -->
                 <div class="row list-pro">
-                    @if(isset($data))
+                    @if(isset($product_search))
                     <?php $arr_id_pro = []; ?>
                    
-                    @foreach($data as $value)
+                    @foreach($product_search as $value)
                         @if($value->active==1)
 
                             <?php   
@@ -295,23 +315,62 @@
             <div class="overlay"></div>
 
            
-            @if(\Request::route()->getName()!='search-product-frontend')
-            {{ @$data->links() }}
-
-            @endif
+           
         </section>
+
+        <?php  
+            $propery_url = $_GET['property'];
+
+            // $propery_url_id = explode(',',$propery_url);
+
+            
+        ?>
+
+       
         @push('script')
         <script type="text/javascript">
-            filter = [];
+            function demo(filters) {
 
-            propertys = [];
+                filers_url = "{{ $_GET['filter'] }}";
 
-             $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+                filers_url = filers_url.split(',');
+
+                var propertys =    "{{ $_GET['property'] }}";
+                propertys = propertys.split(',');
+
+                property = $('#selectfilter'+filters).val();
             
+                //Xóa phần tử giống nhau trong mảng
+                if(property !=0){
+                    
+                    if(filers_url.indexOf(filters)>-1){
+
+                        filers_url.splice(filers_url.indexOf(filters));
+
+                        propertys.splice(filers_url.indexOf(filters));
+
+                    }
+
+                    filers_url.push(filters);
+                        
+                    propertys.push(property);
+
+                }
+    
+                if(filers_url.length>0){
+                    propertys = propertys.join(',');
+
+                    filter = filers_url.join(',');
+
+                    href  = 'http://localhost/ti-vi/?filter='+filter+'&group_id={{ @$id_cate }}&property='+propertys+'&link={{ $link }}';
+
+                    window.location.href  = 'http://localhost/ti-vi/?filter='+filter+'&group_id={{ @$id_cate }}&property='+propertys+'&link={{ $link }}';
+                }
+
+
+             }
+
+
             function mySelectHandler(filters){
 
                 property = $('#selectfilter'+filters).val();
@@ -335,19 +394,15 @@
                 
                 // var filterss['code'] = property; 
 
-
                 // khi người dùng select option thì gọi hàm
                 if(filter.length>0){
 
-                    filter = filter.join(',');
+                    filter = JSON.stringify(filter);
 
-                    propertys = propertys.join(',');
+                    propertys = JSON.stringify(propertys);
 
+                    window.location.href = 'http://localhost/ti-vi/?filter='+filter+'&group_id={{ @$id_cate }}&property='+propertys+'&link={{ $link }}';
 
-                    window.location.href = 'http://localhost/ti-vi/?filter=,'+filter+'&group_id={{ @$id_cate }}&property=,'+propertys+'&link={{ $link }}';
-
-                   
-                    
                 }
 
             }

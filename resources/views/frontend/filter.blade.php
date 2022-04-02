@@ -401,7 +401,7 @@
 
                     propertys = JSON.stringify(propertys);
 
-                    window.location.href = 'http://localhost/ti-vi/?filter='+filter+'&group_id={{ @$id_cate }}&property='+propertys+'&link={{ $link }}';
+                    window.location.href = '{{ route('details',$link) }}?filter=,'+filter+'&group_id={{ @$id_cate }}&property='+propertys+'&link={{ $link }}';
 
                 }
 

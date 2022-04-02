@@ -81,6 +81,7 @@
             
         </style>
     @endpush
+
         <div class="locationbox__overlay"></div>
         <!-- <div class="locationbox">
             <div class="locationbox__item locationbox__item--right" onclick="OpenLocation()">
@@ -182,8 +183,9 @@
             
 
             <div class="box-sort ">
-                 @if(count($data)>0)
+                @if(isset($data))
                 <p class="sort-total"><b>{{ count($data) }}</b> Sản phẩm <strong class="manu-sort"></strong></p>
+
                 @endif
                 <div class="sort-select ">
                     <label for="standard-select">Xếp theo</label>
@@ -202,75 +204,74 @@
                     <div id="loader"></div>
                 </div> -->
                 <div class="row list-pro">
-                    @if(count($data)>0)
+                    @if(isset($data))
                     <?php $arr_id_pro = []; ?>
                    
                     @foreach($data as $value)
-                    @if($value->active==1)
+                        @if($value->active==1)
 
-                        <?php   
+                            <?php   
 
-                            $id_product = $value->id;
-                            array_push($arr_id_pro, $id_product);
-                        ?>
+                                $id_product = $value->id;
+                                array_push($arr_id_pro, $id_product);
+                            ?>
 
-                    <div class="col-md-3 col-6 lists">
-                        <div class="item  __cate_1942">
-                            <a href='{{ route("details", $value->Link ) }}' data-box="BoxCate" class="main-contain">
-                                <div class="item-label">
-                                    <span class="lb-tragop">Trả góp 0%</span>
-                                </div>
-                                <div class="item-img item-img_1942">
-                                    <img class="lazyload thumb" data-src="{{ asset($value->Image) }}" alt="{{ asset($value->Name) }}" style="width:100%"> 
-                                </div>
-                                <div class="items-title">
-                                    <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src=''><span>Giảm Sốc</span></p>
-                                    <h3 >
-                                        {{ $value->Name  }}
-                                    </h3>
-                                    <div class="item-compare">
-                                        <span>55 inch</span>
-                                        <span>4K</span>
+                        <div class="col-md-3 col-6 lists">
+                            <div class="item  __cate_1942">
+                                <a href='{{ route("details", $value->Link ) }}' data-box="BoxCate" class="main-contain">
+                                    <div class="item-label">
+                                        <span class="lb-tragop">Trả góp 0%</span>
                                     </div>
-                                    <!-- <div class="box-p">
-                                        <p class="price-old black">20.900.000&#x20AB;</p>
-                                    </div> -->
+                                    <div class="item-img item-img_1942">
+                                        <img class="lazyload thumb" data-src="{{ asset($value->Image) }}" alt="{{ asset($value->Name) }}" style="width:100%"> 
+                                    </div>
+                                    <div class="items-title">
+                                        <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' data-src=''><span>Giảm Sốc</span></p>
+                                        <h3 >
+                                            {{ $value->Name  }}
+                                        </h3>
+                                        <div class="item-compare">
+                                            <span>55 inch</span>
+                                            <span>4K</span>
+                                        </div>
+                                        <!-- <div class="box-p">
+                                            <p class="price-old black">20.900.000&#x20AB;</p>
+                                        </div> -->
+                                        
+                                        <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
+                                        <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
+                                        <div class="item-rating">
+                                            <p>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                            </p>
+                                           <!--  <p class="item-rating-total">56</p> -->
+                                        </div>
+
+                                    </div>
                                     
-                                    <strong class="price">{{ number_format($value->Price , 0, ',', '.')}}</strong>
-                                    <!-- <p class="item-gift">Quà <b>1.500.000₫</b></p> -->
-                                    <div class="item-rating">
-                                        <p>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                        </p>
-                                       <!--  <p class="item-rating-total">56</p> -->
-                                    </div>
-
+                                </a>
+                                <div class="item-bottom">
+                                    <a href="#" class="shiping"></a>
                                 </div>
-                                
-                            </a>
-                            <div class="item-bottom">
-                                <a href="#" class="shiping"></a>
+                               <!--  <a href="javascript:void(0)" class="item-ss">
+                                    <i></i>
+                                    So sánh
+                                </a> -->
                             </div>
-                           <!--  <a href="javascript:void(0)" class="item-ss">
-                                <i></i>
-                                So sánh
-                            </a> -->
                         </div>
-                       
-                    </div>
-
-                   
-                   
-                   
-                    @endif
+                        @endif
                     @endforeach
-                     <span class="lists-id">{{ json_encode($arr_id_pro) }}</span>
 
-                    @else
+
+                     <span class="lists-id">{{ json_encode($arr_id_pro) }}</span>
+                      
+                   
+                   @else   
+
                     <div style="margin-left: 20px;">
                         <h2>Không tìm thấy sản phẩm</h2>
                     </div>
@@ -301,7 +302,7 @@
         </section>
         @push('script')
         <script type="text/javascript">
-            filter = ["{{ !empty($_GET['filter'])?$_GET['filter'].',':'' }}" ];
+            filter = [];
 
             propertys = [];
 
@@ -332,37 +333,22 @@
 
                 }
                 
-                 $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+                // var filterss['code'] = property; 
 
 
                 // khi người dùng select option thì gọi hàm
                 if(filter.length>0){
 
-                    $.ajax({
-       
-                    type: 'POST',
-                        url: "{{ route('client-search') }}",
-                        data: {
-                            group_id:{{ @$id_cate }},
-                            filter: filter,
-                            property: propertys,
-                            
-                        },
-                        success: function(result){
+                    filter = filter.join(',');
 
-                           $('#categoryPage').html('');
+                    propertys = propertys.join(',');
 
-                            $('#categoryPage').html(result);
 
-                        }
-                    });
+                    window.location.href = 'http://localhost/ti-vi/?filter=,'+filter+'&group_id={{ @$id_cate }}&property=,'+propertys+'&link={{ $link }}';
+
+                   
                     
                 }
-
 
             }
 

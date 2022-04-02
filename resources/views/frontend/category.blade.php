@@ -332,19 +332,37 @@
 
                 }
                 
-                // var filterss['code'] = property; 
+                 $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
 
 
                 // khi người dùng select option thì gọi hàm
                 if(filter.length>0){
 
-                    // console.log('http://localhost/ti-vi/?filter='+filter+'&group_id='+{{ @$id_cate }}+'&property='+propertys);
+                    $.ajax({
+       
+                    type: 'POST',
+                        url: "{{ route('client-search') }}",
+                        data: {
+                            group_id:{{ @$id_cate }},
+                            filter: filter,
+                            property: propertys,
+                            
+                        },
+                        success: function(result){
 
-                    window.location.href = 'http://localhost/ti-vi/?filter='+filter+'&group_id='+{{ @$id_cate }}+'&property='+propertys;
+                           $('#categoryPage').html('');
 
-                   
+                            $('#categoryPage').html(result);
+
+                        }
+                    });
                     
                 }
+
 
             }
 

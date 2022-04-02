@@ -16,24 +16,16 @@ class filterController extends Controller
         return view('filter.index');
     }
 
-    public function filter()
+    public function filter(Request $request)
     {
 
-        $group_id =  strip_tags($_GET['group_id']) ;
-        
-        $filter =  strip_tags($_GET['filter']) ;
+        $group_id = $request->group_id;
 
-        $property = strip_tags($_GET['property']);
+        $filter = $request->filter;
 
-        // dd($filter);
-
-        // die();
-
-        $list_data_group = filter::where('group_product_id', $group_id)->where('id', $filter)->select('value')->get()->toArray();
-
-        dd($list_data_group);
-
-        die();
+        $property = $request->property;
+    
+        $list_data_group = filter::where('group_product_id', $group_id)->whereIn('id', $filter)->select('value')->get()->toArray();
 
         $fill = [];
 
@@ -103,14 +95,16 @@ class filterController extends Controller
 
                 $product_search = product::whereIn('id', $result_product)->get();
 
-                // return redirect('/'.$link.'/?filter= 1');
 
-                return view('frontend.ajax.product', compact('product_search'));
+                return response($product_search);
+
+                // return view('frontend.ajax.product', compact('product_search'));
 
             }
             
 
         }    
+
             
     }
     

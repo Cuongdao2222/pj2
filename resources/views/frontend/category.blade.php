@@ -301,7 +301,7 @@
         </section>
         @push('script')
         <script type="text/javascript">
-            filter = [];
+            filter = ["{{ !empty($_GET['filter'])?$_GET['filter'].',':'' }}" ];
 
             propertys = [];
 
@@ -337,6 +337,8 @@
 
                 // khi người dùng select option thì gọi hàm
                 if(filter.length>0){
+
+                    // console.log('http://localhost/ti-vi/?filter='+filter+'&group_id='+{{ @$id_cate }}+'&property='+propertys);
 
                     window.location.href = 'http://localhost/ti-vi/?filter='+filter+'&group_id='+{{ @$id_cate }}+'&property='+propertys;
 

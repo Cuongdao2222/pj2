@@ -19,16 +19,21 @@ class filterController extends Controller
     public function filter()
     {
 
-        $group_id = $_GET['group_id'];
-        $filter = $_GET['filter'];
+        $group_id =  strip_tags($_GET['group_id']) ;
+        
+        $filter =  strip_tags($_GET['filter']) ;
 
-        $property = $_GET['property'];
+        $property = strip_tags($_GET['property']);
 
-        dd(1);
+        // dd($filter);
 
-       
-    
-        $list_data_group = filter::where('group_product_id', $group_id)->whereIn('id', $filter)->select('value')->get()->toArray();
+        // die();
+
+        $list_data_group = filter::where('group_product_id', $group_id)->where('id', $filter)->select('value')->get()->toArray();
+
+        dd($list_data_group);
+
+        die();
 
         $fill = [];
 

@@ -115,14 +115,23 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="bsc-block">
             <section>
                 <ul class="breadcrumb">
-                    <li><a href="tivi">Trang chủ</a></li>
+                    <li><a href="{{ route('homeFe') }}">Trang chủ</a></li>
+
+                    @if(isset($ar_list))
+                    @foreach($ar_list as $val)
+
+
                     <li>
-                        <a href="">Tivi</a>
+                        <a href="{{ route('details', @$val['link']) }}">{{ @$val['name'] }}</a>
                     </li>
+
+                   
+                    @endforeach
+                    @endif
                 </ul>
             </section>
         </div>
@@ -230,6 +239,19 @@
                                         <h3 >
                                             {{ $value->Name  }}
                                         </h3>
+
+                                        <?php
+
+                                        $dataSpecifications = explode('\r\n', $value->Specifications);
+
+                                        print_r($dataSpecifications);
+                                         ?>
+
+
+                                       
+                                        <?php  die() ?>
+
+
                                         <div class="item-compare">
                                             <span>55 inch</span>
                                             <span>4K</span>

@@ -66,6 +66,13 @@ class categoryController extends Controller
 
             $id_cate = $findID->id;
 
+            $groupProduct_level = $findID->level;
+
+
+            $ar_list = $this->find_List_Id_Group($id_cate,$groupProduct_level);
+
+
+
             $filter = filter::where('group_product_id', $id_cate)->select('name', 'id')->get();
 
             $fill = [];
@@ -176,12 +183,16 @@ class categoryController extends Controller
        
         $id_cate = $findID->id;
 
-        $groupProduct_id = $findID->Group_id;
+        $groupProduct_level = $findID->level;
 
+        $ar_list = $this->find_List_Id_Group($id_cate,$groupProduct_level);
+
+       
 
         $link   =  $findID->link;
 
-        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.id','products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->Orderby('id', 'desc')->paginate(10);
+        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.id','products.Image', 'products.ProductSku', 'products.Specifications', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->Orderby('id', 'desc')->paginate(10);
+
 
 
         $filter = filter::where('group_product_id', $id_cate)->select('name', 'id')->get();
@@ -191,6 +202,7 @@ class categoryController extends Controller
             'filter'=>$filter,
             'id_cate'=>$id_cate,
             'link'=>$link,
+            'ar_list'=>$ar_list,
 
         ];
 
@@ -199,10 +211,42 @@ class categoryController extends Controller
     }    
 
 
-    protected function FunctionName()
+    protected function find_List_Id_Group($id,  $groupProduct_level)
     {
-        
+        $list =  groupProduct::find($id);
+
+        $ar_list = [];
+
+        if(isset($list)){
+
+            if((int)$groupProduct_level>0){
+
+                for ($i=0; $i < $groupProduct_level; $i++) { 
+
+                    $list_add = $list->parent_id;
+
+                    $list =  groupProduct::find($list_add);
+
+                    array_push($ar_list, $list_add);
+                   
+                    
+                }
+
+            }
+           
+        }
+
+        $ar_list[] = $id;
+
+        $info_list_category = [];
+
+        $groupProduct_info = groupProduct::select('name','link')->whereIn('id', $ar_list)->get()->toArray();
+
+        return $groupProduct_info;
+    
     }
+
+   
 
     public function blogDetailView($slug)
     {

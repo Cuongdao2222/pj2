@@ -125,17 +125,18 @@
         <div class="bsc-block">
             <section>
                 <ul class="breadcrumb">
-                    <li><a href="tivi">Trang chủs</a></li>
+                     <li><a href="{{ route('homeFe') }}">Trang chủ</a></li>
+                    @if(isset($ar_list))
+                    @foreach($ar_list as $val)
+
+
+                    <li>
+                        <a href="{{ route('details', @$val['link']) }}">{{ @$val['name'] }}</a>
+                    </li>
 
                    
-                        
-
-                        
-                       
-                       
-                    <li>
-                        <a href="">tivi</a>
-                    </li>
+                    @endforeach
+                    @endif
                 </ul>
             </section>
         </div>
@@ -178,9 +179,6 @@
                         ?>
 
 
-
-
-                       
                         <div class="filter-item block-manu ">
                             <select class="form-control" id="selectfilter{{ $filters->id }}" name="selectfilter" onchange='demo("{{ $filters->id }}")'>
                                 <option value="0">{{ $filters->name }}</option>
@@ -250,6 +248,8 @@
                                         <h3 >
                                             {{ $value->Name  }}
                                         </h3>
+
+                                        
                                         <div class="item-compare">
                                             <span>55 inch</span>
                                             <span>4K</span>

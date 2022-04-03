@@ -538,7 +538,13 @@
 
                                 <div class="pdetail-price">
                                     <div class="pdetail-price-box">
-                                        <h3>{{  str_replace(',' ,'.', number_format($data->Price))  }}₫</h3>
+
+                                        <?php  
+
+
+                                            $check_deal = App\Models\deal::select('deal_price')->where('product_id', $data->id)->first();
+                                        ?>
+                                        <h3>{{ $check_deal->deal_price??str_replace(',' ,'.', number_format($data->Price))  }}₫</h3>
                                        
                                     </div>
                                     <!-- <div class="pdetail-promotion">

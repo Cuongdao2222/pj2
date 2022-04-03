@@ -855,6 +855,31 @@
         <!-- End -->
         <!-- Săn sale online -->
 
+        <?php 
+            $deal = App\Models\deal::get();
+
+            $now  = Carbon\Carbon::now();
+
+            if(isset($deal)){
+
+                $timeDeal_star = $deal[0]->start;
+
+                $timeDeal_star =  \Carbon\Carbon::parse($timeDeal_star)->format('d/m/Y');
+
+                $timeDeal_star =  \Carbon\Carbon::create($timeDeal_star);
+
+                $timeDeal_end = $deal[0]->end;
+
+                $timeDeal_end =  \Carbon\Carbon::parse($timeDeal_end)->format('d/m/Y');
+
+                $timeDeal_end =  \Carbon\Carbon::create($timeDeal_end);
+
+            }
+
+        ?>
+
+        @if($now->between($timeDeal_star, $timeDeal_end))
+
 
         <!-- flash sale -->
             <div class="">
@@ -866,24 +891,29 @@
                         <div class="col-flash col-flash-2 active">
                             <div id="sync1S" class="slider-banner owl-carousel flash-sale-banner">
 
+                                
+
+
+                                @foreach($deal as $value)
+
                                 <div class="item">
-                                    <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
+                                    <a href="{{ route('details', $value->link) }}">
                                         <div class="img">
-                                            <img width="327" src="https://cdn.nguyenkimmall.com/images/thumbnails/200/200/thumbnails/250/250/detailed/763/10050489-ban-ui-hoi-nuoc-philips-dst3030-70-1.jpg" title="Bàn ủi hơi nước Philips DST3030/70">
+                                            <img width="327" src="{{ asset($value->image) }}" title="{{ $value->name }}">
                                         </div>
                                     </a>
                                     <div class="desc">
-                                      <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
-                                        <h4 class="title">Bàn ủi hơi nước Philips DST3030/70</h4>
+                                      <a href="{{ route('details', $value->link) }}">
+                                        <h4 class="title">{{ $value->name }}</h4>
                                         <div class="container-price">
                                                <div>
-                                                    <p class="black-price">890.000đ</p><p class="reduce-percent">-29%</p><span class="price-old">1.190.000đ</span>
+                                                    <p class="black-price">{{ @$value->deal_price }}</p><span class="price-old">{{ @str_replace(',' ,'.', number_format($value->price)) }}</span>
                                                </div>
                                         </div>
                                         <div style="margin-top: 11px">
                                             <div class="nk-top-stickers"><span class="nk-sticker nk-new">Mới</span></div><div>
                                                     <p class="title-shock-price">Giá sốc online</p>
-                                                    <span class="price-new">849.000đ</span>
+                                                    <span class="price-new">{{ @$value->deal_price }}</span>
                                                 </div>
                                         </div><div class="review_product star"><span class="star_icon_avg_rate_npv" 0="" 5="" title="0/5"><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span></span><div class="line_break">|</div><div class="reviewCount">0 đánh giá</div></div><div class="container-timeline">
                                             <span class="timeline"><span style="width: 2%"></span></span>
@@ -922,117 +952,11 @@
                                     </div>
                                 </div>
 
-                                <div class="item">
-                                    <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
-                                        <div class="img">
-                                            <img width="327" src="https://cdn.nguyenkimmall.com/images/thumbnails/200/200/thumbnails/250/250/detailed/763/10050489-ban-ui-hoi-nuoc-philips-dst3030-70-1.jpg" title="Bàn ủi hơi nước Philips DST3030/70">
-                                        </div>
-                                    </a>
-                                    <div class="desc">
-                                      <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
-                                        <h4 class="title">Bàn ủi hơi nước Philips DST3030/70</h4>
-                                        <div class="container-price">
-                                               <div>
-                                                    <p class="black-price">890.000đ</p><p class="reduce-percent">-29%</p><span class="price-old">1.190.000đ</span>
-                                               </div>
-                                        </div>
-                                        <div style="margin-top: 11px">
-                                            <div class="nk-top-stickers"><span class="nk-sticker nk-new">Mới</span></div><div>
-                                                    <p class="title-shock-price">Giá sốc online</p>
-                                                    <span class="price-new">849.000đ</span>
-                                                </div>
-                                        </div><div class="review_product star"><span class="star_icon_avg_rate_npv" 0="" 5="" title="0/5"><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span></span><div class="line_break">|</div><div class="reviewCount">0 đánh giá</div></div><div class="container-timeline">
-                                            <span class="timeline"><span style="width: 2%"></span></span>
-                                            <p>Đã bán <span style="color: #EE1E25">2</span> / 100 sản phẩm</p>
-                                        </div>
-                                        <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
-                                        <div class="countdown-flash-sale">
-                                            <div class="time-cd time-fl">
-                                                
-                                                <div class="time">
-                                                    <span class="hours">
-                                                        <span class="hourss"> 6</span>
-                                                        
-                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
-                                                        <span>Giờ</span>
-                                                    </span>
-                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
+                                @endforeach
 
-                                                    <span class="hours">
-                                                        <span class="minutess"> 6</span>
-                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
-                                                        <span>phút</span>
-                                                    </span>
-                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
-                                                    <span class="hours">
-                                                        <span class="secondss"> 6</span>
-                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
-                                                        <span>giây</span>
-                                                    </span>
-                                                   
-                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                      </a>
-                                    </div>
-                                </div>
+                               
 
-                                <div class="item">
-                                    <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
-                                        <div class="img">
-                                            <img width="327" src="https://cdn.nguyenkimmall.com/images/thumbnails/200/200/thumbnails/250/250/detailed/763/10050489-ban-ui-hoi-nuoc-philips-dst3030-70-1.jpg" title="Bàn ủi hơi nước Philips DST3030/70">
-                                        </div>
-                                    </a>
-                                    <div class="desc">
-                                      <a href="https://www.nguyenkim.com/ban-ui-hoi-nuoc-philips-dst3030-70.html">
-                                        <h4 class="title">Bàn ủi hơi nước Philips DST3030/70</h4>
-                                        <div class="container-price">
-                                               <div>
-                                                    <p class="black-price">890.000đ</p><p class="reduce-percent">-29%</p><span class="price-old">1.190.000đ</span>
-                                               </div>
-                                        </div>
-                                        <div style="margin-top: 11px">
-                                            <div class="nk-top-stickers"><span class="nk-sticker nk-new">Mới</span></div><div>
-                                                    <p class="title-shock-price">Giá sốc online</p>
-                                                    <span class="price-new">849.000đ</span>
-                                                </div>
-                                        </div><div class="review_product star"><span class="star_icon_avg_rate_npv" 0="" 5="" title="0/5"><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span></span><div class="line_break">|</div><div class="reviewCount">0 đánh giá</div></div><div class="container-timeline">
-                                            <span class="timeline"><span style="width: 2%"></span></span>
-                                            <p>Đã bán <span style="color: #EE1E25">2</span> / 100 sản phẩm</p>
-                                        </div>
-                                        <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
-                                        <div class="countdown-flash-sale">
-                                            <div class="time-cd time-fl">
-                                                
-                                                <div class="time">
-                                                    <span class="hours">
-                                                        <span class="hourss"> 6</span>
-                                                        
-                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
-                                                        <span>Giờ</span>
-                                                    </span>
-                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px" >:</p>
-
-                                                    <span class="hours">
-                                                        <span class="minutess"> 6</span>
-                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
-                                                        <span>phút</span>
-                                                    </span>
-                                                    <p style="font-size: 28px; line-height: 55px;font-weight: bold;color: #101010; margin: 0 7px">:</p>
-                                                    <span class="hours">
-                                                        <span class="secondss"> 6</span>
-                                                        <div style="margin-top: 2px; width:100%; height:1px; background: #FF3647"></div>
-                                                        <span>giây</span>
-                                                    </span>
-                                                   
-                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                      </a>
-                                    </div>
-                                </div>
+                               
 
                                 
                                 
@@ -1043,6 +967,8 @@
             </div>
 
            <!--  end flash  -->
+
+         @endif  
 
 
         <div class="clearfix"></div> 

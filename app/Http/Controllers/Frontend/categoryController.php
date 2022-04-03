@@ -176,6 +176,9 @@ class categoryController extends Controller
        
         $id_cate = $findID->id;
 
+        $groupProduct_id = $findID->Group_id;
+
+
         $link   =  $findID->link;
 
         $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.id','products.Image', 'products.ProductSku', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->Orderby('id', 'desc')->paginate(10);
@@ -194,6 +197,12 @@ class categoryController extends Controller
         return $data;
 
     }    
+
+
+    protected function FunctionName()
+    {
+        
+    }
 
     public function blogDetailView($slug)
     {

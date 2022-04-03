@@ -98,6 +98,11 @@ Route::post('get-email-user', 'AjaxController@getEmail')->name('getemail');
 
 Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
+    Route::get('filter-group-id', 'dealController@getProductToGroupId')->name('filter-group-id');
+
+    Route::get('deal', 'dealController@index')->name('deal');
+
+
     Route::get('home', 'HomeController@index')->name('home-admin');
 
     Route::post('info-pop-up', 'showController@addPopup')->name('add-popup');

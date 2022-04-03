@@ -1106,7 +1106,10 @@
 
             // $data = App\Models\product::where('Group_id', 1)->get();
 
-            $group = App\Models\groupProduct::get();
+            $group = App\Models\groupProduct::where('parent_id', 0)->get();
+
+            
+           
 
          ?>   
 
@@ -1114,14 +1117,20 @@
         @for($i =0; $i <count($group); $i++)
 
             <?php
-                $all_Product = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.id')->where('group_product.id', $group[$i]->id)->get();
+                $all_Product = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.id')->where('group_product.id', $group[$i]->id)->where('products.active', 1)->get();
                 $data =  DB::table('products')->join('hot', 'products.id', '=', 'hot.product_id')->join('group_product', 'products.Group_id', '=', 'group_product.id')->where('hot.group_id', $group[$i]->id)->get();
 
 
             ?>
 
+           
 
-        @if(count($data)>0)    
+
+
+
+        @if(count($data)>0)
+
+         
         <div class="box-common _cate_1942">
             <ul class="box-common__tab">
                 <li class="active-tab" data-cate-id="1942">{{  @$group[$i]->name }}</li>
@@ -1193,6 +1202,8 @@
                 </div>
             </div>
         </div>
+
+       
         @endif
         @endfor
         <!-- End  -->

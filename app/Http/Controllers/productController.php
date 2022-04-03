@@ -11,6 +11,7 @@ use App\Models\groupProduct;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use App\Models\hotProduct;
 use Flash;
 use Response;
 
@@ -232,6 +233,19 @@ class productController extends AppBaseController
 
             $input['Price'] = str_replace(',', '', $request->Price);
             $input['Price'] = str_replace('.', '', $input['Price']);
+        }
+
+        
+
+        if($product->Group_id != $input['Group_id']){
+
+            $hot = hotProduct::where('product_id', $id)->first();
+
+            $hot = hotProduct::find($hot->id);
+
+            $hot->group_id = $input['Group_id'];
+
+            $hot->save();
         }
 
         if ($request->hasFile('Image')) {

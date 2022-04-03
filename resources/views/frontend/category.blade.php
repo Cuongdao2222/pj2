@@ -242,19 +242,22 @@
 
                                         <?php
 
-                                        $dataSpecifications = explode('\r\n', $value->Specifications);
+                                        if($id_cate ==1){
 
-                                        print_r($dataSpecifications);
-                                         ?>
+                                        
+                                            $number_cut = strpos($value->Name, 'inch')-3;
+
+                                            $result_cut  = substr($value->Name, $number_cut);
+
+                                            $display  = substr($result_cut, -2);
+                                        }
 
 
-                                       
-                                        <?php  die() ?>
-
+                                        ?>
 
                                         <div class="item-compare">
-                                            <span>55 inch</span>
-                                            <span>4K</span>
+                                            <span>{{ str_replace($display, '', $result_cut) }}</span>
+                                            <span>{{ $display }}</span>
                                         </div>
                                         <!-- <div class="box-p">
                                             <p class="price-old black">20.900.000&#x20AB;</p>

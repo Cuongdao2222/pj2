@@ -178,6 +178,12 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('/filter', 'Frontend\filterController@index')->name('filter-property');
 
+     Route::get('/filter-deal-products-add', 'dealController@GetProductbyId')->name('filter-deal-add');
+
+     Route::get('/filter-deal-products-add-deal', 'dealController@add_Deal')->name('result-add');
+
+     Route::get('/delete-deal', 'dealController@removeDeal')->name('delete-deal');
+
     //ajax
 
     Route::post('add-selected-value-filter', 'AjaxController@addValueSelectFilter')->name('add-value-selected-filter');

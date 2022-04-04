@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableGroupgiftTable extends Migration
+class CreateTableLandingProduct extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateTableGroupgiftTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_gift', function (Blueprint $table) {
+        Schema::create('landing_product', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('type');
-            $table->integer('gift');
-            $table->integer('gift1');
-            $table->integer('gift2');
-            $table->integer('time');
-            $table->text('group_name');
+            $table->string('name');
+            $table->string('image');
+            $table->string('price');
+            $table->string('model');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateTableGroupgiftTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_gift');
+        Schema::dropIfExists('landing_product');
     }
 }

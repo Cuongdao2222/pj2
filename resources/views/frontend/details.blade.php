@@ -4,6 +4,12 @@
 
 @section('content') 
 
+        <?php  
+
+            $check_deal = App\Models\deal::select('deal_price')->where('product_id', $data->id)->first();
+
+        ?>
+
 
         @push('style')
         <link rel="stylesheet" type="text/css" href="{{ asset('css/detailsfe.css') }}">
@@ -35,8 +41,6 @@
             <ul class="breadcrumb">
                 <?php  
                     $groupProduct = App\Models\groupProduct::find($data->Group_id);
-
-                    
                 ?>
                 <li>
                     <a href="{{route('homeFe')}}">Trang chủ</a>
@@ -125,7 +129,13 @@
 
                                     <div class="pdetail-price">
                                         <div class="pdetail-price-box">
+                                            @if(!empty($check_deal))
+                                            <h3>{{ $check_deal->deal_price?@str_replace(',' ,'.', number_format( $check_deal->deal_price)):str_replace(',' ,'.', number_format($data->Price))  }}₫ </h3>
+
+                                            @else
                                             <h3>{{  str_replace(',' ,'.', number_format($data->Price))  }}₫</h3>
+
+                                            @endif
                                            
                                         </div>
                                         <!-- <div class="pdetail-promotion">
@@ -358,10 +368,7 @@
                                 <div class="pdetail-price">
                                     <div class="pdetail-price-box">
 
-                                        <?php  
-
-                                            $check_deal = App\Models\deal::select('deal_price')->where('product_id', $data->id)->first();
-                                        ?>
+                                        
                                         <h3>
 
                                             @if(!empty($check_deal))
@@ -648,24 +655,16 @@
          <?php
             $now = Carbon\Carbon::now();
             
-            
             $promotion = DB::table('promotion')->where('id_product', $data->id)->get()->first();
 
-            dd($promotion->id_group_gift);
+            if(!empty($promotion)){
+                $gifts     = DB::table('group_gift')->where('id', $promotion->id_group_gift)->first();
 
+                $gifts_ar = [$gifts->gift1, $gifts->gift2];
 
+                $gift = DB::table('gifts')->whereIn('id',  $gifts_ar)->get()->toArray();  
 
-            // if(!empty($promotion)){
-            //     $gifts     = DB::table('group_gift')->where('id', $promotion->id_group_gift)->first();
-
-            //     $gifts_ar = [$gifts->gift1, $gifts->gift2];
-
-
-            //     $gift = DB::table('gifts')->whereIn('id',  $gifts_ar)->get()->toArray();  
-
-            //     dd($gift);
-
-            // }
+            }
              
   
          ?>

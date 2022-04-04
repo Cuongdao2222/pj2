@@ -146,6 +146,18 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
         
     })->name('pop-up-show');
 
+    Route::get('add-lanfding-pro', 'landingController@addLanding')->name('add-product-landing');
+
+    Route::get('landingpage', function () {
+        return view('landing.landing');
+        
+    })->name('landing');
+
+    Route::get('add-hight-light', 'landingController@add_Hight_Light')->name('add-hight-light');
+
+
+    
+
     Route::post(    
         'generator_builder/generate-from-file',
         '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'

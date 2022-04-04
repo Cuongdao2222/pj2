@@ -211,12 +211,7 @@
                                 </div>
                                 <p>Điểm nổi bật</p>
                             </div>
-                            <div id="thumb-color-images-gallery-12" class="item itemTab  " data-gallery-id="color-images-gallery" data-color-id="12" data-is-full-spec="False" data-color-order-id="0" data-isfeatureimage="True">
-                                <div class="item-border">
-                                    <img data-src="//cdn.tgdd.vn/Products/Images/3385/200078/aosmith-c1-8-180x120.jpg" alt="Trắng" width="41" height="41" loading="lazy" class=" lazyloaded" src="//cdn.tgdd.vn/Products/Images/3385/200078/aosmith-c1-8-180x120.jpg">
-                                </div>
-                                <p>Trắng</p>
-                            </div>
+                           
                             <div id="thumb-specification-gallery-0" class="item itemTab  is-show-popup" data-gallery-id="specification-gallery" data-color-id="0" data-is-full-spec="True" data-color-order-id="0" data-isfeatureimage="True">
                                 <div class="item-border">
                                     <i class="icondetail-thongso"></i>
@@ -350,7 +345,7 @@
                                 <div class="boxbanner-32">
                                     <div class="banner-list">
                                         <div class="item banner-item banner-item-1">
-                                            <a target="&quot;_blank&quot;" href="https://mediamart.vn/khuyen-mai-tet" data-id="1022">
+                                            <a target="#" data-id="1022">
                                                 <picture>
                                                    
                                                     <img src="https://thegioidohoacom.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2019/01/10040348/X4iNCOp-1024x454.jpg" alt="Tết Lớn Khuyến Mại Lớn" width="&quot;640&quot;" height="&quot;150&quot;">
@@ -367,7 +362,16 @@
 
                                             $check_deal = App\Models\deal::select('deal_price')->where('product_id', $data->id)->first();
                                         ?>
-                                        <h3>{{ $check_deal->deal_price?@str_replace(',' ,'.', number_format( $check_deal->deal_price)):str_replace(',' ,'.', number_format($data->Price))  }}₫</h3>
+                                        <h3>
+
+                                            @if(!empty($check_deal))
+                                            {{ $check_deal->deal_price?@str_replace(',' ,'.', number_format( $check_deal->deal_price)):str_replace(',' ,'.', number_format($data->Price))  }}₫
+
+                                            @else
+                                            {{str_replace(',' ,'.', number_format($data->Price))  }}₫
+
+                                            @endif
+                                        </h3>
                                        
                                     </div>
                                     <!-- <div class="pdetail-promotion">

@@ -651,20 +651,26 @@
             
             $promotion = DB::table('promotion')->where('id_product', $data->id)->get()->first();
 
+            dd($promotion->id_group_gift);
 
 
-            if(!empty($promotion)){
-                $gifts     = DB::table('group_gift')->where('id', $promotion->id_group_gift)->first();
+
+            // if(!empty($promotion)){
+            //     $gifts     = DB::table('group_gift')->where('id', $promotion->id_group_gift)->first();
+
+            //     $gifts_ar = [$gifts->gift1, $gifts->gift2];
 
 
-                $gift1 = DB::table('gifts')->where('id',  $gifts->gift1)->first();  
+            //     $gift = DB::table('gifts')->whereIn('id',  $gifts_ar)->get()->toArray();  
 
-                $gift2 = DB::table('gifts')->where('id',  $gifts->gift2)->first();  
+            //     dd($gift);
 
-            }
+            // }
              
   
          ?>
+
+
         @if(!empty($promotion ))      
         <div class="promo line_h19">
 

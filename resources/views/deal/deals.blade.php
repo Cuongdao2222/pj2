@@ -223,12 +223,51 @@
                           <tr>
                               <td>Cài đặt thời gian</td>
                               <td>
-                                  Bắt đầu : <input type="text" id="date-picker1" value="{{ @$deal[0]->start }}"> Giờ: 
-                                  <select name="time"><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option selected="" value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select>
+
+                               <?php 
+
+
+                                function get_times ($default = '19:00', $interval = '+30 minutes') {
+
+                                    $output = '';
+
+                                    $current = strtotime('00:00');
+                                    $end = strtotime('23:59');
+
+                                    while ($current <= $end) {
+                                        $time = date('H:i', $current);
+                                        $sel = ($time == $default) ? ' selected' : '';
+
+                                        $output .= "<option value=\"{$time}\"{$sel}>" . date('h.i A', $current) .'</option>';
+                                        $current = strtotime($interval, $current);
+                                    }
+
+                                    return $output;
+                                }
+
+                                ?>
+
+                                  Bắt đầu : <input type="text" id="date-picker1" value="{{  str_replace(strstr($deal[0]->start, ','), '', $deal[0]->start) }}">
+
+                                  <?php  
+
+                                    $start = str_replace(',','',strstr($deal[0]->start, ','));
+
+                                  
+
+                                  
+
+                                    $end    = str_replace(',','',strstr($deal[0]->end, ','));
+                                  ?>
+
+                                   Giờ: 
+                                  <select name="time" id="hours1"><?php echo get_times($default = $start, '+30 minutes'); ?></select>
                                   <br>
                                   <br>
-                                  Kết thúc : <input type="text" size="10"  id="date-picker2" value="{{ @$deal[0]->end }}"> Giờ: 
-                                  <select name="time"><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option selected="" value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select>
+                                  Kết thúc : <input type="text"  id="date-picker2" value="{{ str_replace(strstr($deal[0]->end, ','), '', $deal[0]->end) }}"> Giờ: 
+                                  <select name="time" id="hours2">
+                                      <?php echo get_times($default = $end, '+30 minutes'); ?>
+                                  </select>
                               </td>
                           </tr>
                       </tbody>
@@ -247,7 +286,7 @@
                             </tr>
 
                             <?php  
-
+                                $now = Carbon\Carbon::now();
                                 $products = DB::table('deal')->get()->toArray();
 
                                
@@ -262,12 +301,10 @@
                                 </td>
                                 <td>
                                     <div><a href="{{ route('details', $val->link) }}" target="_blank"><b>{{ $val->name }}</b></a></div>
-                                    <div>Giá deal : <b style="color:red;">{{  $val->deal_price }}</b> vnd - Giá thường: <b style="color:red;">{{  $val->price }}</b> </div>
+                                    <div>Giá deal : <b style="color:red;">{{str_replace(',' ,'.', number_format($val->deal_price))}}</b> vnd - Giá thường: <b style="color:red;">{{  str_replace(',' ,'.', number_format($val->price))   }}</b> </div>
                                     <div>Số lượng : <b style="color:red;">0</b> - Số tối thiểu cho 1 đơn hàng: <b style="color:red;">0</b></div>
                                     <div>Thời gian : Từ <b style="color:red;">{{ @$val->start }}</b> đến <b style="color:red;">{{ $val->end }}</b> 
-                                        (
-                                        Đang bắt đầu
-                                        )
+                                        ({{ $now->between($val->start, $val->end)?'Đang bắt đầu':'chưa bắt đầu'}})
                                     </div>
                                    
                                 </td>
@@ -555,6 +592,8 @@ $('.add-deal-price').click(function(){
 
 $('.accepts').click(function(){
 
+    console.log($('#hours1').val());
+
 
       $.ajaxSetup({
                 headers: {
@@ -567,9 +606,9 @@ $('.accepts').click(function(){
         type: 'GET',
             url: "{{ route('result-add') }}",
             data: {
-                start: $('#date-picker1').val(),
+                start: $('#date-picker1').val()+','+$('#hours1').val(),
 
-                end:$('#date-picker2').val()
+                end:$('#date-picker2').val()+','+$('#hours2').val(),
                
                 
             },

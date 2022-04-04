@@ -19,6 +19,8 @@
                         Add New
                     </a>
                 </div>
+
+                <div class="btn btn-red"><a href="{{ route('deal') }}">deal sản phẩm</a></div>
             </div>
         </div>
     </section>

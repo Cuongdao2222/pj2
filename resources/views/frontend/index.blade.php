@@ -201,17 +201,19 @@
 
                 $timeDeal_star = $deal[0]->start;
 
-                $timeDeal_star =  \Carbon\Carbon::parse($timeDeal_star)->format('d/m/Y');
+                // $timeDeal_star =  \Carbon\Carbon::parse($timeDeal_star)->format('d/m/Y');
 
                 $timeDeal_star =  \Carbon\Carbon::create($timeDeal_star);
 
                 $timeDeal_end = $deal[0]->end;
 
-                $timeDeal_end =  \Carbon\Carbon::parse($timeDeal_end)->format('d/m/Y');
+                // $timeDeal_end =  \Carbon\Carbon::parse($timeDeal_end)->format('d/m/Y');
 
                 $timeDeal_end =  \Carbon\Carbon::create($timeDeal_end);
 
             }
+
+            $timestamp = $now->diffInSeconds($timeDeal_end);
 
         ?>
 
@@ -602,7 +604,7 @@
 
          //document.getElementById('svg').innerHTML = xmlSvg;
                                         
-        time = 10986;
+        time = {{ $timestamp }};
         number_deal_product =10;
         //in time 
         var h = 12;

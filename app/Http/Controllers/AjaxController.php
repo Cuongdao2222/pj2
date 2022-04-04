@@ -448,7 +448,9 @@ class AjaxController extends Controller
     {
         if($request->ajax()){
 
-            $input['time']       = $request->time;
+            $input['end']       = $request->end;
+
+            $input['start']       = $request->start;
 
             $input['group_name'] = $request->name_promotion;
 
@@ -479,7 +481,13 @@ class AjaxController extends Controller
 
             $input['id_group_gift'] = $request->id_group_gift;
 
-           
+            $group_gift = DB::table('group_gift')->where('id', $input['id_group_gift'])->get()->first();
+
+
+            $input['start'] =  $group_gift->start;
+
+            $input['end'] =  $group_gift->end;
+
 
             $result = DB::table('promotion')->insert($input);
             

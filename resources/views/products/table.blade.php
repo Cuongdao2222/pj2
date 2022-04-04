@@ -299,7 +299,7 @@
             },
             success: function(result){
 
-                console.log('thanh cong');
+                alert('thanh cong');
                 
             }
         });

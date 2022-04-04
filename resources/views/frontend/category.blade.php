@@ -9,7 +9,7 @@
         <style type="text/css">
             
             .box-filter .form-control{
-                width: 50%;
+                width: 100%;
             }
         </style>
 

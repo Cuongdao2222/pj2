@@ -6,6 +6,13 @@
 
         <link rel="stylesheet" type="text/css" href="{{ asset('css/categories.css') }}"> 
 
+        <style type="text/css">
+            
+            .box-filter .form-control{
+                width: 50%;
+            }
+        </style>
+
     
     @endpush
 

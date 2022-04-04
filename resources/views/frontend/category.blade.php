@@ -181,11 +181,13 @@
 
 
                                         ?>
-
+                                        @if($id_cate ==1)
                                         <div class="item-compare">
                                             <span>{{ str_replace($display, '', $result_cut) }}</span>
                                             <span>{{ $display }}</span>
                                         </div>
+
+                                        @endif
                                         <!-- <div class="box-p">
                                             <p class="price-old black">20.900.000&#x20AB;</p>
                                         </div> -->

@@ -917,12 +917,6 @@
                     <a href="{{ route('tin') }}" class="header__history">Tin tức khuyến mãi</a>
                     <!-- <div class="bordercol"></div> -->
 
-                  
-                   
-                    
-
-                    
-                   
                 </section>
             </div>
 

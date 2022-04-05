@@ -99,6 +99,11 @@
             width: 100%;
             width: 100%;
             }
+
+            .item-img_1942{
+
+                height: 180px;
+            }
         </style>
     </head>
     <body>

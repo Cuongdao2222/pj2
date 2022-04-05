@@ -160,64 +160,7 @@
                     <div class="tagline" id="noibat">
                         <div class="wrap" id="normal-ds">
                             <div class="one4all normal">
-                                <!-- <ul class="list-time-fs ">
-                                    <li data-active="tivi" class=" tab1 ">
-                                        <a href="javascript:;" data-groupid="2300" onclick="loadFlashsale('false', 2300,this,false,5)" class="active">
-                                            <div class="cate-tab">
-                                                <img src="https://cdn.tgdd.vn/2021/07/campaign/Group4636-128x64-128x64.png" />
-                                                <span>Tivi</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li data-active="maydieuhoa" class=" tab1 ">
-                                        <a href="javascript:;" data-groupid="3261" onclick="loadFlashsale('false', 3261,this,false,5)" class="">
-                                            <div class="cate-tab">
-                                                <img src="https://cdn.tgdd.vn/2022/02/campaign/desk-128x64-1.png" />
-                                                <span>M&#225;y lạnh</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li data-active="maygiat" class=" tab1 ">
-                                        <a href="javascript:;" data-groupid="2028" onclick="loadFlashsale('false', 2028,this,false,5)" class="">
-                                            <div class="cate-tab">
-                                                <img src="https://cdn.tgdd.vn/2021/05/campaign/Group4639-128x64.png" />
-                                                <span>M&#225;y Giặt</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li data-active="tulanh" class=" tab1 ">
-                                        <a href="javascript:;" data-groupid="2027" onclick="loadFlashsale('false', 2027,this,false,5)" class="">
-                                            <div class="cate-tab">
-                                                <img src="https://cdn.tgdd.vn/2021/05/campaign/Group4638-128x64.png" />
-                                                <span>Tủ Lạnh</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li data-active="tudong" class=" tab1 ">
-                                        <a href="javascript:;" data-groupid="3160" onclick="loadFlashsale('false', 3160,this,false,5)" class="">
-                                            <div class="cate-tab">
-                                                <img src="https://cdn.tgdd.vn/2022/01/campaign/tudong-128x64.png" />
-                                                <span>Tủ Đ&#244;ng</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li data-active="tamnong" class=" tab1 ">
-                                        <a href="javascript:;" data-groupid="2661" onclick="loadFlashsale('false', 2661,this,false,5)" class="">
-                                            <div class="cate-tab">
-                                                <img src="https://cdn.tgdd.vn/2021/10/campaign/tamnong-128x64.png" />
-                                                <span>M&#225;y Nước N&#243;ng</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li data-active="loakaraoke" class=" tab1 ">
-                                        <a href="javascript:;" data-groupid="2442" onclick="loadFlashsale('false', 2442,this,false,5)" class="">
-                                            <div class="cate-tab">
-                                                <img src="https://cdn.tgdd.vn/2021/07/campaign/128x64-128x64.png" />
-                                                <span>Loa Karaoke Loa Thanh</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul> -->
+                                
                                 <div id="list-normal" class="" data-group="2300" data-column="5" data-firstgroup="True" data-lazy="False">
                                     <div class="loading-hotsale hide">
                                         <p class="csslder">
@@ -235,7 +178,7 @@
                                         </a>
                                         <a href="javascript:;" class="" data-type="1" onclick="filterhotsale(this, 2300, 5, 1)">
                                         <i class="icon-button"></i>
-                                        <span>% giảm nhiều</span>
+                                        <span>Giá cao đến thấp</span>
                                         </a>
                                         <a href="javascript:;" class="" data-type="2" onclick="filterhotsale(this, 2300, 5, 2)">
                                         <i class="icon-button"></i>
@@ -248,28 +191,32 @@
 
                                     <ul class="pros-hotsale-key  list priority">
 
-
+                                        <?php  
+                                            $hight_light = DB::table('landing_product')->where('hight_light', 1)->get()
+                                        ?>
+                                        @if(count($hight_light)>0&& isset($hight_light))
+                                        @foreach($hight_light as $val)
                                         <div class="item" data-id="235642">
                                             <a href='/tivi/qled-4k-samsung-qa55q65a' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi QLED 4K 55 inch Samsung QA55Q65A" data-id="235642" data-price="19900000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
                                                 <div class="item-label">
                                                     <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
                                                 </div>
                                                 <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/235642/TimerThumb/qled-4k-samsung-qa55q65a-(30).jpeg" loading="lazy" class="lazyload" alt="Samsung Smart TV QLED QA55Q65A" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
+                                                    <img src="{{ asset($val->image) }}" loading="lazy" class="lazyload" alt="Samsung Smart TV QLED QA55Q65A" width=210 height=210>
+                                                    <img src="{{ asset($val->image) }}" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
                                                 </div>
                                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>Samsung Smart TV QLED QA55Q65A</h3>
+                                                <h3>{{ $val->name }}</h3>
                                                 <div class="item-compare">
                                                     <span>55 inch</span>
                                                     <span>4K</span>
                                                 </div>
-                                                <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
+                                             <!--    <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
                                                 <div class="box-p">
                                                     <p class="price-old black">25.900.000&#x20AB;</p>
                                                     <span class="percent">-23%</span>
-                                                </div>
-                                                <strong class="price">19.900.000&#x20AB;</strong>
+                                                </div> -->
+                                                <strong class="price">{{  @number_format($val->price , 0, ',', '.')  }}&#x20AB;</strong>
                                                 <div class="item-rating">
                                                     <p>
                                                         <i class="icon-star"></i>
@@ -282,64 +229,40 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="item" data-id="236937">
-                                            <a href='/tivi/led-lg-55up7800ptb' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi LG 4K 55 inch 55UP7800PTB" data-id="236937" data-price="18400000.0" data-brand="LG" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/236937/TimerThumb/led-lg-55up7800ptb-(14).jpeg" loading="lazy" class="lazyload" alt="LG Smart TV 55UP7800PTB" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>LG Smart TV 55UP7800PTB</h3>
-                                                <div class="item-compare">
-                                                    <span>55 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">22.900.000&#x20AB;</p>
-                                                    <span class="percent">-19%</span>
-                                                </div>
-                                                <strong class="price">18.400.000&#x20AB;</strong>
-                                                <p class="item-gift">Quà <b>1.500.000₫</b></p>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">68</p>
-                                                </div>
-                                            </a>
-                                        </div>
+                                        @endforeach
+                                        @endif
+                                        
                                     </ul>
 
 
                                     <div id="group2300" class="prdWrapper prodCol_5 listproduct">
+                                        <?php  
+
+                                            $products = DB::table('landing_product')->where('hight_light', 0)->get();
+                                        ?>
+                                        @if(isset($products) && count($products)>0)
+                                        @foreach($products as $val)
                                         <div class="item" data-id="235792">
                                             <a href='/tivi/led-4k-samsung-ua55au8100' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi Samsung 4K Crystal UHD 55 inch UA55AU8100" data-id="235792" data-price="17100000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
                                                 <div class="item-label">
                                                     <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
                                                 </div>
                                                 <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/235792/TimerThumb/led-4k-samsung-ua55au8100-(13).jpg" loading="lazy" class="lazyload" alt="Samsung Smart TV Crystal UHD UA55AU8100" width=210 height=210>
+                                                    <img src="{{ asset($val->image) }}" loading="lazy" class="lazyload" alt="Samsung Smart TV Crystal UHD UA55AU8100" width=210 height=210>
                                                     <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
                                                 </div>
                                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>Samsung Smart TV Crystal UHD UA55AU8100</h3>
+                                                <h3>{{ $val->name }}/h3>
                                                 <div class="item-compare">
                                                     <span>55 inch</span>
                                                     <span>4K</span>
                                                 </div>
-                                                <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
+                                               <!--  <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
                                                 <div class="box-p">
                                                     <p class="price-old black">21.900.000&#x20AB;</p>
                                                     <span class="percent">-21%</span>
-                                                </div>
-                                                <strong class="price">17.100.000&#x20AB;</strong>
+                                                </div> -->
+                                                <strong class="price">{{  @number_format($val->price , 0, ',', '.')  }}&#x20AB;</strong>
                                                 <div class="item-rating">
                                                     <p>
                                                         <i class="icon-star"></i>
@@ -352,273 +275,10 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="item" data-id="236888">
-                                            <a href='/tivi/led-lg-55up7750ptb' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi LG 4K 55 inch 55UP7750PTB" data-id="236888" data-price="16400000.0" data-brand="LG" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/236888/TimerThumb/led-lg-55up7750ptb-(28).jpeg" loading="lazy" class="lazyload" alt="LG Smart TV 55UP7750PTB" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>LG Smart TV 55UP7750PTB</h3>
-                                                <div class="item-compare">
-                                                    <span>55 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">21.900.000&#x20AB;</p>
-                                                    <span class="percent">-25%</span>
-                                                </div>
-                                                <strong class="price">16.400.000&#x20AB;</strong>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">55</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="236895">
-                                            <a href='/tivi/nanocell-lg-55nano75tpa' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi NanoCell LG 4K 55 inch 55NANO75TPA" data-id="236895" data-price="18900000.0" data-brand="LG" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/236895/TimerThumb/nanocell-lg-55nano75tpa-(27).jpeg" loading="lazy" class="lazyload" alt="LG Smart TV NanoCell 55NANO75TPA" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>LG Smart TV NanoCell 55NANO75TPA</h3>
-                                                <div class="item-compare">
-                                                    <span>55 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">25.900.000&#x20AB;</p>
-                                                    <span class="percent">-27%</span>
-                                                </div>
-                                                <strong class="price">18.900.000&#x20AB;</strong>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star-half"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">31</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="235831">
-                                            <a href='/tivi/led-4k-samsung-ua55au9000' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi Samsung 4K Crystal UHD 55 Inch UA55AU9000" data-id="235831" data-price="18000000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/235831/TimerThumb/led-4k-samsung-ua55au9000-(24).jpg" loading="lazy" class="lazyload" alt="Samsung Smart TV Crystal UHD UA55AU9000" width=210 height=210>
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>Samsung Smart TV Crystal UHD UA55AU9000</h3>
-                                                <div class="item-compare">
-                                                    <span>55 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
-                                                <div class="box-p">
-                                                    <p class="price-old black">22.900.000&#x20AB;</p>
-                                                    <span class="percent">-21%</span>
-                                                </div>
-                                                <strong class="price">18.000.000&#x20AB;</strong>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="238312">
-                                            <a href='/tivi/led-aqua-le43aqt6600ug' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Android Tivi AQUA 4K 43 inch LE43AQT6600UG" data-id="238312" data-price="9490000.0" data-brand="AQUA" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/238312/TimerThumb/led-aqua-le43aqt6600ug-(16).jpg" loading="lazy" class="lazyload" alt="AQUA Android TV LE43AQT6600UG" width=210 height=210>
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>AQUA Android TV LE43AQT6600UG</h3>
-                                                <div class="item-compare">
-                                                    <span>43 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">12.590.000&#x20AB;</p>
-                                                    <span class="percent">-24%</span>
-                                                </div>
-                                                <strong class="price">9.490.000&#x20AB;</strong>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">19</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="235886">
-                                            <a href='/tivi/qled-4k-tcl-55q726' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Android Tivi QLED TCL 4K 55 inch 55Q726" data-id="235886" data-price="14090000.0" data-brand="TCL" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/235886/TimerThumb/qled-4k-tcl-55q726-(22).jpg" loading="lazy" class="lazyload" alt="TCL Android TV QLED 55Q726" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>TCL Android TV QLED 55Q726</h3>
-                                                <div class="item-compare">
-                                                    <span>55 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">20.990.000&#x20AB;</p>
-                                                    <span class="percent">-32%</span>
-                                                </div>
-                                                <strong class="price">14.090.000&#x20AB;</strong>
-                                                <p class="item-gift">Quà <b>1.000.000₫</b></p>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">11</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="242539">
-                                            <a href='/tivi/smart-samsung-4k-55-inch-55tu6900' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi Samsung 4K 55 inch UA55TU6900" data-id="242539" data-price="17500000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/242539/TimerThumb/smart-samsung-4k-55-inch-55tu6900-(19).jpg" loading="lazy" class="lazyload" alt="Samsung Smart TV UA55TU6900" width=210 height=210>
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>Samsung Smart TV UA55TU6900</h3>
-                                                <div class="item-compare">
-                                                    <span>55 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">17.900.000&#x20AB;</p>
-                                                    <span class="percent">-2%</span>
-                                                </div>
-                                                <strong class="price">17.500.000&#x20AB;</strong>
-                                                <p class="item-gift">Quà <b>1.600.000₫</b></p>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="238885">
-                                            <a href='/tivi/led-sony-kd-65x85j' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Android Tivi Sony 4K 65 inch KD-65X85J" data-id="238885" data-price="25900000.0" data-brand="Sony" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/238885/TimerThumb/led-sony-kd-65x85j-(26).jpg" loading="lazy" class="lazyload" alt="Sony Android TV KD-65X85J" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>Sony Android TV KD-65X85J</h3>
-                                                <div class="item-compare">
-                                                    <span>65 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">29.900.000&#x20AB;</p>
-                                                    <span class="percent">-13%</span>
-                                                </div>
-                                                <strong class="price">25.900.000&#x20AB;</strong>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">18</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="236936">
-                                            <a href='/tivi/led-lg-50up7800ptb' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi LG 4K 50 inch 50UP7800PTB" data-id="236936" data-price="16800000.0" data-brand="LG" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/236936/TimerThumb/led-lg-50up7800ptb-(9).jpg" loading="lazy" class="lazyload" alt="LG Smart TV 50UP7800PTB" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>LG Smart TV 50UP7800PTB</h3>
-                                                <div class="item-compare">
-                                                    <span>50 inch</span>
-                                                    <span>4K</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">19.400.000&#x20AB;</p>
-                                                    <span class="percent">-13%</span>
-                                                </div>
-                                                <strong class="price">16.800.000&#x20AB;</strong>
-                                                <p class="item-gift">Quà <b>1.900.000₫</b></p>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">25</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="item" data-id="234997">
-                                            <a href='/tivi/casper-43fx6200' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi Casper 43 inch 43FX6200" data-id="234997" data-price="7390000.0" data-brand="Casper" data-cate="Tivi" data-box="BoxHiddenPromotion">
-                                                <div class="item-label">
-                                                    <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
-                                                </div>
-                                                <div class="item-img item-img_1942">
-                                                    <img src="https://cdn.tgdd.vn/Products/Images/1942/234997/TimerThumb/casper-43fx6200-(36).jpg" loading="lazy" class="lazyload" alt="Casper Smart TV 43FX6200" width=210 height=210>
-                                                </div>
-                                                <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>Casper Smart TV 43FX6200</h3>
-                                                <div class="item-compare">
-                                                    <span>43 inch</span>
-                                                    <span>Full HD</span>
-                                                </div>
-                                                <div class="box-p">
-                                                    <p class="price-old black">7.590.000&#x20AB;</p>
-                                                    <span class="percent">-2%</span>
-                                                </div>
-                                                <strong class="price">7.390.000&#x20AB;</strong>
-                                                <div class="item-rating">
-                                                    <p>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                        <i class="icon-star-dark"></i>
-                                                    </p>
-                                                    <p class="item-rating-total">18</p>
-                                                </div>
-                                            </a>
-                                        </div>
+
+                                        @endforeach
+                                        @endif
+                                        
                                     </div>
                                    
                                 </div>

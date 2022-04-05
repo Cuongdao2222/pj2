@@ -23,7 +23,7 @@ Route::get('/ckfinder.html', function () {
     
 })->middleware('auth');
 
-Route::get('/fe-landing-page', function () {
+Route::get('/landing-page', function () {
     return view('frontend.landingpage');
     
 })->middleware('auth');

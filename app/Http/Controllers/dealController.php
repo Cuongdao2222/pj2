@@ -114,6 +114,27 @@ class dealController extends Controller
 
     }
 
+    public function activeDeal(Request $request){
+
+        $id = $request->id;
+
+        $active = $request->active;
+
+        $deal = deal::find($id);
+
+        if($active == 1){
+
+            $deal->active = 0;
+
+        }
+        else{
+            $deal->active = 1;
+        }
+
+        $deal->save();
+    }
+
+
     public function removeDeal(Request $request)
     {
        $id = $request->id;

@@ -203,6 +203,10 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
      Route::get('/delete-deal', 'dealController@removeDeal')->name('delete-deal');
 
+
+    Route::get('/active-deal', 'dealController@activeDeal')->name('active-deal');
+
+
     //ajax
 
     Route::post('add-selected-value-filter', 'AjaxController@addValueSelectFilter')->name('add-value-selected-filter');

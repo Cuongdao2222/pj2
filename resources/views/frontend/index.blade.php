@@ -183,14 +183,7 @@
                 </li>
             </ul>
         </section>
-        <!-- Banner sub -->
-        <!-- div class="sub-banner">
-            <a aria-label="slide" data-cate="0" data-place="1595" href="https://www.topzone.vn/topnews/chuoi-topzone-ra-mat-them-loat-cua-hang-moi-1405860" onclick="jQuery.ajax({ url: '/bannertracking?bid=49071&r='+ (new Date).getTime(), async: true, cache: false });"><img  src="https://cdn.tgdd.vn/2022/01/banner/1200-60-1200x60-2.png" alt="topzone"  ></a>    
-        </div> -->
-        <!-- End -->
-        <!-- Mời đánh giá sản phẩm đã mua -->
-        <!-- End -->
-        <!-- Săn sale online -->
+       
 
         <?php 
             $deal = App\Models\deal::get();
@@ -231,6 +224,8 @@
 
                                 @foreach($deal as $value)
 
+                                @if( $value->active ==1)
+
                                 <div class="item">
                                     <a href="{{ route('details', $value->link) }}">
                                         <div class="img">
@@ -252,7 +247,7 @@
                                                 </div>
                                         </div><div class="review_product star"><span class="star_icon_avg_rate_npv" 0="" 5="" title="0/5"><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span><span class="nki-Star-o-new"></span></span><div class="line_break">|</div><div class="reviewCount">0 đánh giá</div></div><div class="container-timeline">
                                             <span class="timeline"><span style="width: 2%"></span></span>
-                                            <p>Đã bán <span style="color: #EE1E25">2</span> / 100 sản phẩm</p>
+                                           <!--  <p>Đã bán <span style="color: #EE1E25">2</span> / 100 sản phẩm</p> -->
                                         </div>
                                         <div style="width: 100%; height: 1px; background: #ECECEC; margin-top: 8px"></div>
                                         <div class="countdown-flash-sale">
@@ -287,14 +282,10 @@
                                     </div>
                                 </div>
 
+                                @endif
+
                                 @endforeach
 
-                               
-
-                               
-
-                                
-                                
                             </div>
                         </div>
                     </div>
@@ -314,7 +305,6 @@
             <div class="prd-promo__top clearfix" >
                 <a data-cate="0" data-place="1868" href="#" ><img style="cursor:pointer" src="https://cdn.tgdd.vn/2022/01/banner/Sansale-desk-1200x90-3.png" alt="Theme Giáng Sinh DMX Desk" width="1200" height="90"></a>                
             </div>
-
 
            <!--  Sale -->
 
@@ -382,10 +372,6 @@
             ?>
 
            
-
-
-
-
         @if(count($data)>0)
 
          
@@ -416,6 +402,8 @@
                                 </div>
                                 <div class="item-img">
                                     <img data-src="{{ asset($datas->Image) }}" class="lazyload" alt="{{ $datas->Name }}" width=210 height=210>
+
+                                     <img src="{{ asset('images/saker/'.strtolower($value->maker??'').'.png') }}" class="item-saker">
 
                                      
                                 </div>
@@ -738,10 +726,10 @@
             navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
             responsive:{
                 0:{
-                    items:1.5
+                    items:2.5
                 },
                 600:{
-                    items:1.5
+                    items:2.5
                 },
                 1000:{
                     items:5

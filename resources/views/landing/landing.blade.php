@@ -574,10 +574,6 @@ $('.accept-find').click(function(){
 })
 
 
-
-
-
-
  $('.add-view').click(function(){
 
     if($(this).hasClass('edit')){

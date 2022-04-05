@@ -806,7 +806,7 @@
                 <div class="box-banner">
                     <a href="{{ $popup->link }}" target="_blank" rel="nofollow"><img src="{{ asset( $popup->image) }}" alt="pop-up"></a>
                 </div>
-                <a class="box-promotion-close" href="javascript:void(0)" title="Đóng lại">[x]</a>
+                <a class="box-promotion-close" href="javascript:void(0)" title="Đóng lại">{{ $popup->link }}</a>
             </div>
         </div>
         @else

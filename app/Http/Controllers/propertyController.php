@@ -7,6 +7,8 @@ use App\Http\Requests\UpdatepropertyRequest;
 use App\Repositories\propertyRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+
+use App\Models\property;
 use Flash;
 use Response;
 
@@ -152,5 +154,21 @@ class propertyController extends AppBaseController
         Flash::success('Property deleted successfully.');
 
         return redirect(route('properties.index'));
+    }
+
+    public function editPropertyChild(Request $request){
+        $id = $request->id;
+
+        $name = $request->name;
+
+        if(!empty($name)){
+
+            $property = property::find($id);
+
+            $property->name = $name;
+
+            $property->save();
+        }
+
     }
 }

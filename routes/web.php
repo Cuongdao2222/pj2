@@ -192,6 +192,8 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('category/{category_id}', 'productController@selectProductByCategory')->name('select-category');
 
+    Route::get('edit-property-child', 'propertyController@editPropertyChild')->name('property-edit-child');
+
     Route::resource('filters', 'filterController');
 
 

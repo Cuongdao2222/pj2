@@ -79,7 +79,7 @@
 
                                             ?>
 
-                                            <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $product_id }}',  '{{$filters->id}}', '{{ $propertys->id }}')" {{ isset($arr_value[$propertys->id])&& in_array($product_id  ,$arr_value[$propertys->id])?'checked':'' }}> <label for="code">{{ $propertys->name }}</label></span><br></td>
+                                            <td valign="top"><span><input type="checkbox" id="attributeValue_{{ $propertys->id }}" onclick="useThis('{{ $product_id }}',  '{{$filters->id}}', '{{ $propertys->id }}')" {{ isset($arr_value[$propertys->id])&& in_array($product_id  ,$arr_value[$propertys->id])?'checked':'' }}> <label for="code" data-id="$propertys->id">{{ $propertys->name }}</label></span><br></td>
                                             @endforeach
                                         @else
 
@@ -95,7 +95,7 @@
 
 
 
-                                        <td valign="top"><span><input type="checkbox"> <label for="code">{{ $propertys->name }}</label></span><br></td>
+                                        <td valign="top"><span><input type="checkbox"> <label for="code" data-id="{{ $propertys->id }}">{{ $propertys->name }}</label></span><br></td>
                                         @endforeach
 
                                         @endif
@@ -126,20 +126,72 @@
                 
             </tbody>
         </table>
+
+
+        <div class="modal fade" id="edit-property" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sửa thuộc tính con</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="price-deal" id="name-property" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary add-deal-price" onclick="edit_filter_property()">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <br>
         
         <br>
-        <!-- <input type="hidden" id="use_att_value" name="use_att_value" value="506;511">
+       <!--  <input type="hidden" id="use_att_value" name="use_att_value" value="506;511">
         <input type="hidden" name="old_att_value" value="506;511">
         <input type="hidden" id="use_att_value_filter" name="use_att_value_filter" value=";">
         <input type="hidden" name="old_att_value_filter" value=";">
         <input type="hidden" name="list_att_add_value" id="list_att_add_value" value=";">
-        <input type="hidden" name="noattr" value="">
-        <input type="hidden" name="update" value="yes"> -->
+        <input type="hidden" name="noattr" value=""> -->
+        <input type="hidden" name="id-child-dbclick" id="id-child-dbclick">
         
     </div>
 
     <script type="text/javascript">
+
+        $('#tb_padding label').dblclick(function(){
+
+            $('#edit-property').modal('show');
+
+            $('#name-property').val($(this).text());
+
+
+
+            $('#id-child-dbclick').val($(this).attr('data-id'));
+
+        })
+
+
+        function edit_filter_property(){
+           
+            $.ajax({
+
+            type: 'GET',
+                url: "{{ route('property-edit-child') }}",
+                data: {
+                    id:$('#id-child-dbclick').val(),
+                    name:$('#name-property').val(),
+                },
+                success: function(result){
+
+                  window.location.reload();
+                   
+                }
+            });
+        }
         function useThis(product_id, filterId, property_id) {
 
             const checked = $('#attributeValue_'+property_id).is(':checked'); 

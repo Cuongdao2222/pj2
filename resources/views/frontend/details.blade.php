@@ -6,7 +6,7 @@
 
         <?php  
 
-            $check_deal = App\Models\deal::select('deal_price')->where('product_id', $data->id)->first();
+            $check_deal = App\Models\deal::select('deal_price')->where('product_id', $data->id)->where('active', 1)->first();
 
         ?>
 

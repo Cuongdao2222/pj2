@@ -219,6 +219,10 @@
                                 $deal = App\Models\deal::get();
 
                             ?>
+
+                           <?php 
+                                if(!empty($deal) && count($deal)>0){
+                           ?> 
                             
                           <tr>
                               <td>Cài đặt thời gian</td>
@@ -270,6 +274,11 @@
                                   </select>
                               </td>
                           </tr>
+
+                            <?php  
+
+                                }
+                            ?>
                       </tbody>
                     </table>
 
@@ -286,15 +295,19 @@
                             </tr>
 
                             <?php  
+
+                               
                                 $now = Carbon\Carbon::now();
                                 $products = DB::table('deal')->get()->toArray();
+                                $k =0;
 
                                
                             ?>
                             @isset($products)
                             @foreach($products as $val)
+                            <?php  $k++  ?>
                             <tr id="row_1208">
-                                <td>1</td>
+                                <td>{{ $k }}</td>
                                 <td align="center">
                                     <img src="{{ asset($val->image) }}" width="70">
                                     <!--<div><a style="color:green" href="javascript:;" onclick="delete_special(1208)">Xóa bỏ</a></div>-->
@@ -314,7 +327,7 @@
                                     <div>Lượt xem: <b style="color:red;">0</b></div>
                                 </td>
                                 <td>
-                                    <div><a href="?opt=deal&amp;view=deal-add&amp;id=1208">Sửa lại</a></div>
+                                    <div><a href="javascript:void(0)" onclick="update_product({{ $val->id }})">Sửa lại</a></div>
                                    <!--  <div id="is_feature_1208">
                                         <span><a href="javascript:set_feature('1208','on')">Chọn nổi bật</a></span>
                                     </div> -->
@@ -344,7 +357,11 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Chọn sản phẩm</h5>
 
+
+
                         <?php  
+
+                       
 
                             $option = App\Models\groupProduct::select('id', 'name')->where('parent_id', 0)->get();
                         ?>
@@ -354,7 +371,12 @@
                             <option value="{{$val->id }}">{{ $val->name }}</option>
                             @endforeach
                         </select>
+                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                         <h5 class="modal-title" id="exampleModalLabel">tìm kiếm theo tên hoặc model</h5>
 
+                         <input type="text" name="" id="name_product">
+                         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+                         <div class="btn-primary accept-find">xác nhận</div>
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -379,7 +401,7 @@
                                 </tr>
 
                                 <?php  
-                                    $products = App\Models\product::select('Name', 'Link', 'Price','id', 'Link')->where('group_id', 1)->where('active', 1)->Orderby('id', 'desc')->paginate(20);
+                                    $products = App\Models\product::select('Name', 'Link', 'Price','id', 'Link')->where('group_id', 1)->where('active', 1)->Orderby('id', 'desc')->paginate(10);
 
                                 ?>
                                <?php  
@@ -457,6 +479,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" name="edit-deal" id="edit-deal">
 
 <input type="hidden" name="row" id="row_id">
 <script type="text/javascript">
@@ -494,6 +517,20 @@ function selectProduct(id){
 
 }
 
+
+function update_product(id){
+
+
+    $('#modal-product').modal('show');
+
+    $('.add-view').addClass('edit');
+
+    $('#modal-product .modal-body').hide();
+
+    $('#edit-deal').val(id);
+}
+
+
 deal_product = [];
 
 
@@ -504,7 +541,7 @@ $('.add-deal-price').click(function(){
 
     id_row = $('#row_id').val();
 
-   const price = $('#price-deal').val(); 
+    const price = $('#price-deal').val(); 
 
    
 
@@ -533,7 +570,7 @@ $('.add-deal-price').click(function(){
 
 
 
- $( "#group_product_id" ).bind( "change", function() {
+ $("#group_product_id").bind("change", function() {
 
         $.ajaxSetup({
                 headers: {
@@ -564,7 +601,7 @@ $('.add-deal-price').click(function(){
 
  $('.add-view').click(function(){
 
-
+        edit_id = $('#edit-deal').val();
 
       $.ajaxSetup({
                 headers: {
@@ -578,6 +615,7 @@ $('.add-deal-price').click(function(){
             url: "{{ route('filter-deal-add') }}",
             data: {
                 data: JSON.stringify(deal_product),
+                edit_id:edit_id,
                
                 
             },
@@ -591,9 +629,6 @@ $('.add-deal-price').click(function(){
  })
 
 $('.accepts').click(function(){
-
-    console.log($('#hours1').val());
-
 
       $.ajaxSetup({
                 headers: {
@@ -614,12 +649,42 @@ $('.accepts').click(function(){
             },
             success: function(result){
 
-                alert('thành công');
+               window.location.reload();
             }
         });
 
     
  })
+
+$('.accept-find').click(function(){
+
+    data = $('#name_product').val();
+
+    $('#modal-product .modal-body').show();
+
+    if(data != null){
+
+        $.ajax({
+
+        type: 'GET',
+            url: "{{ route('filter-product-deal') }}",
+            data: {
+                data:data,
+                page:'deal',
+            },
+            success: function(result){
+
+                $('#tb-list .row-hover').remove();
+                $('#tb-list tbody').append(result);
+
+            }
+        });
+
+    }
+
+})
+
+
 
 function delete_deal(id){
 
@@ -635,9 +700,6 @@ function delete_deal(id){
         url: "{{ route('delete-deal') }}",
         data: {
             id: id,
-
-           
-           
             
         },
         success: function(result){

@@ -57,6 +57,12 @@
        .btn-danger{
         font-size: 22px;
        }
+
+        .accept-find{
+            width: 12%;
+            padding: 2px;
+            cursor: pointer;
+        }
    </style>
     
 

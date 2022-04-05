@@ -157,6 +157,13 @@
 </li>
 
 <li class="nav-item">
+    <a href="{{ route('landing') }}"
+       class="nav-link {{ Request::is('landing') ? 'active' : '' }}">
+        <p>Landing-page </p>
+    </a>
+</li>
+
+<li class="nav-item">
     <a href="{{ route('rate-client') }}"
        class="nav-link {{ Request::is('order_list') ? 'active' : '' }}">
         <p>Đánh giá sản phẩm </p>

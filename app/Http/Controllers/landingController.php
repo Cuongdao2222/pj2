@@ -18,28 +18,68 @@ class landingController extends Controller
 
         $data = json_decode($request->data);
 
-        $products   =  product::select('Name', 'Link', 'Price','id', 'Image', 'ProductSku', 'Quantily')->whereIN('id', $data)->get()->toArray();
-        if(isset($products)){
-            foreach($products as $value){
-                $input['name'] = $value['Name'];
-                $input['link'] = $value['Link'];
+        $action = $request->action;
 
-                $input['price'] = $value['Price'];
+        if($action == 'add'){
+            $products   =  product::select('Name', 'Link', 'Price','id', 'Image', 'ProductSku', 'Quantily')->whereIN('id', $data)->get()->toArray();
+            if(isset($products)){
+                foreach($products as $value){
+                    $input['name'] = $value['Name'];
+                    $input['link'] = $value['Link'];
 
-                $input['product_id'] = $value['id'];
+                    $input['price'] = $value['Price'];
 
-                $input['image'] = $value['Image'];
+                    $input['product_id'] = $value['id'];
 
-                $input['model'] = $value['ProductSku'];
+                    $input['image'] = $value['Image'];
 
-                $input['qualtily'] = $value['Quantily'];
+                    $input['model'] = $value['ProductSku'];
 
-                DB::table('landing_product')->insert($input);
+                    $input['qualtily'] = $value['Quantily'];
 
+                    DB::table('landing_product')->insert($input);
+
+                }
+
+                
+            }
+        }
+        else{
+
+            $id_edit = $request->id_edit;
+
+           
+
+            $products   =  product::select('Name', 'Link', 'Price','id', 'Image', 'ProductSku', 'Quantily')->whereIN('id', $data)->get()->toArray();
+
+            if(isset($products)){
+
+                foreach($products as $value){
+
+                    $input['name'] = $value['Name'];
+                    $input['link'] = $value['Link'];
+
+                    $input['price'] = $value['Price'];
+
+                    $input['product_id'] = $value['id'];
+
+                    $input['image'] = $value['Image'];
+
+                    $input['model'] = $value['ProductSku'];
+
+                    $input['qualtily'] = $value['Quantily'];
+
+                    $update = DB::table('landing_product')->where('id', $id_edit)->update($input);
+
+                    echo "update thanh cong";
+
+                }   
+            }
+            else{
+             echo "update thất bại";
             }
 
-            
-        }
+        }    
         
     }
 
@@ -65,6 +105,14 @@ class landingController extends Controller
 
         $hight_light->save();
 
+
+    }
+
+    public function removeLanding(Request $request)
+    {
+       $id = $request->id;
+
+        DB::table('landing_product')->delete($id);
 
     }
 }

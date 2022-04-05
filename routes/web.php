@@ -23,6 +23,11 @@ Route::get('/ckfinder.html', function () {
     
 })->middleware('auth');
 
+Route::get('/fe-landing-page', function () {
+    return view('frontend.landingpage');
+    
+})->middleware('auth');
+
 
 
 Route::get('readfile', 'Frontend\indexController@readFile')->name('readfile');
@@ -100,6 +105,9 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('filter-group-id', 'dealController@getProductToGroupId')->name('filter-group-id');
 
+    Route::get('fill-product-deal', 'dealController@getProductToName')->name('filter-product-deal');
+
+
     Route::get('deal', 'dealController@index')->name('deal');
 
 
@@ -155,8 +163,7 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
 
     Route::get('add-hight-light', 'landingController@add_Hight_Light')->name('add-hight-light');
 
-
-    
+    Route::get('remove-hight-light', 'landingController@removeLanding')->name('remove-hight-light');
 
     Route::post(    
         'generator_builder/generate-from-file',

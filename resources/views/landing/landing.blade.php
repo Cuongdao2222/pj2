@@ -269,11 +269,11 @@
                                     <div> <b style="color:red;">{{ $status }}</b></div>
                                 </td>
                                 <td>
-                                    <div><a href="javascript:void(0)" onclick="update_product('{{ $val->product_id }}')">Sửa lại</a></div>
+                                    <div><a href="javascript:void(0)" onclick="update_product('{{ $val->id }}')">Sửa lại</a></div>
                                     <div id="is_feature_1208">
                                         <span><a href="javascript:void(0)" onclick="add_hight_light('{{ $val->id }}')">{!! $val->hight_light ==1?'<b style="color:red">Nổi bật</b>':'Chọn nổi bật' !!}  </a></span>
                                     </div>
-                                    <div><a href="javascript:;">xóa</a></div>
+                                    <div><a href="javascript:;" onclick="delete_landing_product('{{ $val->id }}')">xóa</a></div>
                                 </td>
                             </tr>
                             @endforeach
@@ -283,6 +283,8 @@
                         </tbody>
                     </table>
                     <br>
+
+
                     <div class="btn btn-default accepts">Xác nhận</div>
                 </div>
                 
@@ -309,6 +311,16 @@
                             <option value="{{$val->id }}">{{ $val->name }}</option>
                             @endforeach
                         </select>
+
+
+                         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                         <h5 class="modal-title" id="exampleModalLabel">tìm kiếm theo tên hoặc model</h5>
+
+                         <input type="text" name="" id="name_product">
+
+                         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+
+                         <div class="btn-primary accept-find">xác nhận</div>
 
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -412,6 +424,8 @@
 </div>
 
 <input type="hidden" name="row" id="row_id">
+
+<input type="hidden" name="edit-landing" id="edit-landing">
 <script type="text/javascript">
 
 
@@ -419,6 +433,19 @@ $('.add-product').click(function(){
     $('#modal-product').modal('show');
 
 })
+
+function update_product(id){
+
+
+    $('#modal-product').modal('show');
+
+    $('.add-view').addClass('edit');
+
+    $('#modal-product .modal-body').hide();
+
+    $('#edit-landing').val(id);
+}
+
 
 
 
@@ -438,7 +465,6 @@ function select_product_to_table(id){
 
     deal_product.push(id);
 
-   
 }
 
 function add_hight_light(id) {
@@ -519,26 +545,92 @@ $( "#group_product_id" ).bind( "change", function() {
     });
 
 
+$('.accept-find').click(function(){
+
+    $('#modal-product .modal-body').show();
+
+    data = $('#name_product').val();
+
+    if(data != null){
+
+        $.ajax({
+
+        type: 'GET',
+            url: "{{ route('filter-product-deal') }}",
+            data: {
+                data:data,
+                page:'landing',
+            },
+            success: function(result){
+
+                $('#tb-list .row-hover').remove();
+                $('#tb-list tbody').append(result);
+
+            }
+        });
+
+    }
+
+})
+
+
+
 
 
 
  $('.add-view').click(function(){
+
+    if($(this).hasClass('edit')){
+        action = 'edit';
+        id_edit = $('#edit-landing').val();
+    }
+    else{
+        action = 'add';
+        id_edit = 0;
+    }
 
     $.ajax({
 
     type: 'GET',
         url: "{{ route('add-product-landing') }}",
         data: {
-            data: JSON.stringify(deal_product)
+            data: JSON.stringify(deal_product),
+            action :action,
+            id_edit:id_edit,
         },
         success: function(result){
 
             window.location.reload();
+
         }
     });
 
    
  })
+
+ function delete_landing_product(id){
+
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+    $.ajax({
+
+    type: 'GET',
+        url: "{{ route('remove-hight-light') }}",
+        data: {
+            id: id,
+
+        },
+        success: function(result){
+
+            window.location.reload();
+        }    
+    });
+
+}
 
 
 

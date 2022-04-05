@@ -197,25 +197,24 @@
 
             $now  = Carbon\Carbon::now();
 
-            if(isset($deal)){
+            if(!empty($deal)&count($deal)>0){
 
                 $timeDeal_star = $deal[0]->start;
-
-               
 
                 $timeDeal_star =  \Carbon\Carbon::create($timeDeal_star);
 
                 $timeDeal_end = $deal[0]->end;
 
-               
-
                 $timeDeal_end =  \Carbon\Carbon::create($timeDeal_end);
 
+                $timestamp = $now->diffInSeconds($timeDeal_end);
+        
             }
 
-            $timestamp = $now->diffInSeconds($timeDeal_end);
 
         ?>
+
+        @if(!empty($deal)&count($deal)>0)
 
         @if($now->between($timeDeal_star, $timeDeal_end))
 
@@ -229,9 +228,6 @@
                     <div class="flash-product nk-product-of-flash-sales">
                         <div class="col-flash col-flash-2 active">
                             <div id="sync1S" class="slider-banner owl-carousel flash-sale-banner">
-
-                                
-
 
                                 @foreach($deal as $value)
 
@@ -307,6 +303,7 @@
 
            <!--  end flash  -->
 
+         @endif 
          @endif  
 
 
@@ -372,10 +369,6 @@
             // $data = App\Models\product::where('Group_id', 1)->get();
 
             $group = App\Models\groupProduct::where('parent_id', 0)->get();
-
-            
-           
-
          ?>   
 
         <div  class="owl-slider-count" style="display: none;">{{ count($group) }}</div> 
@@ -604,7 +597,7 @@
 
          //document.getElementById('svg').innerHTML = xmlSvg;
                                         
-        time = {{ $timestamp }};
+        time = '{{ @$timestamp }}';
         number_deal_product =10;
         //in time 
         var h = 12;
@@ -720,14 +713,14 @@
             $('#banner-product_'+i).owlCarousel({
                 loop: false,
                 margin:10,
-                nav:true,
+                nav:false,
                 navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
                 responsive:{
                     0:{
-                        items:1.5
+                        items:2.5
                     },
                     600:{
-                        items:1.5
+                        items:2.5
                     },
                     1000:{
                         items:5

@@ -152,7 +152,6 @@
                    
                     @foreach($data as $value)
                         @if($value->active==1)
-
                             <?php   
 
                                 $id_product = $value->id;
@@ -307,8 +306,6 @@
 
                     window.location.href = '{{ route('details',$link) }}?filter=,'+filter+'&group_id={{ @$id_cate }}&property=,'+propertys+'&link={{ $link }}';
 
-                   
-                    
                 }
 
             }

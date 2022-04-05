@@ -21,17 +21,37 @@ class dealController extends Controller
 
         $groupid = $request->group_id;
 
-        $products = product::select('Name', 'Link', 'Price','id')->where('group_id', $groupid)->where('active', 1)->Orderby('id', 'desc')->paginate(20);
-
-        
-
+        $products = product::select('Name', 'Link', 'Price','id')->where('group_id', $groupid)->where('active', 1)->Orderby('id', 'desc')->paginate(10);
         return view('Frontend.ajax.option_product', compact('products'));
+
+    }
+
+
+    public function getProductToName(Request  $request)
+    {
+        $data = $request->data;
+
+        $page = $request->page;
+
+        $datas = new mainController();
+
+        $products = $datas->findProductByNameOrModel($data);
+
+        if($page =='deal'){
+
+            return view('Frontend.ajax.option_product', compact('products'));
+        }
+        else{
+            return view('Frontend.ajax.product_landing', compact('products'));
+        }    
 
     }
 
     public function GetProductbyId(request $request)
     {
         $ar_product = json_decode($request->data);
+
+        $edit_id   = $request->edit_id;
 
        
         $ar_products_id = [];
@@ -57,15 +77,15 @@ class dealController extends Controller
 
                 $products_add['product_id'] = $products[$i]['id'];
 
-
-                DB::table('deal')->insert($products_add);
+                if(empty($edit_id)){
+                     DB::table('deal')->insert($products_add);
+                }
+                else{
+                    DB::table('deal')->where('id', $edit_id)->update($products_add);
+                }
                
            }
         }
-
-        
-
-       
         return  $products_add;
 
     }
@@ -79,12 +99,7 @@ class dealController extends Controller
         $deal = DB::table('deal')->select('id')->get();
 
 
-
-        
-
         if(isset($deal)){
-
-            print_r($deal);
 
             foreach($deal as $value){
 
@@ -104,9 +119,6 @@ class dealController extends Controller
        $id = $request->id;
 
         DB::table('deal')->delete($id);
-
-     
-
 
     }
 }

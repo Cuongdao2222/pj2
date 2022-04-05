@@ -23,10 +23,8 @@ class filterController extends Controller
     public function filter()
     {
 
-        dd($filter);
 
-        die();
-        
+      
         $link     = strip_tags($_GET['link']);
 
         $group_id =  strip_tags($_GET['group_id']);
@@ -138,7 +136,8 @@ class filterController extends Controller
 
                 // return redirect('/'.$link.'/?filter= 1');
 
-                // return response($product_search);
+                    return response($product_search);
+                }    
 
             }
 

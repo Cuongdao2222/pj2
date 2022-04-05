@@ -102,7 +102,7 @@
 
             .item-img_1942{
 
-                height: 180px;
+                height: 220px;
             }
         </style>
     </head>
@@ -202,7 +202,7 @@
                                         @if(count($hight_light)>0&& isset($hight_light))
                                         @foreach($hight_light as $val)
                                         <div class="item" data-id="235642">
-                                            <a href='/tivi/qled-4k-samsung-qa55q65a' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi QLED 4K 55 inch Samsung QA55Q65A" data-id="235642" data-price="19900000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
+                                            <a href='{{ route('details', $val->link) }}' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi QLED 4K 55 inch Samsung QA55Q65A" data-id="235642" data-price="19900000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
                                                 <div class="item-label">
                                                     <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
                                                 </div>
@@ -248,13 +248,13 @@
                                         @if(isset($products) && count($products)>0)
                                         @foreach($products as $val)
                                         <div class="item" data-id="235792">
-                                            <a href='/tivi/led-4k-samsung-ua55au8100' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi Samsung 4K Crystal UHD 55 inch UA55AU8100" data-id="235792" data-price="17100000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
+                                            <a href='{{ route('details', $val->link) }}' class=" main-contain" data-s="Nomal" data-site="2" data-pro="3" data-cache="False" data-name="Smart Tivi Samsung 4K Crystal UHD 55 inch UA55AU8100" data-id="235792" data-price="17100000.0" data-brand="Samsung" data-cate="Tivi" data-box="BoxHiddenPromotion">
                                                 <div class="item-label">
                                                     <span class="lb-tragop">Tra&#x309; go&#x301;p 0%</span>
                                                 </div>
                                                 <div class="item-img item-img_1942">
                                                     <img src="{{ asset($val->image) }}" loading="lazy" class="lazyload" alt="Samsung Smart TV Crystal UHD UA55AU8100" width=210 height=210>
-                                                    <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
+                                                   
                                                 </div>
                                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
                                                 <h3>{{ $val->name }}</h3>

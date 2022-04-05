@@ -252,11 +252,11 @@
                                                     <img src="https://cdn.tgdd.vn/ValueIcons/Label_01-05.png" width="40" height="40" class="lazyload lbliconimg lbliconimg_1942 dmx" />
                                                 </div>
                                                 <p class='result-label temp1'><img width='20' height='20' class='lazyload' alt='Giảm Sốc' src='https://cdn.tgdd.vn/2020/10/content/icon1-50x50.png'><span>Giảm Sốc</span></p>
-                                                <h3>{{ $val->name }}/h3>
-                                                <div class="item-compare">
+                                                <h3>{{ $val->name }}</h3>
+                                                <!-- <div class="item-compare">
                                                     <span>55 inch</span>
                                                     <span>4K</span>
-                                                </div>
+                                                </div> -->
                                                <!--  <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
                                                 <div class="box-p">
                                                     <p class="price-old black">21.900.000&#x20AB;</p>

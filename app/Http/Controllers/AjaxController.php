@@ -267,7 +267,7 @@ class AjaxController extends Controller
 
         $data_Product = product::find($id);
 
-        $deal   = deal::where('product_id', $id)->get()->first();
+        $deal   = deal::where('product_id', $id)->where('active', 1)->get()->first();
 
         if(!empty($deal)){
 

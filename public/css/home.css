@@ -489,8 +489,36 @@
         margin-top: 15px;
     }
 
+    @media screen and (min-width: 776px){
+
+        .applications .col1-simple{
+            margin-left: 15px;
+        }
+    }    
+
+
+    
+
 
     @media screen and (max-width: 776px){
+
+        .col1-big{
+            display: none;
+        }
+
+
+
+        .applications .col1-simple {
+            width: 100%;
+
+            padding: 15px;
+
+         }  
+
+         .ttl-main{
+
+            padding: 0 15px;
+         } 
 
         .flash-sale .flash-product{
             width: 100%;

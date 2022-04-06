@@ -3,6 +3,55 @@
 @extends('frontend.layouts.apps')
 
 @section('content') 
+        <style type="text/css">
+            
+            @media screen and (min-width: 777px){
+               .pdetail-installment table{
+                    width: 440px !important;
+                    
+
+                    overflow: hidden;
+                }
+
+                .pdetail-installment{
+                    height: 400px;
+
+                    width: 440px;
+                    overflow: hidden;
+                }
+
+                .pdetail-installment td{
+                    padding-left: 5px;
+                }
+
+                .Salient_Features td{
+                    padding: 0 15px;
+                }
+
+                .view-all {
+                    position: absolute;
+
+                    width: 440px;
+                    /*left: 0;*/
+                    bottom: 0;
+                    padding: 6px 0;
+                    font-weight: 300;
+                    cursor: pointer;
+                    text-align: center;
+                    font-size: 14px;
+                    color: #288ad6;
+                    background: #fff;
+                    border: 1px solid #288ad6;
+                    border-radius: 4px;
+                    transition: 0.6s ease-out;
+                }
+                .modal-body table td{
+                    padding:  0 15px !important;
+                }
+            } 
+           
+            
+        </style>
 
         <?php  
 
@@ -76,7 +125,7 @@
                             <i class="icondetail-star"></i>
                             <i class="icondetail-star-dark"></i>
                         </p>
-                        <p class="detail-rate-total" > <span data-toggle="modal" data-target="#specifications">Thông số kỹ thuật</span></p>
+                       
                     </div>
                 </div>
                 
@@ -198,15 +247,25 @@
                                             <br>
                                             (Visa, Master, JCB)
                                             </a>
+
+
+
                                         </div>
+
+
                                     </div>
                                     <div class="clearfix"></div>
-
                                 </div>
+
+
                                
                             </div>
+
+
                         </div>
                     </div>
+
+                    
 
                     <div class="total-imgslider">
                         <a id="show-popup-featured-images-gallery" style="display: block" href="javascript:void(0)" data-toggle="modal" data-target="#Salient_Features" class="read-full" data-gallery-id="featured-images-gallery" data-color-id="0">Xem tất cả điểm nổi bật</a>
@@ -243,7 +302,7 @@
                                 <div class="modal-header">
                                        <h5>Đặc điểm nổi bật</h5>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body" style="padding:0 15px">
                                     {!!  $data->Salient_Features  !!} 
                                 </div>
                                 <div class="modal-footer">
@@ -425,9 +484,16 @@
                                         <br>
                                         (Visa, Master, JCB)
                                         </a>
+                                        <br><br>
+                                        {!!  $data->Specifications  !!} 
+
+                                        <span class="view-all" data-toggle="modal" data-target="#specifications">Xem chi tiết thông số kỹ thuật</span>
+
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
+
+
 
                             </div>
                            
@@ -550,7 +616,7 @@
 
                     @if(isset($other_product))
            
-                    <div class="listproduct slider-promo owl-carousel banner-sales">
+                    <div class="listproduct slider-promo owl-carousel">
 
                         @foreach($other_product as  $value)
                         @if($value->active==1 && $value->id != $data->id)
@@ -861,12 +927,6 @@
 
             view_product_id = localStorage.getItem('viewed_product');
 
-
-
-
-          
-
-
             button_buy_height = $('.scroll-box').offset().top;
             view_more_height  = ($('.view-more-related').offset().top);
 
@@ -975,6 +1035,9 @@
                 }
             });
 
+
+
+
             $('.listproduct').owlCarousel({
                 loop:false,
 
@@ -982,10 +1045,10 @@
                 nav:false,
                 responsive:{
                     0:{
-                        items:1
+                        items:1.5
                     },
                     600:{
-                        items:1
+                        items:1.5
                     },
                     1000:{
                         items:5
@@ -993,6 +1056,7 @@
                 }
             });
 
+            
         </script>
 
 

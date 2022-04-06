@@ -384,9 +384,9 @@
                 padding-top: 10px;
             }
 
-            .list-menu>li:hover, .main-menu>li.active {
+           /* .list-menu>li:hover, .main-menu>li.active {
                 background-color: #fff;
-            }
+            }*/
           /*  phần responsive*/
 
             @media screen and (max-width: 776px){

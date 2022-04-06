@@ -5,6 +5,8 @@
 
         <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/dienmay.css') }}"> 
+
+
     @endpush
     
 
@@ -473,7 +475,7 @@
                         <div class="col1-big-img">
                             <img data-src="https://cdn.tgdd.vn/Files/2022/03/19/1421172/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-760x367.jpg" class=" ls-is-cached lazyloaded" alt="Đón đầu hè nóng - Top 10 tủ lạnh mua sớm, giảm sâu đến 28%, miễn phí giao hàng - Chỉ có tại ĐMX" src="https://cdn.tgdd.vn/Files/2022/03/19/1421172/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-760x367.jpg">
                         </div>
-                        <p class="col1-title">Đón đầu hè nóng - Top 10 tủ lạnh mua sớm, giảm sâu đến 28%, miễn phí giao hàng - Chỉ có tại ĐMX</p>
+                       
                     </a>
                     <div class="col1-simple">
                         <a href="/kinh-nghiem-hay/don-dau-he-nong-top-may-lanh-thuong-hieu-viet-mu-1421098" class="spl-item">

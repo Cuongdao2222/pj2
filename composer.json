@@ -43,8 +43,15 @@
         },
         "classmap": [
             "database/seeds",
-            "database/factories"
+            "database/factories",
+            "app/lib/Lib"
+        ],
+
+        "files": [
+            "app/lib/Lib/Alepay.php"
         ]
+
+
         
     },
     "autoload-dev": {

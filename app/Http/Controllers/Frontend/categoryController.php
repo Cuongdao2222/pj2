@@ -172,41 +172,43 @@ class categoryController extends Controller
         if(empty($findID)){
             return $this->blogDetailView($slug);
         }
+        else{
 
-        if(!empty($_GET['filter'])){
-            $data = new filterController();
-
-
-            $data = $data->filter();
-
-        }
-       
-        $id_cate = $findID->id;
-
-        $groupProduct_level = $findID->level;
-
-        $ar_list = $this->find_List_Id_Group($id_cate,$groupProduct_level);
-
-       
-
-        $link   =  $findID->link;
-
-        $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.id','products.Image', 'products.ProductSku', 'products.Specifications', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->Orderby('id', 'desc')->paginate(10);
+            if(!empty($_GET['filter'])){
+                $data = new filterController();
 
 
+                $data = $data->filter();
 
-        $filter = filter::where('group_product_id', $id_cate)->select('name', 'id')->get();
+            }
+           
+            $id_cate = $findID->id;
 
-        $data = [
-            'data'=>$data,
-            'filter'=>$filter,
-            'id_cate'=>$id_cate,
-            'link'=>$link,
-            'ar_list'=>$ar_list,
+            $groupProduct_level = $findID->level;
 
-        ];
+            $ar_list = $this->find_List_Id_Group($id_cate,$groupProduct_level);
 
-        return $data;
+           
+
+            $link   =  $findID->link;
+
+            $data = DB::table('group_product')->join('products', 'group_product.id', '=', 'products.Group_id')->select('products.Name', 'products.id','products.Image', 'products.ProductSku', 'products.Specifications', 'products.Price', 'products.Link','products.active','group_product.link')->where('group_product.id', $id_cate)->Orderby('id', 'desc')->paginate(10);
+
+
+
+            $filter = filter::where('group_product_id', $id_cate)->select('name', 'id')->get();
+
+            $data = [
+                'data'=>$data,
+                'filter'=>$filter,
+                'id_cate'=>$id_cate,
+                'link'=>$link,
+                'ar_list'=>$ar_list,
+
+            ];
+
+            return $data;
+        }    
 
     }    
 
@@ -254,24 +256,23 @@ class categoryController extends Controller
 
         $data = post::where('link', $link)->first();
 
-
-
         if(empty($data)){
             abort('404');
         }
 
         $category = category::find($data->category);
 
-        $related_news = post::where('category', $data->category)->select('title', 'link', 'id')->paginate(10);
+        $related_news = post::where('category', $data->category)->where('active', 1)->select('title', 'link', 'id')->get();
 
         $name_cate = $category->namecategory;
 
         $meta = metaSeo::find($data->Meta_id);
 
-
-
        
-        return view('frontend.blogdetail',compact('data', 'name_cate', 'related_news', 'meta'));
+
+        echo view('frontend.blogdetail',compact( 'name_cate', 'related_news', 'meta', 'data'));
+
+        die();
     }
     public function index($slug)
     {
@@ -292,16 +293,18 @@ class categoryController extends Controller
             return($this->categoryView($slug));
 
         }
+        else{
 
-        $images = image::where('product_id', $findID->id)->get();
+            $images = image::where('product_id', $findID->id)->get();
 
-        $data =  product::findOrFail($findID->id);
+            $data =  product::findOrFail($findID->id);
 
-        $other_product = product::where('Group_id',  $data->Group_id)->get();
+            $other_product = product::where('Group_id',  $data->Group_id)->get();
 
-        $meta = metaSeo::find($data->Meta_id);
+            $meta = metaSeo::find($data->Meta_id);
 
-        return view('frontend.details', compact('data', 'images', 'other_product', 'meta'));
+            return view('frontend.details', compact('data', 'images', 'other_product', 'meta'));
+        }
     }
 
     public function addProductToCart()

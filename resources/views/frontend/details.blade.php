@@ -232,35 +232,26 @@
                                             </button> -->
                                         </div>
 
-                                        
-                                        
-
                                         <div class="clearfix"></div>
                                         <div class="installment-purchase pdetail-installment">
-                                            <a target="_blank" href="/tin-khuyen-mai/mua-hang-tra-gop-lai-suat-0-chi-co-tai-media-mart" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
+                                            <a target="_blank" href="" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
                                             <strong>TRẢ GÓP</strong>
                                             <br>
                                             (Công ty tài chính)
                                             </a>
-                                            <a target="_blank" href="/cart/add-item/19439/?redirecturl=/installment-alepay" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
+                                            <a target="_blank" href="" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
                                             <strong>TRẢ GÓP QUA THẺ</strong>
                                             <br>
                                             (Visa, Master, JCB)
                                             </a>
 
-
-
                                         </div>
-
 
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
 
-
-                               
                             </div>
-
 
                         </div>
                     </div>
@@ -470,10 +461,13 @@
                                     </div>
 
                                     
-                                    
+                                   
 
                                     <div class="clearfix"></div>
                                     <div class="installment-purchase pdetail-installment">
+
+                                        @if((int)$data->Price>3000000)
+
                                         <a target="_blank" href="/tin-khuyen-mai/mua-hang-tra-gop-lai-suat-0-chi-co-tai-media-mart" admicro-data-event="101725" admicro-data-auto="1" admicro-data-order="false">
                                         <strong>TRẢ GÓP</strong>
                                         <br>
@@ -484,16 +478,16 @@
                                         <br>
                                         (Visa, Master, JCB)
                                         </a>
+                                         @endif
                                         <br><br>
                                         {!!  $data->Specifications  !!} 
 
                                         <span class="view-all" data-toggle="modal" data-target="#specifications">Xem chi tiết thông số kỹ thuật</span>
 
                                     </div>
+
                                 </div>
                                 <div class="clearfix"></div>
-
-
 
                             </div>
                            
@@ -505,16 +499,11 @@
                 <div class="border7"></div>
 
                 <div class="clearfix"></div>
-
                
-
-
                 <div class="related view-more-related viewer-product">
                     
             
                 </div>
-
-
 
                 <div class="col-md-8 clearfix" id="comment_pro">
 
@@ -546,11 +535,6 @@
                         
                     </article>
 
-
-
-
-
-
                     <div class="rate-text">
                         <!-- <h3 style="margin-bottom: 0;margin-top: 40px;"> Đánh giá  {{ $data->Name }}</h3> -->
                         <p style="background: #f3f3f3;padding: 10px;border-radius: 3px;margin: 10px 0;">Đánh giá sản phẩm nhận Coupon 20.000đ dành cho khách mua hàng tại Điện máy người việt.</p>
@@ -574,8 +558,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="relative">
                                 <div class="left">
                                     <textarea style="padding: 10px;border-radius: 3px; width: 100%;" name="content" placeholder="Nhập đánh giá về sản phẩm " id="content0"></textarea>
@@ -1055,13 +1037,7 @@
                     }
                 }
             });
-
-            
         </script>
-
-
-
-
     @endpush
 
 @endsection  

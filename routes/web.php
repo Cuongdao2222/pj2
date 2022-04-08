@@ -23,12 +23,19 @@ Route::get('/ckfinder.html', function () {
     
 })->middleware('auth');
 
+
+Route::get('/tra-gop', function () {
+    return view('frontend.installment');
+    
+})->middleware('auth');
+
 Route::get('/landing-page', function () {
     return view('frontend.landingpage');
     
 })->middleware('auth');
 
 
+Route::post('alepay-pay','payController@payAlepay')->name('alepay');
 
 Route::get('readfile', 'Frontend\indexController@readFile')->name('readfile');
 
@@ -134,6 +141,11 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
         
     })->name('view-user');
 
+    Route::get('new-banner', function () {
+        return view('newbanner.banner');
+        
+    })->middleware('auth');
+
 
     Route::get('order', 'Frontend\orderController@orderList')->name('order_list');
 
@@ -193,6 +205,10 @@ Route::group(['prefix' => 'admins','middleware' => 'auth'], function() {
     Route::get('category/{category_id}', 'productController@selectProductByCategory')->name('select-category');
 
     Route::get('edit-property-child', 'propertyController@editPropertyChild')->name('property-edit-child');
+
+    Route::get('add-active-post', 'postController@addActive')->name('add-active-post');
+
+    Route::get('add-hight-light-post', 'postController@addHightLight')->name('add-hight-light-post');
 
     Route::resource('filters', 'filterController');
 

@@ -3,6 +3,8 @@
     @extends('frontend.layouts.apps')
 
     @section('content') 
+
+
     <link rel="stylesheet" type="text/css" href="{{asset('css/dienmay.css')}}"> 
     <link rel="stylesheet" href="https://dienmaynguoiviet.vn/template/dienmaynguoiviet/script/owl.carousel.min.css">
     <link rel="stylesheet" href="https://dienmaynguoiviet.vn/template/dienmaynguoiviet/script/styles.css?v=8881288.8883.151">
@@ -83,6 +85,8 @@
                 </li>
             </ul>
         </div>
+
+
         <!-- End menu blog -->
         <div class="blog-list dm_container">
             <div class="row">
@@ -170,6 +174,8 @@
     <!-- begin footer -->
 
     @endsection
+
+
    
     
 

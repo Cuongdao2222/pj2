@@ -292,6 +292,53 @@ class postController extends AppBaseController
 
     } 
 
+    public function addActive(Request $request)
+    {
+       $id = $request->id;
+
+       $active = $request->active;
+
+       $post = post::find($id);
+
+       if($active ==0){
+            $post->active =1;
+            $post->save();
+
+       } 
+       else{
+
+         $post->active =0;
+         $post->save();
+       }
+    }
+
+    public function addHightLight(Request $request)
+    {
+       $id = $request->id;
+
+       $active = $request->active;
+
+       $post = post::find($id);
+
+      
+
+
+
+       if($active == 1){
+            $post->hight_light =0;
+            $post->save();
+
+       } 
+       else{
+
+         $post->hight_light =1;
+          $post->save();
+       }
+    }
+
+
+
+
     public function convert_vi_to_en($str) {
           $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
           $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);

@@ -3,10 +3,7 @@
 @section('content')
         <style type="text/css">
             
-            .menu-pc{
-                background: #fed100 !important;
-            }
-
+            
             .header__cart {
                 border: 0 !important;
             }    

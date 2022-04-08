@@ -59,6 +59,9 @@
         <th>Content</th>
         <th>Mô tả ngắn</th>
 
+        <th>Hiển thị</th>
+        <th>Show ra home</th>
+
         <th>người dùng</th>
         <th colspan="3">Action</th>
         </tr>
@@ -80,6 +83,10 @@
             <td class="content">{!! _substr($post->content,240,3) !!}</td>
 
              <td>{!! _substr(preg_replace("#<\/p>(<\/h[1-6]>)#", '$1', $post->shortcontent),240,3) !!}</td>
+
+            <td><a href="javascript:voi(0)" class="active-post" onclick="add_active('{{ $post->id }}','{{ $post->active }}')">{!! $post->active ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>   
+             
+             <td><a href="javascript:void(0)" class="hight-light-post"  onclick="add_hight_light('{{ $post->id }}','{{ $post->hight_light }}')" data-id="{{ $post->id }}">{!! $post->hight_light ==1?'<b style="color:red">Hạ xuống</b>':'<b style="color:green">Hiển thị</b>' !!}</a></td>
              <td>{{ @$user[$post->id_user]['name'] }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
@@ -101,3 +108,45 @@
         </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+    function add_active(id, active){
+
+        $.ajax({
+
+        type: 'GET',
+            url: "{{ route('add-active-post') }}",
+            data: {
+                id: id,
+                active:active,
+                
+            },
+            success: function(result){
+                
+                window.location.reload();
+               
+            }
+        });
+    }
+
+    function add_hight_light(id, active){
+
+        $.ajax({
+
+        type: 'GET',
+            url: "{{ route('add-hight-light-post') }}",
+            data: {
+                id: id,
+                active:active,
+                
+            },
+            success: function(result){
+                
+                
+                window.location.reload();
+               
+            }
+        });
+    }
+
+</script>

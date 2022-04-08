@@ -468,50 +468,41 @@
                 <!-- Tư vấn chọn mua -->
                 <div class="ttl-main">
                     <h4 class="title-layout">Tin tức nổi bật</h4>
-                    <a href="/kinh-nghiem-hay" class="readmore-txt blue">Xem thêm</a>
+                    <a href="{{ route('tin') }}" class="readmore-txt blue">Xem thêm</a>
                 </div>
                 <div class="col1__ct" data-size="6">
-                    <a href="/kinh-nghiem-hay/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-1421172" class="col1-big">
+
+                    <?php  
+
+                        $post = App\Models\post::where('active',1)->where('hight_light', 1)->select('link', 'title', 'image')->get()->toArray();
+
+                    ?>
+
+                    @if(isset($post) && count($post)>0)
+                    <a href="{{ route('details', $post[0]['link']) }}" class="col1-big">
                         <div class="col1-big-img">
-                            <img data-src="https://cdn.tgdd.vn/Files/2022/03/19/1421172/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-760x367.jpg" class=" ls-is-cached lazyloaded" alt="Đón đầu hè nóng - Top 10 tủ lạnh mua sớm, giảm sâu đến 28%, miễn phí giao hàng - Chỉ có tại ĐMX" src="https://cdn.tgdd.vn/Files/2022/03/19/1421172/don-dau-he-nong-top-10-tu-lanh-mua-som-giam-sau-760x367.jpg">
+                            <img data-src="{{ asset( $post[0]['image'])  }}" class=" ls-is-cached lazyloaded" alt="{{ $post[0]['title'] }}" src="{{ $post[0]['image'] }}">
                         </div>
                        
                     </a>
                     <div class="col1-simple">
-                        <a href="/kinh-nghiem-hay/don-dau-he-nong-top-may-lanh-thuong-hieu-viet-mu-1421098" class="spl-item">
+
+                        @for($i=1; $i<count($post); $i++)
+
+                        <a href="{{ route('details', $post[$i]['link']) }}" class="spl-item">
                             <div class="spl-item__img">
-                                <img data-src="https://cdn.tgdd.vn/Files/2022/03/18/1421098/don-dau-he-nong-top-may-lanh-thuong-hieu-viet-mu-318x154.jpg" class=" lazyloaded" alt="Đón đầu hè nóng - Top máy lạnh thương hiệu Việt mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!" src="https://cdn.tgdd.vn/Files/2022/03/18/1421098/don-dau-he-nong-top-may-lanh-thuong-hieu-viet-mu-318x154.jpg">
+                                <img data-src="{{ asset($post[$i]['image']) }}" class=" lazyloaded" alt="{{ $post[$i]['title'] }}" src="{{ asset($post[$i]['image']) }}">
                             </div>
                             <div class="spl-item__content">
-                                <p class="spl-item-title">Đón đầu hè nóng - Top máy lạnh thương hiệu Việt mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!</p>
+                                <p class="spl-item-title">{{ $post[$i]['title'] }}</p>
                             </div>
                         </a>
-                        <a href="/kinh-nghiem-hay/don-dau-he-nong-top-may-lanh-samsung-mua-som-gi-1420993" class="spl-item">
-                            <div class="spl-item__img">
-                                <img data-src="https://cdn.tgdd.vn/Files/2022/03/18/1420993/don-dau-he-nong-top-may-lanh-samsung-mua-som-gi-318x154.jpg" class=" lazyloaded" alt="Đón đầu hè nóng - Top máy lạnh Samsung mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!" src="https://cdn.tgdd.vn/Files/2022/03/18/1420993/don-dau-he-nong-top-may-lanh-samsung-mua-som-gi-318x154.jpg">
-                            </div>
-                            <div class="spl-item__content">
-                                <p class="spl-item-title">Đón đầu hè nóng - Top máy lạnh Samsung mua sớm, giảm SỐC, bao phí lắp đặt, miễn phí 5m ống đồng. Mua ngay!</p>
-                            </div>
-                        </a>
-                        <a href="/kinh-nghiem-hay/may-lanh-hang-nao-tot-nhat-nen-mua-cua-hang-nao-1112663" class="spl-item">
-                            <div class="spl-item__img">
-                                <img data-src="https://cdn.tgdd.vn/Files/2018/08/26/1112663/may-lanh-hang-nao-tot-nhat-nen-mua-cua-hang-nao--36-318x154.jpg" class=" lazyloaded" alt="Nên mua máy lạnh hãng nào tốt nhất 2022?" src="https://cdn.tgdd.vn/Files/2018/08/26/1112663/may-lanh-hang-nao-tot-nhat-nen-mua-cua-hang-nao--36-318x154.jpg">
-                            </div>
-                            <div class="spl-item__content">
-                                <p class="spl-item-title">Nên mua máy lạnh hãng nào tốt nhất 2022?</p>
-                            </div>
-                        </a>
-                        <a href="/kinh-nghiem-hay/nen-mua-tu-lanh-hieu-nao-708244" class="spl-item">
-                            <div class="spl-item__img">
-                                <img data-src="https://cdn.tgdd.vn/Files/2015/09/25/708244/nen-mua-tu-lanh-hieu-nao--32-318x154.jpg" class=" lazyloaded" alt="Nên mua tủ lạnh hãng nào tốt, tiết kiệm điện nhất 2022" src="https://cdn.tgdd.vn/Files/2015/09/25/708244/nen-mua-tu-lanh-hieu-nao--32-318x154.jpg">
-                            </div>
-                            <div class="spl-item__content">
-                                <p class="spl-item-title">Nên mua tủ lạnh hãng nào tốt, tiết kiệm điện nhất 2022</p>
-                            </div>
-                        </a>
-                        
+
+                        @endfor
+                       
                     </div>
+
+                    @endif
                 </div>
                 <!-- End -->
             </div>

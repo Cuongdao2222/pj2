@@ -37,26 +37,18 @@ class Alepay {
         /*
          * Require curl and json extension
          */
-        if (!function_exists('curl_init')) {
-            throw new Exception('Alepay needs the CURL PHP extension.');
-        }
-        if (!function_exists('json_decode')) {
-            throw new Exception('Alepay needs the JSON PHP extension.');
-        }
-
-        // set KEY
         if (isset($opts) && !empty($opts["apiKey"])) {
-            $this->apiKey = $opts["apiKey"];
+            $this->apiKey = 'RpMkK0JfiwhEWdfjA6TZi7qKRvoKrz';
         } else {
             throw new Exception("API key is required !");
         }
         if (isset($opts) && !empty($opts["encryptKey"])) {
-            $this->publicKey = $opts["encryptKey"];
+            $this->publicKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDejJkDxom33dul1nlfLP2ScA6V/i57+8Bqee8p9Gc4fYYJbvEAZQPjN4RRuszDvQrogx/jNEowq+JuHXE8nFXsd6MNdcV+A3f80xFsnmvcMvBIdiMDuYYoopL6f4XjRHGZZouN8mcMc9ZvVVWLS3x2Umyt84beNQDhIAhPD9LocQIDAQAB';
         } else {
             throw new Exception("Encrypt key is required !");
         }
         if (isset($opts) && !empty($opts["checksumKey"])) {
-            $this->checksumKey = $opts["checksumKey"];
+            $this->checksumKey = 'd7hEU8EAha7ReAtgnmpDbfjpbKgdvx';
         } else {
             throw new Exception("Checksum key is required !");
         }
@@ -64,7 +56,7 @@ class Alepay {
             $this->callbackUrl = $opts["callbackUrl"];
         }
          if (isset($opts) && !empty($opts["env"])) {
-            $this->env = $opts["env"];
+            $this->env = 'test';
         }
         $this->alepayUtils = new AlepayUtils();
     }
@@ -115,12 +107,13 @@ class Alepay {
         $data = array('transactionCode' => $transactionCode);
         $url = $this->baseURL[$this->env] . $this->URI['getTransactionInfo'];
         $result = $this->sendRequestToAlepay($data, $url);
-        if ($result->errorCode == '000') {
-            $dataDecrypted = $this->alepayUtils->decryptData($result->data, $this->publicKey);
-            return  $dataDecrypted;
-        } else {
-            return json_encode($result);
-        }
+        return $result;
+        // if ($result->errorCode == '000') {
+        //     $dataDecrypted = $this->alepayUtils->decryptData($result->data, $this->publicKey);
+        //     return  $dataDecrypted;
+        // } else {
+        //     return json_encode($result);
+        // }
     }
 
     /*
@@ -236,7 +229,7 @@ class Alepay {
         $signature = $this->alepayUtils->makeSignature($data, $this->checksumKey);
         $data['signature'] = $signature;
         $data_string = json_encode($data);
-		$url =  $this->baseURL['live'] . $this->URI['requestPayment'];
+		$url =  $this->baseURL['test'] . $this->URI['requestPayment'];
 
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");

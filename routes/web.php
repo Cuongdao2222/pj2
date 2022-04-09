@@ -27,7 +27,7 @@ Route::get('/ckfinder.html', function () {
 Route::get('/tra-gop', function () {
     return view('frontend.installment');
     
-})->middleware('auth');
+});
 
 Route::get('/landing-page', function () {
     return view('frontend.landingpage');
@@ -38,7 +38,7 @@ Route::get('/landing-page', function () {
 Route::get('/result.php', function () {
     return view('resultAlepay.result');
     
-})->middleware('auth');
+});
 
 
 Route::post('alepay-pay','payController@payAlepay')->name('alepay');

@@ -15,7 +15,7 @@ class Alepay {
     protected $checksumKey = "";
     protected $apiKey = "";
     protected $callbackUrl = "";
-    protected $env = "live";
+    protected $env = "test";
     protected $baseURL = array(
         'dev' => 'localhost:8080',
         'test' => 'https://alepay-v3-sandbox.nganluong.vn/api/v3/checkout/',

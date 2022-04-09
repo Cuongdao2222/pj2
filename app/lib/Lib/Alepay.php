@@ -248,6 +248,8 @@ class Alepay {
             'Content-Length: ' . strlen($data_string)
         ));
 
+        return $data['returnUrl'];
+
         $result = curl_exec($ch);
         return json_decode($result);
     }

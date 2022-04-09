@@ -115,12 +115,16 @@ class Alepay {
         $data = array('transactionCode' => $transactionCode);
         $url = $this->baseURL[$this->env] . $this->URI['getTransactionInfo'];
         $result = $this->sendRequestToAlepay($data, $url);
-        if ($result->errorCode == '000') {
-            $dataDecrypted = $this->alepayUtils->decryptData($result->data, $this->publicKey);
-            return  $dataDecrypted;
-        } else {
-            return json_encode($result);
-        }
+
+        return($result);
+
+    
+        // if ($result->errorCode == '000') {
+        //     $dataDecrypted = $this->alepayUtils->decryptData($result->data, $this->publicKey);
+        //     return  $dataDecrypted;
+        // } else {
+        //     return json_encode($result);
+        // }
     }
 
     /*
@@ -247,8 +251,6 @@ class Alepay {
             'Content-Type: application/json',
             'Content-Length: ' . strlen($data_string)
         ));
-
-       
 
         $result = curl_exec($ch);
         return json_decode($result);

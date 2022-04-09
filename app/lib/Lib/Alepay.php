@@ -231,8 +231,8 @@ class Alepay {
     {
         $data['tokenKey'] = $this->apiKey;
         $data['customMerchantId'] = 'lam123';
-        $data['returnUrl'] = './result.php';
-        $data['cancelUrl'] = './result.php';
+         $data['returnUrl'] = $this->callbackUrl;
+        $data['cancelUrl'] = $this->callbackUrl;
         $signature = $this->alepayUtils->makeSignature($data, $this->checksumKey);
         $data['signature'] = $signature;
         $data_string = json_encode($data);

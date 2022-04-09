@@ -35,6 +35,12 @@ Route::get('/landing-page', function () {
 })->middleware('auth');
 
 
+Route::get('/result.php', function () {
+    return view('result_alepay.result');
+    
+})->middleware('auth');
+
+
 Route::post('alepay-pay','payController@payAlepay')->name('alepay');
 
 Route::get('readfile', 'Frontend\indexController@readFile')->name('readfile');

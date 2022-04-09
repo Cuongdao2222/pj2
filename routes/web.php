@@ -36,7 +36,7 @@ Route::get('/landing-page', function () {
 
 
 Route::get('/result.php', function () {
-    return view('result_alepay.result');
+    return view('resultAlepay.result');
     
 })->middleware('auth');
 

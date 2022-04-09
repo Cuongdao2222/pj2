@@ -1,6 +1,6 @@
 <?php
-require('Lib/Alepay.php');
-require 'config.php';
+
+require(public_path().'/lib_pay/alepay-v3/config.php');
 
 $errorCode = isset($_GET['errorCode']) ? $_GET['errorCode'] : '';
 $transactionCode = isset($_GET['transactionCode']) ? $_GET['transactionCode'] : '';

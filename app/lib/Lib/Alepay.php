@@ -236,7 +236,7 @@ class Alepay {
         $signature = $this->alepayUtils->makeSignature($data, $this->checksumKey);
         $data['signature'] = $signature;
         $data_string = json_encode($data);
-		$url = $this->baseURL[$this->env] . $this->URI['requestPayment'];
+		$url = 'https://alepay-v3-sandbox.nganluong.vn/api/v3/checkout/request-payment';
 
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -247,8 +247,6 @@ class Alepay {
             'Content-Type: application/json',
             'Content-Length: ' . strlen($data_string)
         ));
-
-       
 
         $result = curl_exec($ch);
         return json_decode($result);

@@ -47,7 +47,6 @@ class payController extends Controller
 
         $result = $result->sendOrderV3($data);
 
-
         if (!empty($result->code)) {
             if ($result->code == '000') {
                 echo '<meta http-equiv="refresh" content="0;url=' . $result->checkoutUrl . '">';

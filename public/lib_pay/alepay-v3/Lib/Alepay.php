@@ -237,6 +237,10 @@ class Alepay {
         $data_string = json_encode($data);
 		$url = $this->baseURL[$this->env] . $this->URI['requestPayment'];
 
+        print_r($url);
+
+        die();
+
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);

@@ -47,7 +47,6 @@ class payController extends Controller
 
         $result = $result->sendOrderV3($data);
 
-        print_r( $result);
 
         if (!empty($result->code)) {
             if ($result->code == '000') {
